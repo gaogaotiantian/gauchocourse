@@ -1,0 +1,362 @@
+<html>
+<style>
+#header{
+	background-color:#666;
+	color:white;
+	text-align:center;
+	padding:1px;
+	width:1100px;
+}
+
+.courseInput{
+	font-size:9px;
+}
+
+#geRequirements{
+	border-style:solid;
+	font-size:14px;
+	width:150px;
+	float:right;
+	position:fixed;
+	font-color:white;
+}
+#button{
+	float:left;
+	width:1200px;
+	height:100px;
+}
+h1.title{
+	font-size:40px;
+}
+p.title{
+	text-align:center;
+	background-color:#333;
+	color:white;
+	text: bold;
+	padding-top:15px;
+	padding-bottom:8px;
+	font-size:large;
+}
+.year{
+	width:1200px;
+}
+#main{
+	margin:0 auto;
+	width:1100px;
+}
+.inputform {
+    float:left;
+    border-style:solid;
+    width:18%;
+    padding:10px;
+    margin:1%;
+}
+input {
+    border-bottom: black 2px solid;
+    border-left-style:none;
+    border-right-style:none;
+    border-top-style:none;
+    width:100%;
+    padding-top:10px;
+}
+input[valid = 'true'] {
+    color:white;
+    background-color:green
+}
+input[valid = 'false'] {
+    background-color:red
+}
+input[valid = 'na'] {
+    background-color:white
+}
+#error_msg {
+    background-color:grey;
+    z-index:10;
+}
+
+
+
+</style>
+<head>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript">
+var courseData = [];
+$(document).ready(function(){
+    $.getJSON("example.json", function(data) {
+        courseData = JSON.parse(JSON.stringify(data))
+        $(".courseInput").autocomplete(
+            {source: courseData})
+
+    })
+    .fail(function(d, text, error){alert("error in getJson!" + text + error)})
+});
+</script>
+</head>
+<body>
+<script>
+$(function() {
+$(".courseInput").blur(function() {
+    if ($(this).val() == "") {
+        $(this).attr("valid", "na")
+    } else {
+        $(this).attr("valid", "true")
+    }
+    ValidateAllInput()
+})
+
+$("#error_msg").hide()
+$(".courseInput").mouseenter(function() {
+    var groupName = $(this).attr("group")
+    //$(".error").each(function(){
+    //    if ($(this).attr("group") == groupName) {
+    //        $(this).toggle()
+    //        $(this).css("margin-bottom", -$(this).height())
+    //    }
+    //})
+    var offset = $(this).offset()
+    offset.top = offset.top + $(this).outerHeight()
+    $("#error_msg").css("display", "block")
+    $("#error_msg").offset(offset)
+    
+})
+.mouseleave(function() {
+    $("#error_msg").css("display", "none")
+})
+function ValidateAllInput(){
+    var data = []
+    $(".courseInput").each(function(){
+        if ($(this).val() != '') {
+            var tempdata = {course:$(this).val(), semester:$(this).parent().attr("semester")}
+            data.push(tempdata)
+        }
+    })
+    console.log(data)
+}
+})
+</script>
+
+<div id="main">
+<div id="header">
+<h1 class="title"; align="center"; background-color="grey"; color="white";>
+GauchoCourse
+</h1>
+</div>
+
+<div class="year">
+<div class="inputform">
+<form semester="freshman summer">
+	<p class="title"> Freshman Summer </p>
+    <input class="courseInput" id="ip_freshman_summer_1" type="text" group="freshman_summer_1">
+    <input class="courseInput" id="ip_freshman_summer_2" type="text" group="freshman_summer_2">
+    <input class="courseInput" id="ip_freshman_summer_3" type="text" group="freshman_summer_3">
+    <input class="courseInput" id="ip_freshman_summer_4" type="text" group="freshman_summer_4">
+    <input class="courseInput" id="ip_freshman_summer_5" type="text" group="freshman_summer_5">
+    <input class="courseInput" id="ip_freshman_summer_6" type="text" group="freshman_summer_6">
+</form>
+</div>
+<div class="inputform">
+<form semester="freshman fall">
+	<p class="title"> Freshman Fall </p>
+    <input class="courseInput" id="ip_freshman_fall_1" type="text" group="freshman_fall_1">
+    <input class="courseInput" id="ip_freshman_fall_2" type="text" group="freshman_fall_2">
+    <input class="courseInput" id="ip_freshman_fall_3" type="text" group="freshman_fall_3">    
+    <input class="courseInput" id="ip_freshman_fall_4" type="text" group="freshman_fall_4">
+    <input class="courseInput" id="ip_freshman_fall_5" type="text" group="freshman_fall_5">
+    <input class="courseInput" id="ip_freshman_fall_6" type="text" group="freshman_fall_6">
+</form>
+</div>
+<div class="inputform">
+<form semester="freshman winter">
+	<p class="title"> Freshman Winter </p>
+    <input class="courseInput" id="ip_freshman_winter_1" type="text" group="freshman_winter_1">
+    <input class="courseInput" id="ip_freshman_winter_2" type="text" group="freshman_winter_2">
+    <input class="courseInput" id="ip_freshman_winter_3" type="text" group="freshman_winter_3">
+    <input class="courseInput" id="ip_freshman_winter_4" type="text" group="freshman_winter_4">
+    <input class="courseInput" id="ip_freshman_winter_5" type="text" group="freshman_winter_5">
+    <input class="courseInput" id="ip_freshman_winter_6" type="text" group="freshman_winter_6">
+</form>
+</div>
+<div class="inputform">
+<form semester="freshman spring">
+	<p class="title"> Freshman Spring </p>
+    <input class="courseInput" id="ip_freshman_spring_1" type="text" group="freshman_spring_1">
+    <input class="courseInput" id="ip_freshman_spring_2" type="text" group="freshman_spring_2">    
+    <input class="courseInput" id="ip_freshman_spring_3" type="text" group="freshman_spring_3">    
+    <input class="courseInput" id="ip_freshman_spring_4" type="text" group="freshman_spring_4">    
+    <input class="courseInput" id="ip_freshman_spring_5" type="text" group="freshman_spring_5">    
+    <input class="courseInput" id="ip_freshman_spring_6" type="text" group="freshman_spring_6">
+</form>
+</div>
+</div>
+<div class="year">
+<div class="inputform">
+<form semester="sophomore summer">
+	<p class="title"> Sophomore Summer </p>
+    <input class="courseInput" id="ip_sophomore_summer_1" type="text" group="sophomore_summer_1">
+    <input class="courseInput" id="ip_sophomore_summer_2" type="text" group="sophomore_summer_2">    
+    <input class="courseInput" id="ip_sophomore_summer_3" type="text" group="sophomore_summer_3">    
+    <input class="courseInput" id="ip_sophomore_summer_4" type="text" group="sophomore_summer_4">   
+    <input class="courseInput" id="ip_sophomore_summer_5" type="text" group="sophomore_summer_5">
+    <input class="courseInput" id="ip_sophomore_summer_6" type="text" group="sophomore_summer_6">
+</form>
+</div>
+<div class="inputform">
+<form semester="sophomore fall">
+	<p class="title"> Sophomore Fall </p>
+    <input class="courseInput" id="ip_sophomore_fall_1" type="text" group="sophomore_fall_1">
+    <input class="courseInput" id="ip_sophomore_fall_2" type="text" group="sophomore_fall_2">    
+    <input class="courseInput" id="ip_sophomore_fall_3" type="text" group="sophomore_fall_3">   
+    <input class="courseInput" id="ip_sophomore_fall_4" type="text" group="sophomore_fall_4">   
+    <input class="courseInput" id="ip_sophomore_fall_5" type="text" group="sophomore_fall_5">   
+    <input class="courseInput" id="ip_sophomore_fall_6" type="text" group="sophomore_fall_6">
+</form>
+</div>
+<div class="inputform">
+<form semester="sophomore winter">
+	<p class="title"> Sophomore Winter </p>
+    <input class="courseInput" id="ip_sophomore_winter_1" type="text" group="sophomore_winter_1">
+    <input class="courseInput" id="ip_sophomore_winter_2" type="text" group="sophomore_winter_2">
+    <input class="courseInput" id="ip_sophomore_winter_3" type="text" group="sophomore_winter_3">
+    <input class="courseInput" id="ip_sophomore_winter_4" type="text" group="sophomore_winter_4">
+    <input class="courseInput" id="ip_sophomore_winter_5" type="text" group="sophomore_winter_5">
+    <input class="courseInput" id="ip_sophomore_winter_6" type="text" group="sophomore_winter_6">
+</form>
+</div>
+<div class="inputform">
+<form semester="sophomore spring">
+	<p class="title"> Sophomore Spring </p>
+    <input class="courseInput" id="ip_sophomore_spring_1" type="text" group="sophomore_spring_1">
+    <input class="courseInput" id="ip_sophomore_spring_2" type="text" group="sophomore_spring_2">
+    <input class="courseInput" id="ip_sophomore_spring_3" type="text" group="sophomore_spring_3">
+    <input class="courseInput" id="ip_sophomore_spring_4" type="text" group="sophomore_spring_4">
+    <input class="courseInput" id="ip_sophomore_spring_5" type="text" group="sophomore_spring_5">
+    <input class="courseInput" id="ip_sophomore_spring_6" type="text" group="sophomore_spring_6">
+</form>
+</div>
+</div>
+<div class="year">
+<div class="inputform">
+<form semester="junior summer">
+	<p class="title"> Junior Summer </p>
+    <input class="courseInput" id="ip_junior_summer_1" type="text" group="junior_summer_1">
+    <input class="courseInput" id="ip_junior_summer_2" type="text" group="junior_summer_2">
+    <input class="courseInput" id="ip_junior_summer_3" type="text" group="junior_summer_3">
+    <input class="courseInput" id="ip_junior_summer_4" type="text" group="junior_summer_4">
+    <input class="courseInput" id="ip_junior_summer_5" type="text" group="junior_summer_5">
+    <input class="courseInput" id="ip_junior_summer_6" type="text" group="junior_summer_6">
+
+</form>
+</div>
+<div class="inputform">
+<form semester="junior fall">
+	<p class="title"> Junior Fall </p>
+    <input class="courseInput" id="ip_junior_fall_1" type="text" group="junior_fall_1">
+    <input class="courseInput" id="ip_junior_fall_2" type="text" group="junior_fall_2">
+    <input class="courseInput" id="ip_junior_fall_3" type="text" group="junior_fall_3">
+    <input class="courseInput" id="ip_junior_fall_4" type="text" group="junior_fall_4">
+    <input class="courseInput" id="ip_junior_fall_5" type="text" group="junior_fall_5">
+    <input class="courseInput" id="ip_junior_fall_6" type="text" group="junior_fall_6">
+</form>
+</div>
+<div class="inputform">
+<form semester="junior winter">
+	<p class="title"> Junior Winter </p>
+    <input class="courseInput" id="ip_junior_winter_1" type="text" group="junior_winter_1">
+    <input class="courseInput" id="ip_junior_winter_2" type="text" group="junior_winter_2">
+    <input class="courseInput" id="ip_junior_winter_3" type="text" group="junior_winter_3">
+    <input class="courseInput" id="ip_junior_winter_4" type="text" group="junior_winter_4">
+    <input class="courseInput" id="ip_junior_winter_5" type="text" group="junior_winter_5">
+    <input class="courseInput" id="ip_junior_winter_6" type="text" group="junior_winter_5">
+</form>
+</div>
+<div class="inputform">
+<form semester="junior spring">
+	<p class="title"> Junior Spring </p>
+    <input class="courseInput" id="ip_junior_spring_1" type="text" group="junior_spring_1">
+    <input class="courseInput" id="ip_junior_spring_2" type="text" group="junior_spring_2">
+    <input class="courseInput" id="ip_junior_spring_3" type="text" group="junior_spring_3">
+    <input class="courseInput" id="ip_junior_spring_4" type="text" group="junior_spring_4">
+    <input class="courseInput" id="ip_junior_spring_5" type="text" group="junior_spring_5">
+    <input class="courseInput" id="ip_junior_spring_6" type="text" group="junior_spring_6">
+</form>
+</div>
+</div>
+<div class="year">
+<div class="inputform">
+<form semester="senior summer">
+	<p class="title"> Senior Summer </p>
+    <input class="courseInput" id="ip_senior_summer_1" type="text" group="senior_summer_1">
+    <input class="courseInput" id="ip_senior_summer_2" type="text" group="senior_summer_2">
+    <input class="courseInput" id="ip_senior_summer_3" type="text" group="senior_summer_3">
+    <input class="courseInput" id="ip_senior_summer_4" type="text" group="senior_summer_4">
+    <input class="courseInput" id="ip_senior_summer_5" type="text" group="senior_summer_5">
+    <input class="courseInput" id="ip_senior_summer_6" type="text" group="senior_summer_6">
+</form>
+</div>
+<div class="inputform">
+<form semester="senior fall">
+	<p class="title"> Senior Fall </p>
+    <input class="courseInput" id="ip_senior_fall_1" type="text" group="senior_fall_1">
+    <input class="courseInput" id="ip_senior_fall_2" type="text" group="senior_fall_2">
+    <input class="courseInput" id="ip_senior_fall_3" type="text" group="senior_fall_3">
+    <input class="courseInput" id="ip_senior_fall_4" type="text" group="senior_fall_4">
+    <input class="courseInput" id="ip_senior_fall_5" type="text" group="senior_fall_5">
+    <input class="courseInput" id="ip_senior_fall_6" type="text" group="senior_fall_6">
+</form>
+</div>
+<div class="inputform">
+<form semester="senior winter">
+	<p class="title"> Senior Winter </p>
+    <input class="courseInput" id="ip_senior_winter_1" type="text" group="senior_winter_1">
+    <input class="courseInput" id="ip_senior_winter_2" type="text" group="senior_winter_2">
+    <input class="courseInput" id="ip_senior_winter_3" type="text" group="senior_winter_3">
+    <input class="courseInput" id="ip_senior_winter_4" type="text" group="senior_winter_4">
+    <input class="courseInput" id="ip_senior_winter_5" type="text" group="senior_winter_5">
+    <input class="courseInput" id="ip_senior_winter_6" type="text" group="senior_winter_6">
+</form>
+</div>
+<div class="inputform">
+<form semester="senior spring">
+	<p class="title"> Senior Spring </p>
+    <input class="courseInput" id="ip_senior_spring_1" type="text" group="senior_spring_1">
+    <input class="courseInput" id="ip_senior_spring_2" type="text" group="senior_spring_2">
+    <input class="courseInput" id="ip_senior_spring_3" type="text" group="senior_spring_3">
+    <input class="courseInput" id="ip_senior_spring_4" type="text" group="senior_spring_4">
+    <input class="courseInput" id="ip_senior_spring_5" type="text" group="senior_spring_5">
+    <input class="courseInput" id="ip_senior_spring_6" type="text" group="senior_spring_6">
+</form>
+</div>
+</div>
+
+
+<textarea id="error_msg" readonly></textarea>
+
+
+<div id="button">
+<button id="clickme">click me</button>
+</div>
+<p id="output"></p>
+
+</div>
+<div id="geRequirements">
+<form id="geCheckboxes">
+Area A: English Reading and Composition<input type="checkbox" name="area_a">
+Area B: Foreign Language<input type="checkbox" name="area_b">
+Area C: Science, Math, and Technology<input type="checkbox" name="area_c">
+Area D: Social Science<input type="checkbox" name="area_d">
+Area E: Culture and Thought<input type="checkbox" name="area_e">
+Area F: Arts<input type="checkbox" name="area_f">
+Area G: Literature<input type="checkbox" name="area_g">
+Writing Requirement<input type="checkbox" name="writing">
+World Culture Requirement<input type="checkbox" name="world_culture_requirement">
+Quantitative Relationships Requirement
+<input type="checkbox" name="quantitative_relationships_requirement">
+Ethnicity Requirement<input type="checkbox" name="ethnicity_requirement">
+European Traditions Requirement<input type="checkbox" name="european_traditions_requirement">
+Depth Requirement<input type="checkbox" name="depth_requirement">
+</form>
+</div>
+</body>
+</html>
