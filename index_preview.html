@@ -1,0 +1,203 @@
+<html>
+<style>
+.inputform {
+    float:left;
+    border-style:solid;
+    width:18%;
+    padding:10px;
+    margin:1%;
+}
+input {
+    border-bottom: black 2px solid;
+    border-left-style:none;
+    border-right-style:none;
+    border-top-style:none;
+    width:100%;
+    padding-top:10px;
+}
+input[valid = 'true'] {
+    color:white;
+    background-color:green
+}
+input[valid = 'false'] {
+    background-color:red
+}
+input[valid = 'na'] {
+    background-color:white
+}
+#error_msg {
+    background-color:grey;
+    z-index:10;
+}
+</style>
+<head>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript">
+var courseData = [];
+$(document).ready(function(){
+    $.getJSON("example.json", function(data) {
+        courseData = JSON.parse(JSON.stringify(data))
+        $(".courseInput").autocomplete(
+            {source: courseData})
+
+    })
+    .fail(function(d, text, error){alert("error in getJson!" + text + error)})
+});
+</script>
+</head>
+<body>
+<script>
+$(function() {
+$(".courseInput").blur(function() {
+    if ($(this).val() == "") {
+        $(this).attr("valid", "na")
+    } else {
+        $(this).attr("valid", "true")
+    }
+    ValidateAllInput()
+})
+
+$("#error_msg").hide()
+$(".courseInput").mouseenter(function() {
+    var groupName = $(this).attr("group")
+    //$(".error").each(function(){
+    //    if ($(this).attr("group") == groupName) {
+    //        $(this).toggle()
+    //        $(this).css("margin-bottom", -$(this).height())
+    //    }
+    //})
+    var offset = $(this).offset()
+    offset.top = offset.top + $(this).outerHeight()
+    $("#error_msg").css("display", "block")
+    $("#error_msg").offset(offset)
+    
+})
+.mouseleave(function() {
+    $("#error_msg").css("display", "none")
+})
+function ValidateAllInput(){
+    var data = []
+    $(".courseInput").each(function(){
+        if ($(this).val() != '') {
+            var tempdata = {course:$(this).val(), semester:$(this).parent().attr("semester")}
+            data.push(tempdata)
+        }
+    })
+    console.log(data)
+}
+})
+</script>
+
+<div class="year">
+<div class="inputform">
+<form semester="freshman summer">
+    <input class="courseInput" id="ip_freshman_summer_1" type="text" group="freshman_summer_1">
+    <input class="courseInput" id="ip_freshman_summer_2" type="text" group="freshman_summer_2">
+</form>
+</div>
+<div class="inputform">
+<form semester="freshman fall">
+    <input class="courseInput" id="ip_freshman_fall_1" type="text" group="freshman_fall_1">
+    <input class="courseInput" id="ip_freshman_fall_2" type="text" group="freshman_fall_2">
+</form>
+</div>
+<div class="inputform">
+<form semester="freshman winter">
+    <input class="courseInput" id="ip_freshman_winter_1" type="text" group="freshman_winter_1">
+    <input class="courseInput" id="ip_freshman_winter_2" type="text" group="freshman_winter_2">
+</form>
+</div>
+<div class="inputform">
+<form semester="freshman spring">
+    <input class="courseInput" id="ip_freshman_spring_1" type="text" group="freshman_spring_1">
+    <input class="courseInput" id="ip_freshman_spring_2" type="text" group="freshman_spring_2">
+</form>
+</div>
+</div>
+<div class="year">
+<div class="inputform">
+<form semester="sophomore summer">
+    <input class="courseInput" id="ip_sophomore_summer_1" type="text" group="sophomore_summer_1">
+    <input class="courseInput" id="ip_sophomore_summer_2" type="text" group="sophomore_summer_2">
+</form>
+</div>
+<div class="inputform">
+<form semester="sophomore fall">
+    <input class="courseInput" id="ip_sophomore_fall_1" type="text" group="sophomore_fall_1">
+    <input class="courseInput" id="ip_sophomore_fall_2" type="text" group="sophomore_fall_2">
+</form>
+</div>
+<div class="inputform">
+<form semester="sophomore winter">
+    <input class="courseInput" id="ip_sophomore_winter_1" type="text" group="sophomore_winter_1">
+    <input class="courseInput" id="ip_sophomore_winter_2" type="text" group="sophomore_winter_2">
+</form>
+</div>
+<div class="inputform">
+<form semester="sophomore spring">
+    <input class="courseInput" id="ip_sophomore_spring_1" type="text" group="sophomore_spring_1">
+    <input class="courseInput" id="ip_sophomore_spring_2" type="text" group="sophomore_spring_2">
+</form>
+</div>
+</div>
+<div class="year">
+<div class="inputform">
+<form semester="junior summer">
+    <input class="courseInput" id="ip_junior_summer_1" type="text" group="junior_summer_1">
+    <input class="courseInput" id="ip_junior_summer_2" type="text" group="junior_summer_2">
+</form>
+</div>
+<div class="inputform">
+<form semester="junior fall">
+    <input class="courseInput" id="ip_junior_fall_1" type="text" group="junior_fall_1">
+    <input class="courseInput" id="ip_junior_fall_2" type="text" group="junior_fall_2">
+</form>
+</div>
+<div class="inputform">
+<form semester="junior winter">
+    <input class="courseInput" id="ip_junior_winter_1" type="text" group="junior_winter_1">
+    <input class="courseInput" id="ip_junior_winter_2" type="text" group="junior_winter_2">
+</form>
+</div>
+<div class="inputform">
+<form semester="junior spring">
+    <input class="courseInput" id="ip_junior_spring_1" type="text" group="junior_spring_1">
+    <input class="courseInput" id="ip_junior_spring_2" type="text" group="junior_spring_2">
+</form>
+</div>
+</div>
+<div class="year">
+<div class="inputform">
+<form semester="senior summer">
+    <input class="courseInput" id="ip_senior_summer_1" type="text" group="senior_summer_1">
+    <input class="courseInput" id="ip_senior_summer_2" type="text" group="senior_summer_2">
+</form>
+</div>
+<div class="inputform">
+<form semester="senior fall">
+    <input class="courseInput" id="ip_senior_fall_1" type="text" group="senior_fall_1">
+    <input class="courseInput" id="ip_senior_fall_2" type="text" group="senior_fall_2">
+</form>
+</div>
+<div class="inputform">
+<form semester="senior winter">
+    <input class="courseInput" id="ip_senior_winter_1" type="text" group="senior_winter_1">
+    <input class="courseInput" id="ip_senior_winter_2" type="text" group="senior_winter_2">
+</form>
+</div>
+<div class="inputform">
+<form semester="senior spring">
+    <input class="courseInput" id="ip_senior_spring_1" type="text" group="senior_spring_1">
+    <input class="courseInput" id="ip_senior_spring_2" type="text" group="senior_spring_2">
+</form>
+</div>
+</div>
+
+
+<textarea id="error_msg" readonly></textarea>
+<button>click me</button>
+<p id="output"></p>
+</body>
+</html>
