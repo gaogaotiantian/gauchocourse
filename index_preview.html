@@ -29,6 +29,9 @@ input[valid = 'na'] {
     background-color:grey;
     z-index:10;
 }
+.year {
+    overflow:hidden;
+}
 </style>
 <head>
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
@@ -39,9 +42,6 @@ var courseData = [];
 $(document).ready(function(){
     $.getJSON("example.json", function(data) {
         courseData = JSON.parse(JSON.stringify(data))
-        $(".courseInput").autocomplete(
-            {source: courseData})
-
     })
     .fail(function(d, text, error){alert("error in getJson!" + text + error)})
 });
@@ -50,38 +50,42 @@ $(document).ready(function(){
 <body>
 <script>
 $(function() {
-$(".courseInput").blur(function() {
-    if ($(this).val() == "") {
-        $(this).attr("valid", "na")
-    } else {
-        $(this).attr("valid", "true")
-    }
-    ValidateAllInput()
-})
-
 $("#error_msg").hide()
-$(".courseInput").mouseenter(function() {
-    var groupName = $(this).attr("group")
-    //$(".error").each(function(){
-    //    if ($(this).attr("group") == groupName) {
-    //        $(this).toggle()
-    //        $(this).css("margin-bottom", -$(this).height())
-    //    }
-    //})
+$(".inputform").on("mouseenter", ".courseInput", function() {
     var offset = $(this).offset()
     offset.top = offset.top + $(this).outerHeight()
     $("#error_msg").css("display", "block")
     $("#error_msg").offset(offset)
     
 })
-.mouseleave(function() {
+.on("mouseleave", ".courseInput", function() {
     $("#error_msg").css("display", "none")
+})
+.on("blur", ".courseInput", function() {
+    if ($(this).val() == "") {
+        $(this).attr("valid", "na")
+    } else {
+        $(this).attr("valid", "true")
+    }
+    ValidateAllInput()
+
+})
+.on("focus", ".courseInput", function() {
+    $(".courseInput").autocomplete(
+        {source: courseData}) 
+})
+.on("click", ".courseInputRemove", function() {
+    $(this).parent().remove()
+})
+$(".addInputButton").click(function() {
+    var newInput = "<div class='courseInputWrapper'><button class='courseInputRemove'>rm</button><input class='courseInput'>"
+    $(this).parent().find("form").append(newInput)  
 })
 function ValidateAllInput(){
     var data = []
     $(".courseInput").each(function(){
         if ($(this).val() != '') {
-            var tempdata = {course:$(this).val(), semester:$(this).parent().attr("semester")}
+            var tempdata = {course:$(this).val(), semester:$(this).parent().parent().attr("semester")}
             data.push(tempdata)
         }
     })
@@ -91,107 +95,219 @@ function ValidateAllInput(){
 </script>
 
 <div class="year">
-<div class="inputform">
+<div class="inputform" inputNum="2">
 <form semester="freshman summer">
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_freshman_summer_1" type="text" group="freshman_summer_1">
+    </div>
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_freshman_summer_2" type="text" group="freshman_summer_2">
+    </div>
 </form>
+    <button class="addInputButton" semester="freshman summer">Add</button>
 </div>
-<div class="inputform">
+<div class="inputform" inputNum="2">
 <form semester="freshman fall">
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_freshman_fall_1" type="text" group="freshman_fall_1">
+    </div>
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_freshman_fall_2" type="text" group="freshman_fall_2">
+    </div>
 </form>
+    <button class="addInputButton" semester="freshman fall">Add</button>
 </div>
-<div class="inputform">
+<div class="inputform" inputNum="2">
 <form semester="freshman winter">
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_freshman_winter_1" type="text" group="freshman_winter_1">
+    </div>
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_freshman_winter_2" type="text" group="freshman_winter_2">
+    </div>
 </form>
+    <button class="addInputButton" semester="freshman winter">Add</button>
 </div>
-<div class="inputform">
+<div class="inputform" inputNum="2">
 <form semester="freshman spring">
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_freshman_spring_1" type="text" group="freshman_spring_1">
+    </div>
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_freshman_spring_2" type="text" group="freshman_spring_2">
+    </div>
 </form>
+    <button class="addInputButton" semester="freshman spring">Add</button>
 </div>
 </div>
 <div class="year">
-<div class="inputform">
+<div class="inputform" inputNum="2">
 <form semester="sophomore summer">
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_sophomore_summer_1" type="text" group="sophomore_summer_1">
+    </div>
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_sophomore_summer_2" type="text" group="sophomore_summer_2">
+    </div>
 </form>
+    <button class="addInputButton" semester="sophomore summer">Add</button>
 </div>
-<div class="inputform">
+<div class="inputform" inputNum="2">
 <form semester="sophomore fall">
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_sophomore_fall_1" type="text" group="sophomore_fall_1">
+    </div>
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_sophomore_fall_2" type="text" group="sophomore_fall_2">
+    </div>
 </form>
+    <button class="addInputButton" semester="sophomore fall">Add</button>
 </div>
-<div class="inputform">
+<div class="inputform" inputNum="2">
 <form semester="sophomore winter">
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_sophomore_winter_1" type="text" group="sophomore_winter_1">
+    </div>
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_sophomore_winter_2" type="text" group="sophomore_winter_2">
+    </div>
 </form>
+    <button class="addInputButton" semester="sophomore winter">Add</button>
 </div>
-<div class="inputform">
+<div class="inputform" inputNum="2">
 <form semester="sophomore spring">
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_sophomore_spring_1" type="text" group="sophomore_spring_1">
+    </div>
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_sophomore_spring_2" type="text" group="sophomore_spring_2">
+    </div>
 </form>
+    <button class="addInputButton" semester="sophomore spring">Add</button>
 </div>
 </div>
 <div class="year">
-<div class="inputform">
+<div class="inputform" inputNum="2">
 <form semester="junior summer">
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_junior_summer_1" type="text" group="junior_summer_1">
+    </div>
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_junior_summer_2" type="text" group="junior_summer_2">
+    </div>
 </form>
+    <button class="addInputButton" semester="junior summer">Add</button>
 </div>
-<div class="inputform">
+<div class="inputform" inputNum="2">
 <form semester="junior fall">
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_junior_fall_1" type="text" group="junior_fall_1">
+    </div>
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_junior_fall_2" type="text" group="junior_fall_2">
+    </div>
 </form>
+    <button class="addInputButton" semester="junior fall">Add</button>
 </div>
-<div class="inputform">
+<div class="inputform" inputNum="2">
 <form semester="junior winter">
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_junior_winter_1" type="text" group="junior_winter_1">
+    </div>
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_junior_winter_2" type="text" group="junior_winter_2">
+    </div>
 </form>
+    <button class="addInputButton" semester="junior winter">Add</button>
 </div>
-<div class="inputform">
+<div class="inputform" inputNum="2">
 <form semester="junior spring">
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_junior_spring_1" type="text" group="junior_spring_1">
+    </div>
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_junior_spring_2" type="text" group="junior_spring_2">
+    </div>
 </form>
+    <button class="addInputButton" semester="junior spring">Add</button>
 </div>
 </div>
 <div class="year">
-<div class="inputform">
+<div class="inputform" inputNum="2">
 <form semester="senior summer">
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_senior_summer_1" type="text" group="senior_summer_1">
+    </div>
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_senior_summer_2" type="text" group="senior_summer_2">
+    </div>
 </form>
+    <button class="addInputButton" semester="senior summer">Add</button>
 </div>
-<div class="inputform">
+<div class="inputform" inputNum="2">
 <form semester="senior fall">
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_senior_fall_1" type="text" group="senior_fall_1">
+    </div>
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_senior_fall_2" type="text" group="senior_fall_2">
+    </div>
 </form>
+    <button class="addInputButton" semester="senior fall">Add</button>
 </div>
-<div class="inputform">
+<div class="inputform" inputNum="2">
 <form semester="senior winter">
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_senior_winter_1" type="text" group="senior_winter_1">
+    </div>
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_senior_winter_2" type="text" group="senior_winter_2">
+    </div>
 </form>
+    <button class="addInputButton" semester="senior winter">Add</button>
 </div>
-<div class="inputform">
+<div class="inputform" inputNum="2">
 <form semester="senior spring">
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_senior_spring_1" type="text" group="senior_spring_1">
+    </div>
+    <div class="courseInputWrapper">
+    <button class="courseInputRemove">rm</button>
     <input class="courseInput" id="ip_senior_spring_2" type="text" group="senior_spring_2">
+    </div>
 </form>
+    <button class="addInputButton" semester="senior spring">Add</button>
 </div>
 </div>
 
