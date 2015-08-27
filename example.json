@@ -1,18 +1,20 @@
 [
     {
         "label":"CMPSC 8 Introduction to Computer Science",
+        "id":"0",
         "sub":"CMPSC",
-        "id":"8",
+        "number":"8",
         "units":"4",
         "prereq":[],
         "semester":{"spring":"y", "summer":"y", "fall":"y", "winter":"y"}
     }, 
     {
         "label":"CMPSC 16 Problem Solving with Computers I",
+        "id":"1",
         "sub":"CMPSC",
-        "id":"16",
+        "number":"16",
         "units":"4",
-        "prereq":[{"sub":"MATH", "id":"3A", "concur":"y"}, {"sub":"CMPSC", "id":"8", "concur":"n"}],
+        "prereq":[{"id":"2", "concur":"y"}, {"id":"0", "concur":"n"}],
         "semester":{"spring":"y", "summer":"y", "fall":"y", "winter":"y"}
     }
 ]
