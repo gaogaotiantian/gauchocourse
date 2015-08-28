@@ -14,7 +14,21 @@
         "sub":"CMPSC",
         "number":"16",
         "units":"4",
-        "prereq":[{"id":"2", "concur":"y"}, {"id":"0", "concur":"n"}],
+        "prereq":[
+            {"type":"course","course":{"id":"2", "concur":"y"}}, 
+            {"type":"courses","courses":[{"id":"0", "concur":"n"}, {"id":"2", "concur":"n"}]}
+        ],
         "semester":{"spring":"y", "summer":"y", "fall":"y", "winter":"y"}
+    },
+    {
+        "label":"ENGR 3 Introduction to Programming",
+        "id":"2",
+        "sub":"ENGR",
+        "number":"3",
+        "units":"3",
+        "prereq":[
+            {"type":"major", "major":"ENGR"}
+        ],
+        "semester":{"spring":"y", "summer":"y", "fall":"y", "winter":"n"}
     }
 ]
