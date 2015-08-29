@@ -2,8 +2,8 @@ var course1 = {
     label : "CMPSC 8 Introduction to Computer Science",
     sub: "CMPSC",
     id : "8",
-    prereq : [{sub : "Math", id : "3A", concur : "y"}],
-    unit :4,
+    prereq : [{type : "precourse", precourse: {sub : "MATH", id : "3A", concur : "y"}}],
+    units :4,
     semester : {"spring":"y", "summer":"y", "fall":"y", "winter":"y"}
 }
 
@@ -11,17 +11,28 @@ var course2 = {
     label :"CMPSC 16 Problem Solving with Computers I",
     sub : "CMPSC",
     id : "16",
-    units : "4",
-    prereq : [{sub : "MATH",  id : "3A",  concur : "y"}, {sub : "CMPSC", id :"8", concur :"n"}],
+    units : 4,
+    prereq : [{type: "precourses", precourses : [{sub : "MATH",  id : "3A",  concur : "y"}, {sub : "MATH",  id : "34A",  concur : "y"}]},
+            {type: "precourse", precourse : {sub : "CMPSC", id :"8", concur :"n"}}],
     semester : {"spring":"y", "summer":"y", "fall":"y", "winter":"y"}
 
 }
 
 var course3 = {
     label :"Math 3A, Introduction to Calclus",
-    sub : "Math",
+    sub : "MATH",
     id : "3A",
-    units : "4",
+    units : 4,
+    prereq : [],
+    semester : {"spring":"y", "summer":"y", "fall":"y", "winter":"y"}
+
+}
+
+var course4 = {
+    label :"Math 34A, Introduction to Calclus",
+    sub : "MATH",
+    id : "34A",
+    units : 4,
     prereq : [],
     semester : {"spring":"y", "summer":"y", "fall":"y", "winter":"y"}
 
@@ -32,15 +43,25 @@ var course3 = {
 var inputCourses = [
                     {name : "CMPSC8", semester : "freshmenFall"},
                     {name : "CMPSC16", semester : "freshmenWinter"},
-                    {name : "Math3A", semester : "freshmenFall"}
-]
+                    {name : "MATH3A", semester : "freshmenSummer"},
+                    {name : "MATH34A", semester : "freshmenSummer"}
+] //input courses name with semester that should be provied for the function, this is just a example
 
-    var allCourses  = [course1,course2,course3]
-    var addedCourses = []
-    var schedule = []
-    var error = []
+var allCourses  = [course1,course2,course3,course4] //list of all courses as pbject
 
-    function SemToNum(semester){
+var addedCourses = [] //list of all inputed courses as a object of course and semester
+
+var schedule = [] //sorted schedule, index represent the semester. ex: schedule[0] is the array of all input courses in freshmen summer quarter
+
+var error = [] // array of error as object, each object has three variable. 1.name 2.semester 3.message
+
+var check = "" //only for debug purpose
+
+var totalUnit = 0 // totoal units of the current courses add up
+
+var quarterUnit = [] // unit for each quarter, ex: quarterUnit[0] represent the unit of the freshmen summer quarter
+
+function SemToNum(semester){
     if(semester == "freshmenSummer") return 0;
     if(semester == "freshmenFall") return 1;
     if(semester == "freshmenWinter") return 2;
@@ -59,7 +80,7 @@ var inputCourses = [
     if(semester == "seniorSpring") return 15;
 }
 
-    function NumToSem(num){
+function NumToSem(num){
         if(num==0) return  "freshmenSummer";
         if(num==1) return "freshmenFall";
         if(num==2) return "freshmenWinter";
@@ -77,9 +98,10 @@ var inputCourses = [
         if(num==14) return "seniorWinter";
         if(num==15) return "seniorSpring";
     }
-
+  
+//add all the input courses to the addedcourse
 function AddAllCourses(input, all){
-    for(i=0; i<input.length;i++){
+    for(i=0; i<input.length; i++){
         for(j=0; j<all.length; j++){
             var temp = (all[j].sub + all[j].id);
             if(temp == input[i].name){
@@ -90,7 +112,7 @@ function AddAllCourses(input, all){
 
 }
 
-
+//add the courses from addedcourses into schedule in the semester order
 function SortAllCourseBySemester(){
     for(i=0; i<16; i++)
         schedule.push([])
@@ -100,8 +122,10 @@ function SortAllCourseBySemester(){
 }
 
 
+//function to check if taking certian course in certain semester is allowed
 function CheckThisCourse(course, sem){
     var timecheck = true
+    var prelength = course.prereq.length
     switch(sem%4){
         case 0 :
             if(course.semester.summer!="y")
@@ -121,47 +145,91 @@ function CheckThisCourse(course, sem){
             break
     }
     if(!timecheck){
-        error.push({name:(course.sub + course.id), semester : NumToSem(sem), message : "course not offer in this qurater"})
+        error.push({name:(course.sub + course.id), semester : NumToSem(sem), message : "course not offer in this quarter"})
         return
     }
-    for(i=0; i<course.prereq.length; i++){
-        var range = sem-1
-        var found = false
-        if(course.prereq[i].concur=="y")
-            range+=1
-        for(j=0; j<=range; j++){
-            for(k=0; k<schedule[j].length; k++){
-                if(course.prereq[i].sub == schedule[j][k].sub &&
-                    course.prereq[i].id == schedule[j][k].id){
-                    found = true;
-                    break
+    
+    
+    for(n in course.prereq){
+        if(course.prereq[n].type == "precourse"){
+            var range = sem-1
+            var found = false
+            if(course.prereq[n].precourse.concur == "y")
+                range+=1
+            for(s=0; s<=range; s++){
+                for(q in schedule[s]){
+                    if(course.prereq[n].precourse.sub == schedule[s][q].sub&&
+                        course.prereq[n].precourse.id == schedule[s][q].id){
+                        found = true
+                        break
+                    }
                 }
+                if(found) break
             }
-            if(found) break
+            if(!found){
+                error.push({name:(course.sub + course.id), semester : NumToSem(sem), message : "course's prerequisites are not fulfilled"})
+                return
+            }
         }
-        if(!found) error.push({name:(course.sub + course.id), semester : NumToSem(sem), message : "course's prerequisites are not fulfilled"})
 
+        else if(course.prereq[n].type == "precourses"){
+            var found = false
+            for(p in course.prereq[n].precourses){
+                var range = sem-1
+                var sub = course.prereq[n].precourses[p].sub
+                var id = course.prereq[n].precourses[p].id
+                if(course.prereq[n].precourses[p].concur == "y")
+                    range+=1
+                for(s=0; s<=range; s++){
+                    for(q in schedule[s]){
+                        if(sub == schedule[s][q].sub&&
+                            id == schedule[s][q].id){
+                            found = true
+                            break
+                        }
+                    }
+                if(found) break
+                }
+                if(found) break
+            }
+            if(!found){
+                error.push({name:(course.sub + course.id), semester : NumToSem(sem), message : "course's prerequisites are not fulfilled"})
+                return
+            }
+        }
+    }
+    
+}
+
+function CountUnit(){
+    var tempunit = 0
+    for(a =0; a<schedule.length; a++){
+        for(b in schedule[a]){
+            tempunit+=schedule[a][b].units
+        }
+        quarterUnit.push(tempunit)
+        totalUnit+=tempunit
+        tempunit = 0
     }
 }
 
-CheckThisCourse(course1,1)
-
+//main function that caller should provide the argument to run the validation
 function Validation(input, all){
-    addedCourses(input,all)
+    AddAllCourses(input,all)
     SortAllCourseBySemester()
     for(i=0; i<16; i++){
         for(j=0; j<schedule[i].length; j++){
-            CheckThisCourse(schedule[i][j],schedule[i])
+            CheckThisCourse(schedule[i][j],i)
         }
     }
+    CountUnit()
 
 }
 
 Validation(inputCourses,allCourses)
 
 
-
-
-
-
-
+function change(){
+    var x = document.getElementById('demo');
+    x.innerHTML = quarterUnit[0] 
+}
