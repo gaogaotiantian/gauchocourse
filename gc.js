@@ -23,7 +23,6 @@ function ValidateAllInput(input){
 
 }
 
-ValidateAllInput(inputCourses)
 
 function isValid(name){
     for(course of courseData){
@@ -40,6 +39,12 @@ function getErrorMessage(name){
     }
     return ""
 }
+
+
+
+
+
+
 
 function SemToNum(semester){
     if(semester == "freshman_summer") return 0;
