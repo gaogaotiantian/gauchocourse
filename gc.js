@@ -25,6 +25,7 @@ function ValidateAllInput(input){
 
 
 function IsValid(name){
+    if(name == "") return true
     for(course of courseData){
         if(name == course.label)
             return true
