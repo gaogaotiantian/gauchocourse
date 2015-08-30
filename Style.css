@@ -1,7 +1,11 @@
 @charset "UTF-8";
 /* CSS Document */
+* {
+    margin:0;
+    padding:0;
+}
 body{
-	background-image:url(BG.jpg);
+	background-image:url(image/BG.jpg);
 	z-index:-1;
 }
 #header{
@@ -12,12 +16,68 @@ body{
 	border-radius:13px;
 }
 
-.minus{
+#whole_page_wrapper {
+    width:100%;
+    height:100%;
+}
+
+#top_bar{
+    height:50px;
+    width:100%;
+    background-color:#339;
+}
+
+#website_logo{
+    color:yellow;
+    float:left;
+    width:150px;
+}
+
+#user_info{
+    color:yellow;
+}
+
+#main_content{
+    display:block;
+    position:absolute;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    margin-top:50px;
+    margin-bottom:50px;
+    height:auto;
+}
+#left_bar{
+    color:yellow;
+    float:left;
+    background-color:#339;
+    width:150px;
+    height:100%;
+}
+
+#form_area{
+    width:auto;
+    height:100%;
+    overflow:hidden;
+    overflow-y:auto;
+}
+
+
+#footer{
+    height:50px;
+    position:absolute;
+    bottom:-50px;
+    width:100%;
+    background-color:yellow;
+    clear:left;
+}
+.remove_button{
 	border-radius:2px;
 	width:22px;
 	height:22px;
 }
-.plus{
+.add_button{
 	padding:0px;
 	position:relative;
 	left:15%;
@@ -98,7 +158,7 @@ p.title{
 }
 #main{
 	margin:0 auto;
-	width:75%;
+	width:100%;
 }
 
 .courseInputWrapper{
@@ -108,7 +168,7 @@ p.title{
 	background-color:white;
     float:left;
     border-style:solid;
-    width:20%;
+    width:21%;
 	padding:1%;
     margin:0.5%;
 	border-radius:12px;
@@ -123,8 +183,7 @@ input {
     padding-top:3%;
 }
 input[valid = 'true'] {
-    color:white;
-    background-color:green
+    background-color:white
 }
 input[valid = 'false'] {
     background-color:red
@@ -133,6 +192,7 @@ input[valid = 'na'] {
     background-color:white
 }
 #error_msg {
-    background-color:grey;
+    background-color:white;
+    overflow:auto;
     z-index:10;
 }

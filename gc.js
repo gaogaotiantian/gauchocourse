@@ -12,6 +12,7 @@ function ValidateAllInput(input){
     addedCourses = []
     schedule = []
     invalidData = [] 
+    validCourses = []
     AddAllCourses(input)
     SortAllCourseBySemester()
     for(var i=0; i<16; i++){
@@ -20,7 +21,9 @@ function ValidateAllInput(input){
         }
     }
     CountUnit()
-
+    console.log("added:", addedCourses)
+    console.log("valid:", validCourses)
+    console.log("invalid", invalidData)
 }
 
 
@@ -35,6 +38,7 @@ function IsValid(name){
 
 function GetErrorMessage(name){
     if(name == "") return true
+    console.log("invalid", invalidData)
     for(er of invalidData){
         if(er.name ==name)
             return er.message
@@ -93,7 +97,7 @@ function AddAllCourses(input){
     for(i=0; i<input.length; i++){
         for(j=0; j<courseData.length; j++){
             var temp = (courseData[j].label);
-            if(temp == input[i].name){
+            if(temp == input[i].course){
                 for(z in addedCourses){
                     tempname = (addedCourses[z].course.label)
                     if(tempname == input[i].name){
@@ -141,6 +145,7 @@ function CheckThisCourse(course, sem){
             return
     }
 
+    console.log(course)
     var timecheck = true
     var prelength = course.prereq.length
     switch(sem%4){
@@ -163,6 +168,7 @@ function CheckThisCourse(course, sem){
     }
     if(!timecheck){
         invalidData.push({name:(course.label), semester : NumToSem(sem), message : "course not offer in this quarter"})
+        console.log("prereq" + invalidData)
         return
     }
     
@@ -191,6 +197,7 @@ function CheckThisCourse(course, sem){
             }
             if(!found){
                 invalidData.push({name:(course.label), semester : NumToSem(sem), message : "course's prerequisites are not fulfilled"})
+                console.log("prereq" + invalidData)
                 return
             }
         }
@@ -223,6 +230,7 @@ function CheckThisCourse(course, sem){
             }
             if(!found){
                 invalidData.push({name:(course.label), semester : NumToSem(sem), message : "course's prerequisites are not fulfilled"})
+                console.log("prereq" + invalidData)
                 return
             }
         }

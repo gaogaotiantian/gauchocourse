@@ -17,8 +17,6 @@ $(document).ready(function(){
     .fail(function(d, text, error){alert("error in getJson!" + text + error)})
 });
 </script>
-</head>
-<body>
 <script>
 $(function() {
 $("#error_msg").hide()
@@ -28,6 +26,7 @@ $(".inputform").on("mouseenter", ".courseInput", function() {
         offset.top = offset.top + $(this).outerHeight()
         $("#error_msg").css("display", "block")
         $("#error_msg").offset(offset)
+        $("#error_msg").css("width", $(this).css("width"))
         $("#error_msg").text(GetErrorMessage($(this).val()))
     }
 })
@@ -48,7 +47,7 @@ $(".inputform").on("mouseenter", ".courseInput", function() {
 })
 .on("click", ".courseInputRemove", function() {
     $(this).parent().remove()
-    invalidData = ValidateAllInput(curData)
+    ValidateAllInput(curData)
 })
 $(".addInputButton").click(function() {
     var newInput = "<div class='courseInputWrapper'><button class='courseInputRemove'><img src='image/remove.png' class='remove_button'></button><input class='courseInput'>"
@@ -62,7 +61,7 @@ function RefreshInputs(){
             curData.push(tempdata)
         }
     })
-    invalidData = ValidateAllInput(curData)
+    ValidateAllInput(curData)
     $(".courseInput").each(function() {
         if (IsValid($(this).val())) {
             $(this).attr("valid", "true")
@@ -75,11 +74,34 @@ function RefreshInputs(){
 }
 })
 </script>
+</head>
+<body>
+<div id="whole_page_wrapper">
+    <div id="top_bar">
+        <div id="website_logo">
+        <p>Gaucho Course</p>
+        </div>
+        <div id="user_info">
+            <label for="sel_major">Major:</label>
+            <select name="sel_major">
+                <option>CS</option>
+                <option>Other</option>
+            </select>
+        </div>
+    </div>
+    <div id="main_content">
+        <div id="left_bar">
+        <p>Area A 0/1</p> 
+        </div>
+        <div id="form_area">
+            ${form}
+        </div>
+    <div>
+    <div id="footer">
+        <p>footer</p>
+    </div>
+</div>
 
-${form}
-
-<textarea id="error_msg" readonly></textarea>
-<button>click me</button>
-<p id="output"></p>
+<p id="error_msg"></p>
 </body>
 </html>
