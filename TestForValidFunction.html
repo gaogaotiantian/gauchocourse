@@ -100,6 +100,7 @@ function ValidateAllInput(input){
 ValidateAllInput(inputCourses)
 
 function IsValid(name){
+	if(name == "") return true
 	for(course of courseData){
 		if(name == course.label)
 			return true

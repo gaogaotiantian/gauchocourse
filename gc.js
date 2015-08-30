@@ -33,6 +33,7 @@ function IsValid(name){
 }
 
 function GetErrorMessage(name){
+    if(name == "") return true
     for(er of invalidData){
         if(er.name ==name)
             return er.message
