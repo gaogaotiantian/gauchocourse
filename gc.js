@@ -24,7 +24,7 @@ function ValidateAllInput(input){
 }
 
 
-function isValid(name){
+function IsValid(name){
     for(course of courseData){
         if(name == course.label)
             return true
@@ -32,7 +32,7 @@ function isValid(name){
     return false
 }
 
-function getErrorMessage(name){
+function GetErrorMessage(name){
     for(er of invalidData){
         if(er.name ==name)
             return er.message
@@ -120,7 +120,7 @@ function SortAllCourseBySemester(){
 }
 
 //giving a course name, it will return the course object corresponing to this name
-function getCourseByName(name){
+function GetCourseByName(name){
     var tpname
     for(var course of courseData){
         tpname = (course.label)
