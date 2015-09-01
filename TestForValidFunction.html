@@ -58,10 +58,10 @@ var course4 = {
 
 
 var inputCourses = [
-                    {name : "CMPSC 8 Introduction to Computer Science", semester : "freshman_fall"},
-                    {name : "CMPSC 16 Problem Solving with Computers I", semester : "freshman_winter"},
-                    {name : "Math 3A, Introduction to Calclus", semester : "freshman_summer"},
-                    {name : "MATH 34A, CALC FOR SOCIAL SCI", semester : "freshman_summer"}
+                    {course : "CMPSC 8 Introduction to Computer Science", semester : "freshman_fall"},
+                    {course : "CMPSC 16 Problem Solving with Computers I", semester : "freshman_winter"},
+                    {course : "Math 3A, Introduction to Calclus", semester : "freshman_summer"},
+                    {course : "MATH 34A, CALC FOR SOCIAL SCI", semester : "freshman_summer"}
 ] //input courses name with semester that should be provied for the function, this is just a example
 
 var courseData  = [course1,course2,course3,course4] //list of all courses as pbject
@@ -86,6 +86,9 @@ function ValidateAllInput(input){
 	addedCourses = []
 	schedule = []
 	invalidData = [] 
+	validCourses = []
+	totalUnit =0
+	quarterUnit = []
 	AddAllCourses(input)
 	SortAllCourseBySemester()
 	for(var i=0; i<16; i++){
@@ -158,18 +161,19 @@ function NumToSem(num){
 function AddAllCourses(input){
 	var existence = false
 	var tempname
-    for(i=0; i<input.length; i++){
-        for(j=0; j<courseData.length; j++){
+    for(var i=0; i<input.length; i++){
+        for(var j=0; j<courseData.length; j++){
             var temp = (courseData[j].label);
-            if(temp == input[i].name){
+            if(temp == input[i].course){
             	for(z in addedCourses){
             		tempname = (addedCourses[z].course.label)
-            		if(tempname == input[i].name){
+            		if(tempname == input[i].course){
             			existence = true
             			break
             		}
             	}
             	if(existence){
+            		invalidData.push({name : courseData[j].label, semester: input[i].semester, message : "course already entered"})
             		existence = false
             		break
             	}
@@ -314,7 +318,7 @@ function CountUnit(){
 
 function change(){
     var x = document.getElementById('demo');
-    x.innerHTML = getErrorMessage("Math 3A, Introduction to Calclus")
+    x.innerHTML = addedCourses.length
 }
 
 
