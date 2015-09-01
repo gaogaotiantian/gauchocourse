@@ -1,20 +1,22 @@
 [
 	{
 		"major" : "Computer Science",
+
 		"geareas" : [{"type" : "areas", "areas" : ["D", "E"], "number" : "2"},
-					 {"type" : "areas", "areas" : ["F", "G"], "number" : "2" },
-					 {"type" : "areas", "areas" : ["D", "E", "F", "G", "H"], "number" : "6"}
-			],
+			     {"type" : "areas", "areas" : ["F", "G"], "number" : "2" },
+			     {"type" : "areas", "areas" : ["D", "E", "F", "G", "H"], "number" : "6"}],
+
 		"geotherreq" : [{"type" : "ethnicity", "number" : "1"},
-						{"type" : "european_Traditions", "number" : "1"},
-						{"type" : "writing", "number" : "4"},
-						{"type" : "depth", "choices" : [{"type" : "upper", "number" : "2"},
-														{"type" : "sequence", "number": "3"},
-														{"type" : "minor", "number" :"1"}]}
-			],
+				{"type" : "european_Traditions", "number" : "1"},
+				{"type" : "writing", "number" : "4"},
+				{"type" : "depth", "choices" : [{"type" : "upper", "number" : "2"},
+								{"type" : "sequence", "number": "3"},
+								{"type" : "minor", "number" :"1"}]}],
+
 		"requiredCourses" : [{"type" : "mustTake", "courses" : ["1","2","3","4","5","6","7"]},
-							 {"type" : "choices", "courses" : ["9","10","11","12"], "unit" : "8"},
-							 {"type" : "choices", "courses" : ["13","14","15","17"], "unit" : "4"}],
+				     {"type" : "choices", "courses" : ["9","10","11","12"], "unit" : "8"},
+				     {"type" : "choices", "courses" : ["13","14","15","17"], "unit" : "4"}],
+		
 		"unit" : "184" 
 	}
 ]
