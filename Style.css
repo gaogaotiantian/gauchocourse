@@ -31,10 +31,12 @@ body{
     color:yellow;
     float:left;
     width:150px;
+    height:100%;
 }
 
 #user_info{
     color:yellow;
+    height:100%;
 }
 
 #main_content{

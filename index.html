@@ -72,6 +72,17 @@ function RefreshInputs(){
         }
     })
 }
+
+var apForm,
+apForm = $("#ap_form").dialog({
+    autoOpen: false,
+    height:300,
+    width:350,
+    modal: true,
+})
+$("#ap_form_button").button().on("click", function(){
+    apForm.dialog("open")
+})
 })
 </script>
 </head>
@@ -87,6 +98,9 @@ function RefreshInputs(){
                 <option>CS</option>
                 <option>Other</option>
             </select>
+            <div id="ap_info">
+                <button id="ap_form_button">AP</button>
+            </div>
         </div>
     </div>
     <div id="main_content">
@@ -103,5 +117,22 @@ function RefreshInputs(){
 </div>
 
 <p id="error_msg"></p>
+<div id="ap_form" title="AP Input">
+    <p>put AP here</p>
+    <p>put AP here</p>
+    <p>put AP here</p>
+    <p>put AP here</p>
+    <p>put AP here</p>
+    <p>put AP here</p>
+    <p>put AP here</p>
+    <p>put AP here</p>
+    <p>put AP here</p>
+    <p>put AP here</p>
+    <p>put AP here</p>
+    <p>put AP here</p>
+    <p>put AP here</p>
+    <p>put AP here</p>
+    <p>put AP here</p>
+</div>
 </body>
 </html>
