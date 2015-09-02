@@ -15,7 +15,6 @@
         "number":"16",
         "units":"4",
         "prereq":[
-            {"type":"precourse","precourse":{"id":"2", "concur":"y"}}, 
             {"type":"precourses","precourses":[{"id":"0", "concur":"n"}, {"id":"2", "concur":"n"}]}
         ],
         "semester":{"spring":"y", "summer":"y", "fall":"y", "winter":"y"}
