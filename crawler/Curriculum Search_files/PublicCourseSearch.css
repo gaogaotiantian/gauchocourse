@@ -1,0 +1,278 @@
+﻿/****** * global html tag selectors ******/
+
+.contents
+{
+	padding-bottom: 5px;
+	padding-top: 5px;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+
+body {
+	font: 10px arial, verdana, sans-serif;
+	text-align: left;
+	z-index: 50;
+	color: #666666;
+}
+div, td {
+	font: 10px arial, verdana, sans-serif;
+	line-height: 14px;
+	text-align: left;
+}
+
+form, pre {
+	padding: 0px;
+	margin: 0px;
+}
+a {
+	color: #003399;
+	text-decoration: none;
+}
+a:hover {
+	color: #003399;
+}
+img {
+	padding: 0px;
+	margin: 0px;
+	border-width: 0px;
+	border-style: none;
+}
+sup {
+	vertical-align: text-top;
+}
+h1 {
+	color: #336699;
+	font: 20px arial, verdana, sans-serif;
+	font-weight: bold;
+}
+h1.SearchPageTitle {
+	color: #FFFFFF;
+	top: 20px;
+	left: inherit;
+	position: absolute;
+	margin-left: 250px;
+	font-style: normal;
+	vertical-align: middle;
+	text-align: justify;
+	font: 20px arial, verdana, sans-serif;
+	font-weight: bold;
+}
+h2 {
+	color: #336699;
+}
+h3 {
+	color: #336699;
+	font: 14px arial, verdana, sans-serif;
+	font-weight: bold;
+}
+h4 {
+	color: #FFFFFF;
+	background-color: #336699;
+	padding: 5px;
+	font: 12px arial, verdana, sans-serif;
+	font-weight: bold;
+}
+h5 {
+	color: #336699;
+	font: 11px arial, verdana, sans-serif;
+	font-weight: bold;
+	text-align: center;
+}
+table.gridview {
+	margin: 0px;
+	border-width: 0px 0px 0px 0px;
+	width: 100%;
+	border-collapse: collapse !important;
+	table-layout: fixed;
+}
+table.gridview tbody {
+	padding: 0px;
+	margin: 0px;
+	border-top-style: none;
+	border-top-width: 0px;
+}
+table.gridview table td {
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	text-align: center;
+}
+table.gridview th
+{
+	text-align: center;
+	vertical-align: middle !important;
+	font-size: 12px;
+	white-space: nowrap;
+	vertical-align: bottom;
+	height: 35px;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	color: #666666;
+	background-color: #FDE487;
+ border-top-style: solid;
+	border-top-width: 1px;
+	border-top-color: Gray;
+	 border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: Gray;
+}
+td.nowrap {
+	white-space: nowrap;
+}
+/* Set's the appearance of the drop down control*/
+.droplist {
+	font-size: .95em;
+	color: #666666;
+	margin-bottom: 2px;
+}
+.droplistDiv {
+	font-size: 12px;
+	font-weight: bold;
+	color: #666666;
+	vertical-align: bottom;
+	padding: 10px;
+	text-align: right;
+	width: 220px;
+}
+div .MasterCourseTableDiv {
+	border-collapse: collapse !important;
+	width: 388px;
+	display: none;
+	position: absolute;
+	z-index: 0;
+	text-decoration: none;
+	cursor: default;
+	padding: 0px;
+	margin: 0px;
+	cursor: pointer;
+}
+.MasterCourseTable table {
+	z-index: 0;
+	margin: 0px;
+	padding: 0px;
+	width: 380px;
+	border-collapse: collapse !important;
+	table-layout: fixed;
+	cursor: pointer;
+}
+.MasterCourseTable td {
+	margin: 2px 4px !important;
+	padding: 2px 4px !important;
+	background-color: Transparent !important;
+	white-space: normal;
+	color: #666666;
+}
+.shadowright {
+	padding: 0px !important;
+	margin: 0px !important;
+	z-index: 0;
+	background-image: url(/Public/Curriculum/images/shadowRightpiece.png) !important;
+	background-repeat: repeat-y !important;
+	background-position: right;
+	width: 388px;
+	border-collapse: collapse !important;
+	border-style: none !important;
+	border-width: 0px !important;
+	color: Transparent !important;
+}
+.shadowbottom {
+	background-image: url(/Public/Curriculum/images/shadowBottompiece.png);
+	background-repeat: repeat-x;
+	background-position: top;
+	text-align: right;
+	z-index: 0;
+	width: 380px;
+	margin-bottom: 0px;
+	padding: 0px;
+	left: 2px;
+	height: 4px;
+	border-collapse: collapse !important;
+}
+.MasterCourseTableBackground {
+	background-image: url('/Public/Curriculum/Images/gradientBG.png') !important;
+	background-repeat: repeat-x;
+	width: 380px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	padding: 0px;
+	border-collapse: collapse !important;
+	background-color: #FFFFFF;
+}
+td.HeaderHover {
+	background-image: none !important;
+	background-color: #D4E2FA !important;
+	cursor: pointer;
+}
+td.Header {
+	font-size: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	vertical-align: top !important;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-top-color: Gray;
+}
+td.SelectedHeader {
+	color: #666666;
+	background-image: none;
+	background-color: #D4E2FA;
+}
+/******** Restrictions styles ****/
+div .RestrictionsTableDiv {
+	border-collapse: collapse !important;
+	width: 388px;
+	display: none;
+	position: absolute;
+	z-index: 0;
+	text-decoration: none;
+	cursor: default;
+	padding: 0px;
+	margin: 0px;
+	cursor: pointer;
+}
+.RestrictionsTable table {
+	z-index: 0;
+	margin: 0px;
+	padding: 0px;
+	width: 380px;
+	border-collapse: collapse !important;
+	table-layout: fixed;
+	cursor: pointer;
+}
+.RestrictionsTable td {
+	margin: 2px 4px !important;
+	padding: 2px 4px !important;
+	background-color: Transparent !important;
+	white-space: normal;
+	color: #666666;
+}
+.RestrictionsTableBackground {
+	background-image: url('/Public/Curriculum/Images/gradientBG.png') !important;
+	background-repeat: repeat-x;
+	width: 380px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	padding: 0px;
+	border-collapse: collapse !important;
+	background-color: #FFFFFF;
+}
+td.EnrollCodeSectionHover {
+	color: #666666 !important;
+	background-image: none;
+	background-color: #D4E2FA !important;
+}
+td.SelectedEnrollCodeSection {
+	color: #666666 !important;
+	background-image: none;
+	background-color: #D4E2FA !important;
+}
+.Clickable {
+	cursor: pointer;
+}
+.EnrollCodeLink {
+	cursor: pointer;
+	text-decoration: underline;
+}
