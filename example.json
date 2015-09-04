@@ -14,9 +14,7 @@
         "sub":"CMPSC",
         "number":"16",
         "units":"4",
-        "prereq":[
-            {"type":"precourses","precourses":[{"id":"0", "concur":"n"}, {"id":"2", "concur":"n"}]}
-        ],
+        "prereq":[],
         "semester":{"spring":"y", "summer":"y", "fall":"y", "winter":"y"}
     },
     {
@@ -29,5 +27,27 @@
             {"type":"major", "major":"ENGR"}
         ],
         "semester":{"spring":"y", "summer":"y", "fall":"y", "winter":"n"}
+    },
+    {
+        "label":"C LIT 30B Major Works in European Literature | Area E, EUR, WRT",
+        "id":"3",
+        "sub":"C LIT",
+        "number":"30B",
+        "units":"3",
+        "prereq":[
+            {"type":"major", "major":"ENGR"}
+        ],
+        "semester":{"spring":"y", "summer":"y", "fall":"y", "winter":"n"},
+        "gearea":["E", "EUR", "WRT"]
+    },
+    {
+        "label":"C LIT 30B Major Works in European Literature | Area G, EUR, WRT",
+        "id":"4",
+        "sub":"C LIT",
+        "number":"30B",
+        "units":"3",
+        "prereq":[],
+        "semester":{"spring":"y", "summer":"y", "fall":"y", "winter":"n"},
+        "gearea":["E", "EUR", "WRT"]
     }
 ]
