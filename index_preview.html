@@ -7,14 +7,20 @@
 <script src="gc.js"></script>
 <script type="text/javascript">
 // Global Variables
+var apData = []
 var courseData = []
 var invalidData = []
 var validCourses = []
 $(document).ready(function(){
     $.getJSON("example.json", function(data) {
-        courseData = JSON.parse(JSON.stringify(data))
+        //courseData = JSON.parse(JSON.stringify(data))
+        courseData = data
     })
     .fail(function(d, text, error){alert("error in getJson!" + text + error)})
+    $.getJSON("apdata.json", function(data) {
+        apData = data
+    })
+    .fail(function(d, text, error){alert("error in get apdata!" + text + error)})
 });
 </script>
 <script>
@@ -47,10 +53,10 @@ $(".inputform").on("mouseenter", ".courseInput", function() {
 })
 .on("click", ".courseInputRemove", function() {
     $(this).parent().remove()
-    ValidateAllInput(curData)
+    RefreshInputs()
 })
 $(".addInputButton").click(function() {
-    var newInput = "<div class='courseInputWrapper'><button class='courseInputRemove'><img src='image/remove.png' class='remove_button'></button><input class='courseInput'>"
+    var newInput = "<div class='courseInputWrapper'><button class='courseInputRemove'><img src='image/remove.png' class='remove_button'></button><input class='courseInput'></div>"
     $(this).parent().find("form").append(newInput)  
 })
 function RefreshInputs(){
@@ -72,6 +78,39 @@ function RefreshInputs(){
         }
     })
 }
+
+var apForm,
+apForm = $("#ap_form").dialog({
+    autoOpen: false,
+    height:300,
+    width:350,
+    modal: true,
+    close: function() {
+        RefreshInputs()
+    }
+})
+$("#ap_form_button").button().on("click", function(){
+    apForm.dialog("open")
+})
+$("#ap_form").on("click", ".addApSelectButton", function() {
+    var newInput = "<div class='apInputWrapper'><button class='apInputRemove'><img src='image/remove.png' class='remove_button'></button>"
+    newInput += "<label>Course</label>"
+    newInput += "<select class='apCourseSelect' name=''>"
+    for (ap of apData) {
+        newInput += "<option>"
+        newInput += ap.label
+        newInput += "</option>"
+    }
+    newInput += "</select>"
+    newInput += "<label>Score</label>"
+    newInput += "<select class='apScoreSelect'><option>3</option><option>4</option><option>5</option></select>"
+    newInput += "</div>"
+    console.log(newInput)
+    $(this).parent().find("form").append(newInput) 
+})
+.on("click", ".apInputRemove", function(){
+    $(this).parent().remove()
+})
 })
 </script>
 </head>
@@ -87,6 +126,9 @@ function RefreshInputs(){
                 <option>CS</option>
                 <option>Other</option>
             </select>
+            <div id="ap_info">
+                <button id="ap_form_button">AP</button>
+            </div>
         </div>
     </div>
     <div id="main_content">
@@ -335,5 +377,12 @@ function RefreshInputs(){
 </div>
 
 <p id="error_msg"></p>
+<div id="ap_form" title="AP Input">
+    <p>put AP here</p>
+    <form>
+    
+    </form>
+    <button class="addApSelectButton"><img src="image/add.jpg" class="add_button"></button>
+</div>
 </body>
 </html>
