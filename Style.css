@@ -4,6 +4,17 @@
     margin:0;
     padding:0;
 }
+.ui-menu .ui-menu-item{
+	 font-size:12px;
+}
+.ui-dialog .ui-widget .ui-widget-content .ui-corner-all .ui-front .ui-draggable .ui-resizable{
+	   position:relative;
+	   left:0%;
+	   bottom:0%;
+}
+#website_logo{
+	font-size:20px;
+}
 body{
 	background-image:url(image/BG.jpg);
 	z-index:-1;
@@ -24,18 +35,19 @@ body{
 #top_bar{
     height:50px;
     width:100%;
-    background-color:#339;
+    background-color:#74B9CA;
 }
 
 #website_logo{
-    color:yellow;
+    text-align:center;
+    color:white;
     float:left;
     width:150px;
     height:100%;
 }
 
 #user_info{
-    color:yellow;
+    color:white;
     height:100%;
 }
 
@@ -51,21 +63,30 @@ body{
     height:auto;
 }
 #left_bar{
-    color:yellow;
+    text-align:center;
+    color:white;
     float:left;
-    background-color:#339;
+    background-color:#74B9CA;
     width:150px;
     height:100%;
 }
 
 #form_area{
-    width:auto;
+    border-radius:10px;	
+    width:auto;	
     height:100%;
     overflow:hidden;
     overflow-y:auto;
 }
 
+#major{
+	width:50%;
+}
 
+#ap_info{
+	float:right;
+	width:50%;
+}
 #footer{
     height:50px;
     position:absolute;
@@ -74,68 +95,50 @@ body{
     background-color:yellow;
     clear:left;
 }
-.remove_button{
-	border-radius:2px;
+.ap_add_button{
+	width:18px;
+	height:18px;
+	position:relative;
+	top:3px;
+}
+.ap_remove_button{
 	width:22px;
 	height:22px;
-}
-.add_button{
-	padding:0px;
 	position:relative;
-	left:15%;
-	width:18px;
+	right:1%;
+	top:3px;
+}
+.remove_button{
+	width:9%;
+	height:22px;
+}
+
+.add_button{
+	width:7%;
 	height:18px;
 }
 .addInputButton{
-	width:25px;
-	height:25px;
-	border-style:none;
-	background:#FFF;
 	position:relative;
-	right:5%;
+	right0%;
+	top:8px;
 }
 .courseInputRemove{
-	width:25px;
-	height:25px;
-	border-style:none;
-	background:#FFF;
-	margin:0;
 	position:relative;
-	right:6%;
-	float:left;
+	right:2%;
+	top:7px;
 }
 .courseInput{
+	float:right;
+	clear:both;
 	outline:none;
-	width:88%;
+	width:89%;
 	font-size:12px;
 	margin-top:0px;
 	margin:bottom:0px;
 	position:relative;
-	right:4%;
+	right:3%;
 }
 
-#geRequirements{
-	padding:8px;
-	border-style:solid;
-	border-color:#339;
-	font-size:14px;
-	font-weight:700;
-	width:12%;
-	float:right;
-	position:fixed;
-	right:1%;
-	font-color:white;
-	border-radius:10px;
-	bottom:1%;
-	color:#339;
-	opacity:0%
-}
-
-#button{
-	float:left;
-	width:1200px;
-	height:100px;
-}
 h1.title{
 	padding:3%;
 	font-size:40px;
@@ -144,8 +147,8 @@ p.title{
 	position:relative;
 	top:0;
 	text-align:center;
-	background-color:#FC0;
-	color:#339;
+	background-image:url(image/BG.jpg);	
+	color:#2C6B6F;
 	font-weight:600;
 	padding-top:3%;
 	padding-bottom:3%;
