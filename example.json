@@ -1,3 +1,5 @@
+//All possible gearea  ["A" - "g", "EUR", "WRT", "WOR", 'ETH', "DEP", 'QUR']
+
 [
     {
         "label":"CMPSC 8 Introduction to Computer Science",
