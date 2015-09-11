@@ -1,0 +1,521 @@
+AS AM 5 - Introduction to Asian American Literature
+AS AM 122 - Asian American Fiction
+AS AM 128 - Writings by Asian American Women
+BL ST 33 - Major Works of African Literatures
+BL ST 38A - Introduction to African-American Literature (Part 1)
+BL ST 38B - Introduction to African-American Literature (Part II)
+BL ST 126 - Comparative Black Literatures
+BL ST 127 - Black Women Writers
+BL ST 130A - Negritude and African Literature
+BL ST 130B - The Black Francophone Novel
+C LIT 30A - Major Works in European Literature
+C LIT 30B - Major Works in European Literature
+C LIT 30C - Major Works in European Literature
+C LIT 31 - Major Works of Asian Literatures
+C LIT 32 - Major Works of Middle Eastern Literatures
+C LIT 33 - Major Works of African Literatures
+C LIT 34 - Literature of the Americas
+C LIT 100 - Introduction to Comparative Literature
+C LIT 107 - Voyages to the Unknown
+C LIT 113 - Trauma, Memory, Historiography
+C LIT 117A - European Romanticism(s)
+C LIT 117B - European Romanticism(s)
+C LIT 122A - Representations of the Holocaust
+C LIT 122B - Holocaust in France
+C LIT 126 - Comparative Black Literatures
+C LIT 128A - Children's Literature
+C LIT 128B - Representing Childhood
+C LIT 133 - Transpacific Literature
+C LIT 146 - Robots
+C LIT 153 - Border Narratives
+C LIT 154 - Science Fiction in Eastern Europe
+C LIT 161 - Literature of Central Europe
+C LIT 171 - Post-Colonial Cultures
+C LIT 179B - Mysticism
+C LIT 179C - Mediatechnology
+C LIT 186EE - Interdisciplinary Comparative Literature Studies
+C LIT 187 - Strauss and Hofmannsthal
+C LIT 188 - Narrative Studies
+C LIT 191 - Fantasy and the Fantastic
+CH ST 152 - Postcolonialism
+CH ST 180 - Survey of Chicano Literature
+CH ST 181 - The Chicano Novel
+CH ST 184A - Chicana Writers
+CHIN 110A - Classics of Ancient China
+CHIN 112A - Major Movements in Modern Chinese Literature
+CHIN 115A - Imagism, Haiku, and Chinese Poetry
+CHIN 124B - Readings in Modern Chinese Literature
+CHIN 132A - Special Topics in Classical Chinese Poetry
+CHIN 139 - Boundaries of the Self in Late Imperial Chinese Literature
+CHIN 142 - Tang Poetry
+CHIN 148 - Historic Lives
+CLASS 36 - Ancient Epic
+CLASS 37 - Greek Literature In Translation
+CLASS 38 - Latin Literature In Translation
+CLASS 39 - Women in Classical Literature
+CLASS 40 - Greek Mythology
+CLASS 102 - Greek Tragedy In Translation
+CLASS 109 - Viewing the Barbarian: Representations of Foreign Peoples in Greek Literature
+CLASS 110 - From Homer To Harlequin: Masculine, Feminine And The Romance
+CLASS 120 - Greek And Latin Lyric Poetry
+CLASS 130 - Comedy And Satire In Translation
+CLASS 175 - Ancient Theories of Literature
+ENGL 15 - Introduction to Shakespeare
+ENGL 21 - Introduction to Narrative
+ENGL 25 - Introduction to Literature and the Culture of Information
+ENGL 35 - Introduction to Literature and the Environment
+ENGL 38A - Introduction to African-American Literature (Part 1)
+ENGL 38B - Introduction to African-American Literature (Part II)
+ENGL 50 - Introduction to U.S. Minority Literature
+ENGL 65AC - Topics in Literature
+ENGL 65EM - Topics in Literature
+ENGL 65HS - Topics in Literature
+ENGL 65IC - Topics in Literature
+ENGL 65LC - Topics in Literature
+ENGL 65MM - Topics in Literature
+ENGL 65PW - Topics in Literature
+ENGL 65SS - Topics in Literature
+ENGL 101 - English Literature from the Medieval Period to 1650
+ENGL 102 - English and American Literature from 1650-1789
+ENGL 103A - American Literature from 1789 to 1900
+ENGL 103B - British Literature from 1789 to 1900
+ENGL 104A - American Literature from 1900 to Present
+ENGL 104B - British Literature from 1900 to Present
+ENGL 105A - Shakespeare, Poems and Earlier Plays
+ENGL 105B - Shakespeare, Later Plays
+ENGL 113 - Studies in Literary Theory and Criticism
+ENGL 113CT - Studies in Literary Theory and Criticism
+ENGL 113HI - Studies in Literary Theory and Criticism
+ENGL 113LC - Studies in Literary Theory and Criticism
+ENGL 113MC - Studies in Literary Theory and Criticism
+ENGL 113MI - Studies in Literary Theory and Criticism
+ENGL 113NS - Studies in Literary Theory and Criticism
+ENGL 113PS - Studies in Literary Theory and Criticism
+ENGL 113RH - Studies in Literary Theory and Criticism
+ENGL 113RR - Studies in Literary Theory and Criticism
+ENGL 113SA - Studies in Literary Theory and Criticism
+ENGL 113SP - Studies in Literary Theory and Criticism
+ENGL 113TP - Studies in Literary Theory and Criticism
+ENGL 113TS - Studies in Literary Theory and Criticism
+ENGL 114 - Woman and Literature
+ENGL 114AA - Women and Literature
+ENGL 114AD - Woman and Literature
+ENGL 114AF - Woman and Literature
+ENGL 114BC - Women and Literature
+ENGL 114BF - Woman and Literature
+ENGL 114BL - Women and Literature
+ENGL 114BW - Women and Literature
+ENGL 114CD - Women and Literature
+ENGL 114EM - Woman and Literature
+ENGL 114FE - Woman and Literature
+ENGL 114FT - Women and Literature
+ENGL 114GC - Women and Literature
+ENGL 114GD - Woman and Literature
+ENGL 114GT - Woman and Literature
+ENGL 114LW - Women and Literature
+ENGL 114MD - Women and Literature
+ENGL 114MW - Women and Literature
+ENGL 114NS - Women and Literature
+ENGL 114NW - Women and Literature
+ENGL 114PC - Woman and Literature
+ENGL 114RE - Women and Literature
+ENGL 114RP - Woman and Literature
+ENGL 114RW - Women and Literature
+ENGL 114WC - Woman and Literature
+ENGL 114WD - Women and Literature
+ENGL 114WL - Woman and Literature
+ENGL 114WR - Women and Literature
+ENGL 114WS - Woman and Literature
+ENGL 115 - Medieval Literature
+ENGL 116A - Biblical Literature: The Old Testament
+ENGL 116B - Biblical Literature: The New Testament
+ENGL 119 - Studies in Medieval Literature
+ENGL 119X - Medieval Literature in Translation
+ENGL 120 - Modern Drama
+ENGL 121 - The Art of Narrative
+ENGL 122 - Cultural Representations
+ENGL 122AA - Cultural Representations
+ENGL 122AP - Cultural Representations
+ENGL 122AV - Cultural Representations
+ENGL 122BC - Cultural Representations
+ENGL 122BH - Cultural Representations
+ENGL 122BP - Cultural Representations
+ENGL 122BU - Cultural Representations
+ENGL 122BX - Cultural Representations
+ENGL 122CD - Cultural Representations
+ENGL 122CE - Cultural Representations
+ENGL 122CM - Cultural Representations
+ENGL 122FS - Cultural Representations
+ENGL 122GD - Cultural Representations
+ENGL 122GW - Cultural Representations
+ENGL 122IL - Cultural Representations
+ENGL 122JH - Cultural Representations
+ENGL 122JZ - Cultural Representations
+ENGL 122LE - Cultural Representations: Literature and the Environment
+ENGL 122MD - Cultural Representations
+ENGL 122MM - Cultural Representations
+ENGL 122NA - Cultural Representations
+ENGL 122NE - Cultural Representations: Nature and the Environment
+ENGL 122NW - Cultural Representations
+ENGL 122RB - Cultural Representations
+ENGL 122RE - Cultural Representations
+ENGL 122RJ - Cultural Representations
+ENGL 122SA - Cultural Representations
+ENGL 122ST - Cultural Representations
+ENGL 122TG - Cultural Representations
+ENGL 124 - Readings in the Modern Short Story
+ENGL 126B - Survey of British Fiction (II)
+ENGL 126C - Survey of British Fiction (III)
+ENGL 126D - Survey of British Fiction (IV)
+ENGL 128 - Literary Genres
+ENGL 128AA - Literary Genres
+ENGL 128AU - Literary Genres
+ENGL 128CM - Literary Genres
+ENGL 128CN - Literary Genres
+ENGL 128CO - Literary Genres
+ENGL 128CP - Literary Genres
+ENGL 128EN - Literary Genres
+ENGL 128EP - Literary Genres
+ENGL 128GN - Literary Genres
+ENGL 128GO - Literary Genres
+ENGL 128GT - Literary Genres
+ENGL 128IN - Literary Genres
+ENGL 128LP - Literary Genres
+ENGL 128MD - Literary Genres
+ENGL 128ML - Literary Genres
+ENGL 128MP - Literary Genres
+ENGL 128MY - Literary Genres
+ENGL 128PH - Literary Genres
+ENGL 128PO - Literary Genres
+ENGL 128PS - Literary Genres
+ENGL 128RO -
+ENGL 128S - Literary Genres
+ENGL 128SA - Literary Genres
+ENGL 128TR - Literary Genres
+ENGL 131 - Studies in American Literature
+ENGL 131AD - Studies in American Literature
+ENGL 131AN - Studies in American Literature
+ENGL 131AR - Studies in American Literature
+ENGL 131AW - Studies in American Literature
+ENGL 131CW - Studies in American Literature
+ENGL 131GT - Studies in American Literature
+ENGL 131IL - Studies in American Literature
+ENGL 131IS - Studies in American Literature
+ENGL 131MT - Studies in American Literature
+ENGL 131RF - Studies in American Literature
+ENGL 131SI - Studies in American Literature
+ENGL 131SL - Studies in American Literature
+ENGL 131VA - Studies in American Literature
+ENGL 133 - Studies in American Regional Literature
+ENGL 133AW - Studies in American Regional Literature
+ENGL 133GC - Studies in American Regional Literature
+ENGL 133GP - Studies in American Regional Literature
+ENGL 133HH - Studies in American Regional Literature
+ENGL 133JB - Studies in American Regional Literature
+ENGL 133SO - Studies in American Regional Literature
+ENGL 133TL - Studies in American Regional Literature
+ENGL 134 - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134AA - Studies in the Literature of Cultural and Ethnic Communities in the United States
+ENGL 134AB - Studies in the Literature of Cultural and Ethnic Communities in the United States
+ENGL 134AF - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134AL - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134AW - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134BB - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134BF - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134BL - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134BP - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134CA - Studies in the Literature of Cultural and Ethnic Communities in the United States
+ENGL 134CE - Studies in the Literature of Cultural and Ethnic Communities in the United States
+ENGL 134CH - Studies in the Literature of Cultural and Ethnic Communities in the United States
+ENGL 134CL - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134CN - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134CR - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134EL - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134IB - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134IL - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134JB - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134JL - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134LG - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134MM - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134MP - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134MR - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134NA - Studies in the Literature of Cultural and Ethnic Communities in the United States
+ENGL 134NL - Studies in the Literature of Cultural and Ethnic Communities in the United States
+ENGL 134NR - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134NW - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134NY - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134PC - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134RM - Studies in the Literature of Cultural and Ethnic Communities in the United States
+ENGL 134RR - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134RS - Studies in Literature of Cultural and Ethnic Communities in the United States
+ENGL 134RW - Studies in the Literature of Cultural and Ethnic Communities in the United States
+ENGL 137A - Poetry in America Before 1900
+ENGL 137B - Poetry in America since 1900
+ENGL 138C - Prose Narrative in America Since 1917
+ENGL 140 - Contemporary American Literature
+ENGL 150 - Anglo-Irish Literature
+ENGL 152A - Chaucer: Canterbury Tales
+ENGL 156 - Literature of Chivalry
+ENGL 157 - English Renaissance Drama
+ENGL 162 - Milton
+ENGL 165 - Topics In Literature
+ENGL 165AA - Topics In Literature
+ENGL 165AC - Topics In Literature
+ENGL 165AT - Topics In Literature
+ENGL 165BA - Topics In Literature
+ENGL 165BB - Topics In Literature
+ENGL 165BC - Topics In Literature
+ENGL 165BP - Topics In Literature
+ENGL 165BT - Topics In Literature
+ENGL 165BW - Topics In Literature
+ENGL 165C - Topics In Literature
+ENGL 165CC - Topics In Literature
+ENGL 165CD - Topics In Literature
+ENGL 165CF - Topics In Literature
+ENGL 165CI - Topics in Literature
+ENGL 165CL - Topics in Literature
+ENGL 165CN - Topics in Literature
+ENGL 165CS - Topics in Literature
+ENGL 165CW - Topics in Literature
+ENGL 165DD - Topics In Literature
+ENGL 165DF - Topics in Literature
+ENGL 165DL - Topics In Literature
+ENGL 165DR - Topics In Literature
+ENGL 165EB - Topics In Literature
+ENGL 165EC - Topics In Literature
+ENGL 165EF - Topics In Literature
+ENGL 165EM - Topics In Literature
+ENGL 165EZ - Topics in Literature
+ENGL 165FB - Topics in Lieterature
+ENGL 165FD - Topics in Literature
+ENGL 165FM - Topics In Literature
+ENGL 165FP - Topics of Literature
+ENGL 165FS - Topics in Literature
+ENGL 165FT - Topics In Literature
+ENGL 165GE - Topics in Literature
+ENGL 165GL - Topics In Literature
+ENGL 165GM - Topics In Literature
+ENGL 165H - Topics in Literature
+ENGL 165HD - Topics in Literature
+ENGL 165HE - Topics In Literature
+ENGL 165HL - Topics in Literature
+ENGL 165HR - Topics In Literature
+ENGL 165HS - Topics In Literature
+ENGL 165IF - Topics In Literature
+ENGL 165IL - Topics in Literature
+ENGL 165IN - Topics in Literature
+ENGL 165IP - Topics in Literature
+ENGL 165IS - Topics in Literature
+ENGL 165JB - Topics in Literature
+ENGL 165JT - Topics In Literature
+ENGL 165LA - Topics in Literature
+ENGL 165LB - Topics In Literature
+ENGL 165LC - Topics In Literature
+ENGL 165LF - Topics In Literature
+ENGL 165LG - Topics In Literature
+ENGL 165LL - Topics in Literature
+ENGL 165LN - Topics in Literature
+ENGL 165LP - Topics In Literature
+ENGL 165LR - Topics in Literature
+ENGL 165LS - Topics in Literature
+ENGL 165LT - Topics In Literature
+ENGL 165LV - Topics In Literature
+ENGL 165M - Topics in Literature
+ENGL 165MA - Topics In Literature
+ENGL 165MC - Topics in Literature
+ENGL 165MD - Topics in Literature
+ENGL 165ML - Topics In Literature
+ENGL 165MM - Topics In Literature
+ENGL 165MN - Topics in Literature
+ENGL 165MT - Topics in Literature
+ENGL 165MW - Topics In Literature
+ENGL 165NP - Topics in Literature
+ENGL 165NT - Topics In Literature
+ENGL 165PC - Topics In Literature
+ENGL 165PF - Studies of Topics
+ENGL 165PH - Topics In Literature
+ENGL 165PL - Topics In Literature
+ENGL 165PR - Topics In Literature
+ENGL 165PT - Topics in Literature
+ENGL 165RB - Topics in Literature
+ENGL 165RD - Topics In Literature
+ENGL 165RF - Topics In Literature
+ENGL 165RL - Topics In Literature
+ENGL 165RM - Topics in Literature
+ENGL 165RO - Topics in Literature
+ENGL 165RT - Topics in Literature
+ENGL 165SA - Topics In Literature
+ENGL 165SF - Topics in Literature
+ENGL 165SH - Topics in Literature
+ENGL 165SN - Topics In Literature
+ENGL 165SP - Topics in Literature
+ENGL 165SR - Topics in Literature
+ENGL 165SS - Topics in Literature
+ENGL 165US - Topics in Literature
+ENGL 165VA - Topics In Literature
+ENGL 165VF - Topics in Literature
+ENGL 165VN - Topics in Literature
+ENGL 165VT - Topics in Literature
+ENGL 165VW - Topics in Literature
+ENGL 165WD - Topics In Literature
+ENGL 165WL - Topics in Literature
+ENGL 165WP - Topics in Literature
+ENGL 165WR - Topics In Literature
+ENGL 170 - Studies in Literature and the Mind
+ENGL 170CM - Studies in Literature and the Mind
+ENGL 170IC - Studies in Literature and the Mind
+ENGL 170IM - Studies in Literature and the Mind
+ENGL 170LM - Studies in Literature and the Mind
+ENGL 170MT - Studies in Literature and the Mind
+ENGL 172 - Studies in the Enlightenment
+ENGL 179 - British Romantic Writers
+ENGL 180 - The Victorian Era
+ENGL 181 - Studies in the Nineteenth Century
+ENGL 181AL - Studies in the Nineteenth Century
+ENGL 184 - Modern European Literature
+ENGL 185 - Modernism in English
+ENGL 187 - Studies in Modern Literature
+ENGL 187AA - Studies in Modern Literature
+ENGL 187AG - Studies in Modern Literature
+ENGL 187BA - Studies in Modern Literature
+ENGL 187IL - Studies in Modern Literature
+ENGL 187LL - Studies in Modern Literature
+ENGL 187ML - Studies in Modern Literature
+ENGL 187MT - Studies in Modern Literature
+ENGL 187SM - Studies in Modern Literature
+ENGL 187TD - Studies in Modern Literature
+ENGL 187TM - Studies in Modern Literature
+ENGL 187US - Studies in Modern Literature
+ENGL 187VW - Studies in Modern Literature
+ENGL 189 - Contemporary Literature
+ENGL 190 - World Literature in English
+ENGL 190AL - World Literature in English
+ENGL 190AN - World Literature in English
+ENGL 190AS - World Literature in English
+ENGL 190GL - Global Literatures
+ENGL 190WL - World Literature in English
+ENGL 191 - Afro-American Fiction and Criticism, 1920's to the present
+ENGL 192 - Science Fiction
+ENGL 193 - Detective Fiction
+ENV S 122LE - Cultural Representations: Literature and the Environment
+ENV S 122NE - Cultural Representations: Nature and the Environment
+ENV S 160 - American Environmental Literature
+FEMST 40 - Women, Representation, and Cultural Production
+FEMST 40H - Women, Representation, and Cultural Production Honors
+FEMST 171CN - Citoyennes! Women and Politics in Modern France
+FR 101A - Introduction to Literary and Cultural Analysis
+FR 101B - Introduction to Literary and Cultural Analysis
+FR 101C - Introduction to Literary and Cultural Analysis
+FR 147A - French and Francophone Poetry
+FR 147B - French and Francophone Theater
+FR 148C - Women in the Middle Ages
+FR 148E - The Age of Louis XIV
+FR 149B - The Politics of Paradise
+FR 149C - Reading Paris (1830-1890)
+FR 149D - French Postmodern Literature
+FR 149E - Belgian Literature and Art
+FR 153A - Studies in Medieval Literature
+FR 153B - French Theatre in Translation
+FR 153C - Autobiographies and Life Stories
+FR 153D - Fantasy and the Fantastic
+FR 153E - The Power of Negative Thinking: Sartre, Adorno, and Marcuse
+FR 153F - Existentialist Literature in Translation
+FR 154A - Voyages to the Unknown
+FR 154D - Torture: Theory, History, Practice
+FR 154E - Holocaust in France
+FR 154F - Time Off in Paris!
+FR 154G - Post-Colonial Cultures
+FR 155A - Women in the Middle Ages
+FR 155B - Women on Trial
+FR 155C - French and Francophone Women Writers
+FR 155D - Citoyennes! Women and Politics in Modern France
+FR 156C - Modern Images of the Middle Ages: The Intersection of Text, History, and Film
+GER 43B - German Childhood and Youth
+GER 115A - Survey of German Literature
+GER 115B - Survey of German Literature
+GER 115C - Survey of German Literature
+GER 116A - Representations of the Holocaust
+GER 138 - Psy Fi: German Science Fiction
+GER 143 - The Superhuman
+GER 151C - Literature of Central Europe
+GER 164E - German Writers in German Language
+GER 164F - German Writers in German Language
+GER 164G - German Writers in German Language
+GER 164I - Modern Autobiography and Memoir: Texts and Contents
+GER 166 - Grimm
+GER 179A - Revolutions: Marx, Nietzsche, Freud
+GER 179B - Mysticism
+GER 179C - Mediatechnology
+GER 182 - Vampirism in German Literature and Beyond
+GER 187 - Satan in German Literature and Beyond
+GLOBL 101 - Global Literatures
+GREEK 100 - Introduction To Greek Prose
+GREEK 101 - Introduction To Greek Poetry
+HEB 114A - Readings in Modern Hebrew Prose and Poetry
+HEB 114B - Readings in Modern Hebrew Prose and Poetry
+HEB 114C - Readings in Modern Hebrew Prose and Poetry
+ITAL 101 - Advanced Reading and Composition: Modern Italy
+ITAL 102 - Advanced Reading and Composition: Medieval and Renaissance Italy
+ITAL 111 - Italian Short Fiction
+ITAL 114X - Dante's "Divine Comedy."
+ITAL 126A - Literature in Italian
+ITAL 126AA - Literature in Italian
+ITAL 126AB - Literature in Italian
+ITAL 126BB - Literature in Italian
+ITAL 126DD - Literature in Italian
+ITAL 138AX - Cultural Representations in Italy
+ITAL 142X - Women in Italy
+ITAL 144AX - Gender and Sexuality in Italian Culture
+ITAL 163X - Early Modern Epic
+ITAL 179X - Fiction and Film in Italy
+JAPAN 112 - Survey of Modern Japanese Literature
+JAPAN 115 - Topics in Twentieth-Century Japanese
+KOR 113 - Korean Literature Survey
+LAIS 102 - Interdisciplinary Approaches to the Cultures, Languages, and Literatures ofLatin America and Iberia
+LATIN 100 - Introduction To Latin Prose
+LATIN 101 - Introduction To Latin Poetry
+ME ST 100B - Literature of Chivalry
+PORT 105A - Survey of Portuguese Literature
+PORT 105B - Survey of Portuguese Literature
+PORT 105C - Survey of Portuguese Literature
+PORT 106A - Survey of Brazilian Literature
+PORT 106B - Survey of Brazilian Literature
+PORT 106C - Survey of Brazilian literature
+PORT 115AA - Brazilian Literature (in English Translation)
+PORT 120 - Portuguese Literature (in English Translation)
+PORT 120A - Portuguese Literature in English Translation
+PORT 120B - Portuguese Literature in English Translation
+PORT 120C - Portuguese Literature in English Translation
+PORT 120D - Portuguese Literature in English Translation
+PORT 120E - Portuguese Literature in English Translation
+PORT 120S - Portuguese Literature in English Translation
+RG ST 114X - Dante's "Divine Comedy"
+RG ST 129 - Religions of the Ancient Near East
+RG ST 189C - Critical Readings in Modern Arabic Literature in Translation
+SLAV 117F - Chekhov
+SLAV 117G - Great Russian Writers
+SLAV 117H - Great Russian Writers
+SLAV 123A - Nineteenth-Century Russian Literature I
+SLAV 123B - Nineteenth-Century Russian Literature II
+SLAV 123C - Twentieth-Century Russian Literature I
+SLAV 123D - Twentieth-Century Russian Literature II
+SLAV 151C - Literature of Central Europe
+SLAV 164A - Death and Its Representations
+SLAV 164B - Science Fiction in Eastern Europe
+SLAV 164C - Women in Russian Literature
+SPAN 30 - Introduction to Hispanic Literature
+SPAN 102L - Introduction to Hispanic Literary Studies
+SPAN 115B - Masterpieces of Spanish Literature (in English Translation)
+SPAN 120A - Contemporary Spanish-American Fiction (in English Translation)
+SPAN 120B - Contemporary Spanish-American Fiction (in English Translation)
+SPAN 131 - Spanish Golden Age Poetry I
+SPAN 135 - Survey of Chicano Literature
+SPAN 137A - Golden Age Drama
+SPAN 137B - Golden Age Drama
+SPAN 138 - Contemporary Mexican Literature
+SPAN 140A - Cervantes: Don Quijote
+SPAN 140B - Cervantes: Don Quijote
+SPAN 142A - Don Quixote (in English Translation)
+SPAN 142B - Don Quixote (in English Translation)
+SPAN 174 - The Hispanic Novel and Cinema
+SPAN 179 - The Chicano Novel
