@@ -1,5 +1,3 @@
-
-
 [
     {
         "label":"CMPSC 8 Introduction to Computer Science",
@@ -19,7 +17,7 @@
         "number":"16",
         "units":"4",
         "prereq":[
-            {"type":"precourses","precourses":[{"id":"0", "concur":"n"}, {"id":"2", "concur":"n"}]}
+            [{"id":"0", "concur":"n"}, {"id":"2", "concur":"n"}]
         ],
         "majorlimit":[],
         "semester":["spring", "summer", "fall", "winter"],
@@ -42,7 +40,7 @@
         "sub":"C LIT",
         "number":"30B",
         "units":"3",
-        "prereq":[],
+        "prereq":[[{"id":"1", "concur":"y"}]],
         "majorlimit":[],
         "semester":["spring", "summer", "fall"],
         "gearea":["E", "EUR", "WRT"]
@@ -53,7 +51,7 @@
         "sub":"C LIT",
         "number":"30B",
         "units":"3",
-        "prereq":[],
+        "prereq":[[{"id":"1", "concur":"y"}]],
         "majorlimit":[],
         "semester":["spring", "summer", "fall"],
         "gearea":["E", "EUR", "WRT"]
