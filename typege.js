@@ -109,6 +109,23 @@ var user = {
 
 
 
+var geStatus =new Array() 
+    geStatus["A"] = 0,
+    geStatus["B"] = 0,
+    geStatus["C"] = 0,
+    geStatus["D"] = 0,
+    geStatus["E"] = 0,
+    geStatus["F"] = 0,
+    geStatus["G"] = 0,
+    geStatus["H"] = 0,
+
+    geStatus["EUR"] = 0,
+    geStatus["WRT"] = 0,
+    geStatus["WOR"] = 0,
+    geStatus["ETH"] = 0,
+    geStatus["DEP"] = 0,
+    geStatus["QUR"] = 0
+
 
 
 var reqNumber = [[2,2,6,1,4,1,1],

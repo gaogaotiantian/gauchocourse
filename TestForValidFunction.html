@@ -16,10 +16,10 @@ var course1 = {
     id : "0",
     sub: "CMPSC",
     number : "8",
-    prereq : [{type : "precourse", precourse: {id : "3", concur : "y"}}],
+    prereq : [{id : "3", concur : "y"}],
     units : "4",
     gearea :["D", "WOR", "WRT"],
-    semester : {"spring":"y", "summer":"y", "fall":"y", "winter":"y"}
+    semester : ["spring", "summer", "fall", "winter"],
     //gearea :["D", "EUR", "WRT"]
 }
 
@@ -29,10 +29,10 @@ var course2 = {
 	sub : "CMPSC",
 	number : "16",
 	units : "4",
-	prereq : [{type: "precourses", precourses : [{id : "3",  concur : "y"}, {id: "4",  concur : "y"}]},
-	  		{type: "precourse", precourse : {id :"0", concur :"n"}}],
+	prereq : [[{id : "3",  concur : "y"}, {id: "4",  concur : "y"}],
+	  		[{id :"0", concur :"n"}],
 	gearea :["E", "QUR", "WRT"],
-	semester : {"spring":"y", "summer":"y", "fall":"y", "winter":"y"}
+	semester : ["spring", "summer", "fall", "winter"],
 
 }
 
@@ -44,7 +44,7 @@ var course3 = {
 	units : "4",
 	prereq : [],
 	gearea :["F", "EUR", "WRT"],
-	semester : {"spring":"y", "summer":"y", "fall":"y", "winter":"y"}
+	semester : ["spring", "summer", "fall", "winter"],
 	
 
 }
@@ -57,7 +57,7 @@ var course4 = {
 	units : "4",
 	prereq : [],
 	gearea :["G", "EUR", "WRT"],
-	semester : {"spring":"y", "summer":"y", "fall":"y", "winter":"y"}
+	semester : ["spring", "summer", "fall", "winter"],
 	
 
 }
@@ -260,19 +260,19 @@ function CheckThisCourse(course, sem){
     var prelength = course.prereq.length
     switch(sem%4){
         case 0 :
-            if(course.semester.summer!="y")
+            if(course.semester.indexOf("summer")<0)
                 timecheck = false;
             break
         case 1 :
-            if(course.semester.fall!="y")
+            if(course.semester.indexOf("fall")<0)
                 timecheck = false;
             break
         case 2 :
-            if(course.semester.winter!="y")
+            if(course.semester.indexOf("winter")<0)
                 timecheck = false;
             break
         case 3 :
-            if(course.semester.spring!="y")
+            if(course.semester.indexOf("spring")<0)
                 timecheck = false;
             break
     }
@@ -502,7 +502,7 @@ ValidGE()
 
 function change(){
     var x = document.getElementById('demo');
-    x.innerHTML = ("haha"+7+"/10")
+    x.innerHTML = validCourses.length
 }
 
 
