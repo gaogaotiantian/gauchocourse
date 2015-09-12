@@ -147,22 +147,21 @@ function CheckThisCourse(course, sem){
 
     console.log(course)
     var timecheck = true
-    var prelength = course.prereq.length
     switch(sem%4){
         case 0 :
-            if(course.semester.summer!="y")
+            if(course.semester.indexOf("summer")<0)
                 timecheck = false;
             break
         case 1 :
-            if(course.semester.fall!="y")
+            if(course.semester.indexOf("fall")<0)
                 timecheck = false;
             break
         case 2 :
-            if(course.semester.winter!="y")
+            if(course.semester.indexOf("winter")<0)
                 timecheck = false;
             break
         case 3 :
-            if(course.semester.spring!="y")
+            if(course.semester.indexOf("spring")<0)
                 timecheck = false;
             break
     }
@@ -174,40 +173,11 @@ function CheckThisCourse(course, sem){
     
     
     for(n in course.prereq){
-        if(course.prereq[n].type == "precourse"){
-            var range = sem-1
             var found = false
-            if(course.prereq[n].precourse.concur == "y")
-                range+=1
-            for(s=0; s<=range; s++){
-                for(q in schedule[s]){
-                    if(course.prereq[n].precourse.id == schedule[s][q].id){
-                        var tempcourse = courseData[schedule[s][q].id]
-                        CheckThisCourse(tempcourse,s)
-                        for(h in validCourses){
-                            if(tempcourse.label == validCourses[h].label){
-                                found = true
-                                break
-                            }
-                        }
-                        if(found) break
-                    }
-                }
-                if(found) break
-            }
-            if(!found){
-                invalidData.push({name:(course.label), semester : NumToSem(sem), message : "course's prerequisites are not fulfilled"})
-                console.log("prereq" + invalidData)
-                return
-            }
-        }
-
-        else if(course.prereq[n].type == "precourses"){
-            var found = false
-            for(var p in course.prereq[n].precourses){
+            for(var p in course.prereq[n]){
                 var range = sem-1
-                var id = course.prereq[n].precourses[p].id
-                if(course.prereq[n].precourses[p].concur == "y")
+                var id = course.prereq[n][p].id
+                if(course.prereq[n][p].concur == "y")
                     range+=1
                     for(var s=0; s<=range; s++){
                         for(var q in schedule[s]){
@@ -233,7 +203,7 @@ function CheckThisCourse(course, sem){
                 console.log("prereq" + invalidData)
                 return
             }
-        }
+        
     }
     validCourses.push(course)
 }

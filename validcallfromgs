@@ -1,0 +1,148 @@
+<html>
+<body>
+
+<h1>This is a test.</h1>
+
+
+
+<p id = demo>I need to test the course. </p>
+
+<p id = demo1>I need to test the course. </p>
+
+<button type = "button" onclick =change()> Click me!</button>
+
+<script src="gc.js"> </script>
+<script src="typege.js"> </script>
+
+<script>
+var course1 = {
+    label : "CMPSC 8 Introduction to Computer Science",
+    id : "0",
+    sub: "CMPSC",
+    number : "8",
+    prereq : [[{id : "2", concur : "y"}]],
+    units : "4",
+    gearea :["D", "WOR", "WRT"],
+    semester : ["spring", "summer", "fall", "winter"],
+    //gearea :["D", "EUR", "WRT"]
+}
+
+var course2 = {
+	label :"CMPSC 16 Problem Solving with Computers I",
+	id : "1",
+	sub : "CMPSC",
+	number : "16",
+	units : "4",
+	prereq : [[{id : "2",  concur : "y"}, {id: "3",  concur : "y"}],
+	  		  [{id :"0", concur :"n"}]],
+	gearea :["E", "QUR", "WRT"],
+	semester : ["spring", "summer", "fall", "winter"],
+
+}
+
+var course3 = {
+	label :"Math 3A, Introduction to Calclus",
+	id: "2",
+	sub : "MATH",
+	number : "3A",
+	units : "4",
+	prereq : [],
+	gearea :["F", "EUR", "WRT"],
+	semester : ["spring", "summer", "fall", "winter"],
+	
+
+}
+
+var course4 = {
+	label :"MATH 34A, CALC FOR SOCIAL SCI",
+	id : "3",
+	sub : "MATH",
+	number : "34A",
+	units : "4",
+	prereq : [],
+	gearea :["G", "EUR", "WRT"],
+	semester : ["spring", "summer", "fall", "winter"],
+	
+
+}
+
+
+
+var inputCourses = [
+                    {course : "CMPSC 8 Introduction to Computer Science", semester : "freshman_fall"},
+                    {course : "CMPSC 16 Problem Solving with Computers I", semester : "freshman_winter"},
+                    {course : "Math 3A, Introduction to Calclus", semester : "freshman_summer"},
+                    {course : "MATH 34A, CALC FOR SOCIAL SCI", semester : "freshman_summer"}
+] //input courses name with semester that should be provied for the function, this is just a example
+
+var user = {
+	major : "Computer Science",
+	majorType : "ENGR"
+}
+
+
+var geStatus =new Array() 
+    geStatus["A"] = 0,
+    geStatus["B"] = 0,
+    geStatus["C"] = 0,
+    geStatus["D"] = 0,
+    geStatus["E"] = 0,
+    geStatus["F"] = 0,
+    geStatus["G"] = 0,
+    geStatus["H"] = 0,
+
+    geStatus["EUR"] = 0,
+    geStatus["WRT"] = 0,
+    geStatus["WOR"] = 0,
+    geStatus["ETH"] = 0,
+    geStatus["DEP"] = 0,
+    geStatus["QUR"] = 0
+
+
+
+
+var geFullFillment
+
+var courseData  = [course1,course2,course3,course4] //list of all courses as pbject
+
+var addedCourses = [] //list of all inputed courses as a object of course and semester
+
+var schedule = [] //sorted schedule, index represent the semester. ex: schedule[0] is the array of all input courses in freshman summer quarter
+
+var validCourses = [] // list of all valid courses
+
+var invalidData = [] // array of invalidData as object, each object has three variable. 1.name 2.semester 3.message
+
+var check = "" //only for debug purpose
+
+var totalUnit = 0 // totoal units of the current courses add up
+
+var quarterUnit = [] // unit for each quarter, ex: quarterUnit[0] represent the unit of the freshman summer quarter
+
+
+
+ValidateAllInput(inputCourses)
+
+
+
+ValidGE()
+
+
+
+function change(){
+    var x = document.getElementById('demo');
+    x.innerHTML = validCourses.length
+}
+
+
+</script>
+
+
+
+
+
+<body>
+<html>
+
+
+
