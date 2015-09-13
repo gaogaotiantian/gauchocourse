@@ -30,7 +30,7 @@ $(".inputform").on("mouseenter", ".courseInput", function() {
     RefreshInputs()
 })
 $(".addInputButton").click(function() {
-    var newInput = "<div class='courseInputWrapper'><a href='javascript:;' class='courseInputRemove'><img src='image/remove.png' class='remove_button'></a><input class='courseInput'>"
+    var newInput = "<div class='courseInputWrapper'><a href='javascript:;' class='courseInputRemove'><img src='image/remove.png' class='remove_button'></a><span class='courseCredit'>0</span><input class='courseInput'>"
     $(this).parent().find("form").append(newInput)  
 })
 function RefreshInputs(){

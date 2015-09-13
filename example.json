@@ -6,7 +6,9 @@
         "number":"8",
         "units":"4",
         "prereq":[],
-        "semester":{"spring":"y", "summer":"y", "fall":"y", "winter":"y"}
+        "majorlimit":[],
+        "semester":["spring", "summer", "fall", "winter"],
+        "gearea":[]
     }, 
     {
         "label":"CMPSC 16 Problem Solving with Computers I",
@@ -14,8 +16,12 @@
         "sub":"CMPSC",
         "number":"16",
         "units":"4",
-        "prereq":[],
-        "semester":{"spring":"y", "summer":"y", "fall":"y", "winter":"y"}
+        "prereq":[
+            [{"id":"0", "concur":"n"}, {"id":"2", "concur":"n"}]
+        ],
+        "majorlimit":[],
+        "semester":["spring", "summer", "fall", "winter"],
+        "gearea":[]
     },
     {
         "label":"ENGR 3 Introduction to Programming",
@@ -23,10 +29,10 @@
         "sub":"ENGR",
         "number":"3",
         "units":"3",
-        "prereq":[
-            {"type":"major", "major":"ENGR"}
-        ],
-        "semester":{"spring":"y", "summer":"y", "fall":"y", "winter":"n"}
+        "prereq":[],
+        "majorlimit":["CHEME", "EE", "ME"],
+        "semester":["spring", "summer", "fall"],
+        "gearea":[]
     },
     {
         "label":"C LIT 30B Major Works in European Literature | Area E, EUR, WRT",
@@ -34,10 +40,9 @@
         "sub":"C LIT",
         "number":"30B",
         "units":"3",
-        "prereq":[
-            {"type":"major", "major":"ENGR"}
-        ],
-        "semester":{"spring":"y", "summer":"y", "fall":"y", "winter":"n"},
+        "prereq":[[{"id":"1", "concur":"y"}]],
+        "majorlimit":[],
+        "semester":["spring", "summer", "fall"],
         "gearea":["E", "EUR", "WRT"]
     },
     {
@@ -46,8 +51,9 @@
         "sub":"C LIT",
         "number":"30B",
         "units":"3",
-        "prereq":[],
-        "semester":{"spring":"y", "summer":"y", "fall":"y", "winter":"n"},
+        "prereq":[[{"id":"1", "concur":"y"}]],
+        "majorlimit":[],
+        "semester":["spring", "summer", "fall"],
         "gearea":["E", "EUR", "WRT"]
     }
 ]
