@@ -127,12 +127,31 @@ var geStatus =new Array()
     geStatus["QUR"] = 0
 
 
+var depth = false
+
 
 var reqNumber = [[2,2,6,1,4,1,1],
             [3,3,3,2,2,1,6,1,1,1],
             [3,2,2,1,1,1,6,1,1],
             [2,2,2,1,1,6,1,1]
  ]
+
+var depthSequence = [
+	{sub : "CH ST", number : ["1A",  "1B",  "1C" ]},
+	{sub : "C LIT", number : ["30A", "30B", "30C"]},
+	{sub : "FR",    number : ["50AX", "50BX", "50CX"]},
+	{sub : "HIST",  number : ["2A",  "2B",  "2C" ]},
+	{sub : "HIST",  number : ["2AH", "2BH", "2CH"]},
+	{sub : "HIST",  number : ["4A",  "4B",  "4C" ]},
+	{sub : "HIST",  number : ["4AH", "4BH", "4CH"]},
+	{sub : "HIST",  number : ["17A", "17B", "17C"]},
+	{sub : "HIST",  number : ["17AH","17BH","17CH"]},
+	{sub : "PHIL",  number : ["20A" , "20B", "20C"]},
+	{sub : "RG ST", number : ["80A",  "80B", "80C"]},
+	{sub : "ARTHI", number : ["6A", "6B", "6C", "6D", "6DS", "6DW", "6E", "6F", "6G", "6H", "6K"]}
+]
+
+
 
 function UpdateGE(){
 	for(area of geStatus)
@@ -143,14 +162,83 @@ function UpdateGE(){
 			geStatus[ge]+=1
 	}
 	console.log("ge",geStatus)
+
+	if(user.majorType=="ENGR"){
+		checkDepth()
+	}
+}
+
+function checkDepth(){
+	var count = 0
+	for(seq of depthSequence){
+		for(course of validCourses){
+			if(course.sub == seq.sub){
+				for(number of seq.number){
+					if(course.number == number){
+						count+=1
+						break
+					}
+				}
+			}
+		}
+		if(count>=3){
+			depth=true
+			break
+		}
+		count = 0
+		if(depth)
+			break
+	}
+	if(depth)
+		return
+
+	count = 0
+	var firstUpper = ""
+	for(course of validCourses){
+		if(parseInt(course.number)>99){
+			if(course.gearea.indexOf("D")>-1 || course.gearea.indexOf("E")>-1 ||course.gearea.indexOf("F")>-1 
+				||course.gearea.indexOf("G")>-1 ||course.gearea.indexOf("H")>-1){
+				if(count==0||course.sub!=firstUpper){
+					count++
+					firstUpper = course.sub
+				}
+			}
+		}
+		if(count>=2){
+			depth = true
+			break
+		}
+	}
+
 }
 
 
 
 function ValidGE(){
 	UpdateGE()
+	var w2 = false, w50 = false
+	for(course of validCourses){
+		if(course.sub == "WRIT"&&course.number.slice(0,1)=="2"){
+			w2 = true
+			break
+		}
+	}
+	for(course of validCourses){
+		if(course.sub == "WRIT"&&(course.number.slice(0,2)=="50"||course.number.slice(0,4)=="109")){
+			w50 = true
+			break
+		}
+		if(course.sub == "ENGL"&&course.number.slice(0,3)=="10"){
+			w50 = true
+			break
+		}
+	}
+
+
+
 	if(user.majorType=="ENGR"){
-		var geFullFillment = [{type : "Area D,E", status : (geStatus["D"]+geStatus["E"])>=reqNumber[0][0], 
+		var geFullFillment = [
+						  {type : "Area D,E", status : (geStatus["D"]+geStatus["E"])>=reqNumber[0][0], 
 		                         message : (geStatus["D"]+geStatus["E"]) +"/2"},
 		                  {type : "Area F,G", status : (geStatus["F"]+geStatus["G"])>=reqNumber[0][1], 
 		                         message : (geStatus["F"]+geStatus["G"])+"/2"},
@@ -159,14 +247,18 @@ function ValidGE(){
 		                  {type : "ETH", status : (geStatus["ETH"])>=reqNumber[0][3], message :(geStatus["ETH"])+"/1"},
 		                  {type : "WRT", status :(geStatus["WRT"])>=reqNumber[0][4], message : (geStatus["WRT"])+"/4"},
 		                  {type : "EUR", status : (geStatus["EUR"])>=reqNumber[0][5], message : (geStatus["EUR"])+"/1"},
-		                  {type : "DEP", status :(geStatus["DEP"])>=reqNumber[0][6], message : (geStatus["DEP"])+"/1"}
+		                  {type : "DEP", status : depth, message : (depth ? "1":"0") + "/1"},
+						  {type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
+						  {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
 		]
 		console.log("geFullFillment",geFullFillment)
 		return geFullFillment
 	}
 
 	else if(user.majorType == "LSBA"){
-		var geFullFillment = [{type : "Area C", status :(geStatus["C"]>=reqNumber[1][0]), message :geStatus.gearea[2].taken+"/3"},
+		var geFullFillment = [{type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
+						  {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
+						  {type : "Area C", status :(geStatus["C"]>=reqNumber[1][0]), message :geStatus.gearea[2].taken+"/3"},
 		                  {type : "Area D", status :(geStatus["D"]>=reqNumber[1][1]), message :geStatus.gearea[3].taken+"/3"},
 		                  {type : "Area E", status :(geStatus["E"]>=reqNumber[1][2]), message :geStatus.gearea[4].taken+"/3"},
 		                  {type : "Area F", status :(geStatus["F"]>=reqNumber[1][3]), message :geStatus.gearea[5].taken+"/2"},
@@ -182,7 +274,9 @@ function ValidGE(){
 	}
 
 	else if(user.majorType == "LSBS"){
-		var geFullFillment = [{type : "AreaC", status :(geStatus.gearea[2].taken>=reqNumber[2][0]), message :geStatus.gearea[2].taken+"/3"},
+		var geFullFillment = [{type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
+						  {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
+						  {type : "AreaC", status :(geStatus.gearea[2].taken>=reqNumber[2][0]), message :geStatus.gearea[2].taken+"/3"},
 		                  {type : "Area D", status :(geStatus.gearea[3].taken>=reqNumber[2][1]), message :geStatus.gearea[3].taken+"/2"},
 		                  {type : "Area E", status :(geStatus.gearea[4].taken>=reqNumber[2][2]), message :geStatus.gearea[4].taken+"/2"},
 		                  {type : "Area F", status :(geStatus.gearea[5].taken>=reqNumber[2][3]), message :geStatus.gearea[5].taken+"/1"},
@@ -197,7 +291,9 @@ function ValidGE(){
 	}
 
 	else if(user.majorType == "BMFA"){
-		var geFullFillment = [{type : "Area C", status :(geStatus.gearea[2].taken>=reqNumber[3][0]), message :geStatus.gearea[2].taken+"/2"},
+		var geFullFillment = [{type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
+						  {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
+						  {type : "Area C", status :(geStatus.gearea[2].taken>=reqNumber[3][0]), message :geStatus.gearea[2].taken+"/2"},
 		                  {type : "Area D", status :(geStatus.gearea[3].taken>=reqNumber[3][1]), message :geStatus.gearea[3].taken+"/2"},
 		                  {type : "Area E", status :(geStatus.gearea[4].taken>=reqNumber[3][2]), message :geStatus.gearea[4].taken+"/2"},
 		                  {type : "Area G", status :(geStatus.gearea[6].taken>=reqNumber[3][3]), message :geStatus.gearea[6].taken+"/1"},
@@ -212,3 +308,11 @@ function ValidGE(){
 
 
 }
+
+
+
+
+
+
+
+
