@@ -15,7 +15,9 @@
 <script src="typege.js"> </script>
 
 <script>
-var course1 = {
+
+var courseData  =[
+{
     label : "CMPSC 8 Introduction to Computer Science",
     id : "0",
     sub: "CMPSC",
@@ -25,9 +27,9 @@ var course1 = {
     gearea :["D", "WOR", "WRT"],
     semester : ["spring", "summer", "fall", "winter"],
     //gearea :["D", "EUR", "WRT"]
-}
+},
 
-var course2 = {
+{
 	label :"CMPSC 16 Problem Solving with Computers I",
 	id : "1",
 	sub : "CMPSC",
@@ -38,9 +40,9 @@ var course2 = {
 	gearea :["E", "QUR", "WRT"],
 	semester : ["spring", "summer", "fall", "winter"],
 
-}
+},
 
-var course3 = {
+{
 	label :"Math 3A, Introduction to Calclus",
 	id: "2",
 	sub : "MATH",
@@ -51,9 +53,9 @@ var course3 = {
 	semester : ["spring", "summer", "fall", "winter"],
 	
 
-}
+},
 
-var course4 = {
+{
 	label :"MATH 34A, CALC FOR SOCIAL SCI",
 	id : "3",
 	sub : "MATH",
@@ -64,7 +66,76 @@ var course4 = {
 	semester : ["spring", "summer", "fall", "winter"],
 	
 
-}
+},
+
+{
+    label :"Writing 2, intro to College Writing",
+    id : "4",
+    sub : "WRIT",
+    number : "2",
+    units : "4",
+    prereq : [],
+    gearea :["A","WRT"],
+    semester : ["spring", "summer", "fall", "winter"]
+    
+
+},
+
+{
+    label :"History 2A, World History",
+    id : "5",
+    sub : "HIST",
+    number : "2A",
+    units : "4",
+    prereq : [],
+    gearea :["E","WRT","EUR"],
+    semester : ["spring", "summer", "fall", "winter"]
+},
+
+{
+    label :"History 2B, World History",
+    id : "6",
+    sub : "HIST",
+    number : "2B",
+    units : "4",
+    prereq : [],
+    gearea :["E","WRT","EUR"],
+    semester : ["spring", "summer", "fall", "winter"]
+},
+
+{
+    label :"History 2C, World History",
+    id : "7",
+    sub : "HIST",
+    number : "4C",
+    units : "4",
+    prereq : [],
+    gearea :["E","WRT","EUR"],
+    semester : ["spring", "summer", "fall", "winter"]
+},
+
+{
+    label :"History 200B, Post World History",
+    id : "8",
+    sub : "HIST",
+    number : "200B",
+    units : "4",
+    prereq : [],
+    gearea :["E","WRT","EUR"],
+    semester : ["spring", "summer", "fall", "winter"]
+},
+
+{
+    label :"Philophy 173, World History",
+    id : "9",
+    sub : "PHIL",
+    number : "173",
+    units : "4",
+    prereq : [],
+    gearea :["D","WRT"],
+    semester : ["spring", "summer", "fall", "winter"]
+},
+]
 
 
 
@@ -72,7 +143,13 @@ var inputCourses = [
                     {course : "CMPSC 8 Introduction to Computer Science", semester : "freshman_fall"},
                     {course : "CMPSC 16 Problem Solving with Computers I", semester : "freshman_winter"},
                     {course : "Math 3A, Introduction to Calclus", semester : "freshman_summer"},
-                    {course : "MATH 34A, CALC FOR SOCIAL SCI", semester : "freshman_summer"}
+                    {course : "MATH 34A, CALC FOR SOCIAL SCI", semester : "freshman_summer"},
+                    {course : "Writing 2, intro to College Writing", semester : "freshman_summer"},
+                    {course : "History 2A, World History",semester :"freshman_winter"},
+                    {course : "History 2B, World History",semester :"freshman_spring"},
+                    {course : "History 2C, World History",semester :"freshman_summer"},
+                    {course : "History 200B, Post World History", semester :"freshman_winter"},
+                    {course : "Philophy 173, World History", semester : "freshman_fall"}
 ] //input courses name with semester that should be provied for the function, this is just a example
 
 var user = {
@@ -103,7 +180,6 @@ var geStatus =new Array()
 
 var geFullFillment
 
-var courseData  = [course1,course2,course3,course4] //list of all courses as pbject
 
 var addedCourses = [] //list of all inputed courses as a object of course and semester
 
