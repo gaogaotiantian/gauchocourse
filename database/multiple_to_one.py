@@ -1,18 +1,26 @@
 import os
 import json
 import re
+import copy
 deptData = []
 majorList = []
+deptList = []
 def AddCourse(course):
     exist = False
     for existCourse in deptData:
         if existCourse["CourseTitle"] == course["CourseTitle"]:
             if course["semester"][0] not in existCourse["semester"]:
                 existCourse["semester"].append(course["semester"][0])
+            existCourse["Major-Limit"] = MajorLimitCombine(existCourse["Major-Limit"], course["Major-Limit"])
             exist = True
     if exist == False:
-        deptData.append(course)    
+        deptData.append(course)   
 
+def MajorLimitCombine(limit1, limit2):
+    if len(limit1) == 0 or len(limit2) == 0:
+        return ""
+    else:
+        return limit1 + limit2
 # This is not compatible with py3
 def CmpCourseName(course1, course2):
     wdList1 = course1["CourseTitle"].split()
@@ -74,7 +82,7 @@ def GetFormat(course, idNum, geCourses):
     ret["majorlimit"] = []
     if len(course["Major-Limit-Pass"]) == 0:
         for major in majorList:
-            if major in course["Major-Limit"]:
+            if re.search(r"\b{0}\b".format(major), course["Major-Limit"]) is not None:
                 ret["majorlimit"].append(major)
 
     # Units
@@ -89,16 +97,38 @@ def GetFormat(course, idNum, geCourses):
     # We need exact match to avoid ANTH 2 == ANTH 20
     # We need to add GE Area back to the label after getting all of them
     ret["gearea"] = []
+    MajorArea = []
+    MinorArea = []
     for area in geCourses:
         for course in geCourses[area]:
             courseName = course.split("-")[0].strip()
             if (" ").join([ret["sub"], ret["number"]]) == courseName:
-                ret["gearea"].append(area)
-    if len(ret["gearea"]) > 0:
-        ret["label"] += " | Area " + ", ".join(ret["gearea"])
+                if area in ["B", "C", "D", "E", "F", "G"]:
+                    MajorArea.append(area)
+                else:
+                    MinorArea.append(area)
 
-    # return this dict
-    return ret
+    retGroup = []
+    if len(MajorArea) == 0:
+        for minArea in MinorArea:
+            ret["gearea"].append(minArea)
+        retGroup.append(ret)
+
+    for area in MajorArea:
+        temp = copy.deepcopy(ret)
+        temp["gearea"].append(area)
+        for minArea in MinorArea:
+            temp["gearea"].append(minArea)
+        retGroup.append(temp)
+    
+
+    
+    for ele in retGroup:
+        if len(ele["gearea"]) > 0:
+            ele["label"] += " | Area " + ", ".join(ele["gearea"])
+
+    # return this dictList
+    return retGroup
 
 if __name__ == "__main__":
     # Read in GE Areas
@@ -109,17 +139,18 @@ if __name__ == "__main__":
             with open(ge_folder + gefile) as f:
                 # strip ".txt" for key
                 geCourses[gefile[:-4]] = f.read().splitlines()
+    with open("./majorList.txt") as fmajor:
+        majorList = fmajor.read().splitlines()
     with open("./depts.txt") as fdept:
         allDeptData = []
         formattedData = []
-        majorList = fdept.read().splitlines()
-        
-        for dept in majorList:
+        deptList = fdept.read().splitlines()
+        for dept in deptList:
             print "Grabbing data from: " + dept
             json_folder = "./json_raw_data/"
             for subdir, dirs, files in os.walk(json_folder):
                 for f in files:
-                    if f.startswith(dept) and f[len(dept)] == '_':
+                    if f.startswith(dept) and f[len(dept)] == '_' and "2015" in f:
 #                       print "Reading File: " + f
                         AddFileData(json_folder + f)
                         
@@ -128,7 +159,9 @@ if __name__ == "__main__":
             deptData = []
         idNum = 0 
         for course in allDeptData:
-            formattedData.append(GetFormat(course, idNum, geCourses))
-            idNum += 1
+            for data in GetFormat(course, idNum, geCourses):
+                formattedData.append(data)
+                idNum += 1
         with open("allCourses.json", "w") as fout:
             fout.write(json.dumps(formattedData, indent=4, separators=(',', ':')))
+
