@@ -15,12 +15,13 @@ function ValidateAllInput(input){
     validCourses = []
     AddAllCourses(input)
     SortAllCourseBySemester()
+    CountUnit()
+    console.log("schedule",schedule)
     for(var i=0; i<16; i++){
         for(var course of schedule[i]){
             CheckThisCourse(course,i)
         }
     }
-    CountUnit()
     console.log("added:", addedCourses)
     console.log("valid:", validCourses)
     console.log("invalid", invalidData)
@@ -52,6 +53,15 @@ function GetErrorMessage(name){
 
 
 
+
+
+
+
+
+
+
+
+//function starts here is for my own use
 function SemToNum(semester){
     if(semester == "freshman_summer") return 0;
     if(semester == "freshman_fall") return 1;
@@ -89,6 +99,30 @@ function NumToSem(num){
         if(num==14) return "senior_winter";
         if(num==15) return "senior_spring";
     }
+
+
+
+function CountUnit(){
+    var tempunit = 0
+    for(qt of schedule){
+        for(course of qt){
+            tempunit+=Math.round(course.units)
+        }
+        quarterUnit.push(tempunit)
+        totalUnit+=tempunit
+        tempunit = 0
+    }
+}
+
+function countUnitBeforeSem(sem){
+    var units = 0
+    for(var s = 0; s<sem; s++){
+        units+=quarterUnit[s]
+    }
+    return units
+}
+
+
   
 //add all the input courses to the addedCourses
 function AddAllCourses(input){
@@ -145,7 +179,49 @@ function CheckThisCourse(course, sem){
             return
     }
 
+    if(course.majorlimit.length!=0){
+        var inmajor = false
+
+        for(major of course.majorlimit){
+            if(major == user.major){
+                inmajor = true
+                break
+            }
+        }
+
+        if(!inmajor){
+            invalidData.push({name:(course.label), semester : NumToSem(sem), message : "course only offer to certain major"})
+        }
+    }
+
     console.log(course)
+
+
+    if(course.levellimit!=""){
+        var units = countUnitBeforeSem(sem)
+        console.log("Units", totalUnit)
+        console.log("Course with unit",course.label)
+        switch(course.levellimit){
+            case "U":
+                if(units<90) 
+                    invalidData.push({name:(course.label), semester : NumToSem(sem), message : "This course is for Junior and Senior only"})
+                return
+            case "Z":
+                if(units<45)
+                    invalidData.push({name:(course.label), semester : NumToSem(sem), message : "This course is not open for Freshman"})
+                return
+            case "S":
+                if(units<135)
+                    invalidData.push({name:(course.label), semester : NumToSem(sem), message : "This course is for Senior Only"})
+                return
+            case "A":
+                if(units>44.9)
+                    invalidData.push({name:(course.label), semester : NumToSem(sem), message : "This course is for Freshman only"})
+        }
+    }
+
+
+
     var timecheck = true
     switch(sem%4){
         case 0 :
@@ -177,6 +253,30 @@ function CheckThisCourse(course, sem){
             for(var p in course.prereq[n]){
                 var range = sem-1
                 var id = course.prereq[n][p].id
+
+                if(course.prereq[n][p].concur == "m"){
+                    for(var q in schedule[sem]){
+                        if(id == schedule[sem][q].id){
+                            var tempcourse = courseData[id]
+                            CheckThisCourse(tempcourse,s)
+                            for(var h of validCourses){
+                                if(h.label == tempcourse.label){
+                                    found = true
+                                    break
+                                }
+                            }
+                        }
+                        if(found) break
+                    }
+                    if(!found){
+                        invalidData.push({name:(course.label), semester : NumToSem(sem), message : "course's prerequisites are not fulfilled"})
+                        console.log("prereq" + invalidData)
+                        return
+                    }
+                }
+
+
+
                 if(course.prereq[n][p].concur == "y")
                     range+=1
                     for(var s=0; s<=range; s++){
@@ -208,14 +308,9 @@ function CheckThisCourse(course, sem){
     validCourses.push(course)
 }
 
-function CountUnit(){
-    var tempunit = 0
-    for(qt of schedule){
-        for(course of qt){
-            tempunit+=Math.round(course.units)
-        }
-        quarterUnit.push(tempunit)
-        totalUnit+=tempunit
-        tempunit = 0
-    }
-}
+
+
+
+
+
+

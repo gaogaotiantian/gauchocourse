@@ -22,49 +22,57 @@ var courseData  =[
     id : "0",
     sub: "CMPSC",
     number : "8",
+    majorlimit : [],
     prereq : [[{id : "2", concur : "y"}]],
     units : "4",
     gearea :["D", "WOR", "WRT"],
+    levellimit : "A",
     semester : ["spring", "summer", "fall", "winter"],
     //gearea :["D", "EUR", "WRT"]
 },
 
 {
-	label :"CMPSC 16 Problem Solving with Computers I",
-	id : "1",
-	sub : "CMPSC",
-	number : "16",
-	units : "4",
-	prereq : [[{id : "2",  concur : "y"}, {id: "3",  concur : "y"}],
-	  		  [{id :"0", concur :"n"}]],
-	gearea :["E", "QUR", "WRT"],
-	semester : ["spring", "summer", "fall", "winter"],
+    label :"CMPSC 16 Problem Solving with Computers I",
+    id : "1",
+    sub : "CMPSC",
+    number : "16",
+    majorlimit : [],
+    units : "4",
+    prereq : [[{id : "2",  concur : "y"}, {id: "3",  concur : "y"}],
+              [{id :"0", concur :"n"}]],
+    gearea :["E", "QUR", "WRT"],
+    levellimit : "",
+    semester : ["spring", "summer", "fall", "winter"],
 
 },
 
 {
-	label :"Math 3A, Introduction to Calclus",
-	id: "2",
-	sub : "MATH",
-	number : "3A",
-	units : "4",
-	prereq : [],
-	gearea :["F", "EUR", "WRT"],
-	semester : ["spring", "summer", "fall", "winter"],
-	
+    label :"Math 3A, Introduction to Calclus",
+    id: "2",
+    sub : "MATH",
+    number : "3A",
+    majorlimit : [],
+    units : "4",
+    prereq : [],
+    gearea :["F", "EUR", "WRT"],
+    levellimit : "",
+    semester : ["spring", "summer", "fall", "winter"],
+    
 
 },
 
 {
-	label :"MATH 34A, CALC FOR SOCIAL SCI",
-	id : "3",
-	sub : "MATH",
-	number : "34A",
-	units : "4",
-	prereq : [],
-	gearea :["G", "EUR", "WRT"],
-	semester : ["spring", "summer", "fall", "winter"],
-	
+    label :"MATH 34A, CALC FOR SOCIAL SCI",
+    id : "3",
+    sub : "MATH",
+    number : "34A",
+    majorlimit : [],
+    units : "4",
+    prereq : [],
+    gearea :["G", "EUR", "WRT"],
+    levellimit : "",
+    semester : ["spring", "summer", "fall", "winter"],
+    
 
 },
 
@@ -73,9 +81,11 @@ var courseData  =[
     id : "4",
     sub : "WRIT",
     number : "2",
+    majorlimit : [],
     units : "4",
     prereq : [],
     gearea :["A","WRT"],
+    levellimit : "",
     semester : ["spring", "summer", "fall", "winter"]
     
 
@@ -86,9 +96,11 @@ var courseData  =[
     id : "5",
     sub : "HIST",
     number : "2A",
+    majorlimit : [],
     units : "4",
     prereq : [],
     gearea :["E","WRT","EUR"],
+    levellimit : "",
     semester : ["spring", "summer", "fall", "winter"]
 },
 
@@ -97,9 +109,11 @@ var courseData  =[
     id : "6",
     sub : "HIST",
     number : "2B",
+    majorlimit : ["CMPSC","ME"],
     units : "4",
     prereq : [],
     gearea :["E","WRT","EUR"],
+    levellimit : "",
     semester : ["spring", "summer", "fall", "winter"]
 },
 
@@ -108,9 +122,11 @@ var courseData  =[
     id : "7",
     sub : "HIST",
     number : "4C",
+    majorlimit : [],
     units : "4",
     prereq : [],
     gearea :["E","WRT","EUR"],
+    levellimit : "",
     semester : ["spring", "summer", "fall", "winter"]
 },
 
@@ -119,9 +135,11 @@ var courseData  =[
     id : "8",
     sub : "HIST",
     number : "200B",
+    majorlimit : [],
     units : "4",
     prereq : [],
     gearea :["E","WRT","EUR"],
+    levellimit : "",
     semester : ["spring", "summer", "fall", "winter"]
 },
 
@@ -130,9 +148,11 @@ var courseData  =[
     id : "9",
     sub : "PHIL",
     number : "173",
+    majorlimit : [],
     units : "4",
     prereq : [],
     gearea :["D","WRT"],
+    levellimit : "",
     semester : ["spring", "summer", "fall", "winter"]
 },
 ]
@@ -153,8 +173,8 @@ var inputCourses = [
 ] //input courses name with semester that should be provied for the function, this is just a example
 
 var user = {
-	major : "Computer Science",
-	majorType : "ENGR"
+    major : "Computer Science",
+    majorType : "ENGR"
 }
 
 
@@ -175,6 +195,11 @@ var geStatus =new Array()
     geStatus["DEP"] = 0,
     geStatus["QUR"] = 0
 
+//global variable you should provide
+var user = {
+    major : "CMPSC",
+    majorType : "ENGR"
+}
 
 
 
@@ -203,6 +228,7 @@ ValidateAllInput(inputCourses)
 
 ValidGE()
 
+console.log("unitbeforewinter",countUnitBeforeSem(2))
 
 
 function change(){
