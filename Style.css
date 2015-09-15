@@ -20,8 +20,6 @@ body{
 	z-index:-1;
 }
 #header{
-	background-color:#339;
-	color:#FC0;
 	text-align:center;
 	width:100%;
 	border-radius:13px;
@@ -35,20 +33,21 @@ body{
 #top_bar{
     height:50px;
     width:100%;
-    background-color:#74B9CA;
+    background-color:#CCCC33;
+    color:black;
 }
 
 #website_logo{
     text-align:center;
-    color:white;
     float:left;
-    width:150px;
+    width:10%;
     height:100%;
 }
 
 #user_info{
-    color:white;
+    float:right;
     height:100%;
+    width:90%;
 }
 
 #main_content{
@@ -64,14 +63,15 @@ body{
 }
 #left_bar{
     text-align:center;
-    color:white;
+    background-color:#CCCC33;
+    color:black;
     float:left;
-    background-color:#74B9CA;
     width:150px;
     height:100%;
 }
 
 #form_area{
+    background-color:#FFFFFF;
     border-radius:10px;	
     width:auto;	
     height:100%;
@@ -81,11 +81,13 @@ body{
 
 #major{
 	width:50%;
+	heigth:50px;
 }
 
 #ap_info{
 	float:right;
 	width:50%;
+	height:50px;
 }
 #footer{
     height:50px;
@@ -105,7 +107,7 @@ body{
 	width:22px;
 	height:22px;
 	position:relative;
-	right:1%;
+	right:3px;
 	top:3px;
 }
 .remove_button{
@@ -119,12 +121,12 @@ body{
 }
 .addInputButton{
 	position:relative;
-    right:0%;
+        right:3%;
 	top:8px;
 }
 .courseInputRemove{
 	position:relative;
-	right:2%;
+	right:5%;
 	top:7px;
 }
 .courseInput{
@@ -154,8 +156,8 @@ p.title{
 	position:relative;
 	top:0;
 	text-align:center;
-	background-image:url(image/BG.jpg);	
-	color:#2C6B6F;
+	background-color:#336699;
+	color:white;
 	font-weight:600;
 	padding-top:3%;
 	padding-bottom:3%;
@@ -167,6 +169,7 @@ p.title{
 .year{
 	overflow:hidden;
 	width:100%;
+	
 }
 #main{
 	margin:0 auto;
@@ -177,14 +180,14 @@ p.title{
 	margin:1%;
 }
 .inputform{ 
-	background-color:white;
+    background-color:white;
     float:left;
     border-style:solid;
     width:21%;
-	padding:1%;
+    padding:1%;
     margin:0.5%;
-	border-radius:12px;
-	border-width:2px;
+    border-radius:12px;
+    border-width:2px;
 }
 input {
     border-bottom: black 2px solid;
