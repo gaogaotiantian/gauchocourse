@@ -351,7 +351,7 @@ function checkRequiredCourses(){
             }
         }
         if(!found){
-            unFinishedReq.push(reqCourse.sub+reqCourse.number)
+            unFinishedReq.push(reqCourse.sub+" "+reqCourse.number)
         }
         found =false
     }
@@ -415,10 +415,10 @@ function checkChoiceCourses(){
             tempstring+=(" more units from the following courses: \n")
             for(var c of choices.courses){
                 if(c.sub!=undefined)
-                    tempstring+=(c.sub+c.number+"\n")
+                    tempstring+=(c.sub+" "+c.number+"\n")
                 else{
                     for(var ic of c.courses){
-                        tempstring+=(ic.sub+ic.number+" or")
+                        tempstring+=(ic.sub+" "+ic.number+" or")
                     }
                     tempstring = tempstring.slice(0,tempstring.length-2)
                     tempstring+="\n"
