@@ -26,7 +26,7 @@ var courseData  =[
     prereq : [[{id : "2", concur : "y"}]],
     units : "4",
     gearea :["D", "WOR", "WRT"],
-    levellimit : "Z",
+    levellimit : "",
     semester : ["spring", "summer", "fall", "winter"],
     //gearea :["D", "EUR", "WRT"]
 },
@@ -55,7 +55,7 @@ var courseData  =[
     units : "4",
     prereq : [],
     gearea :["F", "EUR", "WRT"],
-    levellimit : "Z",
+    levellimit : "",
     semester : ["spring", "summer", "fall", "winter"],
     
 
@@ -70,7 +70,7 @@ var courseData  =[
     units : "4",
     prereq : [],
     gearea :["G", "EUR", "WRT"],
-    levellimit : "Z",
+    levellimit : "",
     semester : ["spring", "summer", "fall", "winter"],
     
 
@@ -171,6 +171,156 @@ var courseData  =[
 ]
 
 
+var majorReq = [
+    {
+        "major" : "CMPSC",
+
+        "getype" : "ENGR",
+
+        "requiredCourses" :[{"sub" : "CMPSC", "number": "16"},
+                            {"sub" : "CMPSC", "number": "24"},
+                            {"sub" : "CMPSC", "number": "32"},
+                            {"sub" : "CMPSC", "number": "40"},
+                            {"sub" : "CMPSC", "number": "48"},
+                            {"sub" : "CMPSC", "number": "56"},
+                            {"sub" : "CMPSC", "number": "64"},
+                            {"sub" : "MATH", "number": "3A"},
+                            {"sub" : "MATH", "number": "3B"},
+                            {"sub" : "MATH", "number": "4A"},
+                            {"sub" : "MATH", "number": "4B"},
+                            {"sub" : "MATH", "number": "6A"},
+                            {"sub" : "PSTAT", "number": "120A"},
+                            {"sub" : "CMPSC", "number": "130A"},
+                            {"sub" : "CMPSC", "number": "130B"},
+                            {"sub" : "CMPSC", "number": "138"},
+                            {"sub" : "CMPSC", "number": "154"},
+                            {"sub" : "CMPSC", "number": "160"},
+                            {"sub" : "CMPSC", "number": "162"},
+                            {"sub" : "CMPSC", "number": "170"},
+                            {"sub" : "ECE", "number": "152A"},
+                            {"sub" : "ENGR", "number": "101"},
+                            {"sub" : "PSTAT", "number": "120B"},
+                            {"sub" : "PHYS", "number": "1"},
+                            {"sub" : "PHYS", "number": "2"},
+                            {"sub" : "PHYS", "number": "3"},
+                            {"sub" : "PHYS", "number": "3L"}
+        ],
+
+        "choiceCourses" : [{"courses" : [{"sub" : "CMPSC", "number": "111"},{"sub" : "CMPSC", "number": "140"},], "units" : "4"},
+                           {"courses" : [{"sub" : "CMPSC", "number": "178"},
+                                         {"sub" : "CMPSC", "number": "140"},
+                                         {"sub" : "CMPSC", "number": "111"},
+                                         {"courses" : [{"sub" : "CMPSC", "number": "153A"},{"sub" : "ECE", "number": "153A"}], "units" : "4"},
+                                         {"sub" : "CMPSC", "number": "165A"},
+                                         {"sub" : "CMPSC", "number": "165B"},
+                                         {"sub" : "CMPSC", "number": "167"},
+                                         {"courses" : [{"sub" : "CMPSC", "number": "171"},{"sub" : "ECE", "number": "151"}], "units" : "4"},
+                                         {"sub" : "CMPSC", "number": "172"},
+                                         {"sub" : "CMPSC", "number": "174A"},
+                                         {"sub" : "CMPSC", "number": "174B"},
+                                         {"sub" : "CMPSC", "number": "176A"},
+                                         {"sub" : "CMPSC", "number": "176B"},
+                                         {"sub" : "CMPSC", "number": "176C"},
+                                         {"sub" : "CMPSC", "number": "177"},
+                                         {"sub" : "ECE", "number": "130A"},
+                                         {"sub" : "ECE", "number": "130B"},
+                                         {"sub" : "ECE", "number": "130C"},
+                                         {"sub" : "CMPSC", "number": "180"},
+                                         {"courses" : [{"sub" : "CMPSC", "number": "181B"},{"sub" : "ECE", "number": "181B"}], "units" : "4"},
+                                         {"courses" : [{"sub" : "CMPSC", "number": "182"},{"sub" : "ECE", "number": "160"}], "units" : "4"},
+                                         {"sub" : "CMPSC", "number": "185"},
+                                         {"sub" : "CMPSC", "number": "186"},
+                                         {"sub" : "CMPSC", "number": "189A"},
+                                         {"sub" : "CMPSC", "number": "189B"},
+                                         {"sub" : "CMPSC", "number": "190"},
+                                         {"sub" : "CMPSC", "number": "192"},
+                                         {"sub" : "CMPSC", "number": "196"},
+                                         {"sub" : "ECE", "number": "140"},
+                                         {"sub" : "ECE", "number": "152B"},
+                                         {"sub" : "ECE", "number": "153B"},
+                                         {"sub" : "MATH", "number": "108A"},
+                                         {"sub" : "MATH", "number": "108B"},
+                                         {"sub" : "MATH", "number": "119A"},
+                                         {"sub" : "MATH", "number": "119B"},
+                                         {"sub" : "MATH", "number": "124A"},
+                                         {"sub" : "MATH", "number": "124B"},
+                                         {"sub" : "PSTAT", "number": "122"},
+                                         {"sub" : "PSTAT", "number": "130"},
+                                         {"sub" : "PSTAT", "number": "160A"},
+                                         {"sub" : "PSTAT", "number": "160B"},
+
+                                    ], 
+                           "units":"20"},
+
+                           {"courses" : [{"sub" : "ANTH", "number" : "5"},
+                                         {"sub" : "ASTRO", "number" : "1"},
+                                         {"sub" : "ASTRO", "number" : "2"},
+                                         {"sub" : "CHEM", "number" : "1A"},
+                                         {"sub" : "CHEM", "number" : "1AL"},
+                                         {"sub" : "CHEM", "number" : "1B"},
+                                         {"sub" : "CHEM", "number" : "1BL"},
+                                         {"sub" : "CHEM", "number" : "1C"},
+                                         {"sub" : "CHEM", "number" : "1CL"},
+                                         {"sub" : "CHEM", "number" : "2A"},
+                                         {"sub" : "CHEM", "number" : "2AL"},
+                                         {"sub" : "CHEM", "number" : "2B"},
+                                         {"sub" : "CHEM", "number" : "2BL"},
+                                         {"sub" : "CHEM", "number" : "2C"},
+                                         {"sub" : "CHEM", "number" : "2CL"},
+                                         {"sub" : "EARTH", "number" : "2"},
+                                         {"courses" : [{"sub" : "EARTH", "number": "4"},{"sub" : "EARTH", "number": "4W"}], "units" : "4"},
+                                         {"sub" : "EARTH", "number" : "6"},
+                                         {"sub" : "EARTH", "number" : "7"},
+                                         {"sub" : "EARTH", "number" : "8"},
+                                         {"sub" : "EARTH", "number" : "9"},
+                                         {"sub" : "EARTH", "number" : "10"},
+                                         {"courses" : [{"sub" : "EARTH", "number": "20"},{"sub" : "EARTH", "number": "20W"}], "units" : "4"},
+                                         {"sub" : "EARTH", "number" : "30"},
+                                         {"sub" : "EARTH", "number" : "111"},
+                                         {"sub" : "EARTH", "number" : "123"},
+                                         {"sub" : "EARTH", "number" : "130"},
+                                         {"sub" : "EEMB", "number" : "21"},
+                                         {"sub" : "EEMB", "number" : "22"},
+                                         {"sub" : "EEMB", "number" : "40"},
+                                         {"sub" : "EEMB", "number" : "50"},
+                                         {"sub" : "ENV S", "number" : "2"},
+                                         {"sub" : "GEOG", "number" : "3A"},
+                                         {"sub" : "GEOG", "number" : "3B"},
+                                         {"sub" : "GEOG", "number" : "8"},
+                                         {"sub" : "GEOG", "number" : "12"},
+                                         {"sub" : "GEOG", "number" : "115A"},
+                                         {"sub" : "GEOG", "number" : "115B"},
+                                         {"sub" : "GEOG", "number" : "115BL"},
+                                         {"sub" : "MCDB", "number" : "1A"},
+                                         {"sub" : "MCDB", "number" : "1AL"},
+                                         {"courses" : [{"sub" : "MCDB", "number": "1B"},{"sub" : "EEMB", "number": "2"}], "units" : "3"},
+                                         {"courses" : [{"sub" : "MCDB", "number": "1BL"},{"sub" : "EEMB", "number": "2L"}], "units" : "1"},
+                                         {"sub" : "MCDB", "number" : "20"},
+                                         {"sub" : "MCDB", "number" : "21"},
+                                         {"sub" : "MCDB", "number" : "23"},
+                                         {"sub" : "MCDB", "number" : "26"},
+                                         {"sub" : "MCDB", "number" : "27"},
+                                         {"sub" : "MCDB", "number" : "29"},
+                                         {"sub" : "PHIL", "number" : "183"},
+                                         {"sub" : "PHYS", "number" : "4"},
+                                         {"sub" : "PHYS", "number" : "4L"},
+                                         {"sub" : "PHYS", "number" : "5"},
+                                         {"sub" : "PHYS", "number" : "5L"},
+                                         {"sub" : "PSY", "number" : "107"},
+                                         {"sub" : "PSY", "number" : "108"},
+                           ], "units" : "8"}
+
+                           ], 
+
+        "units" : "184"
+    }
+]
+
+
+
+
+
+
 
 var inputCourses = [
                     {course : "CMPSC 8 Introduction to Computer Science", semester : "freshman_fall"},
@@ -185,6 +335,8 @@ var inputCourses = [
                     {course : "Philophy 173, World History", semester : "freshman_fall"},
                     {course : "SPAN 3,ELEMENTARY SPAN 3",semester:"freshman_spring"}
 ] //input courses name with semester that should be provied for the function, this is just a example
+
+
 
 var user = {
     major : "Computer Science",

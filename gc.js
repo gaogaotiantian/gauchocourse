@@ -18,12 +18,14 @@ function ValidateAllInput(input){
     AddAllCourses(input)
     SortAllCourseBySemester()
     CountUnit()
-    console.log("schedule",schedule)
+    //console.log("schedule",schedule)
     for(var i=0; i<16; i++){
         for(var course of schedule[i]){
             CheckThisCourse(course,i)
         }
     }
+    checkRequiredCourses()
+    checkChoiceCourses()
     console.log("added:", addedCourses)
     console.log("valid:", validCourses)
     console.log("invalid", invalidData)
@@ -41,7 +43,6 @@ function IsValid(name){
 
 function GetErrorMessage(name){
     if(name == "") return true
-    console.log("invalid", invalidData)
     for(er of invalidData){
         if(er.name ==name)
             return er.message
@@ -204,13 +205,9 @@ function CheckThisCourse(course, sem){
         }
     }
 
-    console.log(course)
-
 
     if(course.levellimit!=""){
         var units = countUnitBeforeSem(sem)
-        console.log("Units", totalUnit)
-        console.log("Course with unit",course.label)
         switch(course.levellimit){
             case "U":
                 if(units<90) 
@@ -334,6 +331,104 @@ function CheckThisCourse(course, sem){
     validCourses.push(course)
 }
 
+
+function checkRequiredCourses(){
+    var index 
+    var unFinishedReq = []
+    var found = false
+    for(var t in majorReq){
+        if(user.major == majorReq[t].major){
+            index = t
+            break
+        }
+    }
+
+    for(var reqCourse of majorReq[index].requiredCourses){
+        for(course of validCourses){
+            if(reqCourse.sub == course.sub && reqCourse.number == course.number){
+                found = true
+                break
+            }
+        }
+        if(!found){
+            unFinishedReq.push(reqCourse.sub+reqCourse.number)
+        }
+        found =false
+    }
+    console.log("unFinishedReq",unFinishedReq)
+
+    if(unFinishedReq.length>0){
+        var tempstring = "You need to take following courses for your major requirment : \n"
+        for(var c of unFinishedReq){
+            tempstring+=(c+"\n")
+        }
+        invalidData.push({name : "Required Courses", message : tempstring})
+    }
+}
+
+
+function checkChoiceCourses(){
+    var index 
+    var currentUnits = 0
+    var insideUnits = 0
+    var failedChoices = []
+    for(var t in majorReq){
+        if(user.major == majorReq[t].major){
+            index = t
+            break
+        }
+    }
+    for(choices of majorReq[index].choiceCourses){
+        currentUnits = 0
+        insideUnits=0
+        for(var c of choices.courses){
+            if(c.sub!=undefined){
+                for(var vc of validCourses){
+                    if(c.sub==vc.sub && c.number==vc.number){
+                        currentUnits+=parseInt(vc.units)
+                        //console.log("currentUnits first add",currentUnits)
+                        break
+                    }
+                }
+            }
+            else{
+                insideUnits=0
+                for(var ic of c.courses){
+                    for(var vc of validCourses){
+                        if(ic.sub == vc.sub && ic.number == vc.number){
+                            insideUnits+=parseInt(vc.units)
+                            console.log("choice fullfilled by", (vc.sub+vc.number))
+                            break
+                        }
+                    }
+                }
+                if(insideUnits>=parseInt(c.units)){
+                    currentUnits+=parseInt(c.units)
+                }
+            }
+        }
+        console.log("currentUnits",currentUnits)
+        console.log("requirment unit",choices.units)
+        if(currentUnits< parseInt(choices.units)){
+            var tempstring = " you must take "
+            tempstring+=(parseInt(choices.units) - currentUnits)
+            tempstring+=(" more units from the following courses: \n")
+            for(var c of choices.courses){
+                if(c.sub!=undefined)
+                    tempstring+=(c.sub+c.number+"\n")
+                else{
+                    for(var ic of c.courses){
+                        tempstring+=(ic.sub+ic.number+" or")
+                    }
+                    tempstring = tempstring.slice(0,tempstring.length-2)
+                    tempstring+="\n"
+                }
+            }
+            invalidData.push({name: "Choice Courses", message :tempstring})
+        }
+    }
+
+}
 
 
 
