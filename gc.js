@@ -146,6 +146,7 @@ function AddAllCourses(input){
                     break
                 }
                 addedCourses.push({course : courseData[j], semester : SemToNum(input[i].semester)})
+                break
             }
         }
     }
