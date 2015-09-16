@@ -244,6 +244,10 @@ ValidGE()
 
 console.log("unitbeforewinter",countUnitBeforeSem(2))
 
+kk = {name : "a", type:"random"}
+if( typeof(kk.man)=="undefined")
+console.log("test",typeof(kk.name) )
+
 
 function change(){
     var x = document.getElementById('demo');
