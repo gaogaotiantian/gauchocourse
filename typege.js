@@ -98,11 +98,7 @@ var geStatus  = {
     ]
 }
 */
-//global variable you should provide
-var user = {
-    major : "Computer Science",
-    majorType : "ENGR"
-}
+
 
 
 //local variable to count the ge requirment
@@ -151,6 +147,9 @@ var depthSequence = [
     {sub : "RG ST", number : ["80A",  "80B", "80C"]},
     {sub : "ARTHI", number : ["6A", "6B", "6C", "6D", "6DS", "6DW", "6E", "6F", "6G", "6H", "6K"]}
 ]
+
+
+var foreignLanguage = ["GREEK","LATIN","CHIN","JAPAN","GER","HEB","SLAV","FR","ITAL","SPAN","PORT"]
 
 
 
@@ -215,6 +214,21 @@ function checkDepth(){
 
 
 
+
+function checkAreaB(){
+    for(course of validCourses){
+        if(course.number==3){
+            for(language of foreignLanguage){
+                if(language==course.sub)
+                    return true
+            }
+        }
+    }
+    return false
+}
+
+
+
 function ValidGE(){
     UpdateGE()
     var w2 = false, w50 = false
@@ -259,17 +273,20 @@ function ValidGE(){
     else if(user.majorType == "LSBA"){
         var geFullFillment = [{type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
                           {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
-                          {type : "Area C", status :(geStatus["C"]>=reqNumber[1][0]), message :geStatus.gearea[2].taken+"/3"},
-                          {type : "Area D", status :(geStatus["D"]>=reqNumber[1][1]), message :geStatus.gearea[3].taken+"/3"},
-                          {type : "Area E", status :(geStatus["E"]>=reqNumber[1][2]), message :geStatus.gearea[4].taken+"/3"},
-                          {type : "Area F", status :(geStatus["F"]>=reqNumber[1][3]), message :geStatus.gearea[5].taken+"/2"},
-                          {type : "Area G", status :(geStatus["G"]>=reqNumber[1][4]), message :geStatus.gearea[6].taken+"/2"},
-                          {type : "WOR", status : (geStatus["WOR"]>=reqNumber[1][5]), message : (geStatus.otherReq[0].taken)+"/1"},
-                          {type : "WRT", status : (geStatus["WRT"])>=reqNumber[1][6], message : (geStatus.otherReq[1].taken)+"/6"},
-                          {type : "EUR", status : (geStatus["EUR"]>=reqNumber[1][7]), message : (geStatus.otherReq[2].taken)+"/1"},
-                          {type : "QUR", status : (geStatus.otherReq[3].taken>=reqNumber[1][8]), message : (geStatus.otherReq[3].taken)+"/1"},
-                          {type : "ETH", status : (geStatus.otherReq[4].taken>=reqNumber[1][9]), message : (geStatus.otherReq[4].taken)+"/1"}
+                          {type : "Area B", status : checkAreaB(), message : (checkAreaB()?1:0)+"/1"},
+                          {type : "Area C", status :(geStatus["C"]>=reqNumber[1][0]), message :geStatus["C"]+"/3"},
+                          {type : "Area D", status :(geStatus["D"]>=reqNumber[1][1]), message :geStatus["D"]+"/3"},
+                          {type : "Area E", status :(geStatus["E"]>=reqNumber[1][2]), message :geStatus["E"]+"/3"},
+                          {type : "Area F", status :(geStatus["F"]>=reqNumber[1][3]), message :geStatus["F"]+"/2"},
+                          {type : "Area G", status :(geStatus["G"]>=reqNumber[1][4]), message :geStatus["G"]+"/2"},
+                          {type : "WOR", status : (geStatus["WOR"]>=reqNumber[1][5]), message : geStatus["WOR"]+"/1"},
+                          {type : "WRT", status : (geStatus["WRT"])>=reqNumber[1][6], message : geStatus["WRT"]+"/6"},
+                          {type : "EUR", status : (geStatus["EUR"]>=reqNumber[1][7]), message : geStatus["EUR"]+"/1"},
+                          {type : "QUR", status : (geStatus["QUR"]>=reqNumber[1][8]), message : geStatus["QUR"]+"/1"},
+                          {type : "ETH", status : (geStatus["ETH"]>=reqNumber[1][9]), message : geStatus["ETH"]+"/1"}
         ]
+        console.log("geFullFillment",geFullFillment)
+
         return geFullFillment
 
     }
@@ -277,15 +294,16 @@ function ValidGE(){
     else if(user.majorType == "LSBS"){
         var geFullFillment = [{type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
                           {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
-                          {type : "AreaC", status :(geStatus.gearea[2].taken>=reqNumber[2][0]), message :geStatus.gearea[2].taken+"/3"},
-                          {type : "Area D", status :(geStatus.gearea[3].taken>=reqNumber[2][1]), message :geStatus.gearea[3].taken+"/2"},
-                          {type : "Area E", status :(geStatus.gearea[4].taken>=reqNumber[2][2]), message :geStatus.gearea[4].taken+"/2"},
-                          {type : "Area F", status :(geStatus.gearea[5].taken>=reqNumber[2][3]), message :geStatus.gearea[5].taken+"/1"},
-                          {type : "Area G", status :(geStatus.gearea[6].taken>=reqNumber[2][4]), message :geStatus.gearea[6].taken+"/1"},
-                          {type : "WOR", status : (geStatus.otherReq[0].taken>=reqNumber[2][5]), message :(geStatus.otherReq[0].taken)+"/1"},
-                          {type : "WRT", status : (geStatus.otherReq[1].taken)>=reqNumber[2][6], message :(geStatus.otherReq[1].taken)+"/6"},
-                          {type : "QUR", status : (geStatus.otherReq[3].taken>=reqNumber[2][7]), message :(geStatus.otherReq[3].taken)+"/1"},
-                          {type : "ETH", status : (geStatus.otherReq[4].taken>=reqNumber[2][8]), message :(geStatus.otherReq[4].taken)+"/1"}
+                          {type : "Area B", status : checkAreaB(), message : (checkAreaB()?1:0)+"/1"},
+                          {type : "AreaC", status :(geStatus["C"]>=reqNumber[2][0]), message :geStatus["C"]+"/3"},
+                          {type : "Area D", status :(geStatus["D"]>=reqNumber[2][1]), message :geStatus["D"]+"/2"},
+                          {type : "Area E", status :(geStatus["E"]>=reqNumber[2][2]), message :geStatus["E"]+"/2"},
+                          {type : "Area F", status :(geStatus["F"]>=reqNumber[2][3]), message :geStatus["F"]+"/1"},
+                          {type : "Area G", status :(geStatus["G"]>=reqNumber[2][4]), message :geStatus["G"]+"/1"},
+                          {type : "WOR", status : (geStatus["WOR"]>=reqNumber[2][5]), message :(geStatus["WOR"])+"/1"},
+                          {type : "WRT", status : (geStatus["WRT"])>=reqNumber[2][6], message :(geStatus["WRT"])+"/6"},
+                          {type : "QUR", status : (geStatus["QUR"]>=reqNumber[2][7]), message :(geStatus["QUR"])+"/1"},
+                          {type : "ETH", status : (geStatus["ETH"]>=reqNumber[2][8]), message :(geStatus["ETH"])+"/1"}
         ]
         console.log("geFullFillment",geFullFillment)
         return geFullFillment
@@ -294,14 +312,15 @@ function ValidGE(){
     else if(user.majorType == "BMFA"){
         var geFullFillment = [{type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
                           {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
-                          {type : "Area C", status :(geStatus.gearea[2].taken>=reqNumber[3][0]), message :geStatus.gearea[2].taken+"/2"},
-                          {type : "Area D", status :(geStatus.gearea[3].taken>=reqNumber[3][1]), message :geStatus.gearea[3].taken+"/2"},
-                          {type : "Area E", status :(geStatus.gearea[4].taken>=reqNumber[3][2]), message :geStatus.gearea[4].taken+"/2"},
-                          {type : "Area G", status :(geStatus.gearea[6].taken>=reqNumber[3][3]), message :geStatus.gearea[6].taken+"/1"},
-                          {type : "WOR", status : (geStatus.otherReq[0].taken>=reqNumber[3][4]), message :(geStatus.otherReq[0].taken)+"/1"},
-                          {type : "WRT", status : (geStatus.otherReq[1].taken)>=reqNumber[3][5], message :(geStatus.otherReq[1].taken)+"/6"},
-                          {type : "QUR", status : (geStatus.otherReq[3].taken>=reqNumber[3][6]), message :(geStatus.otherReq[3].taken)+"/1"},
-                          {type : "ETH", status : (geStatus.otherReq[4].taken>=reqNumber[3][7]), message :(geStatus.otherReq[4].taken)+"/1"}
+                          {type : "Area B", status : checkAreaB(), message : (checkAreaB()?1:0)+"/1"},
+                          {type : "Area C", status :(geStatus["C"]>=reqNumber[3][0]), message :geStatus["C"]+"/2"},
+                          {type : "Area D", status :(geStatus["D"]>=reqNumber[3][1]), message :geStatus["D"]+"/2"},
+                          {type : "Area E", status :(geStatus["E"]>=reqNumber[3][2]), message :geStatus["E"]+"/2"},
+                          {type : "Area G", status :(geStatus["G"]>=reqNumber[3][3]), message :geStatus["G"]+"/1"},
+                          {type : "WOR", status : (geStatus["WOR"]>=reqNumber[3][4]), message :(geStatus["WOR"])+"/1"},
+                          {type : "WRT", status : (geStatus["WRT"]>=reqNumber[3][5]), message :(geStatus["WRT"])+"/6"},
+                          {type : "QUR", status : (geStatus["QUR"]>=reqNumber[3][6]), message :(geStatus["QUR"])+"/1"},
+                          {type : "ETH", status : (geStatus["ETH"]>=reqNumber[3][7]), message :(geStatus["ETH"])+"/1"}
         ]
         return geFullFillment
     }

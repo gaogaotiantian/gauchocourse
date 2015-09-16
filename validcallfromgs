@@ -26,7 +26,7 @@ var courseData  =[
     prereq : [[{id : "2", concur : "y"}]],
     units : "4",
     gearea :["D", "WOR", "WRT"],
-    levellimit : "A",
+    levellimit : "Z",
     semester : ["spring", "summer", "fall", "winter"],
     //gearea :["D", "EUR", "WRT"]
 },
@@ -55,7 +55,7 @@ var courseData  =[
     units : "4",
     prereq : [],
     gearea :["F", "EUR", "WRT"],
-    levellimit : "",
+    levellimit : "Z",
     semester : ["spring", "summer", "fall", "winter"],
     
 
@@ -70,7 +70,7 @@ var courseData  =[
     units : "4",
     prereq : [],
     gearea :["G", "EUR", "WRT"],
-    levellimit : "",
+    levellimit : "Z",
     semester : ["spring", "summer", "fall", "winter"],
     
 
@@ -155,6 +155,19 @@ var courseData  =[
     levellimit : "",
     semester : ["spring", "summer", "fall", "winter"]
 },
+
+{
+    label :"SPAN 3,ELEMENTARY SPAN 3",
+    id : "10",
+    sub : "SPAN",
+    number : "3",
+    majorlimit : [],
+    units : "4",
+    prereq : [],
+    gearea :["H"],
+    levellimit : "",
+    semester : ["spring", "summer", "fall", "winter"]
+},
 ]
 
 
@@ -169,7 +182,8 @@ var inputCourses = [
                     {course : "History 2B, World History",semester :"freshman_spring"},
                     {course : "History 2C, World History",semester :"freshman_summer"},
                     {course : "History 200B, Post World History", semester :"freshman_winter"},
-                    {course : "Philophy 173, World History", semester : "freshman_fall"}
+                    {course : "Philophy 173, World History", semester : "freshman_fall"},
+                    {course : "SPAN 3,ELEMENTARY SPAN 3",semester:"freshman_spring"}
 ] //input courses name with semester that should be provied for the function, this is just a example
 
 var user = {
@@ -198,7 +212,7 @@ var geStatus =new Array()
 //global variable you should provide
 var user = {
     major : "CMPSC",
-    majorType : "ENGR"
+    majorType : "LSBS"
 }
 
 

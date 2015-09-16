@@ -6,6 +6,8 @@ var totalUnit = 0 // totoal units of the current courses add up
 
 var quarterUnit = [] // unit for each quarter, ex: quarterUnit[0] represent the unit of the freshman summer quarter
 
+var invalidCourse = [] //those course that did not fulfill the requirment
+
 
 //main function that caller should provide the argument to run the validation
 function ValidateAllInput(input){
@@ -179,6 +181,12 @@ function CheckThisCourse(course, sem){
             return
     }
 
+    for(var c of invalidCourse){
+        if(c.label == course.label)
+            return
+    }
+
+
     if(course.majorlimit.length!=0){
         var inmajor = false
 
@@ -190,6 +198,7 @@ function CheckThisCourse(course, sem){
         }
 
         if(!inmajor){
+            invalidCourse.push(course)
             invalidData.push({name:(course.label), semester : NumToSem(sem), message : "course only offer to certain major"})
         }
     }
@@ -205,18 +214,23 @@ function CheckThisCourse(course, sem){
             case "U":
                 if(units<90) 
                     invalidData.push({name:(course.label), semester : NumToSem(sem), message : "This course is for Junior and Senior only"})
+                invalidCourse.push(course)
                 return
             case "Z":
                 if(units<45)
                     invalidData.push({name:(course.label), semester : NumToSem(sem), message : "This course is not open for Freshman"})
+                invalidCourse.push(course)
                 return
             case "S":
                 if(units<135)
                     invalidData.push({name:(course.label), semester : NumToSem(sem), message : "This course is for Senior Only"})
+                invalidCourse.push(course)
                 return
             case "A":
                 if(units>44.9)
                     invalidData.push({name:(course.label), semester : NumToSem(sem), message : "This course is for Freshman only"})
+                invalidCourse.push(course)
+                return
         }
     }
 
@@ -243,14 +257,15 @@ function CheckThisCourse(course, sem){
     }
     if(!timecheck){
         invalidData.push({name:(course.label), semester : NumToSem(sem), message : "course not offer in this quarter"})
-        console.log("prereq" + invalidData)
+        invalidCourse.push(course)
         return
     }
     
-    
+    var incompletedPreReq = []
     for(n in course.prereq){
             var found = false
             for(var p in course.prereq[n]){
+                found = false
                 var range = sem-1
                 var id = course.prereq[n][p].id
 
@@ -261,6 +276,7 @@ function CheckThisCourse(course, sem){
                             CheckThisCourse(tempcourse,s)
                             for(var h of validCourses){
                                 if(h.label == tempcourse.label){
+                                    console.log("prereq",h.label)
                                     found = true
                                     break
                                 }
@@ -268,11 +284,7 @@ function CheckThisCourse(course, sem){
                         }
                         if(found) break
                     }
-                    if(!found){
-                        invalidData.push({name:(course.label), semester : NumToSem(sem), message : "course's prerequisites are not fulfilled"})
-                        console.log("prereq" + invalidData)
-                        return
-                    }
+                    continue
                 }
 
 
@@ -299,11 +311,24 @@ function CheckThisCourse(course, sem){
                 if(found) break
             }
             if(!found){
-                invalidData.push({name:(course.label), semester : NumToSem(sem), message : "course's prerequisites are not fulfilled"})
-                console.log("prereq" + invalidData)
-                return
+                incompletedPreReq.push(course.prereq[n])
             }
         
+    }
+
+    if(incompletedPreReq.length>0){
+        console.log("incompletedPreReq",incompletedPreReq)
+        invalidCourse.push(course)
+        var tempstring=""
+        for(var courses of incompletedPreReq){
+            for(var cou of courses)
+                tempstring+=(courseData[parseInt(cou.id)].sub+courseData[parseInt(cou.id)].number  + " or ")
+            tempstring = tempstring.slice(0,tempstring.length-3)
+            tempstring+= "and "
+        }
+        tempstring = tempstring.slice(0,tempstring.length-4)
+        invalidData.push({name : course.label, semester : NumToSem(sem), message : "Does not fulfill following preReq: \n"+tempstring})
+        return
     }
     validCourses.push(course)
 }
