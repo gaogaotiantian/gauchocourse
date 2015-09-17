@@ -94,6 +94,7 @@ var computeAP = function(arr){
 	}
 	else{
 	    var foo = arr[i][arr[i]["user_score"]];
+	    var label = arr[i].label;
 	    var units = parseInt(foo.units);
 	    var ge_area = foo.ge.area;
 	    var subject = arr[i].subject;
@@ -123,13 +124,19 @@ var computeAP = function(arr){
 	    if(bar > 8){
 		continue;
 	    }
-	    addGE(ge_areas,ge_area);
+	    if(label != "English Language and Composition or Literature and Composition")
+		addGE(ge_areas,ge_area);
+	    else{
+		addGE(ge_areas,"A1");
+		addGE(ge_areas,"A2");
+	    }
 	    total_units += units;
 	}
     }
     
     return { "units":total_units , "area":ge_areas};
 }
+/*
 
 var arr = [
 
@@ -176,7 +183,7 @@ var arr = [
 arr = raw2apData(arr)
 var res = computeAP(arr)
 
-
+*/
 /*
 var obj = {
     "label":"English Language and Composition or Literature and Composition",
