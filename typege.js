@@ -107,8 +107,6 @@ function ValidGE(){
                           {type : "WRT", status :(geStatus["WRT"])>=reqNumber[0][4], message : (geStatus["WRT"])+"/4"},
                           {type : "EUR", status : (geStatus["EUR"])>=reqNumber[0][5], message : (geStatus["EUR"])+"/1"},
                           {type : "DEP", status : checkDepth(), message : (checkDepth() ? "1":"0") + "/1"},
-                          {type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
-                          {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
         ]
         //console.log("geFullFillment",geFullFillment)
         return 
@@ -237,6 +235,7 @@ function checkDepth(){
             return true
         }
     }
+    return false
 
 }
 
