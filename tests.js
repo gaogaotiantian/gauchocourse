@@ -223,12 +223,12 @@ var geStatus =new Array()
     geStatus["QUR"] = 0
 
 var inputCourses = [
-		    {course : "HIST 115R Undergraduate Research Seminar in Medieval European History", semester : "senior_winter"},
 		    {course : "PHIL 124B Philosophy of Physics", semester : "freshman_summer"},
-		    //		    {course : "CMPSCCS 1B Computer Programming and Organization II", semester : "freshman_fall"},
 		    {course : "PSY 3 The Biological Basis of Psychology", semester : "freshman_spring"},
+		    {course : "HIST 17A The American People | Area D, WRT", semester : "sophomore_fall"},
 		    {course : "PSY 1 Introduction to Psychology | Area D", semester : "junior_fall"},
-		    {course : "HIST 17A The American People | Area D, WRT", semester : "sophomore_fall"}
+		    {course : "HIST 115R Undergraduate Research Seminar in Medieval European History", semester : "senior_winter"}
+		    //		    {course : "CMPSCCS 1B Computer Programming and Organization II", semester : "freshman_fall"},
 		    ]; //test cases example; add whatever you want
 
 //change the expected depth value accordingly
