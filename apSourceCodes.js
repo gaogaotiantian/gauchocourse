@@ -1,26 +1,6 @@
 
 var isValidAP ; 
 
-
-
-var validateAP = function(arr){
-
-    for( var i = 0 ; i < arr.length ; i++)
-	for( var j = 0 ; j < arr.length; j++){
-	    if(i==j)continue;
-	    if (arr[i].label==arr[j].label){
-		return false
-	    }
-	}
-
-    return true;
-
-}
-
-
-
-
-
 var raw2apData = function(arr){
     /*
      *arr is an array of course label and the score of the user
@@ -32,17 +12,17 @@ var raw2apData = function(arr){
 	var label = arr[i].label;
 	var foo;
 	for(var key in apData){
-	    //console.log(key);
+	    console.log(key);
 	    if(label == key){
 		foo = apData[key];
-		//console.log("found");
+		console.log("found");
 		break;
 	    }
 	}
-	//console.log(foo)
+	console.log(foo)
 	foo.user_score = arr[i].score;
 	res.push(foo);
-	//console.log(res);
+	console.log(res);
     }
     return res;
 
@@ -76,7 +56,7 @@ var computeAP = function(arr){
     var english = 0;
     for(var i = 0 ; i < arr.length ; i++){
 	if(!arr[i].multi_scores){
-	    //console.log(arr[i])
+	    console.log(arr[i])
 	    var label = arr[i].label;
             var units = parseInt(arr[i].units);
 	    var ge_area = arr[i].ge.area;
@@ -139,8 +119,8 @@ var computeAP = function(arr){
 		break
 
 	    }
-	    //console.log(bar)
-	    //console.log(subject)
+	    console.log(bar)
+	    console.log(subject)
 	    if(bar > 8){
 		continue;
 	    }
@@ -156,33 +136,7 @@ var computeAP = function(arr){
     
     return { "units":total_units , "area":ge_areas};
 }
-
-
-
-
-var run_AP_analysis = function(arr){
-    /*
-     *This is the API you should use!!!!!!!!!!
-     *
-     */
-    var res = {};
-    var flag = validateAP(arr);
-    if(!flag){
-	res.validate = false;
-	return res
-    }
-    arr = raw2apData(arr);
-    res = computeAP(arr);
-    res.validate = true;
-    return res;
-    
-}
-
-
-
-
-
-
+/*
 
 var arr = [
 
@@ -229,7 +183,7 @@ var arr = [
 arr = raw2apData(arr)
 var res = computeAP(arr)
 
-
+*/
 /*
 var obj = {
     "label":"English Language and Composition or Literature and Composition",
