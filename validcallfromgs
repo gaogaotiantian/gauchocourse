@@ -91,6 +91,7 @@ var courseData  =[
 
 },
 
+
 {
     label :"History 2A, World History",
     id : "5",
@@ -167,6 +168,21 @@ var courseData  =[
     gearea :["H"],
     levellimit : "",
     semester : ["spring", "summer", "fall", "winter"]
+},
+
+{
+    label :"Writing 109, intro to College Writing",
+    id : "11",
+    sub : "ENGL",
+    number : "10EM",
+    majorlimit : [],
+    units : "4",
+    prereq : [],
+    gearea :["A","WRT"],
+    levellimit : "",
+    semester : ["spring", "summer", "fall", "winter"]
+    
+
 },
 ]
 
@@ -333,58 +349,28 @@ var inputCourses = [
                     {course : "History 2C, World History",semester :"freshman_summer"},
                     {course : "History 200B, Post World History", semester :"freshman_winter"},
                     {course : "Philophy 173, World History", semester : "freshman_fall"},
-                    {course : "SPAN 3,ELEMENTARY SPAN 3",semester:"freshman_spring"}
+                    {course : "SPAN 3,ELEMENTARY SPAN 3",semester:"freshman_spring"},
+                    {course : "Writing 109, intro to College Writing", semester : "freshman_spring"}
 ] //input courses name with semester that should be provied for the function, this is just a example
 
 
 
-var user = {
-    major : "Computer Science",
-    majorType : "ENGR"
-}
-
-
-var geStatus =new Array() 
-    geStatus["A"] = 0,
-    geStatus["B"] = 0,
-    geStatus["C"] = 0,
-    geStatus["D"] = 0,
-    geStatus["E"] = 0,
-    geStatus["F"] = 0,
-    geStatus["G"] = 0,
-    geStatus["H"] = 0,
-
-    geStatus["EUR"] = 0,
-    geStatus["WRT"] = 0,
-    geStatus["WOR"] = 0,
-    geStatus["ETH"] = 0,
-    geStatus["DEP"] = 0,
-    geStatus["QUR"] = 0
-
 //global variable you should provide
 var user = {
     major : "CMPSC",
-    majorType : "LSBS"
+    majorType : "ENGR"
 }
 
+var geFullFillment //status and message for every ge area and special requirment
 
-
-var geFullFillment
-
-
-var addedCourses = [] //list of all inputed courses as a object of course and semester
-
-var schedule = [] //sorted schedule, index represent the semester. ex: schedule[0] is the array of all input courses in freshman summer quarter
 
 var validCourses = [] // list of all valid courses
 
 var invalidData = [] // array of invalidData as object, each object has three variable. 1.name 2.semester 3.message
 
-var check = "" //only for debug purpose
-
 var totalUnit = 0 // totoal units of the current courses add up
 
-var quarterUnit = [] // unit for each quarter, ex: quarterUnit[0] represent the unit of the freshman summer quarter
+
 
 
 
@@ -394,11 +380,10 @@ ValidateAllInput(inputCourses)
 
 ValidGE()
 
-console.log("unitbeforewinter",countUnitBeforeSem(2))
+console.log("geFullFillment from main function",geFullFillment)
 
-kk = {name : "a", type:"random"}
-if( typeof(kk.man)=="undefined")
-console.log("test",typeof(kk.name) )
+
+
 
 
 function change(){

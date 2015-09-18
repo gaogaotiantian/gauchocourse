@@ -1,106 +1,3 @@
-//All possible gearea  ["A" - "g", "EUR", "WRT", "WOR", 'ETH', "DEP", 'QUR']
-
-
-/*geReq = [
-    {
-        type : "ENGR",
-
-        geAreas : [{type : "areas", areas : ["D","E"], number :"2"},
-                   {type : "areas", areas : ["F","G"], number : "2"},
-                   {type : "areas", areas : ["D","E","F","G","H"], number:"6"}
-        ],
-
-        otherReq : [{type : "ethnicity", number : "1"},
-                    {type : "writing",   number : "4"},
-                    {type : "europeanTraditions", number : "1"},
-                    {type : "depth", choices : [{type : "upper", number : "2"},
-                                                {type : "sequence", number : "3"},
-                                                {type : "minor", number : "1"}
-                                                ]}]
-    },
-
-    {
-        type :"LSBA",
-
-        geAreas : [{type : "area", area : "C", number : "3"},
-                   {type : "area", area : "D", number : "3"},
-                   {type : "area", area : "E", number : "3"},
-                   {type : "area", area : "F", number : "2"},
-                   {type : "area", area : "G", number : "2"}
-        ],
-
-        otherReq : [{type : "worldCulturesRequirment", number : "1"},
-                    {type : "writing",   number : "6"},
-                    {type : "europeanTraditions", number : "1"},
-                    {type : "quantitativeRelationships", number : "1"},
-                    {type : "ethnicity", number : "1"}
-                    ]
-    },
-
-    {
-        type : "LSBS",
-
-        geAreas : [{type : "area", area : "C", number : "3"},
-                   {type : "area", area : "D", number : "2"},
-                   {type : "area", area : "E", number : "2"},
-                   {type : "area", area : "F", number : "1"},
-                   {type : "area", area : "G", number : "1"}
-        ],
-
-        otherReq : [{type : "worldCulturesRequirment", number : "1"},
-                    {type : "writing",   number : "6"},
-                    {type : "quantitativeRelationships", number : "1"},
-                    {type : "ethnicity", number : "1"}
-                    ]
-    },
-
-
-    {
-        type : "BMFA",
-
-        geAreas : [{type : "area", area : "C", number : "2"},
-                   {type : "area", area : "D", number : "2"},
-                   {type : "area", area : "E", number : "2"},
-                   {type : "area", area : "G", number : "1"}
-        ],
-
-        otherReq : [{type : "worldCulturesRequirment", number : "1"},
-                    {type : "writing",   number : "6"},
-                    {type : "quantitativeRelationships", number : "1"},
-                    {type : "ethnicity", number : "1"}
-                    ]
-    }
-
-]
-
-var user = {
-    major : "Computer Science",
-    majorType : "ENGR"
-}
-
-
-
-var geStatus  = {
-    gearea : [{area : "A", taken :0},
-              {area : "B", taken :0},
-              {area : "C", taken :0},
-              {area : "D", taken :0},
-              {area : "E", taken :0},
-              {area : "F", taken :0},
-              {area : "G", taken :0}
-    ],
-    otherReq : [ {type : "worldCulturesRequirment", taken : 0},
-                 {type : "writing",   taken : 0},
-                 {type : "europeanTraditions", taken : 0},
-                 {type : "quantitativeRelationships", taken : 0},
-                 {type : "ethnicity", taken : 0},
-                 {type : "depth", taken :0}
-    ]
-}
-*/
-
-
-
 //local variable to count the ge requirment
 
 
@@ -148,11 +45,145 @@ var depthSequence = [
     {sub : "ARTHI", number : ["6A", "6B", "6C", "6D", "6DS", "6DW", "6E", "6F", "6G", "6H", "6K"]}
 ]
 
+//all of the possible courses that will fulfill the Area B requirment
+var foreignLanguage = [{sub: "GREEK", number : "3"},
+                       {sub: "LATIN", number : "3"},
+                       {sub: "CHIN",  number : "3"},
+                       {sub: "JAPAN", number : "3"},
+                       {sub: "GER",   number : "3"},
+                       {sub: "HEB",   number : "3"},
+                       {sub: "SLAV",  number : "3"},
+                       {sub: "FR",    number : "3"},
+                       {sub: "ITAL",  number : "3"},
+                       {sub: "SPAN",  number : "3"},
+                       {sub: "PORT",  number : "3"},
+                       {sub: "GLOBL", number : "60C"},
+                       {sub: "RG ST", number : "10C"},
+                       {sub: "RG ST", number : "11C"},
+                       {sub: "RG ST", number : "17C"},
+                       {sub: "RG ST", number : "30C"},
+                       {sub: "RG ST", number : "57C"},
+                       {sub: "RG ST", number : "60C"},
+                       {sub: "RG ST", number : "122C"},
+                       {sub: "RG ST", number : "157C"},
+                       {sub: "RG ST", number : "159C"},
+                       ]
 
-var foreignLanguage = ["GREEK","LATIN","CHIN","JAPAN","GER","HEB","SLAV","FR","ITAL","SPAN","PORT"]
+
+//function that will be directly called by main program to valuate the ge status 
+function ValidGE(){
+    UpdateGE()
+    var w2 = false, w50 = false //w2 stands for writing 2 and equivalent coures. w50 stand for writing 50 and equivalent coures
+    for(course of validCourses){
+        if(course.sub == "WRIT"&&course.number.slice(0,1)=="2"){
+            w2 = true
+            break
+        }
+    }
+    for(course of validCourses){
+        if(course.sub == "WRIT"&&(course.number.slice(0,2)=="50"||course.number.slice(0,4)=="109"
+          ||course.number.slice(0,4)=="105"||course.number.slice(0,4)=="107")){
+            w50 = true
+            break
+        }
+        if(course.sub == "ENGL"&&course.number.slice(0,2)=="10"){
+            w50 = true
+            break
+        }
+    }
 
 
 
+    if(user.majorType=="ENGR"){
+         geFullFillment = [{type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
+                          {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
+                          {type : "Area D,E", status : (geStatus["D"]+geStatus["E"])>=reqNumber[0][0], 
+                                 message : (geStatus["D"]+geStatus["E"]) +"/2"},
+                          {type : "Area F,G", status : (geStatus["F"]+geStatus["G"])>=reqNumber[0][1], 
+                                 message : (geStatus["F"]+geStatus["G"])+"/2"},
+                          {type : "Area D,E,F,G,H", status : (geStatus["D"]+geStatus["E"]+geStatus["F"]+geStatus["G"]+geStatus["H"])>=reqNumber[0][2], 
+                                 message : (geStatus["D"]+geStatus["E"]+geStatus["F"]+geStatus["G"]+geStatus["H"]) +"/6"},
+                          {type : "ETH", status : (geStatus["ETH"])>=reqNumber[0][3], message :(geStatus["ETH"])+"/1"},
+                          {type : "WRT", status :(geStatus["WRT"])>=reqNumber[0][4], message : (geStatus["WRT"])+"/4"},
+                          {type : "EUR", status : (geStatus["EUR"])>=reqNumber[0][5], message : (geStatus["EUR"])+"/1"},
+                          {type : "DEP", status : checkDepth(), message : (checkDepth() ? "1":"0") + "/1"},
+                          {type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
+                          {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
+        ]
+        //console.log("geFullFillment",geFullFillment)
+        return 
+    }
+
+    else if(user.majorType == "LSBA"){
+         geFullFillment = [{type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
+                          {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
+                          {type : "Area B", status : checkAreaB(), message : (checkAreaB()?1:0)+"/1"},
+                          {type : "Area C", status :(geStatus["C"]>=reqNumber[1][0]), message :geStatus["C"]+"/3"},
+                          {type : "Area D", status :(geStatus["D"]>=reqNumber[1][1]), message :geStatus["D"]+"/3"},
+                          {type : "Area E", status :(geStatus["E"]>=reqNumber[1][2]), message :geStatus["E"]+"/3"},
+                          {type : "Area F", status :(geStatus["F"]>=reqNumber[1][3]), message :geStatus["F"]+"/2"},
+                          {type : "Area G", status :(geStatus["G"]>=reqNumber[1][4]), message :geStatus["G"]+"/2"},
+                          {type : "WOR", status : (geStatus["WOR"]>=reqNumber[1][5]), message : geStatus["WOR"]+"/1"},
+                          {type : "WRT", status : (geStatus["WRT"])>=reqNumber[1][6], message : geStatus["WRT"]+"/6"},
+                          {type : "EUR", status : (geStatus["EUR"]>=reqNumber[1][7]), message : geStatus["EUR"]+"/1"},
+                          {type : "QUR", status : (geStatus["QUR"]>=reqNumber[1][8]), message : geStatus["QUR"]+"/1"},
+                          {type : "ETH", status : (geStatus["ETH"]>=reqNumber[1][9]), message : geStatus["ETH"]+"/1"}
+        ]
+        //console.log("geFullFillment",geFullFillment)
+
+        return 
+
+    }
+
+    else if(user.majorType == "LSBS"){
+         geFullFillment = [{type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
+                          {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
+                          {type : "Area B", status : checkAreaB(), message : (checkAreaB()?1:0)+"/1"},
+                          {type : "AreaC", status :(geStatus["C"]>=reqNumber[2][0]), message :geStatus["C"]+"/3"},
+                          {type : "Area D", status :(geStatus["D"]>=reqNumber[2][1]), message :geStatus["D"]+"/2"},
+                          {type : "Area E", status :(geStatus["E"]>=reqNumber[2][2]), message :geStatus["E"]+"/2"},
+                          {type : "Area F", status :(geStatus["F"]>=reqNumber[2][3]), message :geStatus["F"]+"/1"},
+                          {type : "Area G", status :(geStatus["G"]>=reqNumber[2][4]), message :geStatus["G"]+"/1"},
+                          {type : "WOR", status : (geStatus["WOR"]>=reqNumber[2][5]), message :(geStatus["WOR"])+"/1"},
+                          {type : "WRT", status : (geStatus["WRT"])>=reqNumber[2][6], message :(geStatus["WRT"])+"/6"},
+                          {type : "QUR", status : (geStatus["QUR"]>=reqNumber[2][7]), message :(geStatus["QUR"])+"/1"},
+                          {type : "ETH", status : (geStatus["ETH"]>=reqNumber[2][8]), message :(geStatus["ETH"])+"/1"}
+        ]
+        //console.log("geFullFillment",geFullFillment)
+        return 
+    }
+
+    else if(user.majorType == "BMFA"){
+         geFullFillment = [{type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
+                          {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
+                          {type : "Area B", status : checkAreaB(), message : (checkAreaB()?1:0)+"/1"},
+                          {type : "Area C", status :(geStatus["C"]>=reqNumber[3][0]), message :geStatus["C"]+"/2"},
+                          {type : "Area D", status :(geStatus["D"]>=reqNumber[3][1]), message :geStatus["D"]+"/2"},
+                          {type : "Area E", status :(geStatus["E"]>=reqNumber[3][2]), message :geStatus["E"]+"/2"},
+                          {type : "Area G", status :(geStatus["G"]>=reqNumber[3][3]), message :geStatus["G"]+"/1"},
+                          {type : "WOR", status : (geStatus["WOR"]>=reqNumber[3][4]), message :(geStatus["WOR"])+"/1"},
+                          {type : "WRT", status : (geStatus["WRT"]>=reqNumber[3][5]), message :(geStatus["WRT"])+"/6"},
+                          {type : "QUR", status : (geStatus["QUR"]>=reqNumber[3][6]), message :(geStatus["QUR"])+"/1"},
+                          {type : "ETH", status : (geStatus["ETH"]>=reqNumber[3][7]), message :(geStatus["ETH"])+"/1"}
+        ]
+        return 
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+//function beyond here will be called by ValidGE
+//this function will update the geStatus based on validCourses
 function UpdateGE(){
     for(area of geStatus)
         area = 0
@@ -168,6 +199,9 @@ function UpdateGE(){
     }
 }
 
+
+
+//this function will check the depth requirment for ENGR student
 function checkDepth(){
     var count = 0
     for(seq of depthSequence){
@@ -182,15 +216,10 @@ function checkDepth(){
             }
         }
         if(count>=3){
-            depth=true
-            break
+            return true
         }
         count = 0
-        if(depth)
-            break
     }
-    if(depth)
-        return
 
     count = 0
     var firstUpper = ""
@@ -205,8 +234,7 @@ function checkDepth(){
             }
         }
         if(count>=2){
-            depth = true
-            break
+            return true
         }
     }
 
@@ -214,120 +242,19 @@ function checkDepth(){
 
 
 
-
+//this function will check the Area B requirment 
 function checkAreaB(){
     for(course of validCourses){
-        if(course.number==3){
             for(language of foreignLanguage){
-                if(language==course.sub)
+                if(language.sub==course.sub && language.number == course.number)
                     return true
             }
-        }
+        
     }
     return false
 }
 
 
-
-function ValidGE(){
-    UpdateGE()
-    var w2 = false, w50 = false
-    for(course of validCourses){
-        if(course.sub == "WRIT"&&course.number.slice(0,1)=="2"){
-            w2 = true
-            break
-        }
-    }
-    for(course of validCourses){
-        if(course.sub == "WRIT"&&(course.number.slice(0,2)=="50"||course.number.slice(0,4)=="109")){
-            w50 = true
-            break
-        }
-        if(course.sub == "ENGL"&&course.number.slice(0,3)=="10"){
-            w50 = true
-            break
-        }
-    }
-
-
-
-    if(user.majorType=="ENGR"){
-        var geFullFillment = [
-                          {type : "Area D,E", status : (geStatus["D"]+geStatus["E"])>=reqNumber[0][0], 
-                                 message : (geStatus["D"]+geStatus["E"]) +"/2"},
-                          {type : "Area F,G", status : (geStatus["F"]+geStatus["G"])>=reqNumber[0][1], 
-                                 message : (geStatus["F"]+geStatus["G"])+"/2"},
-                          {type : "Area D,E,F,G,H", status : (geStatus["D"]+geStatus["E"]+geStatus["F"]+geStatus["G"]+geStatus["H"])>=reqNumber[0][2], 
-                                 message : (geStatus["D"]+geStatus["E"]+geStatus["F"]+geStatus["G"]+geStatus["H"]) +"/6"},
-                          {type : "ETH", status : (geStatus["ETH"])>=reqNumber[0][3], message :(geStatus["ETH"])+"/1"},
-                          {type : "WRT", status :(geStatus["WRT"])>=reqNumber[0][4], message : (geStatus["WRT"])+"/4"},
-                          {type : "EUR", status : (geStatus["EUR"])>=reqNumber[0][5], message : (geStatus["EUR"])+"/1"},
-                          {type : "DEP", status : depth, message : (depth ? "1":"0") + "/1"},
-                          {type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
-                          {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
-        ]
-        console.log("geFullFillment",geFullFillment)
-        return geFullFillment
-    }
-
-    else if(user.majorType == "LSBA"){
-        var geFullFillment = [{type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
-                          {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
-                          {type : "Area B", status : checkAreaB(), message : (checkAreaB()?1:0)+"/1"},
-                          {type : "Area C", status :(geStatus["C"]>=reqNumber[1][0]), message :geStatus["C"]+"/3"},
-                          {type : "Area D", status :(geStatus["D"]>=reqNumber[1][1]), message :geStatus["D"]+"/3"},
-                          {type : "Area E", status :(geStatus["E"]>=reqNumber[1][2]), message :geStatus["E"]+"/3"},
-                          {type : "Area F", status :(geStatus["F"]>=reqNumber[1][3]), message :geStatus["F"]+"/2"},
-                          {type : "Area G", status :(geStatus["G"]>=reqNumber[1][4]), message :geStatus["G"]+"/2"},
-                          {type : "WOR", status : (geStatus["WOR"]>=reqNumber[1][5]), message : geStatus["WOR"]+"/1"},
-                          {type : "WRT", status : (geStatus["WRT"])>=reqNumber[1][6], message : geStatus["WRT"]+"/6"},
-                          {type : "EUR", status : (geStatus["EUR"]>=reqNumber[1][7]), message : geStatus["EUR"]+"/1"},
-                          {type : "QUR", status : (geStatus["QUR"]>=reqNumber[1][8]), message : geStatus["QUR"]+"/1"},
-                          {type : "ETH", status : (geStatus["ETH"]>=reqNumber[1][9]), message : geStatus["ETH"]+"/1"}
-        ]
-        console.log("geFullFillment",geFullFillment)
-
-        return geFullFillment
-
-    }
-
-    else if(user.majorType == "LSBS"){
-        var geFullFillment = [{type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
-                          {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
-                          {type : "Area B", status : checkAreaB(), message : (checkAreaB()?1:0)+"/1"},
-                          {type : "AreaC", status :(geStatus["C"]>=reqNumber[2][0]), message :geStatus["C"]+"/3"},
-                          {type : "Area D", status :(geStatus["D"]>=reqNumber[2][1]), message :geStatus["D"]+"/2"},
-                          {type : "Area E", status :(geStatus["E"]>=reqNumber[2][2]), message :geStatus["E"]+"/2"},
-                          {type : "Area F", status :(geStatus["F"]>=reqNumber[2][3]), message :geStatus["F"]+"/1"},
-                          {type : "Area G", status :(geStatus["G"]>=reqNumber[2][4]), message :geStatus["G"]+"/1"},
-                          {type : "WOR", status : (geStatus["WOR"]>=reqNumber[2][5]), message :(geStatus["WOR"])+"/1"},
-                          {type : "WRT", status : (geStatus["WRT"])>=reqNumber[2][6], message :(geStatus["WRT"])+"/6"},
-                          {type : "QUR", status : (geStatus["QUR"]>=reqNumber[2][7]), message :(geStatus["QUR"])+"/1"},
-                          {type : "ETH", status : (geStatus["ETH"]>=reqNumber[2][8]), message :(geStatus["ETH"])+"/1"}
-        ]
-        console.log("geFullFillment",geFullFillment)
-        return geFullFillment
-    }
-
-    else if(user.majorType == "BMFA"){
-        var geFullFillment = [{type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
-                          {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
-                          {type : "Area B", status : checkAreaB(), message : (checkAreaB()?1:0)+"/1"},
-                          {type : "Area C", status :(geStatus["C"]>=reqNumber[3][0]), message :geStatus["C"]+"/2"},
-                          {type : "Area D", status :(geStatus["D"]>=reqNumber[3][1]), message :geStatus["D"]+"/2"},
-                          {type : "Area E", status :(geStatus["E"]>=reqNumber[3][2]), message :geStatus["E"]+"/2"},
-                          {type : "Area G", status :(geStatus["G"]>=reqNumber[3][3]), message :geStatus["G"]+"/1"},
-                          {type : "WOR", status : (geStatus["WOR"]>=reqNumber[3][4]), message :(geStatus["WOR"])+"/1"},
-                          {type : "WRT", status : (geStatus["WRT"]>=reqNumber[3][5]), message :(geStatus["WRT"])+"/6"},
-                          {type : "QUR", status : (geStatus["QUR"]>=reqNumber[3][6]), message :(geStatus["QUR"])+"/1"},
-                          {type : "ETH", status : (geStatus["ETH"]>=reqNumber[3][7]), message :(geStatus["ETH"])+"/1"}
-        ]
-        return geFullFillment
-    }
-    console.log("geFullFillment",geFullFillment)
-
-
-}
 
 
 

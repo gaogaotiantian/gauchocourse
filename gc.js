@@ -274,7 +274,6 @@ function CheckThisCourse(course, sem){
                             CheckThisCourse(tempcourse,s)
                             for(var h of validCourses){
                                 if(h.label == tempcourse.label){
-                                    console.log("prereq",h.label)
                                     found = true
                                     break
                                 }
@@ -407,8 +406,8 @@ function checkChoiceCourses(){
                 }
             }
         }
-        console.log("currentUnits",currentUnits)
-        console.log("requirment unit",choices.units)
+        //console.log("currentUnits",currentUnits)
+        //console.log("requirment unit",choices.units)
         if(currentUnits< parseInt(choices.units)){
             var tempstring = " you must take "
             tempstring+=(parseInt(choices.units) - currentUnits)
