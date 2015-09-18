@@ -1,7 +1,7 @@
 //This is the test cases for the back-end functions
 //and the database.
-//To use the test, please provide your user info, input courses, 
-//and expected depth-requirement-status accordingly! 
+//To use the test, please provide your user info, input courses and AP, 
+//and all the expected variables accordingly! 
 //All other variables are default! DO NOT CHANGE THEM!!
 
 
@@ -231,13 +231,90 @@ var inputCourses = [
 		    //		    {course : "CMPSCCS 1B Computer Programming and Organization II", semester : "freshman_fall"},
 		    ]; //test cases example; add whatever you want
 
-//change the expected depth value accordingly
-var expectedDepth = false    
 
+var expectedValidData = [
+		    {course : "PHIL 124B Philosophy of Physics", semester : "freshman_summer"},
+		    {course : "PSY 3 The Biological Basis of Psychology", semester : "freshman_spring"},
+		    {course : "HIST 17A The American People | Area D, WRT", semester : "sophomore_fall"},
+		    {course : "PSY 1 Introduction to Psychology | Area D", semester : "junior_fall"},
+		    {course : "HIST 115R Undergraduate Research Seminar in Medieval European History", semester : "senior_winter"}
+		    //		    {course : "CMPSCCS 1B Computer Programming and Organization II", semester : "freshman_fall"},
+		    ]; //test cases example; add whatever you want
+
+var expectedInvalidCourses = [
+		    {course : "PHIL 124B Philosophy of Physics", semester : "freshman_summer"},
+		    {course : "PSY 3 The Biological Basis of Psychology", semester : "freshman_spring"},
+		    {course : "HIST 17A The American People | Area D, WRT", semester : "sophomore_fall"},
+		    {course : "PSY 1 Introduction to Psychology | Area D", semester : "junior_fall"},
+		    {course : "HIST 115R Undergraduate Research Seminar in Medieval European History", semester : "senior_winter"}
+		    //		    {course : "CMPSCCS 1B Computer Programming and Organization II", semester : "freshman_fall"},
+		    ]; //test cases example; add whatever you want
+
+
+//change the expected variables accordingly
+var expectedDepth = false    
+var expectedW2 = false
+var expectedW50 = false
+var expectedB = false
+var expectedC = false
+var expectedD = false
+var expectedE = false
+var expectedF = false
+var expectedG = false
+var expectedDE = true
+var expectedFG = false
+var expectedDEFGH = false
+var expectedWOR = false
+var expectedWRT = false
+var expectedEUR = false
+var expectedQUR = false
+var expectedETH = false
 //only for test purpose
 var count = 0
 
+    //ap score test cases
+var inputAP = [
 
+{"label":"European History","score":3}
+,
+{"label":"Physics  C (Electricity and Magnetism)","score":3}
+,
+{"label":"Music  Theory","score":5}
+,
+{"label":"English Language and Composition or Literature and Composition","score":3}
+,
+{"label":"Physics  C (Electricity and Magnetism)","score":5}
+,
+{"label":"European History","score":3}
+,
+{"label":"U.S. History","score":3}
+,
+{"label":"English Language and Composition or Literature and Composition","score":4}
+,
+{"label":"Physics  C (Mechanics)","score":4}
+,
+{"label":"French Language and Culture","score":3}
+,
+{"label":"U.S. Government and Politics","score":3}
+,
+{"label":"Statistics","score":5}
+,
+{"label":"German Language and Culture","score":3}
+,
+{"label":"Economics  Macroeconomics","score":4}
+,
+{"label":"Art Studio Drawing","score":3}
+,
+{"label":"Human Geography","score":4}
+,
+{"label":"Physics  B","score":4}
+,
+{"label":"World History","score":5}
+,
+{"label":"Economics  Microeconomics","score":4}
+,
+{"label":"English Language and Composition or Literature and Composition","score":5}
+];
 
 
 QUnit.module("Validate All Input", {
@@ -279,6 +356,17 @@ QUnit.test("check total unit", function(){
 	}
 	equal(totalUnit, expectedTotalUnit, "total unit is as expected");
     });
+/*
+QUnit.test("check invalid data", function(){
+	for(var course of valid){}
+	    
+    });
+QUnit.test("check valid courses", function(){
+	deepEqual(validCourses, [], "valid courses are as expected");
+    });
+*/
+
+
 
 
 
@@ -298,214 +386,132 @@ QUnit.module("check GE", {
 	}	    
     });
 QUnit.test("check fullfillment", function(){
-	var geFulfillment = ValidGE();
-	var countC = 0;
-	var countD = 0;
-	var countE = 0;
-	var countF = 0;
-	var countG = 0;
-	var countH = 0;
-	var countWRT = 0;
-	var countETH = 0;
-	var countEUR = 0;
-	var countW2 = 0;
-	var countW50 = 0;
-	var countWOR = 0;
-	var countQUR = 0;
-	for(var c of inputCourses){
-	    for(var ge of GetCourseByName(c.course).gearea){
-		if(ge =="C")
-		    countC++;
-		if(ge == "D")
-		    countD++;
-		if(ge == "E")
-		    countE++;
-		if(ge == "F") 
-		    countF++;
-		if(ge == "G")
-		    countG++;
-		if(ge == "H")
-		    countH++;
-		if(ge == "WRT")
-		    countWRT++;
-		if(ge == "ETH")
-		    countETH++;
-		if(ge == "EUR")
-		    countEUR++;
-		if(ge == "WOR")
-		    countWOR++;
-		if(ge == "QUR")
-		    countQUR++;
-		if(c.course == "WRIT 2 Academic Writing" || c.course == "WRIT 2E Academic Writing for Engineers")
-		    countW2++;
-		if(c.course == "WRIT 50 Writing and the Research Process")
-		    countW50++;
-	    }
-	}
-	
+	ValidGE();
+	var geFulfillment = geFullFillment;
 	if(user.majorType == "ENGR"){
 	    //only for testing the tests
 	    //deepEqual(geFulfillment, [], "test to see the format");
 	    
-	    equal(countD + countE >= 2, geFulfillment[0].status, "fulfillment of area D,E is as expected");
+	    equal(geFulfillment[0].status, expectedW2, "fulfillment of writing 2(E) is as expected");
 	    
-	    equal(countF + countG >= 2, geFulfillment[1].status, "fulfillment of area F,G is as expected");
+	    equal(geFulfillment[1].status, expectedW50, "fulfillment of writing 50 is as expected");
 	    
-	    equal(countD + countE + countF + countG + countH >= 6, geFulfillment[2].status, "fulfillment of area D,E,F,G,H is as expected");
+	    equal(geFulfillment[2].status, expectedDE, "fulfillment of area D,E is as expected");
 	    
-	    equal(countETH >= 1, geFulfillment[3].status, "fulfillment of area ETH is as expected");
+	    equal(geFulfillment[3].status, expectedFG, "fulfillment of area F,G is as expected");
 	    
-	    equal(countWRT >= 4, geFulfillment[4].status, "fulfillment of area WRIT is as expected");
+	    equal(geFulfillment[4].status, expectedDEFGH, "fulfillment of area D,E,F,G,H is as expected");
 	    
-	    equal(countEUR >= 1, geFulfillment[5].status, "fulfillment of area EUR is as expected");
+	    equal(geFulfillment[5].status, expectedETH, "fulfillment of area ETH is as expected");
+	    
+	    equal(geFulfillment[6].status, expectedWRT, "fulfillment of area WRIT is as expected");
+	    
+	    equal(geFulfillment[7].status, expectedEUR, "fulfillment of area EUR is as expected");
 
-	    equal(expectedDepth, geFulfillment[6].status, "fulfillment of depth is as expected");
+	    equal(geFulfillment[8].status, expectedDepth, "fulfillment of depth is as expected");
 
-	    equal(countW2 >= 1, geFulfillment[7].status, "fulfillment of writing 2(E) is as expected");
-	    
-	    equal(countW50 >= 1, geFulfillment[8].status, "fulfillment of writing 50 is as expected");
-	    
 	}
 	else if(user.majorType == "LSBA"){
 	    //only for testing the tests
 	    //deepEqual(geFulfillment, [], "test to see the format");
 
-	    equal(countW2 >= 1, geFulfillment[0].status, "fulfillment of writing 2(E) is as expected");
+	    equal(geFulfillment[0].status, expectedW2, "fulfillment of writing 2(E) is as expected");
 	    
-	    equal(countW50 >= 1, geFulfillment[1].status, "fulfillment of writing 50 is as expected");
+	    equal(geFulfillment[1].status, expectedW50, "fulfillment of writing 50 is as expected");
 	    
 	    /*
 	    function of checking area B is not working
 	     */
 
-	    equal(countC >= 3, geFulfillment[3].status, "fulfillment of area C is as expected");
+	    equal(geFulfillment[3].status, expectedC, "fulfillment of area C is as expected");
 	    
-	    equal(countD >= 3, geFulfillment[4].status, "fulfillment of area D is as expected");
+	    equal(geFulfillment[4].status, expectedD, "fulfillment of area D is as expected");
 	    
-	    equal(countE >= 3, geFulfillment[5].status, "fulfillment of area E is as expected");
+	    equal(geFulfillment[5].status, expectedE, "fulfillment of area E is as expected");
 	    
-	    equal(countF >= 2, geFulfillment[6].status, "fulfillment of area F is as expected");
+	    equal(geFulfillment[6].status, expectedF, "fulfillment of area F is as expected");
 	    
-	    equal(countG >= 2, geFulfillment[7].status, "fulfillment of area G is as expected");
+	    equal(geFulfillment[7].status, expectedG, "fulfillment of area G is as expected");
 	    
-	    equal(countWOR >= 1, geFulfillment[8].status, "fulfillment of area WOR is as expected");
+	    equal(geFulfillment[8].status, expectedWOR, "fulfillment of area WOR is as expected");
 	    
-	    equal(countWRT >= 6, geFulfillment[9].status, "fulfillment of area WRT is as expected");
+	    equal(geFulfillment[9].status, expectedWRT, "fulfillment of area WRT is as expected");
 	    
-	    equal(countEUR >= 1, geFulfillment[10].status, "fulfillment of area EUR is as expected");
+	    equal(geFulfillment[10].status, expectedEUR, "fulfillment of area EUR is as expected");
 	    
-	    equal(countQUR >= 1, geFulfillment[11].status, "fulfillment of area QUR is as expected");
+	    equal(geFulfillment[11].status, expectedQUR, "fulfillment of area QUR is as expected");
 	    
-	    equal(countETH >= 1, geFulfillment[12].status, "fulfillment of area ETH is as expected");
+	    equal(geFulfillment[12].status, expectedETH, "fulfillment of area ETH is as expected");
 	    
 	}
 	else if(user.majorType == "LSBS"){
 	    //only for testing the tests
 	    //deepEqual(geFulfillment, [], "test to see the format");
 
-	    equal(countW2 >= 1, geFulfillment[0].status, "fulfillment of writing 2(E) is as expected");
-	    
-	    equal(countW50 >= 1, geFulfillment[1].status, "fulfillment of writing 50 is as expected");
-	    
-	    /*
-	    function of checking area B is not working
-	     */
 
-	    equal(countC >= 3, geFulfillment[3].status, "fulfillment of area C is as expected");
+	    equal(geFulfillment[0].status, expectedW2, "fulfillment of writing 2(E) is as expected");
 	    
-	    equal(countD >= 2, geFulfillment[4].status, "fulfillment of area D is as expected");
+	    equal(geFulfillment[1].status, expectedW50, "fulfillment of writing 50 is as expected");
 	    
-	    equal(countE >= 2, geFulfillment[5].status, "fulfillment of area E is as expected");
+	    equal(geFulfillment[2].status, expectedB, "fulfillment of area B is as expected");
+
+	    equal(geFulfillment[3].status, expectedC, "fulfillment of area C is as expected");
 	    
-	    equal(countF >= 1, geFulfillment[6].status, "fulfillment of area F is as expected");
+	    equal(geFulfillment[4].status, expectedD, "fulfillment of area D is as expected");
 	    
-	    equal(countG >= 1, geFulfillment[7].status, "fulfillment of area G is as expected");
+	    equal(geFulfillment[5].status, expectedE, "fulfillment of area E is as expected");
 	    
-	    equal(countWOR >= 1, geFulfillment[8].status, "fulfillment of area WOR is as expected");
+	    equal(geFulfillment[6].status, expectedF, "fulfillment of area F is as expected");
 	    
-	    equal(countWRT >= 6, geFulfillment[9].status, "fulfillment of area WRT is as expected");
+	    equal(geFulfillment[7].status, expectedG, "fulfillment of area G is as expected");
 	    
-	    equal(countQUR >= 1, geFulfillment[10].status, "fulfillment of area QUR is as expected");
+	    equal(geFulfillment[8].status, expectedWOR, "fulfillment of area WOR is as expected");
 	    
-	    equal(countETH >= 1, geFulfillment[11].status, "fulfillment of area ETH is as expected");
+	    equal(geFulfillment[9].status, expectedWRT, "fulfillment of area WRT is as expected");
+	    
+	    equal(geFulfillment[10].status, expectedQUR, "fulfillment of area QUR is as expected");
+	    
+	    equal(geFulfillment[11].status, expectedETH, "fulfillment of area ETH is as expected");
 
 	}
 	else if(user.majorType == "BMFA"){
 	    //only for testing the tests
 	    //deepEqual(geFulfillment, [], "test to see the format");
 
-	    equal(countW2 >= 1, geFulfillment[0].status, "fulfillment of writing 2(E) is as expected");
+	    equal(geFulfillment[0].status, expectedW2, "fulfillment of writing 2(E) is as expected");
 	    
-	    equal(countW50 >= 1, geFulfillment[1].status, "fulfillment of writing 50 is as expected");
+	    equal(geFulfillment[1].status, expectedW50, "fulfillment of writing 50 is as expected");
 	    
-	    /*
-	    function of checking area B is not working
-	     */
+	    equal(geFulfillment[2].status, expectedB, "fulfillment of area B is as expected");
 
-	    equal(countC >= 2, geFulfillment[3].status, "fulfillment of area C is as expected");
+	    equal(geFulfillment[3].status, expectedC, "fulfillment of area C is as expected");
 	    
-	    equal(countD >= 2, geFulfillment[4].status, "fulfillment of area D is as expected");
+	    equal(geFulfillment[4].status, expectedD, "fulfillment of area D is as expected");
 	    
-	    equal(countE >= 2, geFulfillment[5].status, "fulfillment of area E is as expected");
+	    equal(geFulfillment[5].status, expectedE, "fulfillment of area E is as expected");
 	    
-	    equal(countG >= 1, geFulfillment[6].status, "fulfillment of area G is as expected");
+	    equal(geFulfillment[6].status, expectedG, "fulfillment of area G is as expected");
 	    
-	    equal(countWOR >= 1, geFulfillment[7].status, "fulfillment of area WOR is as expected");
+	    equal(geFulfillment[7].status, expectedWOR, "fulfillment of area WOR is as expected");
 	    
-	    equal(countWRT >= 6, geFulfillment[8].status, "fulfillment of area WRT is as expected");
+	    equal(geFulfillment[8].status, expectedWRT, "fulfillment of area WRT is as expected");
 	    
-	    equal(countQUR >= 1, geFulfillment[9].status, "fulfillment of area QUR is as expected");
+	    equal(geFulfillment[9].status, expectedQUR, "fulfillment of area QUR is as expected");
 	    
-	    equal(countETH >= 1, geFulfillment[10].status, "fulfillment of area ETH is as expected");
-
+	    equal(geFulfillment[10].status, expectedETH, "fulfillment of area ETH is as expected");
 	}
     });
+
+
 
 /*
-QUnit.test("check invalid data", function(){
-	deepEqual(invalidData, [], "invalid data is as expected");
-    });
-QUnit.test("check valid courses", function(){
-	deepEqual(validCourses, [], "valid courses are as expected");
-    });
+QUnit.module("check AP");
 
-
-
-
-
-QUnit.module("Is Valid", {
-	beforeEach: function(){
-	    var hist17A = {
-		"sub":"HIST",
-		"majorlimit":[],
-		"prereq":[],
-		"levellimit":"",
-		"number":"17A",
-		"semester":[
-			    "summer",
-			    "fall"
-			    ],
-		"gearea":[
-			  "D",
-			  "WRT"
-			  ],
-		"units":"4",
-		"label":"HIST 17A The American People | Area D, WRT",
-		"id":"1564"
-	    }
-	    ValidateAllInput(inputCourses);
-	}
-    });
-QUnit.test("empty string", function(){
-	equal(IsValid(""), true, "empty string");
-    });
-QUnit.test("sth is good", function(){
-	equal(IsValid("HIST 17A The American People | Area D, WRT"), true, "Hist17A is good");
-    });
-QUnit.test("sth is not good", function(){
-	equal(IsValid("HIST 18A The American People | Area D, WRT"), false, "hist18A not good");
+QUnit.test("check units", function(){
+	equal(run_AP_analysis(inputAP), [], "check the result");
     });
 */
+
 
 
 
