@@ -169,6 +169,8 @@ var run_AP_analysis = function(arr){
     var flag = validateAP(arr);
     if(!flag){
 	res.validate = false;
+	res.units = 0;
+	res.area = {};
 	return res
     }
     arr = raw2apData(arr);
