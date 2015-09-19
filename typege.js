@@ -137,7 +137,7 @@ function ValidGE(){
          geFullFillment = [{type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
                           {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
                           {type : "Area B", status : checkAreaB(), message : (checkAreaB()?1:0)+"/1"},
-                          {type : "AreaC", status :(geStatus["C"]>=reqNumber[2][0]), message :geStatus["C"]+"/3"},
+                          {type : "Area C", status :(geStatus["C"]>=reqNumber[2][0]), message :geStatus["C"]+"/3"},
                           {type : "Area D", status :(geStatus["D"]>=reqNumber[2][1]), message :geStatus["D"]+"/2"},
                           {type : "Area E", status :(geStatus["E"]>=reqNumber[2][2]), message :geStatus["E"]+"/2"},
                           {type : "Area F", status :(geStatus["F"]>=reqNumber[2][3]), message :geStatus["F"]+"/1"},
