@@ -75,18 +75,18 @@ function ValidGE(){
     UpdateGE()
     var w2 = false, w50 = false //w2 stands for writing 2 and equivalent coures. w50 stand for writing 50 and equivalent coures
     for(course of validCourses){
-        if(course.sub == "WRIT"&&course.number.slice(0,1)=="2"){
+        if(course.sub == "WRIT"&&parseInt(course.number)=="2"){
             w2 = true
             break
         }
     }
     for(course of validCourses){
-        if(course.sub == "WRIT"&&(course.number.slice(0,2)=="50"||course.number.slice(0,4)=="109"
-          ||course.number.slice(0,4)=="105"||course.number.slice(0,4)=="107")){
+        if(course.sub == "WRIT"&&(parseInt(course.number)=="50"||parseInt(course.number)=="109"
+          ||parseInt(course.number)=="105"||parseInt(course.number)=="107")){
             w50 = true
             break
         }
-        if(course.sub == "ENGL"&&course.number.slice(0,2)=="10"){
+        if(course.sub == "ENGL"&&parseInt(course.number)=="10"){
             w50 = true
             break
         }
