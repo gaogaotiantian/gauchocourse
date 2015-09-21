@@ -6,22 +6,6 @@
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="gc.js"></script>
 <script type="text/javascript">
-// Global Variables
-var apData = []
-var courseData = []
-var invalidData = []
-var validCourses = []
-$(document).ready(function(){
-    $.getJSON("courseData.json", function(data) {
-        //courseData = JSON.parse(JSON.stringify(data))
-        courseData = data
-    })
-    .fail(function(d, text, error){alert("error in getJson!" + text + error)})
-    $.getJSON("apdata.json", function(data) {
-        apData = data
-    })
-    .fail(function(d, text, error){alert("error in get apdata!" + text + error)})
-});
 </script>
 <script src="ui.js"></script>
 </head>
@@ -33,7 +17,7 @@ $(document).ready(function(){
         </div>
         <div id="user_info">
             <label for="sel_major">Major:</label>
-            <select name="sel_major">
+            <select name="sel_major" id="sel_major">
                 <option>CS</option>
                 <option>Other</option>
             </select>
