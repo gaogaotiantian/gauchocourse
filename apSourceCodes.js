@@ -31,10 +31,10 @@ var raw2apData = function(arr){
     for(var i = 0; i < arr.length ; i++){
 	var label = arr[i].label;
 	var foo;
-	for(var key in apData){
+	for(var idx in apData){
 	    //console.log(key);
-	    if(label == key){
-		foo = apData[key];
+	    if(label == apData[idx].label){
+		foo = apData[idx];
 		//console.log("found");
 		break;
 	    }
