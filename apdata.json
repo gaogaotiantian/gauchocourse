@@ -1,521 +1,521 @@
-{
-    "U.S. Government and Politics": {
-        "subject": "Whocares",
-        "units": "4",
-        "multi_scores": false,
-        "label": "U.S. Government and Politics",
+[
+    {
         "score": "NA",
-        "course_equivalent": "Political Science 12",
-        "ge": {
-            "num": "1",
-            "area": "D"
-        }
-    },
-    "Spanish Language and Culture": {
-        "scores": [
-            3,
-            4,
-            5
-        ],
-        "3": {
-            "course_equivalent": "Spanish 1-3",
-            "score": 3,
-            "units": "8",
-            "ge": {
-                "area": "B"
-            }
-        },
-        "4": {
-            "course_equivalent": "Spanish 1-4",
-            "score": 4,
-            "units": "8",
-            "ge": {
-                "area": "B"
-            }
-        },
-        "subject": "Whocares",
-        "multi_scores": true,
-        "label": "Spanish Language and Culture",
-        "5": {
-            "course_equivalent": "Spanish 1-5",
-            "score": 5,
-            "units": "8",
-            "ge": {
-                "area": "B"
-            }
-        }
-    },
-    "Economics  Microeconomics": {
-        "subject": "Whocares",
-        "units": "4",
-        "multi_scores": false,
-        "label": "Economics  Microeconomics",
-        "score": "NA",
-        "course_equivalent": "none",
-        "ge": {
-            "num": "1",
-            "area": "D"
-        }
-    },
-    "Statistics": {
-        "subject": "Whocares",
-        "units": "4",
-        "multi_scores": false,
-        "label": "Statistics",
-        "score": "NA",
-        "course_equivalent": "Communication 87, PSTAT 5AA-ZZ, Psychology 5",
-        "ge": {
-            "num": "1",
-            "area": "C"
-        }
-    },
-    "Human Geography": {
-        "subject": "Whocares",
-        "units": "4",
-        "multi_scores": false,
-        "label": "Human Geography",
-        "score": "NA",
-        "course_equivalent": "Geography 5",
-        "ge": {
-            "area": "D"
-        }
-    },
-    "French Language and Culture": {
-        "scores": [
-            3,
-            4,
-            5
-        ],
-        "3": {
-            "course_equivalent": "French 1-3",
-            "score": 3,
-            "units": "8",
-            "ge": {
-                "area": "B"
-            }
-        },
-        "4": {
-            "course_equivalent": "French 1-4",
-            "score": 4,
-            "units": "8",
-            "ge": {
-                "area": "B"
-            }
-        },
-        "subject": "Whocares",
-        "multi_scores": true,
-        "label": "French Language and Culture",
-        "5": {
-            "course_equivalent": "French 1-5",
-            "score": 5,
-            "units": "8",
-            "ge": {
-                "area": "B"
-            }
-        }
-    },
-    "Physics  C (Electricity and Magnetism)": {
-        "subject": "physics",
-        "units": "4",
-        "multi_scores": false,
-        "label": "Physics  C (Electricity and Magnetism)",
-        "score": "NA",
-        "course_equivalent": "Physics 6B  6BL",
-        "ge": {
-            "num": "1",
-            "area": "C"
-        }
-    },
-    "Comparative Government and Politics": {
-        "subject": "Whocares",
-        "units": "4",
-        "multi_scores": false,
-        "label": "Comparative Government and Politics",
-        "score": "NA",
-        "course_equivalent": "none",
-        "ge": {
-            "num": "1",
-            "area": "D"
-        }
-    },
-    "Physics  B": {
-        "subject": "physics",
-        "units": "8",
-        "multi_scores": false,
-        "label": "Physics  B",
-        "score": "NA",
-        "course_equivalent": "Physics 10, Natural Science 1A",
-        "ge": {
-            "num": "1",
-            "area": "C"
-        }
-    },
-    "Latin": {
-        "subject": "Whocares",
-        "units": "4",
-        "multi_scores": false,
-        "label": "Latin",
-        "score": "NA",
-        "course_equivalent": "Latin 1-3",
-        "ge": {
-            "area": "B"
-        }
-    },
-    "Biology": {
-        "subject": "Whocares",
-        "units": "8",
-        "multi_scores": false,
-        "label": "Biology",
-        "score": "NA",
-        "course_equivalent": "MCDB 20, Natural Science 1C",
-        "ge": {
-            "num": "1",
-            "area": "C"
-        }
-    },
-    "Chemistry": {
-        "subject": "Whocares",
-        "units": "8",
-        "multi_scores": false,
-        "label": "Chemistry",
-        "score": "NA",
-        "course_equivalent": "Natural Science 1B",
-        "ge": {
-            "num": "1",
-            "area": "C"
-        }
-    },
-    "Art Studio 2D Design": {
         "subject": "art",
+        "ge": {
+            "area": "F",
+            "num": "1"
+        },
+        "label": "Art History",
         "units": "8",
-        "multi_scores": false,
-        "label": "Art Studio 2D Design",
+        "course_equivalent": "Art History 1",
+        "multi_scores": false
+    },
+    {
         "score": "NA",
-        "course_equivalent": "none",
+        "subject": "art",
         "ge": {
             "area": "none"
-        }
-    },
-    "Mathematics  Calculus BC": {
-        "subject": "math",
+        },
+        "label": "Art Studio 2D Design",
         "units": "8",
-        "multi_scores": false,
-        "label": "Mathematics  Calculus BC",
-        "score": "NA",
-        "course_equivalent": "Mathematics 3A, 3B, 15, 34A, 34B, or equivalent",
-        "ge": {
-            "num": "2",
-            "area": "C"
-        }
+        "course_equivalent": "none",
+        "multi_scores": false
     },
-    "English Language and Composition or Literature and Composition": {
-        "scores": [
-            3,
-            4,
-            5
-        ],
+    {
+        "score": "NA",
+        "subject": "art",
+        "ge": {
+            "area": "none"
+        },
+        "label": "Art Studio 3D Design",
+        "units": "8",
+        "course_equivalent": "none",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "art",
+        "ge": {
+            "area": "none"
+        },
+        "label": "Art Studio Drawing",
+        "units": "8",
+        "course_equivalent": "Art 18",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "Whocares",
+        "ge": {
+            "area": "C",
+            "num": "1"
+        },
+        "label": "Biology",
+        "units": "8",
+        "course_equivalent": "MCDB 20, Natural Science 1C",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "Whocares",
+        "ge": {
+            "area": "C",
+            "num": "1"
+        },
+        "label": "Chemistry",
+        "units": "8",
+        "course_equivalent": "Natural Science 1B",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "Whocares",
+        "ge": {
+            "area": "B"
+        },
+        "label": "Chinese Language and Culture",
+        "units": "8",
+        "course_equivalent": "none",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "Whocares",
+        "ge": {
+            "area": "D",
+            "num": "1"
+        },
+        "label": "Comparative Government and Politics",
+        "units": "4",
+        "course_equivalent": "none",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "Whocares",
+        "ge": {
+            "area": "none"
+        },
+        "label": "Computer Science A",
+        "units": "2",
+        "course_equivalent": "none",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "Whocares",
+        "ge": {
+            "area": "D",
+            "num": "1"
+        },
+        "label": "Economics  Macroeconomics",
+        "units": "4",
+        "course_equivalent": "none",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "Whocares",
+        "ge": {
+            "area": "D",
+            "num": "1"
+        },
+        "label": "Economics  Microeconomics",
+        "units": "4",
+        "course_equivalent": "none",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "Whocares",
+        "ge": {
+            "area": "C",
+            "num": "1"
+        },
+        "label": "Environmental Science",
+        "units": "4",
+        "course_equivalent": "Environmental Studies 2",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "Whocares",
+        "ge": {
+            "area": "E",
+            "num": "1"
+        },
+        "label": "European History",
+        "units": "8",
+        "course_equivalent": "none",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "Whocares",
+        "ge": {
+            "area": "D"
+        },
+        "label": "Human Geography",
+        "units": "4",
+        "course_equivalent": "Geography 5",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "Whocares",
+        "ge": {
+            "area": "B"
+        },
+        "label": "Japanese Language and Culture",
+        "units": "8",
+        "course_equivalent": "none",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "Whocares",
+        "ge": {
+            "area": "B"
+        },
+        "label": "Latin",
+        "units": "4",
+        "course_equivalent": "Latin 1-3",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "math",
+        "ge": {
+            "area": "C",
+            "num": "1"
+        },
+        "label": "Mathematics  Calculus AB(or AB subscore of BC exam)",
+        "units": "4",
+        "course_equivalent": "Mathematics 3A, 15, 34A, or equivalent",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "math",
+        "ge": {
+            "area": "C",
+            "num": "2"
+        },
+        "label": "Mathematics  Calculus BC",
+        "units": "8",
+        "course_equivalent": "Mathematics 3A, 3B, 15, 34A, 34B, or equivalent",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "Whocares",
+        "ge": {
+            "area": "F",
+            "num": "1"
+        },
+        "label": "Music  Theory",
+        "units": "8",
+        "course_equivalent": "Music 11",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "physics",
+        "ge": {
+            "area": "C",
+            "num": "1"
+        },
+        "label": "Physics  B",
+        "units": "8",
+        "course_equivalent": "Physics 10, Natural Science 1A",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "physics",
+        "ge": {
+            "area": "C",
+            "num": "1"
+        },
+        "label": "Physics  C (Mechanics)",
+        "units": "4",
+        "course_equivalent": "Physics 6A  6AL",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "physics",
+        "ge": {
+            "area": "C",
+            "num": "1"
+        },
+        "label": "Physics  C (Electricity and Magnetism)",
+        "units": "4",
+        "course_equivalent": "Physics 6B  6BL",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "Whocares",
+        "ge": {
+            "area": "D",
+            "num": "1"
+        },
+        "label": "Psychology",
+        "units": "4",
+        "course_equivalent": "Psychology 1",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "Whocares",
+        "ge": {
+            "area": "C",
+            "num": "1"
+        },
+        "label": "Statistics",
+        "units": "4",
+        "course_equivalent": "Communication 87, PSTAT 5AA-ZZ, Psychology 5",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "Whocares",
+        "ge": {
+            "area": "D",
+            "num": "1"
+        },
+        "label": "U.S. Government and Politics",
+        "units": "4",
+        "course_equivalent": "Political Science 12",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "Whocares",
+        "ge": {
+            "area": "D",
+            "num": "1"
+        },
+        "label": "U.S. History",
+        "units": "8",
+        "course_equivalent": "none",
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "Whocares",
+        "ge": {
+            "area": "none"
+        },
+        "label": "World History",
+        "units": "8",
+        "course_equivalent": "none",
+        "multi_scores": false
+    },
+    {
+        "subject": "english",
         "3": {
-            "course_equivalent": "Writing 1, 1E, 1LK",
             "score": 3,
             "units": "8",
+            "course_equivalent": "Writing 1, 1E, 1LK",
             "ge": {
                 "area": "Entry Level Writing Requirement"
             }
         },
         "4": {
-            "course_equivalent": "Writing 1, 1E, 1LK, 2, 2E, 2LK",
             "score": 4,
             "units": "8",
+            "course_equivalent": "Writing 1, 1E, 1LK, 2, 2E, 2LK",
             "ge": {
                 "area": "A1"
             }
         },
-        "subject": "english",
-        "multi_scores": true,
         "label": "English Language and Composition or Literature and Composition",
+        "scores": [
+            3,
+            4,
+            5
+        ],
         "5": {
-            "course_equivalent": "Writing 1, 1E, 1LK, 2, 2E, 2LK, 50, 50E, 50LK",
             "score": 5,
             "units": "8",
+            "course_equivalent": "Writing 1, 1E, 1LK, 2, 2E, 2LK, 50, 50E, 50LK",
             "ge": {
                 "area": "A1, A2"
             }
-        }
+        },
+        "multi_scores": true
     },
-    "German Language and Culture": {
+    {
+        "subject": "Whocares",
+        "3": {
+            "score": 3,
+            "units": "8",
+            "course_equivalent": "French 1-3",
+            "ge": {
+                "area": "B"
+            }
+        },
+        "4": {
+            "score": 4,
+            "units": "8",
+            "course_equivalent": "French 1-4",
+            "ge": {
+                "area": "B"
+            }
+        },
+        "label": "French Language and Culture",
         "scores": [
             3,
             4,
             5
         ],
+        "5": {
+            "score": 5,
+            "units": "8",
+            "course_equivalent": "French 1-5",
+            "ge": {
+                "area": "B"
+            }
+        },
+        "multi_scores": true
+    },
+    {
+        "subject": "Whocares",
         "3": {
+            "score": 3,
+            "units": "8",
             "course_equivalent": "German 1-3",
-            "score": 3,
-            "units": "8",
             "ge": {
                 "area": "B"
             }
         },
         "4": {
+            "score": 4,
+            "units": "8",
             "course_equivalent": "German 1-4",
-            "score": 4,
-            "units": "8",
             "ge": {
                 "area": "B"
             }
         },
-        "subject": "Whocares",
-        "multi_scores": true,
         "label": "German Language and Culture",
+        "scores": [
+            3,
+            4,
+            5
+        ],
         "5": {
+            "score": 5,
+            "units": "8",
             "course_equivalent": "German 1-5",
-            "score": 5,
-            "units": "8",
             "ge": {
                 "area": "B"
             }
-        }
+        },
+        "multi_scores": true
     },
-    "Computer Science A": {
+    {
         "subject": "Whocares",
-        "units": "2",
-        "multi_scores": false,
-        "label": "Computer Science A",
-        "score": "NA",
-        "course_equivalent": "none",
-        "ge": {
-            "area": "none"
-        }
-    },
-    "Mathematics  Calculus AB(or AB subscore of BC exam)": {
-        "subject": "math",
-        "units": "4",
-        "multi_scores": false,
-        "label": "Mathematics  Calculus AB(or AB subscore of BC exam)",
-        "score": "NA",
-        "course_equivalent": "Mathematics 3A, 15, 34A, or equivalent",
-        "ge": {
-            "num": "1",
-            "area": "C"
-        }
-    },
-    "Art Studio 3D Design": {
-        "subject": "art",
-        "units": "8",
-        "multi_scores": false,
-        "label": "Art Studio 3D Design",
-        "score": "NA",
-        "course_equivalent": "none",
-        "ge": {
-            "area": "none"
-        }
-    },
-    "World History": {
-        "subject": "Whocares",
-        "units": "8",
-        "multi_scores": false,
-        "label": "World History",
-        "score": "NA",
-        "course_equivalent": "none",
-        "ge": {
-            "area": "none"
-        }
-    },
-    "Art History": {
-        "subject": "art",
-        "units": "8",
-        "multi_scores": false,
-        "label": "Art History",
-        "score": "NA",
-        "course_equivalent": "Art History 1",
-        "ge": {
-            "num": "1",
-            "area": "F"
-        }
-    },
-    "Chinese Language and Culture": {
-        "subject": "Whocares",
-        "units": "8",
-        "multi_scores": false,
-        "label": "Chinese Language and Culture",
-        "score": "NA",
-        "course_equivalent": "none",
-        "ge": {
-            "area": "B"
-        }
-    },
-    "U.S. History": {
-        "subject": "Whocares",
-        "units": "8",
-        "multi_scores": false,
-        "label": "U.S. History",
-        "score": "NA",
-        "course_equivalent": "none",
-        "ge": {
-            "num": "1",
-            "area": "D"
-        }
-    },
-    "Psychology": {
-        "subject": "Whocares",
-        "units": "4",
-        "multi_scores": false,
-        "label": "Psychology",
-        "score": "NA",
-        "course_equivalent": "Psychology 1",
-        "ge": {
-            "num": "1",
-            "area": "D"
-        }
-    },
-    "Art Studio Drawing": {
-        "subject": "art",
-        "units": "8",
-        "multi_scores": false,
-        "label": "Art Studio Drawing",
-        "score": "NA",
-        "course_equivalent": "Art 18",
-        "ge": {
-            "area": "none"
-        }
-    },
-    "Environmental Science": {
-        "subject": "Whocares",
-        "units": "4",
-        "multi_scores": false,
-        "label": "Environmental Science",
-        "score": "NA",
-        "course_equivalent": "Environmental Studies 2",
-        "ge": {
-            "num": "1",
-            "area": "C"
-        }
-    },
-    "Spanish Literature and Culture": {
-        "scores": [
-            3,
-            4,
-            5
-        ],
         "3": {
-            "course_equivalent": "Spanish 1-4",
             "score": 3,
             "units": "8",
-            "ge": {
-                "area": "B"
-            }
-        },
-        "4": {
-            "course_equivalent": "Spanish 1-5",
-            "score": 4,
-            "units": "8",
-            "ge": {
-                "area": "B"
-            }
-        },
-        "subject": "Whocares",
-        "multi_scores": true,
-        "label": "Spanish Literature and Culture",
-        "5": {
-            "course_equivalent": "Spanish 1-6",
-            "score": 5,
-            "units": "8",
-            "ge": {
-                "area": "B"
-            }
-        }
-    },
-    "Music  Theory": {
-        "subject": "Whocares",
-        "units": "8",
-        "multi_scores": false,
-        "label": "Music  Theory",
-        "score": "NA",
-        "course_equivalent": "Music 11",
-        "ge": {
-            "num": "1",
-            "area": "F"
-        }
-    },
-    "Japanese Language and Culture": {
-        "subject": "Whocares",
-        "units": "8",
-        "multi_scores": false,
-        "label": "Japanese Language and Culture",
-        "score": "NA",
-        "course_equivalent": "none",
-        "ge": {
-            "area": "B"
-        }
-    },
-    "Economics  Macroeconomics": {
-        "subject": "Whocares",
-        "units": "4",
-        "multi_scores": false,
-        "label": "Economics  Macroeconomics",
-        "score": "NA",
-        "course_equivalent": "none",
-        "ge": {
-            "num": "1",
-            "area": "D"
-        }
-    },
-    "European History": {
-        "subject": "Whocares",
-        "units": "8",
-        "multi_scores": false,
-        "label": "European History",
-        "score": "NA",
-        "course_equivalent": "none",
-        "ge": {
-            "num": "1",
-            "area": "E"
-        }
-    },
-    "Italian Language and Culture": {
-        "scores": [
-            3,
-            4,
-            5
-        ],
-        "3": {
             "course_equivalent": "Italian 1-3",
-            "score": 3,
-            "units": "8",
             "ge": {
                 "area": "B"
             }
         },
         "4": {
-            "course_equivalent": "Italian 1-5",
             "score": 4,
             "units": "8",
+            "course_equivalent": "Italian 1-5",
             "ge": {
                 "area": "B"
             }
         },
-        "subject": "Whocares",
-        "multi_scores": true,
         "label": "Italian Language and Culture",
+        "scores": [
+            3,
+            4,
+            5
+        ],
         "5": {
-            "course_equivalent": "Italian 1-6",
             "score": 5,
             "units": "8",
+            "course_equivalent": "Italian 1-6",
             "ge": {
                 "area": "B"
             }
-        }
+        },
+        "multi_scores": true
     },
-    "Physics  C (Mechanics)": {
-        "subject": "physics",
-        "units": "4",
-        "multi_scores": false,
-        "label": "Physics  C (Mechanics)",
-        "score": "NA",
-        "course_equivalent": "Physics 6A  6AL",
-        "ge": {
-            "num": "1",
-            "area": "C"
-        }
+    {
+        "subject": "Whocares",
+        "3": {
+            "score": 3,
+            "units": "8",
+            "course_equivalent": "Spanish 1-3",
+            "ge": {
+                "area": "B"
+            }
+        },
+        "4": {
+            "score": 4,
+            "units": "8",
+            "course_equivalent": "Spanish 1-4",
+            "ge": {
+                "area": "B"
+            }
+        },
+        "label": "Spanish Language and Culture",
+        "scores": [
+            3,
+            4,
+            5
+        ],
+        "5": {
+            "score": 5,
+            "units": "8",
+            "course_equivalent": "Spanish 1-5",
+            "ge": {
+                "area": "B"
+            }
+        },
+        "multi_scores": true
+    },
+    {
+        "subject": "Whocares",
+        "3": {
+            "score": 3,
+            "units": "8",
+            "course_equivalent": "Spanish 1-4",
+            "ge": {
+                "area": "B"
+            }
+        },
+        "4": {
+            "score": 4,
+            "units": "8",
+            "course_equivalent": "Spanish 1-5",
+            "ge": {
+                "area": "B"
+            }
+        },
+        "label": "Spanish Literature and Culture",
+        "scores": [
+            3,
+            4,
+            5
+        ],
+        "5": {
+            "score": 5,
+            "units": "8",
+            "course_equivalent": "Spanish 1-6",
+            "ge": {
+                "area": "B"
+            }
+        },
+        "multi_scores": true
     }
-}
+]

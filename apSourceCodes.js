@@ -31,10 +31,10 @@ var raw2apData = function(arr){
     for(var i = 0; i < arr.length ; i++){
 	var label = arr[i].label;
 	var foo;
-	for(var key in apData){
+	for(var idx in apData){
 	    //console.log(key);
-	    if(label == key){
-		foo = apData[key];
+	    if(label == apData[idx].label){
+		foo = apData[idx];
 		//console.log("found");
 		break;
 	    }
@@ -75,6 +75,9 @@ var computeAP = function(arr){
     var math = 0;
     var english = 0;
     for(var i = 0 ; i < arr.length ; i++){
+	if(arr[i].user_score<3){
+	    continue;
+	}
 	if(!arr[i].multi_scores){
 	    //console.log(arr[i])
 	    var label = arr[i].label;
@@ -108,8 +111,6 @@ var computeAP = function(arr){
 	    }
 	    addGE(ge_areas,ge_area);
 	    total_units += units;
-	    
-
 	    
 	}
 	else{
