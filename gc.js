@@ -1,3 +1,30 @@
+//******************
+//******************
+//******************
+//All global variable you should provide
+/*global variable you should provide
+var user = {
+    major : "CMPSC",
+    majorType : "ENGR"
+}
+
+var geFullFillment //status and message for every ge area and special requirment
+
+
+var validCourses = [] // list of all valid courses
+
+var invalidData = [] // array of invalidData as object, each object has three variable. 1.name 2.semester 3.message
+
+var invalidGrad = [] //array of unfulfilled graduation requirment
+
+var totalUnit = 0 // totoal units of the current courses add up
+*/
+//******************
+//******************
+//******************
+
+
+
 var addedCourses = [] //list of all inputed courses as a object of course and semester
 
 var schedule = [] //sorted schedule, index represent the semester. ex: schedule[0] is the array of all input courses in freshman summer quarter
@@ -9,7 +36,14 @@ var quarterUnit = [] // unit for each quarter, ex: quarterUnit[0] represent the 
 var invalidCourse = [] //those course that did not fulfill the requirment
 
 
+
+//******************
+//******************
+//******************
 //main function that caller should provide the argument to run the validation
+//******************
+//******************
+//******************
 function ValidateAllInput(input){
     addedCourses = []
     schedule = []
@@ -29,6 +63,7 @@ function ValidateAllInput(input){
     console.log("added:", addedCourses)
     console.log("valid:", validCourses)
     console.log("invalid", invalidData)
+    console.log("invalidGrad", invalidGrad)
 }
 
 
@@ -64,7 +99,13 @@ function GetErrorMessage(name){
 
 
 
+//******************
+//******************
+//******************
 //function starts here is for my own use
+//******************
+//******************
+//******************
 function SemToNum(semester){
     if(semester == "freshman_summer") return 0;
     if(semester == "freshman_fall") return 1;
@@ -361,7 +402,7 @@ function checkRequiredCourses(){
         for(var c of unFinishedReq){
             tempstring+=(c+"\n")
         }
-        invalidData.push({name : "Required Courses", message : tempstring})
+        invalidGrad.push({name : "Required Courses", message : tempstring})
     }
 }
 
@@ -423,7 +464,7 @@ function checkChoiceCourses(){
                     tempstring+="\n"
                 }
             }
-            invalidData.push({name: "Choice Courses", message :tempstring})
+            invalidGrad.push({name: "Choice Courses", message :tempstring})
         }
     }
 

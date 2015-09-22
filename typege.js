@@ -69,8 +69,14 @@ var foreignLanguage = [{sub: "GREEK", number : "3"},
                        {sub: "RG ST", number : "159C"},
                        ]
 
-
+//******************
+//******************
+//******************
 //function that will be directly called by main program to valuate the ge status 
+//******************
+//******************
+//******************
+
 function ValidGE(){
     UpdateGE()
     var w2 = false, w50 = false //w2 stands for writing 2 and equivalent coures. w50 stand for writing 50 and equivalent coures
@@ -179,8 +185,14 @@ function ValidGE(){
 
 
 
-
+//******************
+//******************
+//******************
 //function beyond here will be called by ValidGE
+//******************
+//******************
+//******************
+
 //this function will update the geStatus based on validCourses
 function UpdateGE(){
     for(area of geStatus)
