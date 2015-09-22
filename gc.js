@@ -193,7 +193,7 @@ function CheckThisCourse(course, sem){
         var inmajor = false
 
         for(major of course.majorlimit){
-            if(major == user.major){
+            if(major == userData.major){
                 inmajor = true
                 break
             }
@@ -336,7 +336,7 @@ function checkRequiredCourses(){
     var unFinishedReq = []
     var found = false
     for(var t in majorReq){
-        if(user.major == majorReq[t].major){
+        if(userData.major == majorReq[t].major){
             index = t
             break
         }
@@ -372,7 +372,7 @@ function checkChoiceCourses(){
     var insideUnits = 0
     var failedChoices = []
     for(var t in majorReq){
-        if(user.major == majorReq[t].major){
+        if(userData.major == majorReq[t].major){
             index = t
             break
         }

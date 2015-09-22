@@ -1,6 +1,45 @@
+// Global Variables
+var apData = []
+var courseData = []
+var majorReq = []
+var invalidData = []
+var validCourses = []
+var userData = {"major":"", "ap":{"valid":false, "units":"0", "apList":[]}, "totalUnit":"0"}
+// Initialization, only run once for this function
+$(document).ready(function(){
+    // Course Database
+    $.getJSON("courseData.json", function(data) {
+        courseData = data
+    })
+    .fail(function(d, text, error){alert("error in getJson!" + text + error)})
+
+    // Ap Database
+    $.getJSON("apdata.json", function(data) {
+        apData = data
+    })
+    .fail(function(d, text, error){alert("error in get apdata!" + text + error)})
+
+    // Graduation Requirement Database
+    $.getJSON("gradreq.json", function(data) {
+        majorReq = data
+    })
+    .fail(function(d, text, error){alert("error in get grad req data!" + text + error)})
+    .success(function(){
+        console.log(majorReq)
+        for (idx in majorReq) {
+            maj = majorReq[idx]
+            $("#sel_major").append("<option>" + maj["major"] + "</option>") 
+        }
+    })    
+});
+
 $(function() {
 $("#error_msg").hide()
-$(".inputform").on("mouseenter", ".courseInput", function() {
+$("#sel_major").change(function() {
+    userData["major"] = $(this).val()
+})
+$(".inputform")
+.on("mouseenter", ".courseInput", function() {
     if ($(this).attr("valid") == "false") {
         var offset = $(this).offset()
         offset.top = offset.top + $(this).outerHeight()
@@ -45,6 +84,7 @@ function RefreshInputs(){
     $(".courseInput").each(function() {
         if (IsValid($(this).val())) {
             $(this).attr("valid", "true")
+            $(this).parent().find("span").text("4")
             console.log("true" + $(this).val())
         } else {
             $(this).attr("valid", "false")
@@ -53,11 +93,12 @@ function RefreshInputs(){
     })
 }
 
+// This is all AP form
 var apForm,
 apForm = $("#ap_form").dialog({
     autoOpen: false,
-    height:300,
-    width:350,
+    height:600,
+    width:800,
     modal: true,
     close: function() {
         RefreshInputs()
@@ -71,6 +112,7 @@ $("#ap_form").on("click", ".addApSelectButton", function() {
     newInput += "<label>Course</label>"
     newInput += "<select class='apCourseSelect' name=''>"
     for (ap of apData) {
+        if (ap.score == "NA" || ap.score == "5")
         newInput += "<option>"
         newInput += ap.label
         newInput += "</option>"
