@@ -177,17 +177,19 @@ run_AP_analysis = function(arr){
      *This is the API you should use!!!!!!!!!!
      *
      */
-    var res = {apList:arr};
+    var res = {};
     var flag = validateAP(arr);
     if(!flag){
 	res.valid = false;
 	res.units = 0;
 	res.area = {};
+	res.apList = [];
 	return res
     }
     arr = raw2apData(arr);
     res = computeAP(arr);
     res.valid = true;
+    res.apList = arr;
     return res;
     
 }
@@ -197,7 +199,7 @@ run_AP_analysis = function(arr){
 
 
 
-
+/*
 var arr = [
 
 {"label":"European History","score":3}
@@ -242,7 +244,7 @@ var arr = [
 ];
 arr = raw2apData(arr)
 var res = computeAP(arr)
-
+/*
 
 /*
 var obj = {
