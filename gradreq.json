@@ -33,7 +33,7 @@
 						    {"sub" : "PHYS", "number": "3L"}
 		],
 
-		"choiceCourses" : [{"courses" : [{"sub" : "CMPSC", "number": "111"},{"sub" : "CMPSC", "number": "140"},], "units" : "4"}
+		"choiceCourses" : [{"courses" : [{"sub" : "CMPSC", "number": "111"},{"sub" : "CMPSC", "number": "140"}], "units" : "4"},
 						   {"courses" : [{"sub" : "CMPSC", "number": "178"},
 						   				 {"sub" : "CMPSC", "number": "140"},
 						   				 {"sub" : "CMPSC", "number": "111"},
@@ -74,7 +74,7 @@
 						   				 {"sub" : "PSTAT", "number": "122"},
 						   				 {"sub" : "PSTAT", "number": "130"},
 						   				 {"sub" : "PSTAT", "number": "160A"},
-						   				 {"sub" : "PSTAT", "number": "160B"},
+						   				 {"sub" : "PSTAT", "number": "160B"}
 
 						   			], 
 						   "units":"20"},
@@ -134,7 +134,7 @@
 						   				 {"sub" : "PHYS", "number" : "5"},
 						   				 {"sub" : "PHYS", "number" : "5L"},
 						   				 {"sub" : "PSY", "number" : "107"},
-						   				 {"sub" : "PSY", "number" : "108"},
+						   				 {"sub" : "PSY", "number" : "108"}
 						   ], "units" : "8"}
 
 						   ], 
@@ -164,7 +164,7 @@
 							{"sub" : "PSTAT", "number": "126"},
 							{"sub" : "PSTAT", "number": "160A"},
 							{"sub" : "PSTAT", "number": "160B"},
-							{"sub" : "ECON", "number": "1"},
+							{"sub" : "ECON", "number": "1"}
 		],
 
 		"choiceCourses" : [{"courses" : [{"sub" : "PSTAT", "number" : "120A"}, {"sub" : "PSTAT", "number": "W 120A"}], "units": "4"},
@@ -192,7 +192,7 @@
 						   				 {"sub" : "PSTAT", "number" : "131"},
 						   				 {"sub" : "PSTAT", "number" : "171"},
 						   				 {"sub" : "PSTAT", "number" : "173"},
-						   				 {"sub" : "PSTAT", "number" : "174"},
+						   				 {"sub" : "PSTAT", "number" : "174"}
 						   ], "units" : "16"}
 		],
 
