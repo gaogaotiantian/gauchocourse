@@ -368,6 +368,8 @@ var validCourses = [] // list of all valid courses
 
 var invalidData = [] // array of invalidData as object, each object has three variable. 1.name 2.semester 3.message
 
+var invalidGrad = [] //array of unfulfilled graduation requirment
+
 var totalUnit = 0 // totoal units of the current courses add up
 
 

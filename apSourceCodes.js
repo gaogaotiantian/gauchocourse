@@ -1,6 +1,17 @@
 
-var isValidAP ; 
+//API*********************************************
+//***
+var run_AP_analysis;//;;return an object which has units, valid, area, apList
+//**
+//********************************************
 
+
+
+
+var isValidAP ; 
+var addGE;
+var raw2apData;
+var computeAP;
 
 
 var validateAP = function(arr){
@@ -21,7 +32,7 @@ var validateAP = function(arr){
 
 
 
-var raw2apData = function(arr){
+raw2apData = function(arr){
     /*
      *arr is an array of course label and the score of the user
      *return the full infos from apData and add the score of user
@@ -48,7 +59,7 @@ var raw2apData = function(arr){
 
 }
 
-var addGE = function(geareas,area){
+addGE = function(geareas,area){
     if (area=="none")return;
     for(var foo in geareas){
 	if (geareas[foo]==area){
@@ -58,7 +69,7 @@ var addGE = function(geareas,area){
     geareas.push(area)
 
 }
-var computeAP = function(arr){
+computeAP = function(arr){
 
 
     /*
@@ -161,7 +172,7 @@ var computeAP = function(arr){
 
 
 
-var run_AP_analysis = function(arr){
+run_AP_analysis = function(arr){
     /*
      *This is the API you should use!!!!!!!!!!
      *
@@ -169,14 +180,16 @@ var run_AP_analysis = function(arr){
     var res = {};
     var flag = validateAP(arr);
     if(!flag){
-	res.validate = false;
+	res.valid = false;
 	res.units = 0;
 	res.area = {};
+	res.apList = [];
 	return res
     }
     arr = raw2apData(arr);
     res = computeAP(arr);
-    res.validate = true;
+    res.valid = true;
+    res.apList = arr;
     return res;
     
 }
@@ -186,7 +199,7 @@ var run_AP_analysis = function(arr){
 
 
 
-
+/*
 var arr = [
 
 {"label":"European History","score":3}
@@ -231,7 +244,7 @@ var arr = [
 ];
 arr = raw2apData(arr)
 var res = computeAP(arr)
-
+/*
 
 /*
 var obj = {
