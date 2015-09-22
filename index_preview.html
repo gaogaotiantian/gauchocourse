@@ -12,12 +12,12 @@ var courseData = []
 var invalidData = []
 var validCourses = []
 $(document).ready(function(){
-    $.getJSON("https://raw.githubusercontent.com/gaogaotiantian/gauchocourse/master/apdata.json", function(data) {
+    $.getJSON("courseData.json", function(data) {
         //courseData = JSON.parse(JSON.stringify(data))
         courseData = data
     })
     .fail(function(d, text, error){alert("error in getJson!" + text + error)})
-    $.getJSON("https://raw.githubusercontent.com/gaogaotiantian/gauchocourse/master/apdata.json", function(data) {
+    $.getJSON("apdata.json", function(data) {
         apData = data
     })
     .fail(function(d, text, error){alert("error in get apdata!" + text + error)})
