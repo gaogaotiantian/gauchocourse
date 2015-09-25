@@ -197,5 +197,53 @@
 		],
 
 		"units" : "180"
+	},
+
+	{
+		"major" : "MATH BS",
+		"getype" : "LSBS",
+
+		"requiredCourses": [{"sub" : "MATH", "number": "3A"},
+							{"sub" : "MATH", "number": "3B"},
+							{"sub" : "MATH", "number": "4A"},
+							{"sub" : "MATH", "number": "4B"},
+							{"sub" : "MATH", "number": "6A"},
+							{"sub" : "MATH", "number": "6B"},
+							{"sub" : "MATH", "number": "8"},
+							{"sub" : "MATH", "number": "108A"},
+							{"sub" : "MATH", "number": "108B"},
+							{"sub" : "MATH", "number": "111A"},
+							{"sub" : "MATH", "number": "111B"},
+							{"sub" : "MATH", "number": "117"},
+							{"sub" : "MATH", "number": "118A"},
+							{"sub" : "MATH", "number": "118B"},
+							{"sub" : "MATH", "number": "122A"}
+							],
+
+		"choiceCourses" : [{
+							"courses" : [{"sub" : "CMPSC", "number" : "8"},
+						   			 	 {"sub" : "CMPSC", "number" : "16"},
+						   			 	 {"sub" : "ENGR",  "number" : "3" }
+						   ], "units" : "4"
+						   },
+
+						   {
+						   	"courses" : [{"sub" : "PHYS", "number" : "1"},
+						   				 {"sub" : "PHYS", "number" : "6A"},
+						   				 {"sub" : "PHYS", "number" : "21"}
+						   	], "units" : "4"
+						   },
+
+						   {
+						   	"courses" : [{"sub" : "MATH", "number" : "111C" },
+						   				 {"sub" : "MATH", "number" : "118C" }
+						   	], "units" : "4"
+						   },
+						   {
+						   	"courses" : [{"sub" : "MATH", "number" : "145" },
+						   				 {"sub" : "MATH", "number" : "147A" }
+						   	], "units" : "4"
+						   }
+		]
 	}
 ]
