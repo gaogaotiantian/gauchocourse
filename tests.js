@@ -224,8 +224,11 @@ var geStatus =new Array()
 
 var inputCourses = [
 		    {course : "PHIL 124B Philosophy of Physics", semester : "freshman_summer"},
+		    {course : "CMPSC 8 Introduction to Computer Science | Area C, QUR", semester : "freshman_fall"},
+		    {course : "CMPSC 16 Problem Solving with Computers I", semester : "freshman_winter"},
 		    {course : "PSY 3 The Biological Basis of Psychology", semester : "freshman_spring"},
 		    {course : "HIST 17A The American People | Area D, WRT", semester : "sophomore_fall"},
+		    {course : "AS AM 5 Introduction to Asian American Literature | Area G, ETH", semester: "sophomore_winter"},
 		    {course : "PSY 1 Introduction to Psychology | Area D", semester : "junior_fall"},
 		    {course : "HIST 115R Undergraduate Research Seminar in Medieval European History", semester : "senior_winter"}
 		    //		    {course : "CMPSCCS 1B Computer Programming and Organization II", semester : "freshman_fall"},
@@ -261,14 +264,16 @@ var expectedD = false
 var expectedE = false
 var expectedF = false
 var expectedG = false
+//these three are for ENGR only
 var expectedDE = true
 var expectedFG = false
 var expectedDEFGH = false
+
 var expectedWOR = false
 var expectedWRT = false
 var expectedEUR = false
 var expectedQUR = false
-var expectedETH = false
+var expectedETH = true
 //only for test purpose
 var count = 0
 
