@@ -35,6 +35,7 @@ var quarterUnit = [] // unit for each quarter, ex: quarterUnit[0] represent the 
 
 var invalidCourse = [] //those course that did not fulfill the requirment
 
+var usedCourse = []
 
 
 //******************
@@ -49,6 +50,7 @@ function ValidateAllInput(input){
     schedule = []
     invalidData = [] 
     validCourses = []
+    usedCourse = []
     AddAllCourses(input)
     SortAllCourseBySemester()
     CountUnit()
@@ -387,6 +389,7 @@ function checkRequiredCourses(){
         for(course of validCourses){
             if(reqCourse.sub == course.sub && reqCourse.number == course.number){
                 found = true
+                usedCourse.push(course.sub+course.number)
                 break
             }
         }
@@ -423,6 +426,8 @@ function checkChoiceCourses(){
         insideUnits=0
         for(var c of choices.courses){
             if(c.sub!=undefined){
+                if(usedCourse.indexOf(c.sub+c.num)!=(-1))
+                        continue
                 for(var vc of validCourses){
                     if(c.sub==vc.sub && c.number==vc.number){
                         currentUnits+=parseInt(vc.units)
@@ -458,9 +463,9 @@ function checkChoiceCourses(){
                     tempstring+=(c.sub+" "+c.number+"\n")
                 else{
                     for(var ic of c.courses){
-                        tempstring+=(ic.sub+" "+ic.number+" or")
+                        tempstring+=(ic.sub+" "+ic.number+" or ")
                     }
-                    tempstring = tempstring.slice(0,tempstring.length-2)
+                    tempstring = tempstring.slice(0,tempstring.length-3)
                     tempstring+="\n"
                 }
             }
@@ -474,4 +479,7 @@ function checkChoiceCourses(){
 
 
 
-
+function copyArray(original, copy){
+    for(orig of original)
+        copy.push(orig)
+}

@@ -34,26 +34,42 @@
 		],
 
 		"choiceCourses" : [{"courses" : [{"sub" : "CMPSC", "number": "111"},{"sub" : "CMPSC", "number": "140"}], "units" : "4"},
-						   {"courses" : [{"sub" : "CMPSC", "number": "178"},
+						   {"courses" : [{"sub" : "CMPSC", "number": "176A"},
+						   				 {"sub" : "CMPSC", "number": "176B"},
+						   				 {"sub" : "CMPSC", "number": "176C"},
+
+						   				 {"sub" : "CMPSC", "number": "160"},
+						   				 {"courses" : [{"sub" : "CMPSC", "number": "171"},{"sub" : "ECE", "number": "151"}], "units" : "4"},
+						   				 {"sub" : "CMPSC", "number": "172"},
+						   				 {"sub" : "CMPSC", "number": "174A"},
+						   				 {"sub" : "CMPSC", "number": "174B"},
+						   				 {"sub" : "CMPSC", "number": "180"},
+
+						   				 {"sub" : "CMPSC", "number": "177"},
+						   				 {"sub" : "CMPSC", "number": "178"},
+
+						   				 {"sub" : "CMPSC", "number": "186"},
+
+						   				 {"sub" : "CMPSC", "number": "165A"},
+						   				 {"sub" : "CMPSC", "number": "165B"},
+						   				 {"courses" : [{"sub" : "CMPSC", "number": "181B"},{"sub" : "ECE", "number": "181B"}], "units" : "4"},
+
+
+						   				 
+
 						   				 {"sub" : "CMPSC", "number": "140"},
 						   				 {"sub" : "CMPSC", "number": "111"},
 						   				 {"courses" : [{"sub" : "CMPSC", "number": "153A"},{"sub" : "ECE", "number": "153A"}], "units" : "4"},
 						   				 {"sub" : "CMPSC", "number": "165A"},
 						   				 {"sub" : "CMPSC", "number": "165B"},
 						   				 {"sub" : "CMPSC", "number": "167"},
-						   				 {"courses" : [{"sub" : "CMPSC", "number": "171"},{"sub" : "ECE", "number": "151"}], "units" : "4"},
-						   				 {"sub" : "CMPSC", "number": "172"},
-						   				 {"sub" : "CMPSC", "number": "174A"},
-						   				 {"sub" : "CMPSC", "number": "174B"},
-						   				 {"sub" : "CMPSC", "number": "176A"},
-						   				 {"sub" : "CMPSC", "number": "176B"},
-						   				 {"sub" : "CMPSC", "number": "176C"},
-						   				 {"sub" : "CMPSC", "number": "177"},
+						   				 
+						   				 
+
+						   				 
 						   				 {"sub" : "ECE", "number": "130A"},
 						   				 {"sub" : "ECE", "number": "130B"},
 						   				 {"sub" : "ECE", "number": "130C"},
-						   				 {"sub" : "CMPSC", "number": "180"},
-						   				 {"courses" : [{"sub" : "CMPSC", "number": "181B"},{"sub" : "ECE", "number": "181B"}], "units" : "4"},
 						   				 {"courses" : [{"sub" : "CMPSC", "number": "182"},{"sub" : "ECE", "number": "160"}], "units" : "4"},
 						   				 {"sub" : "CMPSC", "number": "185"},
 						   				 {"sub" : "CMPSC", "number": "186"},
@@ -239,10 +255,72 @@
 						   				 {"sub" : "MATH", "number" : "118C" }
 						   	], "units" : "4"
 						   },
+
 						   {
 						   	"courses" : [{"sub" : "MATH", "number" : "145" },
 						   				 {"sub" : "MATH", "number" : "147A" }
 						   	], "units" : "4"
+						   },
+
+						   {
+						   	"courses" : [{"sub" : "MATH", "number" : "101A" },
+						   				 {"sub" : "MATH", "number" : "101B" },
+						   				 {"sub" : "MATH", "number" : "102A" },
+						   				 {"sub" : "MATH", "number" : "103" },
+						   				 {"sub" : "MATH", "number" : "104A" },
+						   				 {"sub" : "MATH", "number" : "104B" },
+						   				 {"sub" : "MATH", "number" : "104C" },
+						   				 {"sub" : "MATH", "number" : "108B" },
+						   				 {"sub" : "MATH", "number" : "111C" },
+						   				 {"sub" : "MATH", "number" : "113" },
+						   				 {"sub" : "MATH", "number" : "115A" },
+						   				 {"sub" : "MATH", "number" : "115B" },
+						   				 {"sub" : "MATH", "number" : "116" },
+						   				 {"sub" : "MATH", "number" : "118C" },
+						   				 {"sub" : "MATH", "number" : "119A" },
+						   				 {"sub" : "MATH", "number" : "119B" },
+						   				 {"sub" : "MATH", "number" : "124A" },
+						   				 {"sub" : "MATH", "number" : "124B" },
+						   				 {"sub" : "MATH", "number" : "132A" },
+						   				 {"sub" : "MATH", "number" : "132B" },
+						   				 {"sub" : "MATH", "number" : "137A" },
+						   				 {"sub" : "MATH", "number" : "137B" },
+						   				 {"sub" : "MATH", "number" : "145" },
+						   				 {"sub" : "MATH", "number" : "147A" },
+						   				 {"sub" : "MATH", "number" : "147B" },
+						   				 {"sub" : "MATH", "number" : "181A" },
+						   				 {"sub" : "MATH", "number" : "181B" },
+						   				 {"sub" : "MATH", "number" : "182" },
+						   				 {"sub" : "ED", "number" : "134" },
+						   				 {"sub" : "ED", "number" : "135" },
+						   				 {"sub" : "PSTAT", "number" : "105" },
+						   				 {"sub" : "PSTAT", "number" : "109" },
+						   				 {"sub" : "PSTAT", "number" : "120A" },
+						   				 {"sub" : "PSTAT", "number" : "120B" },
+						   				 {"sub" : "PSTAT", "number" : "120C" },
+						   				 {"sub" : "PSTAT", "number" : "122" },
+						   				 {"sub" : "PSTAT", "number" : "123" },
+						   				 {"sub" : "PSTAT", "number" : "126" },
+						   				 {"sub" : "PSTAT", "number" : "130" },
+						   				 {"sub" : "PSTAT", "number" : "137" },
+						   				 {"sub" : "PSTAT", "number" : "140" },
+						   				 {"sub" : "PSTAT", "number" : "160A" },
+						   				 {"sub" : "PSTAT", "number" : "160B" },
+						   				 {"sub" : "PSTAT", "number" : "170" },
+						   				 {"sub" : "PSTAT", "number" : "171" },
+						   				 {"sub" : "PSTAT", "number" : "172A" },
+						   				 {"sub" : "PSTAT", "number" : "172B" },
+						   				 {"sub" : "PSTAT", "number" : "173" },
+						   				 {"sub" : "PSTAT", "number" : "174" },
+						   				 {"sub" : "PSTAT", "number" : "175" },
+						   				 {"sub" : "PSTAT", "number" : "176" },
+						   				 {"sub" : "PSTAT", "number" : "182T" },
+						   				 {"sub" : "PSTAT", "number" : "194" },
+						   				 {"sub" : "PSTAT", "number" : "195" },
+						   				 {"sub" : "PSTAT", "number" : "196" },
+						   				 {"sub" : "PSTAT", "number" : "199" },
+						   				 {"sub" : "PSTAT", "number" : "199RA" }
+						   	], "units" : "12"
 						   }
 		]
 	}
