@@ -184,6 +184,36 @@ var courseData  =[
     
 
 },
+
+{
+    label :"MATH 145",
+    id : "12",
+    sub : "MATH",
+    number : "145",
+    majorlimit : [],
+    units : "4",
+    prereq : [],
+    gearea :["G", "EUR", "WRT"],
+    levellimit : "",
+    semester : ["spring", "summer", "fall", "winter"],
+    
+
+},
+
+{
+    label :"MATH 147A",
+    id : "13",
+    sub : "MATH",
+    number : "147A",
+    majorlimit : [],
+    units : "4",
+    prereq : [],
+    gearea :["G", "EUR", "WRT"],
+    levellimit : "",
+    semester : ["spring", "summer", "fall", "winter"],
+    
+
+}
 ]
 
 
@@ -329,6 +359,116 @@ var majorReq = [
                            ], 
 
         "units" : "184"
+    },
+
+    {
+        "major" : "MATH BS",
+        "getype" : "LSBS",
+
+        "requiredCourses": [{"sub" : "MATH", "number": "3A"},
+                            {"sub" : "MATH", "number": "3B"},
+                            {"sub" : "MATH", "number": "4A"},
+                            {"sub" : "MATH", "number": "4B"},
+                            {"sub" : "MATH", "number": "6A"},
+                            {"sub" : "MATH", "number": "6B"},
+                            {"sub" : "MATH", "number": "8"},
+                            {"sub" : "MATH", "number": "108A"},
+                            {"sub" : "MATH", "number": "108B"},
+                            {"sub" : "MATH", "number": "111A"},
+                            {"sub" : "MATH", "number": "111B"},
+                            {"sub" : "MATH", "number": "117"},
+                            {"sub" : "MATH", "number": "118A"},
+                            {"sub" : "MATH", "number": "118B"},
+                            {"sub" : "MATH", "number": "122A"}
+                            ],
+
+        "choiceCourses" : [{
+                            "courses" : [{"sub" : "CMPSC", "number" : "8"},
+                                         {"sub" : "CMPSC", "number" : "16"},
+                                         {"sub" : "ENGR",  "number" : "3" }
+                           ], "units" : "4"
+                           },
+
+                           {
+                            "courses" : [{"sub" : "PHYS", "number" : "1"},
+                                         {"sub" : "PHYS", "number" : "6A"},
+                                         {"sub" : "PHYS", "number" : "21"}
+                            ], "units" : "4"
+                           },
+
+                           {
+                            "courses" : [{"sub" : "MATH", "number" : "111C" },
+                                         {"sub" : "MATH", "number" : "118C" }
+                            ], "units" : "4"
+                           },
+
+                           {
+                            "courses" : [{"sub" : "MATH", "number" : "145" },
+                                         {"sub" : "MATH", "number" : "147A" }
+                            ], "units" : "4"
+                           },
+
+                           {
+                            "courses" : [{"sub" : "MATH", "number" : "101A" },
+                                         {"sub" : "MATH", "number" : "101B" },
+                                         {"sub" : "MATH", "number" : "102A" },
+                                         {"sub" : "MATH", "number" : "103" },
+                                         {"sub" : "MATH", "number" : "104A" },
+                                         {"sub" : "MATH", "number" : "104B" },
+                                         {"sub" : "MATH", "number" : "104C" },
+                                         {"sub" : "MATH", "number" : "108B" },
+                                         {"sub" : "MATH", "number" : "111C" },
+                                         {"sub" : "MATH", "number" : "113" },
+                                         {"sub" : "MATH", "number" : "115A" },
+                                         {"sub" : "MATH", "number" : "115B" },
+                                         {"sub" : "MATH", "number" : "116" },
+                                         {"sub" : "MATH", "number" : "118C" },
+                                         {"sub" : "MATH", "number" : "119A" },
+                                         {"sub" : "MATH", "number" : "119B" },
+                                         {"sub" : "MATH", "number" : "124A" },
+                                         {"sub" : "MATH", "number" : "124B" },
+                                         {"sub" : "MATH", "number" : "132A" },
+                                         {"sub" : "MATH", "number" : "132B" },
+                                         {"sub" : "MATH", "number" : "137A" },
+                                         {"sub" : "MATH", "number" : "137B" },
+                                         {"sub" : "MATH", "number" : "145" },
+                                         {"sub" : "MATH", "number" : "147A" },
+                                         {"sub" : "MATH", "number" : "147B" },
+                                         {"sub" : "MATH", "number" : "181A" },
+                                         {"sub" : "MATH", "number" : "181B" },
+                                         {"sub" : "MATH", "number" : "182" },
+                                         {"sub" : "ED", "number" : "134" },
+                                         {"sub" : "ED", "number" : "135" },
+                                         {"sub" : "PSTAT", "number" : "105" },
+                                         {"sub" : "PSTAT", "number" : "109" },
+                                         {"sub" : "PSTAT", "number" : "120A" },
+                                         {"sub" : "PSTAT", "number" : "120B" },
+                                         {"sub" : "PSTAT", "number" : "120C" },
+                                         {"sub" : "PSTAT", "number" : "122" },
+                                         {"sub" : "PSTAT", "number" : "123" },
+                                         {"sub" : "PSTAT", "number" : "126" },
+                                         {"sub" : "PSTAT", "number" : "130" },
+                                         {"sub" : "PSTAT", "number" : "137" },
+                                         {"sub" : "PSTAT", "number" : "140" },
+                                         {"sub" : "PSTAT", "number" : "160A" },
+                                         {"sub" : "PSTAT", "number" : "160B" },
+                                         {"sub" : "PSTAT", "number" : "170" },
+                                         {"sub" : "PSTAT", "number" : "171" },
+                                         {"sub" : "PSTAT", "number" : "172A" },
+                                         {"sub" : "PSTAT", "number" : "172B" },
+                                         {"sub" : "PSTAT", "number" : "173" },
+                                         {"sub" : "PSTAT", "number" : "174" },
+                                         {"sub" : "PSTAT", "number" : "175" },
+                                         {"sub" : "PSTAT", "number" : "176" },
+                                         {"sub" : "PSTAT", "number" : "182T" },
+                                         {"sub" : "PSTAT", "number" : "194" },
+                                         {"sub" : "PSTAT", "number" : "195" },
+                                         {"sub" : "PSTAT", "number" : "196" },
+                                         {"sub" : "PSTAT", "number" : "199" },
+                                         {"sub" : "PSTAT", "number" : "199RA" }
+                            ], "units" : "12"
+                           }
+        ]
     }
 ]
 
@@ -350,14 +490,16 @@ var inputCourses = [
                     {course : "History 200B, Post World History", semester :"freshman_winter"},
                     {course : "Philophy 173, World History", semester : "freshman_fall"},
                     {course : "SPAN 3,ELEMENTARY SPAN 3",semester:"freshman_spring"},
-                    {course : "Writing 109, intro to College Writing", semester : "freshman_spring"}
+                    {course : "Writing 109, intro to College Writing", semester : "freshman_spring"},
+                    {course : "MATH 145", semester : "freshman_spring"},
+                    {course : "MATH 147A", semester : "freshman_spring"},
 ] //input courses name with semester that should be provied for the function, this is just a example
 
 
 
 //global variable you should provide
 var user = {
-    major : "CMPSC",
+    major : "MATH BS",
     majorType : "ENGR"
 }
 

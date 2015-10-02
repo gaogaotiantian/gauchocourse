@@ -62,6 +62,7 @@ function ValidateAllInput(input){
     }
     checkRequiredCourses()
     checkChoiceCourses()
+    console.log("used course", usedCourse)
     console.log("added:", addedCourses)
     console.log("valid:", validCourses)
     console.log("invalid", invalidData)
@@ -426,19 +427,28 @@ function checkChoiceCourses(){
         insideUnits=0
         for(var c of choices.courses){
             if(c.sub!=undefined){
-                if(usedCourse.indexOf(c.sub+c.num)!=(-1))
-                        continue
+                if(usedCourse.indexOf(c.sub+c.number)!=(-1)){
+                    console.log("success", (c.sub+c.number))
+                    continue
+                }
                 for(var vc of validCourses){
                     if(c.sub==vc.sub && c.number==vc.number){
+                        usedCourse.push(c.sub+c.number)
                         currentUnits+=parseInt(vc.units)
                         //console.log("currentUnits first add",currentUnits)
                         break
                     }
                 }
+                if(currentUnits>= parseInt(choices.units))
+                    break
             }
             else{
                 insideUnits=0
                 for(var ic of c.courses){
+                    if(usedCourse.indexOf(ic.sub+ic.num)!=(-1)){
+                        console.log("success", (ic.sub+ic.number))
+                        continue
+                    }
                     for(var vc of validCourses){
                         if(ic.sub == vc.sub && ic.number == vc.number){
                             insideUnits+=parseInt(vc.units)
@@ -446,10 +456,12 @@ function checkChoiceCourses(){
                             break
                         }
                     }
+                    if(insideUnits>=parseInt(c.units)){
+                        currentUnits+=parseInt(c.units)
+                        break
+                    }
                 }
-                if(insideUnits>=parseInt(c.units)){
-                    currentUnits+=parseInt(c.units)
-                }
+                
             }
         }
         //console.log("currentUnits",currentUnits)
@@ -478,8 +490,3 @@ function checkChoiceCourses(){
 
 
 
-
-function copyArray(original, copy){
-    for(orig of original)
-        copy.push(orig)
-}
