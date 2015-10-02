@@ -23,7 +23,7 @@ $(".inputform").on("mouseenter", ".courseInput", function() {
 })
 .on("focus", ".courseInput", function() {
     $(".courseInput").autocomplete(
-        {source: courseData}) 
+                                   {source: courseData, minLength: 3})
 })
 .on("click", ".courseInputRemove", function() {
     $(this).parent().remove()

@@ -4,14 +4,20 @@
     margin:0;
     padding:0;
 }
+.ui-menu{
+    max-height:50%;
+    max-width:20%;
+    overflow:scroll;
+}
 .ui-menu .ui-menu-item{
 	 font-size: 0.6em;
 }
 .ui-dialog .ui-widget .ui-widget-content .ui-corner-all .ui-front .ui-draggable .ui-resizable{
-	   position:relative;
+       position:relative;
 	   left:0%;
 	   bottom:0%;
 }
+
 #website_logo{
 	font-size: 1em;
 }
@@ -129,19 +135,25 @@ body{
 	position:relative;
     right:3%;
 	top:7px;
+    margin-left:auto;
+    margin-right:auto;
 }
 .courseInputRemove{
+    margin-left:auto;
+    margin-righ:auto;
 	position:relative;
     width:10%;
-    height:auto;
-	right:4%;
+    height:100%;
+	right:7%;
 	top:7px;
 }
 .courseInput{
+    margin-left:auto;
+    margin-right:auto;
 	float:right;
 	outline:none;
-	width:88%;
-    height:auto;
+	width:89%;
+    height:100%;
 	font-size:1em;
 	margin-top:0px;
 	margin-bottom:0px;
@@ -149,8 +161,10 @@ body{
 	right:5%;
 }
 .courseCredit{
+    margin-left:auto;
+    margin-right:auto;
     width:2%;
-    height:auto;
+    height:100%;
     font-size:0.5em;
     float:right;
 	margin-top:05;
@@ -185,9 +199,9 @@ p.title{
 }
 
 .courseInputWrapper{
-	margin:0%;
+	margin:3%;
     width:100%;
-    height:7%;
+    height:5%;
 }
 .inputform{ 
     background-color:white;
