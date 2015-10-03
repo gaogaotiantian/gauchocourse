@@ -121,7 +121,7 @@ body{
 }
 .addInputButton{
 	position:relative;
-        right:3%;
+    right:3%;
 	top:8px;
 }
 .courseInputRemove{
@@ -129,15 +129,17 @@ body{
 	right:5%;
 	top:7px;
 }
+.courseInputSection{
+    float:right;
+    width:85%;
+    margin-top:0px;
+    margin-bottom:0px;
+    position:relative;
+    right:2%;
+}
 .courseInput{
-	float:right;
 	outline:none;
-	width:85%;
 	font-size:12px;
-	margin-top:0px;
-	margin-bottom:0px;
-	position:relative;
-	right:2%;
 }
 .courseCredit{
     font-size:8px;
@@ -189,7 +191,7 @@ p.title{
     border-radius:12px;
     border-width:2px;
 }
-input {
+.courseInput {
     border-bottom: black 2px solid;
     border-left-style:none;
     border-right-style:none;
@@ -210,4 +212,7 @@ input[valid = 'na'] {
     background-color:white;
     overflow:auto;
     z-index:10;
+}
+.clearfix {
+    clear:both;
 }
