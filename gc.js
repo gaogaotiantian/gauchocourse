@@ -35,6 +35,7 @@ var quarterUnit = [] // unit for each quarter, ex: quarterUnit[0] represent the 
 
 var invalidCourse = [] //those course that did not fulfill the requirment
 
+var usedCourse = []
 
 
 //******************
@@ -49,6 +50,7 @@ function ValidateAllInput(input){
     schedule = []
     invalidData = [] 
     validCourses = []
+    usedCourse = []
     AddAllCourses(input)
     SortAllCourseBySemester()
     CountUnit()
@@ -60,6 +62,7 @@ function ValidateAllInput(input){
     }
     checkRequiredCourses()
     checkChoiceCourses()
+    console.log("used course", usedCourse)
     console.log("added:", addedCourses)
     console.log("valid:", validCourses)
     console.log("invalid", invalidData)
@@ -387,6 +390,7 @@ function checkRequiredCourses(){
         for(course of validCourses){
             if(reqCourse.sub == course.sub && reqCourse.number == course.number){
                 found = true
+                usedCourse.push(course.sub+course.number)
                 break
             }
         }
@@ -423,17 +427,28 @@ function checkChoiceCourses(){
         insideUnits=0
         for(var c of choices.courses){
             if(c.sub!=undefined){
+                if(usedCourse.indexOf(c.sub+c.number)!=(-1)){
+                    console.log("success", (c.sub+c.number))
+                    continue
+                }
                 for(var vc of validCourses){
                     if(c.sub==vc.sub && c.number==vc.number){
+                        usedCourse.push(c.sub+c.number)
                         currentUnits+=parseInt(vc.units)
                         //console.log("currentUnits first add",currentUnits)
                         break
                     }
                 }
+                if(currentUnits>= parseInt(choices.units))
+                    break
             }
             else{
                 insideUnits=0
                 for(var ic of c.courses){
+                    if(usedCourse.indexOf(ic.sub+ic.num)!=(-1)){
+                        console.log("success", (ic.sub+ic.number))
+                        continue
+                    }
                     for(var vc of validCourses){
                         if(ic.sub == vc.sub && ic.number == vc.number){
                             insideUnits+=parseInt(vc.units)
@@ -441,10 +456,12 @@ function checkChoiceCourses(){
                             break
                         }
                     }
+                    if(insideUnits>=parseInt(c.units)){
+                        currentUnits+=parseInt(c.units)
+                        break
+                    }
                 }
-                if(insideUnits>=parseInt(c.units)){
-                    currentUnits+=parseInt(c.units)
-                }
+                
             }
         }
         //console.log("currentUnits",currentUnits)
@@ -458,9 +475,9 @@ function checkChoiceCourses(){
                     tempstring+=(c.sub+" "+c.number+"\n")
                 else{
                     for(var ic of c.courses){
-                        tempstring+=(ic.sub+" "+ic.number+" or")
+                        tempstring+=(ic.sub+" "+ic.number+" or ")
                     }
-                    tempstring = tempstring.slice(0,tempstring.length-2)
+                    tempstring = tempstring.slice(0,tempstring.length-3)
                     tempstring+="\n"
                 }
             }
@@ -469,8 +486,6 @@ function checkChoiceCourses(){
     }
 
 }
-
-
 
 
 

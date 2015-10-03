@@ -62,7 +62,22 @@ $(".inputform")
 })
 .on("focus", ".courseInput", function() {
     $(".courseInput").autocomplete(
-        {source: courseData}) 
+        //by Andrew Whitaker at stactoverflow.com
+        {source: function (request, response) {
+            var term = $.ui.autocomplete.escapeRegex(request.term), 
+            startsWithMatcher = new RegExp("^" + term, "i")
+            ,
+            startsWith = $.grep(courseData, function(value) {
+                return startsWithMatcher.test(value.label || value.value || value);
+            })
+            ,
+            containsMatcher = new RegExp(term, "i")
+            ,
+            contains = $.grep(courseData, function (value) {
+                return $.inArray(value, startsWith) < 0 && containsMatcher.test(value.label || value.value || value);
+            });
+            response(startsWith.concat(contains));
+        }, minLength: 3})
 })
 .on("click", ".courseInputRemove", function() {
     $(this).parent().remove()
