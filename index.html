@@ -28,7 +28,31 @@
         <p>Area A 0/1</p> 
         </div>
         <div id="form_area">
-            ${form}
+        % for year in data.year:
+            <div class="year">
+            % for sem in data.semester:
+                <div class="inputform">
+                <form semester=${year}_${sem}>
+                <p class="title">${year.capitalize()} ${sem.capitalize()}
+                % for idx in range(data.preNum):
+                    <div class="courseInputWrapper">
+                    <a href="javascript:;" class="courseInputRemove"><img src=image/remove.png class="remove_button"></a>
+                    <span class="courseCredit">0</span>
+                        <div class="courseInputSection">
+                            <input class="courseInput" type="text">
+                            <div class="courseInputErrMsg">
+                                <input type="checkbox"><span>Ignore This Error</span>
+                                <p class="errMsg">This is error message</p>
+                            </div>
+                        </div>
+                    </div>
+                % endfor
+                </form>
+                <a href="javascript:;" class="addInputButton" semester="freshman summer"><img src="image/add.jpg" class="add_button"></a>
+                </div>
+            % endfor
+            </div>
+        % endfor
         </div>
     <div>
     <div id="footer">

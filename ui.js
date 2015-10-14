@@ -3,6 +3,8 @@ var apData = []
 var courseData = []
 var majorReq = []
 var invalidData = []
+// Array of unfulfilled graduation requirement
+var invalidGrad = [] 
 var validCourses = []
 var userData = {"major":"", "ap":{"valid":false, "units":"0", "apList":[]}, "totalUnit":"0"}
 // Initialization, only run once for this function
@@ -34,25 +36,28 @@ $(document).ready(function(){
 });
 
 $(function() {
-$("#error_msg").hide()
 $("#sel_major").change(function() {
     userData["major"] = $(this).val()
 })
 $(".inputform")
-.on("mouseenter", ".courseInput", function() {
-    if ($(this).attr("valid") == "false") {
-        var offset = $(this).offset()
-        offset.top = offset.top + $(this).outerHeight()
-        $("#error_msg").css("display", "block")
-        $("#error_msg").offset(offset)
-        $("#error_msg").css("width", $(this).css("width"))
-        $("#error_msg").text(GetErrorMessage($(this).val()))
+.on("mouseenter", ".courseInputSection", function() {
+    if ($(this).find(".courseInput").attr("valid") == "false") {
+        //var offset = $(this).offset()
+        //offset.top = offset.top + $(this).outerHeight()
+        $(this).find(".courseInputErrMsg").css("display", "block")
+        $(this).find(".courseInputErrMsg").css("width", $(this).find(".courseInput").css("width"))
+        //$(this).find(".courseInputErrMsg").find(".errMsg").text(GetErrorMessage($(this).find(".courseInput").val()))
+        console.log(GetErrorMessage($(this).find(".courseInput").val()))
+        $(this).find(".courseInputErrMsg").find(".errMsg").text("123123")
+        //$("#error_msg").offset(offset)
+        //$("#error_msg").css("width", $(this).css("width"))
+        //$("#error_msg").text(GetErrorMessage($(this).val()))
     }
 })
-.on("mouseleave", ".courseInput", function() {
-    $("#error_msg").css("display", "none")
+.on("mouseleave", ".courseInputSection", function() {
+    $(this).find(".courseInputErrMsg").css("display", "none")
 })
-.on("blur", ".courseInput", function() {
+.on("blur", ".courseInputSection", function() {
     if ($(this).val() == "") {
         $(this).attr("valid", "na")
     } else {
@@ -84,14 +89,24 @@ $(".inputform")
     RefreshInputs()
 })
 $(".addInputButton").click(function() {
-    var newInput = "<div class='courseInputWrapper'><a href='javascript:;' class='courseInputRemove'><img src='image/remove.png' class='remove_button'></a><span class='courseCredit'>0</span><input class='courseInput'>"
+    var newInput = '<div class="courseInputWrapper">' +
+                   '<a href="javascript:;" class="courseInputRemove"><img src=image/remove.png class="remove_button"></a>' +
+                   '<span class="courseCredit">0</span>' +
+                       '<div class="courseInputSection">' +
+                           '<input class="courseInput" type="text">' +
+                           '<div class="courseInputErrMsg">' +
+                               '<input type="checkbox"><span>Ignore This Error</span>' +
+                               '<p class="errMsg">This is error message</p>' +
+                           '</div>' +
+                       '</div>' +
+                   '</div>'
     $(this).parent().find("form").append(newInput)  
 })
 function RefreshInputs(){
     var curData = []
     $(".courseInput").each(function(){
         if ($(this).val() != '') {
-            var tempdata = {course:$(this).val(), semester:$(this).parent().parent().attr("semester")}
+            var tempdata = {course:$(this).val(), semester:$(this).closest("form").attr("semester")}
             curData.push(tempdata)
         }
     })
@@ -99,7 +114,7 @@ function RefreshInputs(){
     $(".courseInput").each(function() {
         if (IsValid($(this).val())) {
             $(this).attr("valid", "true")
-            $(this).parent().find("span").text("4")
+            //TODO: Credits here!
             console.log("true" + $(this).val())
         } else {
             $(this).attr("valid", "false")

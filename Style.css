@@ -170,6 +170,13 @@ body{
     bottom:-8px;
     right:0%;
 }
+.courseInputErrMsg {
+    position:fixed;
+    display:none;
+    overflow:auto;
+    z-index:10;
+    background-color:white;
+}
 
 p.title{
 	position:relative;
@@ -235,7 +242,4 @@ input[valid = 'na'] {
     background-color:white;
     overflow:auto;
     z-index:10;
-}
-.clearfix {
-    clear:both;
 }
