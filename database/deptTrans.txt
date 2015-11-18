@@ -91,3 +91,4 @@ Speech & Hearing Sciences - SHS
 Statistics & Applied Probability - PSTAT
 Theater - THTR
 Writing - WRIT
+Engineering - ENGR

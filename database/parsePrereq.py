@@ -4,6 +4,7 @@ import re
 courseData = []
 deptName = []
 deptNamePattern = r""
+shortNameList = []
 class RuleParser:
     def __init__(self):
         self.keyWdList = []
@@ -11,7 +12,7 @@ class RuleParser:
             ["NUM", r"\b[0-9]+?[A-Z]*\b", 0],
             ["DEPT", deptNamePattern, 0],
             ["OR", r"\bor\b|,", 0],
-            ["AND", r"\band\b", re.I],
+            ["AND", r"\band\b|;", re.I],
             ["CONCUR", r"\bconcur", re.I],
             ["MUST", r"\bmust\b", re.I]
         ]
@@ -24,6 +25,7 @@ class RuleParser:
         must = False
         concurData = "n"
         singleCourse = []
+        concur = 'n'
         for keyWd in self.keyWdList:
             if keyWd[1] == "DEPT":
                 curDept = keyWd[2]
@@ -32,33 +34,30 @@ class RuleParser:
                 curAdded = False
             elif keyWd[1] == "OR" and curDept != None and curNum != None:
                 if curAdded == False:
-                    singleCourse.append([curDept, curNum])
+                    singleCourse.append([curDept, curNum, concur])
                     curAdded = True
             elif keyWd[1] == "AND" and curDept != None and curNum != None:
                 if curAdded == False:
-                    singleCourse.append([curDept, curNum])  
+                    singleCourse.append([curDept, curNum, concur])  
+                    curAdded = True
                 if singleCourse != []:
                     courseList.append(singleCourse)
                     singleCourse = []
+                concur = 'n'
             elif keyWd[1] == "CONCUR":
-                concur = True
+                if must == True:
+                    concur = 'y'
+                else:
+                    concur = 'm'
             elif keyWd[1] == "MUST":
                 must = True
         # After iterating keyword, we may need to append the last one
         # to courseList
-        if concur:
-            if must:
-                concurData = 'm'
-            else:
-                concurData = 'y'
 
         if curAdded == False:
-            singleCourse.append([curDept, curNum])   
+            singleCourse.append([curDept, curNum, concur])   
         if singleCourse != []:
             courseList.append(singleCourse)
-        for singleCourse in courseList:
-            for req in singleCourse:
-                req.append(concurData)
         return courseList
 
     def ParseStr(self, ruleStr):
@@ -75,7 +74,16 @@ def NormPrereq(prereq):
     for dept in deptName:
         if dept[0] in ret:
             ret = ret.replace(dept[0], dept[1])
-    return ret
+    # Special case for CS
+    allWords = ret.split()
+    lastWord = None
+    for i in range(len(allWords)):
+        word = allWords[i]
+        if word == "CS":
+            if lastWord == None or lastWord + " " + word not in shortNameList:
+                allWords[i] = "CMPSC"
+        lastWord = word
+    return " ".join(allWords)
 def ParseRuleList(ruleList):
     ret = []
     for rule in ruleList:
@@ -101,6 +109,8 @@ def GetID(sub, num):
 if __name__ == "__main__":
     courseFile = "allCourses.json"
     deptTransFile = "deptTrans.txt"
+    specialFile   = "specialCase.txt"
+    specialCases = {}
     parsedCourseData = []
     with open(courseFile) as f:
         courseData = json.load(f)
@@ -110,11 +120,22 @@ if __name__ == "__main__":
         for dept in depttemp:
             deptName.append(dept.split(" - "))
 
+    with open(specialFile) as f:
+        casetemp = f.read().splitlines()
+        for case in casetemp:
+            caseList = case.split(" - ")
+            specialCases[caseList[0]] = caseList[1]
     shortNameList = [name[1] for name in deptName]
     deptNamePattern = r"\b" + r"\b|\b".join(shortNameList) + r"\b"
     for i in range(len(courseData)):
         parsedPrereq = []
-        for req in ParsePrereqStr(courseData[i]["prereq"]):
+        courseName = courseData[i]["sub"] + " " + courseData[i]["number"]
+        if courseName not in specialCases:
+            reqs = ParsePrereqStr(courseData[i]["prereq"])
+        else:
+            reqs = ParsePrereqStr(specialCases[courseName])
+            
+        for req in reqs:
             oneReq = []
             for course in req:
                 idList = GetID(course[0], course[1])
