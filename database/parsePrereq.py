@@ -14,7 +14,8 @@ class RuleParser:
             ["OR", r"\bor\b|,", 0],
             ["AND", r"\band\b|;", re.I],
             ["CONCUR", r"\bconcur", re.I],
-            ["MUST", r"\bmust\b", re.I]
+            ["MUST", r"\bmust\b", re.I],
+            ["MAYBE", r"\bmay\b|\bcan\b", re.I]
         ]
     def GenCourseInfo(self):
         courseList = []
@@ -44,6 +45,7 @@ class RuleParser:
                     courseList.append(singleCourse)
                     singleCourse = []
                 concur = 'n'
+                must = True
             elif keyWd[1] == "CONCUR":
                 if must == True:
                     concur = 'y'
@@ -51,6 +53,8 @@ class RuleParser:
                     concur = 'm'
             elif keyWd[1] == "MUST":
                 must = True
+            elif keyWd[1] == "MAYBE":
+                must = False
         # After iterating keyword, we may need to append the last one
         # to courseList
 

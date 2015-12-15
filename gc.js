@@ -51,10 +51,11 @@ function ValidateAllInput(input){
     invalidData = [] 
     validCourses = []
     usedCourse = []
+    invalidCourse = []
     AddAllCourses(input)
     SortAllCourseBySemester()
     CountUnit()
-    //console.log("schedule",schedule)
+    console.log("schedule",schedule)
     for(var i=0; i<16; i++){
         for(var course of schedule[i]){
             CheckThisCourse(course,i)

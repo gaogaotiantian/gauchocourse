@@ -42,16 +42,10 @@ $("#sel_major").change(function() {
 $(".inputform")
 .on("mouseenter", ".courseInputSection", function() {
     if ($(this).find(".courseInput").attr("valid") == "false") {
-        //var offset = $(this).offset()
-        //offset.top = offset.top + $(this).outerHeight()
         $(this).find(".courseInputErrMsg").css("display", "block")
         $(this).find(".courseInputErrMsg").css("width", $(this).find(".courseInput").css("width"))
-        //$(this).find(".courseInputErrMsg").find(".errMsg").text(GetErrorMessage($(this).find(".courseInput").val()))
-        console.log(GetErrorMessage($(this).find(".courseInput").val()))
-        $(this).find(".courseInputErrMsg").find(".errMsg").text("123123")
-        //$("#error_msg").offset(offset)
-        //$("#error_msg").css("width", $(this).css("width"))
-        //$("#error_msg").text(GetErrorMessage($(this).val()))
+        var err_msg = GetErrorMessage($(this).find(".courseInput").val())
+        $(this).find(".courseInputErrMsg").find(".errMsg").text(err_msg)
     }
 })
 .on("mouseleave", ".courseInputSection", function() {

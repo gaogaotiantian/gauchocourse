@@ -3385,7 +3385,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"192"
                 }
             ]
@@ -3425,7 +3425,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"194"
                 }
             ]
@@ -4377,7 +4377,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"249"
                 }
             ]
@@ -4597,12 +4597,6 @@
                     "concur":"n",
                     "id":"254"
                 }
-            ],
-            [
-                {
-                    "concur":"n",
-                    "id":"254"
-                }
             ]
         ],
         "number":"99",
@@ -4631,12 +4625,6 @@
                     "concur":"n",
                     "id":"251"
                 },
-                {
-                    "concur":"n",
-                    "id":"254"
-                }
-            ],
-            [
                 {
                     "concur":"n",
                     "id":"254"
@@ -5385,6 +5373,12 @@
                 {
                     "concur":"n",
                     "id":"1894"
+                }
+            ],
+            [
+                {
+                    "concur":"n",
+                    "id":"1043"
                 }
             ]
         ],
@@ -6734,7 +6728,7 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2049"
                 }
             ]
@@ -6775,7 +6769,7 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2053"
                 }
             ]
@@ -7277,7 +7271,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2049"
                 }
             ]
@@ -7923,7 +7917,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"432"
                 }
             ]
@@ -8225,7 +8219,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"446"
                 }
             ]
@@ -8247,7 +8241,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"445"
                 }
             ]
@@ -9253,7 +9247,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"498"
                 }
             ]
@@ -9331,13 +9325,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
-                    "id":"502"
-                }
-            ],
-            [
-                {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"502"
                 }
             ]
@@ -11295,12 +11283,18 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"1892"
+                }
+            ],
+            [
+                {
+                    "concur":"n",
+                    "id":"617"
                 },
                 {
-                    "concur":"y",
-                    "id":"1902"
+                    "concur":"n",
+                    "id":"1043"
                 }
             ]
         ],
@@ -11346,7 +11340,7 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"1893"
                 }
             ]
@@ -11426,13 +11420,13 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"622"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"625"
                 }
             ]
@@ -11712,10 +11706,6 @@
                 {
                     "concur":"n",
                     "id":"626"
-                },
-                {
-                    "concur":"n",
-                    "id":"633"
                 }
             ],
             [
@@ -11808,11 +11798,11 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"633"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1021"
                 }
             ]
@@ -11961,7 +11951,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"637"
                 }
             ]
@@ -13639,12 +13629,6 @@
                     "concur":"n",
                     "id":"692"
                 }
-            ],
-            [
-                {
-                    "concur":"n",
-                    "id":"692"
-                }
             ]
         ],
         "number":"151DA",
@@ -14049,21 +14033,21 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2339"
                 },
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2340"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2341"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2347"
                 }
             ]
@@ -14464,7 +14448,7 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1898"
                 }
             ],
@@ -15125,13 +15109,13 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"813"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2028"
                 }
             ]
@@ -15212,7 +15196,7 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"816"
                 }
             ]
@@ -15433,7 +15417,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"828"
                 }
             ]
@@ -15543,7 +15527,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"832"
                 }
             ]
@@ -15615,7 +15599,7 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"836"
                 }
             ]
@@ -15636,7 +15620,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"835"
                 }
             ]
@@ -15813,13 +15797,13 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"816"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"841"
                 }
             ]
@@ -15986,7 +15970,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"847"
                 }
             ]
@@ -16110,7 +16094,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"851"
                 }
             ]
@@ -16170,7 +16154,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"853"
                 }
             ]
@@ -16214,7 +16198,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"855"
                 }
             ]
@@ -16567,7 +16551,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"867"
                 }
             ]
@@ -16588,7 +16572,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"866"
                 }
             ]
@@ -16636,13 +16620,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
-                    "id":"868"
-                }
-            ],
-            [
-                {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"868"
                 }
             ]
@@ -18666,7 +18644,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"952"
                 }
             ],
@@ -19223,17 +19201,17 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1896"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2341"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2363"
                 }
             ]
@@ -19285,7 +19263,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"987"
                 }
             ]
@@ -19524,7 +19502,7 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"986"
                 }
             ]
@@ -19701,15 +19679,15 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"1965"
                 },
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"1986"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1983"
                 }
             ],
@@ -19742,11 +19720,11 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"1981"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1993"
                 }
             ],
@@ -20369,11 +20347,11 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"995"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1990"
                 }
             ]
@@ -20733,7 +20711,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1048"
                 }
             ]
@@ -20774,7 +20752,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1050"
                 }
             ]
@@ -20811,7 +20789,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1052"
                 }
             ]
@@ -20901,7 +20879,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1057"
                 }
             ]
@@ -21020,7 +20998,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1062"
                 }
             ]
@@ -21077,7 +21055,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1064"
                 }
             ]
@@ -21201,7 +21179,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1068"
                 }
             ]
@@ -21257,7 +21235,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1070"
                 }
             ]
@@ -22572,7 +22550,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1125"
                 }
             ]
@@ -22611,7 +22589,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1127"
                 }
             ]
@@ -22650,7 +22628,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1129"
                 }
             ]
@@ -22801,12 +22779,6 @@
                 {
                     "concur":"n",
                     "id":"1125"
-                }
-            ],
-            [
-                {
-                    "concur":"n",
-                    "id":"1129"
                 }
             ],
             [
@@ -28176,7 +28148,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1431"
                 }
             ]
@@ -31077,12 +31049,6 @@
                     "concur":"n",
                     "id":"1558"
                 }
-            ],
-            [
-                {
-                    "concur":"n",
-                    "id":"1558"
-                }
             ]
         ],
         "number":"112A",
@@ -32397,12 +32363,6 @@
                     "concur":"n",
                     "id":"1566"
                 },
-                {
-                    "concur":"n",
-                    "id":"1627"
-                }
-            ],
-            [
                 {
                     "concur":"n",
                     "id":"1627"
@@ -34439,7 +34399,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1757"
                 }
             ]
@@ -37202,39 +37162,39 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1892"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1893"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1894"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1895"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1896"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1897"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1898"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1899"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1900"
                 }
             ]
@@ -37594,6 +37554,10 @@
                 {
                     "concur":"n",
                     "id":"619"
+                },
+                {
+                    "concur":"n",
+                    "id":"1043"
                 }
             ]
         ],
@@ -38543,15 +38507,15 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2340"
                 },
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"1962"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1900"
                 }
             ]
@@ -38575,7 +38539,13 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
+                    "id":"1043"
+                }
+            ],
+            [
+                {
+                    "concur":"m",
                     "id":"1898"
                 }
             ]
@@ -38920,7 +38890,7 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1983"
                 }
             ],
@@ -38947,11 +38917,11 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"1981"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1993"
                 }
             ],
@@ -39359,11 +39329,11 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"995"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1990"
                 }
             ]
@@ -39956,7 +39926,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2025"
                 }
             ]
@@ -40032,13 +40002,13 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2028"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"813"
                 }
             ]
@@ -40291,7 +40261,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2043"
                 }
             ]
@@ -40362,7 +40332,7 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2045"
                 }
             ]
@@ -40416,25 +40386,25 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2025"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"813"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2028"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2047"
                 }
             ]
@@ -40521,11 +40491,11 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2049"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2049"
                 }
             ]
@@ -40732,7 +40702,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2057"
                 }
             ]
@@ -40753,29 +40723,29 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2025"
                 },
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"813"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2028"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"816"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2043"
                 }
             ],
@@ -40870,7 +40840,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2043"
                 }
             ]
@@ -40891,7 +40861,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2062"
                 }
             ]
@@ -40933,7 +40903,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2064"
                 }
             ]
@@ -40954,7 +40924,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2064"
                 }
             ]
@@ -40996,13 +40966,13 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2043"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2055"
                 }
             ]
@@ -41023,7 +40993,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2068"
                 }
             ]
@@ -41065,7 +41035,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2070"
                 }
             ]
@@ -41107,7 +41077,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2072"
                 }
             ]
@@ -41128,7 +41098,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2072"
                 }
             ]
@@ -41195,7 +41165,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2076"
                 }
             ]
@@ -41251,31 +41221,31 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2043"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2053"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2043"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2049"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2053"
                 }
             ]
@@ -41375,7 +41345,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2082"
                 }
             ]
@@ -41454,7 +41424,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2085"
                 }
             ]
@@ -42658,7 +42628,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2157"
                 }
             ]
@@ -42679,7 +42649,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2157"
                 }
             ]
@@ -42700,7 +42670,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2157"
                 }
             ]
@@ -42721,7 +42691,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2145"
                 }
             ]
@@ -43621,7 +43591,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2157"
                 }
             ]
@@ -43642,7 +43612,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2157"
                 }
             ]
@@ -43663,7 +43633,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2157"
                 }
             ]
@@ -43684,7 +43654,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2157"
                 }
             ]
@@ -43730,7 +43700,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2209"
                 }
             ]
@@ -43922,11 +43892,11 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2124"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2117"
                 }
             ]
@@ -45276,7 +45246,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2331"
                 }
             ]
@@ -45772,12 +45742,6 @@
                     "concur":"n",
                     "id":"2331"
                 }
-            ],
-            [
-                {
-                    "concur":"n",
-                    "id":"2331"
-                }
             ]
         ],
         "number":"173",
@@ -46076,11 +46040,11 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2341"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2363"
                 }
             ]
@@ -46128,11 +46092,11 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2343"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2364"
                 }
             ]
@@ -46189,11 +46153,11 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2345"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2365"
                 }
             ]
@@ -46214,11 +46178,11 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"1892"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1903"
                 }
             ]
@@ -46241,7 +46205,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2347"
                 }
             ]
@@ -46287,7 +46251,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2349"
                 }
             ]
@@ -46333,7 +46297,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2351"
                 }
             ]
@@ -46356,11 +46320,11 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2341"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2363"
                 }
             ]
@@ -46392,11 +46356,11 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2343"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2364"
                 }
             ]
@@ -46423,11 +46387,11 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2345"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2365"
                 }
             ]
@@ -46545,7 +46509,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1892"
                 }
             ]
@@ -46721,11 +46685,11 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2345"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2365"
                 }
             ]
@@ -47002,7 +46966,7 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"1900"
                 }
             ]
@@ -47390,7 +47354,7 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2382"
                 }
             ]
@@ -48602,7 +48566,7 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2450"
                 }
             ]
@@ -48626,7 +48590,7 @@
         "prereq":[
             [
                 {
-                    "concur":"m",
+                    "concur":"y",
                     "id":"2449"
                 }
             ]
@@ -48645,12 +48609,6 @@
         "sub":"POL S",
         "majorlimit":[],
         "prereq":[
-            [
-                {
-                    "concur":"n",
-                    "id":"2424"
-                }
-            ],
             [
                 {
                     "concur":"n",
@@ -53780,13 +53738,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
-                    "id":"2691"
-                }
-            ],
-            [
-                {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2691"
                 }
             ]
@@ -54496,12 +54448,6 @@
                     "concur":"n",
                     "id":"2733"
                 }
-            ],
-            [
-                {
-                    "concur":"n",
-                    "id":"2733"
-                }
             ]
         ],
         "number":"152B",
@@ -54520,12 +54466,6 @@
         "sub":"SOC",
         "majorlimit":[],
         "prereq":[
-            [
-                {
-                    "concur":"n",
-                    "id":"2733"
-                }
-            ],
             [
                 {
                     "concur":"n",
@@ -55258,17 +55198,17 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2771"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2772"
                 },
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2773"
                 }
             ]
@@ -55351,7 +55291,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2775"
                 }
             ]
@@ -55372,7 +55312,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2775"
                 }
             ]
@@ -55394,7 +55334,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2775"
                 }
             ]
@@ -55416,7 +55356,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2775"
                 }
             ]
@@ -55437,7 +55377,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2775"
                 }
             ]
@@ -55459,7 +55399,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2775"
                 }
             ]
@@ -55481,7 +55421,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2775"
                 }
             ]
@@ -55640,7 +55580,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2775"
                 }
             ]
@@ -55663,7 +55603,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2775"
                 }
             ]
@@ -55684,7 +55624,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2775"
                 }
             ]
@@ -55707,7 +55647,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2775"
                 }
             ]
@@ -55730,7 +55670,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2775"
                 }
             ]
@@ -55767,7 +55707,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2775"
                 }
             ]
@@ -55907,12 +55847,6 @@
                     "concur":"n",
                     "id":"2775"
                 }
-            ],
-            [
-                {
-                    "concur":"n",
-                    "id":"2775"
-                }
             ]
         ],
         "number":"156",
@@ -55931,7 +55865,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2775"
                 }
             ]
@@ -55952,7 +55886,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2775"
                 }
             ]
@@ -55973,7 +55907,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2775"
                 }
             ]
@@ -56093,7 +56027,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2775"
                 }
             ]
@@ -56114,7 +56048,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2775"
                 }
             ]
@@ -56156,7 +56090,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2775"
                 }
             ]
@@ -56259,12 +56193,6 @@
         "sub":"SHS",
         "majorlimit":[],
         "prereq":[
-            [
-                {
-                    "concur":"n",
-                    "id":"2493"
-                }
-            ],
             [
                 {
                     "concur":"n",
@@ -57814,7 +57742,7 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2916"
                 }
             ]
@@ -57838,7 +57766,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2917"
                 }
             ]
@@ -57861,7 +57789,7 @@
         "prereq":[
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2918"
                 }
             ]
@@ -58230,13 +58158,13 @@
             [],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2896"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2901"
                 }
             ]
@@ -58266,13 +58194,13 @@
             [],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2897"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2902"
                 }
             ]
@@ -58302,13 +58230,13 @@
             [],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2898"
                 }
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"n",
                     "id":"2903"
                 }
             ]
@@ -59405,7 +59333,7 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"920"
                 }
             ]
@@ -60025,7 +59953,7 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2988"
                 }
             ]
@@ -60066,7 +59994,7 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2988"
                 }
             ]
@@ -60115,7 +60043,7 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2988"
                 }
             ]
@@ -60168,7 +60096,7 @@
             ],
             [
                 {
-                    "concur":"y",
+                    "concur":"m",
                     "id":"2988"
                 }
             ]
