@@ -52,6 +52,7 @@ function ValidateAllInput(input){
     validCourses = []
     usedCourse = []
     invalidCourse = []
+    invalidGrad = []
     AddAllCourses(input)
     SortAllCourseBySemester()
     CountUnit()
