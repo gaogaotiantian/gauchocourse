@@ -232,7 +232,10 @@ p.title{
 input[valid = 'true'] {
     background-color:white
 }
-input[valid = 'false'] {
+input[valid = 'false'][ignore = 'true'] {
+    background-color:green
+}
+input[valid = 'false'][ignore = 'false'] {
     background-color:red
 }
 input[valid = 'na'] {

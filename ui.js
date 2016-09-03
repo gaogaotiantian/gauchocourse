@@ -45,17 +45,21 @@ $(".inputform")
         $(this).find(".courseInputErrMsg").css("display", "block")
         $(this).find(".courseInputErrMsg").css("width", $(this).find(".courseInput").css("width"))
         var err_msg = GetErrorMessage($(this).find(".courseInput").val())
-        $(this).find(".courseInputErrMsg").find(".errMsg").text(err_msg)
+        if ($(this).find(".courseInput").attr("ignore") == "true") {
+            $(this).find(".courseInputErrMsg").find(".errMsg").text("checked")
+        } else {
+            $(this).find(".courseInputErrMsg").find(".errMsg").text(err_msg)
+        }
     }
 })
 .on("mouseleave", ".courseInputSection", function() {
     $(this).find(".courseInputErrMsg").css("display", "none")
 })
 .on("blur", ".courseInputSection", function() {
-    if ($(this).val() == "") {
-        $(this).attr("valid", "na")
+    if ($(this).find(".courseInput").val() == "") {
+        $(this).find(".courseInput").attr("valid", "na")
     } else {
-        $(this).attr("valid", "true")
+        $(this).find(".courseInput").attr("valid", "true")
     }
     RefreshInputs()
 })
@@ -82,6 +86,19 @@ $(".inputform")
     $(this).parent().remove()
     RefreshInputs()
 })
+
+// ignore check box behavior
+// if it's checked, ignore the error.
+.on("click", ".ignoreCheckBox", function() {
+    if ($(this).is(":checked")) {
+        $(this).parent().parent().find(".courseInput").attr("ignore", "true")
+        console.log("t")
+    } else {
+        $(this).parent().parent().find(".courseInput").attr("ignore", "false")
+        console.log("f")
+    }
+})
+
 $(".addInputButton").click(function() {
     var newInput = '<div class="courseInputWrapper">' +
                    '<a href="javascript:;" class="courseInputRemove"><img src=image/remove.png class="remove_button"></a>' +
