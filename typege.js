@@ -100,7 +100,7 @@ function ValidGE(){
 
 
 
-    if(user.majorType=="ENGR"){
+    if(userData.getype=="ENGR"){
          geFullFillment = [{type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
                           {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
                           {type : "Area D,E", status : (geStatus["D"]+geStatus["E"])>=reqNumber[0][0], 
@@ -118,7 +118,7 @@ function ValidGE(){
         return 
     }
 
-    else if(user.majorType == "LSBA"){
+    else if(userData.getype == "LSBA"){
          geFullFillment = [{type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
                           {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
                           {type : "Area B", status : checkAreaB(), message : (checkAreaB()?1:0)+"/1"},
@@ -139,7 +139,7 @@ function ValidGE(){
 
     }
 
-    else if(user.majorType == "LSBS"){
+    else if(userData.getype == "LSBS"){
          geFullFillment = [{type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
                           {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
                           {type : "Area B", status : checkAreaB(), message : (checkAreaB()?1:0)+"/1"},
@@ -157,7 +157,7 @@ function ValidGE(){
         return 
     }
 
-    else if(user.majorType == "BMFA"){
+    else if(userData.getype == "BMFA"){
          geFullFillment = [{type : "WRIT 2", status : w2, message : (w2? "1": "0") + "/1"},
                           {type : "WRIT 50", status : w50, message : (w50? "1" : "0")+ "/1"},
                           {type : "Area B", status : checkAreaB(), message : (checkAreaB()?1:0)+"/1"},
@@ -195,8 +195,8 @@ function ValidGE(){
 
 //this function will update the geStatus based on validCourses
 function UpdateGE(){
-    for(area of geStatus)
-        area = 0
+    for(i in geStatus)
+        geStatus[i] = 0
 
     for(course of validCourses){
         for(ge of course.gearea)
@@ -204,7 +204,7 @@ function UpdateGE(){
     }
     console.log("ge",geStatus)
 
-    if(user.majorType=="ENGR"){
+    if(userData.getype=="ENGR"){
         checkDepth()
     }
 }

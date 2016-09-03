@@ -111,44 +111,17 @@ function GetErrorMessage(name){
 //******************
 //******************
 //******************
+semesters = ["freshman_summer", "freshman_fall", "freshman_winter", "freshman_spring",
+          "sophomore_summer", "sophomore_fall", "sophomore_winter", "sophomore_spring",
+          "junior_summer", "sophomore_fall", "sophomore_winter", "sophomore_spring",
+          "senior_summer", "sophomore_fall", "sophomore_winter", "sophomore_spring"]
 function SemToNum(semester){
-    if(semester == "freshman_summer") return 0;
-    if(semester == "freshman_fall") return 1;
-    if(semester == "freshman_winter") return 2;
-    if(semester == "freshman_spring") return 3;
-    if(semester == "sophomore_summer") return 4;
-    if(semester == "sophomore_fall") return 5;
-    if(semester == "sophomore_winter") return 6;
-    if(semester == "sophomore_spring") return 7;
-    if(semester == "junior_summer") return 8;
-    if(semester == "junior_fall") return 9;
-    if(semester == "junior_winter") return 10;
-    if(semester == "junior_spring") return 11;
-    if(semester == "senior_summer") return 12;
-    if(semester == "senior_fall") return 13;
-    if(semester == "senior_winter") return 14;
-    if(semester == "senior_spring") return 15;
+    return semesters.indexOf(semester)
 }
 
 function NumToSem(num){
-        if(num==0) return "freshman_summer";
-        if(num==1) return "freshman_fall";
-        if(num==2) return "freshman_winter";
-        if(num==3) return "freshman_spring";
-        if(num==4) return "sophomore_summer";
-        if(num==5) return "sophomore_fall";
-        if(num==6) return "sophomore_winter";
-        if(num==7) return "sophomore_spring";
-        if(num==8) return "junior_summer";
-        if(num==9) return "junior_fall";
-        if(num==10) return "junior_winter";
-        if(num==11) return "junior_spring";
-        if(num==12) return "senior_summer";
-        if(num==13) return "senior_fall";
-        if(num==14) return "senior_winter";
-        if(num==15) return "senior_spring";
-    }
-
+    return semesters[num]
+}
 
 
 function CountUnit(){
@@ -313,6 +286,24 @@ function CheckThisCourse(course, sem){
                 var range = sem-1
                 var id = course.prereq[n][p].id
 
+
+                // We check AP list first
+                if (userData.ap.valid == true) {
+                    var tempcourse = courseData[id]
+                    for (var ap of userData.ap.apList) {
+                        if (Array.isArray(ap.course_equivalent)) {
+                            for (var eq of ap.course_equivalent) {
+                                if (eq.sub == tempcourse.sub && 
+                                        eq.number == tempcourse.number) {
+                                    found = true
+                                    break
+                                }
+                            }
+                            if(found) break
+                        }
+                    }
+                    if(found) continue
+                }
                 if(course.prereq[n][p].concur == "m"){
                     for(var q in schedule[sem]){
                         if(id == schedule[sem][q].id){

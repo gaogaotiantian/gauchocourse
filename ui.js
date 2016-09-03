@@ -6,7 +6,8 @@ var invalidData = []
 // Array of unfulfilled graduation requirement
 var invalidGrad = [] 
 var validCourses = []
-var userData = {"major":"", "ap":{"valid":false, "units":"0", "apList":[]}, "totalUnit":"0"}
+var userData = {"major":"", "getype":"", "ap":{"valid":false, "units":"0", "apList":[]}, "totalUnit":"0"}
+var geFullFillment = []
 // Initialization, only run once for this function
 $(document).ready(function(){
     // Course Database
@@ -38,6 +39,13 @@ $(document).ready(function(){
 $(function() {
 $("#sel_major").change(function() {
     userData["major"] = $(this).val()
+    for (req of majorReq) {
+        if (req["major"] == userData["major"]) {
+            userData["getype"] = req["getype"]
+            break
+        }
+    }
+    RefreshInputs()
 })
 $(".inputform")
 .on("mouseenter", ".courseInputSection", function() {
@@ -96,6 +104,17 @@ $(".addInputButton").click(function() {
                    '</div>'
     $(this).parent().find("form").append(newInput)  
 })
+
+function UpdateRequirementDiv(){
+    text = "<div id='grad_requirement'>"
+    for (req of geFullFillment) {
+        text += "<p>"
+        text += req.type + " : " + req.message
+        text += "</p>"
+    }
+    text += "</div>"
+    $("#left_bar").html(text)
+}
 function RefreshInputs(){
     var curData = []
     $(".courseInput").each(function(){
@@ -115,8 +134,29 @@ function RefreshInputs(){
             console.log("false" + $(this).val())
         }
     })
+    ValidGE()
+    UpdateRequirementDiv()
+    console.log("userData", userData)
+    console.log("geFullFillment",geFullFillment)
 }
 
+function UpdateUserAP() {
+    var selectedAp = []
+    $("#ap_form").find('.apInputWrapper').each(function() {
+        var apName = $(".apCourseSelect :selected").text()
+        var apScore = $(".apScoreSelect :selected").text()
+        var ap_i
+        for (ap of apData) {
+            if (ap.label == apName) {
+                ap_i = ap
+            }
+        }
+        ap_i["user_score"] = parseInt(apScore)
+        selectedAp.push(ap_i)
+    })
+    userData.ap = run_AP_analysis(selectedAp)
+    console.log(userData)
+}
 // This is all AP form
 var apForm,
 apForm = $("#ap_form").dialog({
@@ -125,13 +165,15 @@ apForm = $("#ap_form").dialog({
     width:800,
     modal: true,
     close: function() {
+        UpdateUserAP()
         RefreshInputs()
     }
 })
 $("#ap_form_button").button().on("click", function(){
     apForm.dialog("open")
 })
-$("#ap_form").on("click", ".addApSelectButton", function() {
+$("#ap_form")
+.on("click", ".addApSelectButton", function() {
     var newInput = "<div class='apInputWrapper'><a href='javascript:;' class='apInputRemove'><img src='image/remove.png' class='ap_remove_button'></a>"
     newInput += "<label>Course</label>"
     newInput += "<select class='apCourseSelect' name=''>"

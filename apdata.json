@@ -8,7 +8,7 @@
         },
         "label": "Art History",
         "units": "8",
-        "course_equivalent": "Art History 1",
+        "course_equivalent": [{"sub":"ARTHI", "number":"1"}],
         "multi_scores": false
     },
     {
@@ -41,7 +41,7 @@
         },
         "label": "Art Studio Drawing",
         "units": "8",
-        "course_equivalent": "Art 18",
+        "course_equivalent": [{"sub":"ART", "number":"18"}],
         "multi_scores": false
     },
     {
@@ -53,7 +53,7 @@
         },
         "label": "Biology",
         "units": "8",
-        "course_equivalent": "MCDB 20, Natural Science 1C",
+        "course_equivalent": [{"sub":"MCDB","num":"20"}],
         "multi_scores": false
     },
     {
@@ -65,7 +65,7 @@
         },
         "label": "Chemistry",
         "units": "8",
-        "course_equivalent": "Natural Science 1B",
+        "course_equivalent": "none",
         "multi_scores": false
     },
     {
@@ -106,6 +106,17 @@
         "score": "NA",
         "subject": "Whocares",
         "ge": {
+            "area": "none"
+        },
+        "label": "Computer Science AB",
+        "units": "4",
+        "course_equivalent": [{"sub":"CMPSC", "number":"8"}],
+        "multi_scores": false
+    },
+    {
+        "score": "NA",
+        "subject": "Whocares",
+        "ge": {
             "area": "D",
             "num": "1"
         },
@@ -135,7 +146,7 @@
         },
         "label": "Environmental Science",
         "units": "4",
-        "course_equivalent": "Environmental Studies 2",
+        "course_equivalent": [{"sub":"ENV S","number":"2"}],
         "multi_scores": false
     },
     {
@@ -180,7 +191,7 @@
         },
         "label": "Latin",
         "units": "4",
-        "course_equivalent": "Latin 1-3",
+        "course_equivalent": [{"sub":"LATIN", "number":"1"},{"sub":"LATIN", "number":"2"},{"sub":"LATIN", "number":"3"}],
         "multi_scores": false
     },
     {
@@ -192,7 +203,7 @@
         },
         "label": "Mathematics  Calculus AB(or AB subscore of BC exam)",
         "units": "4",
-        "course_equivalent": "Mathematics 3A, 15, 34A, or equivalent",
+        "course_equivalent": [{"sub":"MATH", "number":"3A"}, {"sub":"MATH", "number":"15"}, {"sub":"MATH", "number":"34A"}],
         "multi_scores": false
     },
     {
@@ -204,7 +215,7 @@
         },
         "label": "Mathematics  Calculus BC",
         "units": "8",
-        "course_equivalent": "Mathematics 3A, 3B, 15, 34A, 34B, or equivalent",
+        "course_equivalent": [{"sub":"MATH", "number":"3A"}, {"sub":"MATH", "number":"3B"}, {"sub":"MATH", "number":"15"}, {"sub":"MATH", "number":"34A"}, {"sub":"MATH", "number":"34B"}],
         "multi_scores": false
     },
     {
@@ -216,7 +227,7 @@
         },
         "label": "Music  Theory",
         "units": "8",
-        "course_equivalent": "Music 11",
+        "course_equivalent": [{"sub":"MUS","number":"11"}],
         "multi_scores": false
     },
     {
@@ -228,7 +239,7 @@
         },
         "label": "Physics  B",
         "units": "8",
-        "course_equivalent": "Physics 10, Natural Science 1A",
+        "course_equivalent": [{"sub":"PHYS", "number":"10"}],
         "multi_scores": false
     },
     {
@@ -240,7 +251,7 @@
         },
         "label": "Physics  C (Mechanics)",
         "units": "4",
-        "course_equivalent": "Physics 6A  6AL",
+        "course_equivalent": [{"sub":"PHYS", "number":"6A"}, {"sub":"PHYS", "number":"6AL"}],
         "multi_scores": false
     },
     {
@@ -252,7 +263,7 @@
         },
         "label": "Physics  C (Electricity and Magnetism)",
         "units": "4",
-        "course_equivalent": "Physics 6B  6BL",
+        "course_equivalent": [{"sub":"PHYS", "number":"6B"}, {"sub":"PHYS", "number":"6BL"}],
         "multi_scores": false
     },
     {
@@ -264,7 +275,7 @@
         },
         "label": "Psychology",
         "units": "4",
-        "course_equivalent": "Psychology 1",
+        "course_equivalent": [{"sub":"PSY", "number":"1"}],
         "multi_scores": false
     },
     {
@@ -276,7 +287,7 @@
         },
         "label": "Statistics",
         "units": "4",
-        "course_equivalent": "Communication 87, PSTAT 5AA-ZZ, Psychology 5",
+        "course_equivalent": [{"sub":"COMM","number":"87"}, {"sub":"PSTAT", "number":"5"},{"sub":"PSY","number":"5"}],
         "multi_scores": false
     },
     {
