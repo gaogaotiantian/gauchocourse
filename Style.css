@@ -187,6 +187,7 @@ body{
 }
 .courseInputErrMsg {
     position:fixed;
+	bottom:1%;
     display:none;
     overflow:auto;
     z-index:10;
