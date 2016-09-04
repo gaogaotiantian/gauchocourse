@@ -6,7 +6,7 @@ var invalidData = []
 // Array of unfulfilled graduation requirement
 var invalidGrad = [] 
 var validCourses = []
-var userData = {"major":"", "getype":"", "ap":{"valid":false, "units":"0", "apList":[]}, "totalUnit":"0"}
+var userData = {"major":"", "getype":"", "ap":{"valid":false, "units":"0", "apList":[]}, "totalUnits":"0"}
 var geFullFillment = []
 // Initialization, only run once for this function
 $(document).ready(function(){
@@ -33,6 +33,7 @@ $(document).ready(function(){
             maj = majorReq[idx]
             $("#sel_major").append("<option>" + maj["major"] + "</option>") 
         }
+        $("#sel_major").trigger('change')
     })    
 });
 
@@ -49,12 +50,13 @@ $("#sel_major").change(function() {
 })
 $(".inputform")
 .on("mouseenter", ".courseInputSection", function() {
-    if ($(this).find(".courseInput").attr("valid") == "false") {
+    if ($(this).find(".courseInput").attr("valid") == "false" || 
+        $(this).find(".courseInput").attr("ignore") == "true") {
         $(this).find(".courseInputErrMsg").css("display", "block")
         $(this).find(".courseInputErrMsg").css("width", $(this).find(".courseInput").css("width"))
         var err_msg = GetErrorMessage($(this).find(".courseInput").val())
         if ($(this).find(".courseInput").attr("ignore") == "true") {
-            $(this).find(".courseInputErrMsg").find(".errMsg").text("checked")
+            $(this).find(".courseInputErrMsg").find(".errMsg").text("Error is ignored!")
         } else {
             $(this).find(".courseInputErrMsg").find(".errMsg").text(err_msg)
         }
@@ -100,21 +102,19 @@ $(".inputform")
 .on("click", ".ignoreCheckBox", function() {
     if ($(this).is(":checked")) {
         $(this).parent().parent().find(".courseInput").attr("ignore", "true")
-        console.log("t")
     } else {
         $(this).parent().parent().find(".courseInput").attr("ignore", "false")
-        console.log("f")
     }
 })
 
 $(".addInputButton").click(function() {
     var newInput = '<div class="courseInputWrapper">' +
                    '<a href="javascript:;" class="courseInputRemove"><img src=image/remove.png class="remove_button"></a>' +
-                   '<span class="courseCredit">0</span>' +
+                   '<span class="courseCredit singleCredit">0</span>' +
                        '<div class="courseInputSection">' +
-                           '<input class="courseInput" type="text">' +
+                           '<input class="courseInput" type="text" ignore="false">' +
                            '<div class="courseInputErrMsg">' +
-                               '<input type="checkbox"><span>Ignore This Error</span>' +
+                               '<input type="checkbox" class="ignoreCheckBox"><span>Ignore This Error</span>' +
                                '<p class="errMsg">This is error message</p>' +
                            '</div>' +
                        '</div>' +
@@ -129,27 +129,40 @@ function UpdateRequirementDiv(){
         text += req.type + " : " + req.message
         text += "</p>"
     }
+
+    text += "<p>Total Credit : " + userData["totalUnits"] + "</p>"
     text += "</div>"
-    $("#left_bar").html(text)
+    $("#requirement_div").html(text)
 }
 function RefreshInputs(){
     var curData = []
     $(".courseInput").each(function(){
         if ($(this).val() != '') {
-            var tempdata = {course:$(this).val(), semester:$(this).closest("form").attr("semester")}
+            var tempdata = {course:$(this).val(), semester:$(this).closest("form").attr("semester"), ignore:$(this).attr("ignore")}
             curData.push(tempdata)
         }
     })
     ValidateAllInput(curData)
+    var totalUnits = 0
     $(".courseInput").each(function() {
         if (IsValid($(this).val())) {
-            $(this).attr("valid", "true")
-            //TODO: Credits here!
-            console.log("true" + $(this).val())
+            if ($(this).attr("ignore") == "false") {
+                $(this).attr("valid", "true")
+            }
+            $(this).parent().parent().find(".courseCredit").text(GetCredit($(this).val()))
+            totalUnits += parseInt(GetCredit($(this).val()))
         } else {
             $(this).attr("valid", "false")
             console.log("false" + $(this).val())
         }
+    })
+    userData["totalUnits"] = totalUnits.toString()
+    $(".inputform").each(function() {
+        var totalCredit = 0
+        $(this).find(".singleCredit").each(function() {
+            totalCredit = totalCredit + parseInt($(this).text())
+        })
+        $(this).find(".totalCredit").text(totalCredit)
     })
     ValidGE()
     UpdateRequirementDiv()

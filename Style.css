@@ -4,6 +4,9 @@
     margin:0;
     padding:0;
 }
+p {
+    padding:0.05em;
+}
 .ui-menu{
     max-height:50%;
     max-width:20%;
@@ -83,7 +86,12 @@ body{
     height:100%;
     border-radius:3%;
 }
-
+#requirement_div{
+    position:absolute;
+    text-align:center;
+    padding:1em;
+    bottom:0;
+}
 #form_area{
     background-color:#FFFFFF;
     border-radius:1%;	
@@ -95,7 +103,7 @@ body{
 
 #major{
 	width:50%;
-	heigth:5%;
+	height:5%;
 }
 
 #ap_info{
@@ -105,22 +113,27 @@ body{
 }
 #ap_form_button{
     width:auto;
-    height:100%;
     font-size:1em;
 }
 #footer{
     height:5%;
     position:absolute;
     width:100%;
-    background-color:yellow;
+    background-color:#CCCC33;
     clear:left;
 }
+.web_logo{
+    font-size:1.74em;
+    height:50%;
+    vertical-align:middle;
+    color:blue;
+}
 .ap_add_button{
-   	width:6%;
+   	width:3%;
 	position:relative;
 }
 .ap_remove_button{
-	width:8%;
+	width:3%;
 	position:relative;
 	right:1%;
 }
@@ -133,21 +146,24 @@ body{
 }
 .addInputButton{
 	position:relative;
-    right:3%;
+    right:0%;
 	top:8px;
+}
+.addApSelectButton{
+	position:relative;
 }
 .courseInputRemove{
     margin-left:auto;
-    margin-righ:auto;
+    margin-right:auto;
 	position:relative;
-    width:10%;
+    width:5%;
     height:100%;
-	right:7%;
+	right:3%;
 	top:7px;
 }
 .courseInputSection{
     float:right;
-    width:85%;
+    width:88%;
     margin-top:0px;
     margin-bottom:0px;
     position:relative;
@@ -161,8 +177,7 @@ body{
     margin-left:auto;
     margin-right:auto;
     width:2%;
-    height:100%;
-    font-size:0.5em;
+    font-size:0.75em;
     float:right;
 	margin-top:05;
 	margin-bottom:0%;
@@ -203,9 +218,8 @@ p.title{
 }
 
 .courseInputWrapper{
-	margin:3%;
+	margin:2%;
     width:100%;
-    height:5%;
 }
 .inputform{ 
     background-color:white;
@@ -232,14 +246,14 @@ p.title{
 input[valid = 'true'] {
     background-color:white
 }
-input[valid = 'false'][ignore = 'true'] {
+input[ignore = 'true'] {
     background-color:green
 }
 input[valid = 'false'][ignore = 'false'] {
     background-color:red
 }
 input[valid = 'na'] {
-    background-color:white
+    background-color:yellow
 }
 #error_msg {
     background-color:white;

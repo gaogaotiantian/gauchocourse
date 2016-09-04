@@ -29,6 +29,8 @@ var addedCourses = [] //list of all inputed courses as a object of course and se
 
 var schedule = [] //sorted schedule, index represent the semester. ex: schedule[0] is the array of all input courses in freshman summer quarter
 
+var ignoreTable = [] // a table to ignore the error of some courses, matching the schedule
+
 var totalUnit = 0 // totoal units of the current courses add up
 
 var quarterUnit = [] // unit for each quarter, ex: quarterUnit[0] represent the unit of the freshman summer quarter
@@ -90,7 +92,18 @@ function GetErrorMessage(name){
     return ""
 }
 
-
+function GetCredit(name){
+    if (!IsValid(name))
+        return "0";
+    else {
+        for (course of validCourses) {
+            if (name == course.label) {
+                return course.units
+            }
+        }
+    }
+    return "0"
+}
 
 
 
@@ -113,8 +126,8 @@ function GetErrorMessage(name){
 //******************
 semesters = ["freshman_summer", "freshman_fall", "freshman_winter", "freshman_spring",
           "sophomore_summer", "sophomore_fall", "sophomore_winter", "sophomore_spring",
-          "junior_summer", "sophomore_fall", "sophomore_winter", "sophomore_spring",
-          "senior_summer", "sophomore_fall", "sophomore_winter", "sophomore_spring"]
+          "junior_summer", "junior_fall", "junior_winter", "junior_spring",
+          "senior_summer", "senior_fall", "senior_winter", "senior_spring"]
 function SemToNum(semester){
     return semesters.indexOf(semester)
 }
@@ -165,7 +178,7 @@ function AddAllCourses(input){
                     existence = false
                     break
                 }
-                addedCourses.push({course : courseData[j], semester : SemToNum(input[i].semester)})
+                addedCourses.push({course : courseData[j], semester : SemToNum(input[i].semester), ignore:input[i].ignore})
                 break
             }
         }
@@ -175,10 +188,13 @@ function AddAllCourses(input){
 
 //add the courses from addedCourses into schedule in the semester order
 function SortAllCourseBySemester(){
-    for(i=0; i<16; i++)
+    for(i=0; i<16; i++) {
+        ignoreTable.push({})
         schedule.push([])
+    }
     for(i=0; i<addedCourses.length; i++){
         schedule[addedCourses[i].semester].push(addedCourses[i].course)
+        ignoreTable[addedCourses[i].semester][addedCourses[i].course.label] = addedCourses[i].ignore
     }
 }
 
@@ -197,6 +213,11 @@ function GetCourseByName(name){
 
 //function to check if taking certian course in certain semester is allowed
 function CheckThisCourse(course, sem){
+    // if we ignore the error, just put it into valid course
+    if (ignoreTable[sem][course.label] == "true") {
+        console.log("ignore", course.label)
+        validCourses.push(course)
+    }
     for(var c of validCourses){
         if(c.label == course.label)
             return

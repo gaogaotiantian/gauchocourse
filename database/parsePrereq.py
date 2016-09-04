@@ -10,8 +10,8 @@ class RuleParser:
         self.keyWdList = []
         self.keyWdPat = [
             ["NUM", r"\b[0-9]+?[A-Z]*\b", 0],
-            ["DEPT", deptNamePattern, 0],
-            ["OR", r"\bor\b|,", 0],
+            ["DEPT", deptNamePattern, re.I],
+            ["OR", r"\bor\b|,", re.I],
             ["AND", r"\band\b|;", re.I],
             ["CONCUR", r"\bconcur", re.I],
             ["MUST", r"\bmust\b", re.I],
@@ -78,6 +78,7 @@ def NormPrereq(prereq):
     for dept in deptName:
         if dept[0] in ret:
             ret = ret.replace(dept[0], dept[1])
+    ret = ret.upper()
     # Special case for CS
     allWords = ret.split()
     lastWord = None
