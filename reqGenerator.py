@@ -9,12 +9,14 @@ class dbInterface:
 	def __init__(self,jsonFile):
 		self.courseList = string2Json(jsonFile) 
 		pass
+		
 	def main(self):
 		self.dbConnect()
 		self.dbCreate()
 		
 		# disconnect from server
 		self.db.close()
+
 	def dbConnect(self):
 		# jsonList = string2Json(ifile)
 		# Open database connection
