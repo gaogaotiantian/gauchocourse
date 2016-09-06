@@ -1,31 +1,33 @@
 <html>
 <head>
+<title> Gaucho Course </title>
 <link href="Style.css" rel="stylesheet", type="text/css"/>
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="apSourceCodes.js"></script>
 <script src="gc.js"></script>
+<script src="typege.js"></script>
 <script src="ui.js"></script>
 </head>
 <body>
 <div id="whole_page_wrapper">
     <div id="top_bar">
         <div id="website_logo">
-        <p>Gaucho Course</p>
+          <p class="web_logo">Gaucho</p>
+          <p class="web_logo">Course</p>
         </div>
         <div id="user_info">
             <label for="sel_major">Major:</label>
             <select name="sel_major" id="sel_major">
-                <option></option>
             </select>
-            <div id="ap_info">
-                <button id="ap_form_button">AP</button>
-            </div>
+            <button id="ap_form_button">Edit AP</button>
+            <span>Non-Native English Speaker</span><input type="checkbox" id="nonNativeCheckBox">
+            
         </div>
     </div>
     <div id="main_content">
         <div id="left_bar">
-        <p>Area A 0/1</p> 
         </div>
         <div id="form_area">
         % for year in data.year:
@@ -37,9 +39,9 @@
                 % for idx in range(data.preNum):
                     <div class="courseInputWrapper">
                     <a href="javascript:;" class="courseInputRemove"><img src=image/remove.png class="remove_button"></a>
-                    <span class="courseCredit">0</span>
+                    <span class="courseCredit singleCredit">0</span>
                         <div class="courseInputSection">
-                            <input class="courseInput" type="text">
+                            <input class="courseInput" type="text" ignore="false">
                             <div class="courseInputErrMsg">
                                 <input type="checkbox" class="ignoreCheckBox"><span>Ignore This Error</span>
                                 <p class="errMsg">This is error message</p>
@@ -49,6 +51,7 @@
                 % endfor
                 </form>
                 <a href="javascript:;" class="addInputButton" semester="freshman summer"><img src="image/add.jpg" class="add_button"></a>
+                <span class="courseCredit totalCredit">0</span>
                 </div>
             % endfor
             </div>
@@ -56,17 +59,19 @@
         </div>
     <div>
     <div id="footer">
-        <p>footer</p>
+        <p>
+        &copy; 2016 Tian Gao, Xujia Cao, Yanxi Chen, Ming Chen, Shaoyi Zhang All rights reserved. If you find any bugs or have suggestions, please email to <a href="mailto:gaogaotiantian@hotmail.com?subject=Feedback for gauchocourse">gaogaotiantian@hotmail.com</a>
+        </p>
+        <p>Data in the website may be wrong, we are not responsible for any results from data provided.</p>
     </div>
 </div>
 
 <p id="error_msg"></p>
 <div id="ap_form" title="AP Input">
-    <p>put AP here</p>
     <form>
     
     </form>
-    <button class="addApSelectButton"><img src="image/add.jpg" class="add_button"></button>
+    <a href="javascript:;" class="addApSelectButton"><img src="image/add.jpg" class="ap_add_button"></a>
 </div>
 </body>
 </html>

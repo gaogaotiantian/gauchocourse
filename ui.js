@@ -6,7 +6,8 @@ var invalidData = []
 // Array of unfulfilled graduation requirement
 var invalidGrad = [] 
 var validCourses = []
-var userData = {"major":"", "ap":{"valid":false, "units":"0", "apList":[]}, "totalUnit":"0"}
+var userData = {"major":"", "getype":"", "ap":{"valid":false, "units":"0", "apList":[], "area":{}}, "totalUnits":"0", "nonNativeSpeaker":false}
+var geFullFillment = []
 // Initialization, only run once for this function
 $(document).ready(function(){
     // Course Database
@@ -32,21 +33,38 @@ $(document).ready(function(){
             maj = majorReq[idx]
             $("#sel_major").append("<option>" + maj["major"] + "</option>") 
         }
+        $("#sel_major").trigger('change')
     })    
 });
 
 $(function() {
 $("#sel_major").change(function() {
     userData["major"] = $(this).val()
+    for (req of majorReq) {
+        if (req["major"] == userData["major"]) {
+            userData["getype"] = req["getype"]
+            break
+        }
+    }
+    RefreshInputs()
+})
+$("#nonNativeCheckBox").click(function(){
+    if ($(this).is(":checked")) {
+        userData["nonNativeSpeaker"] = true
+    } else {
+        userData["nonNativeSpeaker"] = false
+    }
+    RefreshInputs()
 })
 $(".inputform")
 .on("mouseenter", ".courseInputSection", function() {
-    if ($(this).find(".courseInput").attr("valid") == "false") {
+    if ($(this).find(".courseInput").attr("valid") == "false" || 
+        $(this).find(".courseInput").attr("ignore") == "true") {
         $(this).find(".courseInputErrMsg").css("display", "block")
         $(this).find(".courseInputErrMsg").css("width", $(this).find(".courseInput").css("width"))
         var err_msg = GetErrorMessage($(this).find(".courseInput").val())
         if ($(this).find(".courseInput").attr("ignore") == "true") {
-            $(this).find(".courseInputErrMsg").find(".errMsg").text("checked")
+            $(this).find(".courseInputErrMsg").find(".errMsg").text("Error is ignored!")
         } else {
             $(this).find(".courseInputErrMsg").find(".errMsg").text(err_msg)
         }
@@ -92,48 +110,111 @@ $(".inputform")
 .on("click", ".ignoreCheckBox", function() {
     if ($(this).is(":checked")) {
         $(this).parent().parent().find(".courseInput").attr("ignore", "true")
-        console.log("t")
     } else {
         $(this).parent().parent().find(".courseInput").attr("ignore", "false")
-        console.log("f")
     }
 })
 
+$("#left_bar")
+.on("mouseenter", ".req_wrapper", function() {
+    $(this).find(".req_detail").css("display", "block")
+})
+.on("mouseleave", ".req_wrapper", function() {
+    $(this).find(".req_detail").css("display", "none")
+})
 $(".addInputButton").click(function() {
     var newInput = '<div class="courseInputWrapper">' +
                    '<a href="javascript:;" class="courseInputRemove"><img src=image/remove.png class="remove_button"></a>' +
-                   '<span class="courseCredit">0</span>' +
+                   '<span class="courseCredit singleCredit">0</span>' +
                        '<div class="courseInputSection">' +
-                           '<input class="courseInput" type="text">' +
+                           '<input class="courseInput" type="text" ignore="false">' +
                            '<div class="courseInputErrMsg">' +
-                               '<input type="checkbox"><span>Ignore This Error</span>' +
+                               '<input type="checkbox" class="ignoreCheckBox"><span>Ignore This Error</span>' +
                                '<p class="errMsg">This is error message</p>' +
                            '</div>' +
                        '</div>' +
                    '</div>'
     $(this).parent().find("form").append(newInput)  
 })
+
+function UpdateRequirementDiv(){
+    text = "<div id='grad_requirement'>"
+    for (req of invalidGrad) {
+        text += "<div class='req_wrapper'>" +
+                   "<p class='req_p unsatisfied'>" + req.name + " is not satisfied" + "</p>" +
+                   "<div class='req_detail'>" + 
+                       "<p class='req_detail_p'>" + req.message + "</p>" +
+                   "</div>" +
+                "</div>"
+    }
+    for (req of geFullFillment) {
+        if (req.status == false) {
+            text += "<p class='req_p unsatisfied'>"
+        } else {
+            text += "<p class='req_p satisfied'>"
+        }
+        text += req.type + " : " + req.message
+        text += "</p>"
+    }
+
+    text += "<p class='req_p'>Total Credit : " + userData["totalUnits"] + "</p>"
+    text += "</div>"
+    $("#left_bar").html(text)
+}
 function RefreshInputs(){
     var curData = []
     $(".courseInput").each(function(){
         if ($(this).val() != '') {
-            var tempdata = {course:$(this).val(), semester:$(this).closest("form").attr("semester")}
+            var tempdata = {course:$(this).val(), semester:$(this).closest("form").attr("semester"), ignore:$(this).attr("ignore")}
             curData.push(tempdata)
         }
     })
     ValidateAllInput(curData)
+    var totalUnits = parseInt(userData.ap.units)
     $(".courseInput").each(function() {
+        $(this).parent().parent().find(".courseCredit").text("0")
         if (IsValid($(this).val())) {
-            $(this).attr("valid", "true")
-            //TODO: Credits here!
-            console.log("true" + $(this).val())
+            if ($(this).attr("ignore") == "false") {
+                $(this).attr("valid", "true")
+            }
+            $(this).parent().parent().find(".courseCredit").text(GetCredit($(this).val()))
+            totalUnits += parseInt(GetCredit($(this).val()))
         } else {
             $(this).attr("valid", "false")
             console.log("false" + $(this).val())
         }
     })
+    userData["totalUnits"] = totalUnits.toString()
+    $(".inputform").each(function() {
+        var totalCredit = 0
+        $(this).find(".singleCredit").each(function() {
+            totalCredit = totalCredit + parseInt($(this).text())
+        })
+        $(this).find(".totalCredit").text(totalCredit)
+    })
+    ValidGE()
+    UpdateRequirementDiv()
+    console.log("userData", userData)
+    console.log("geFullFillment",geFullFillment)
 }
 
+function UpdateUserAP() {
+    var selectedAp = []
+    $("#ap_form").find('.apInputWrapper').each(function() {
+        var apName = $(this).find(".apCourseSelect :selected").text()
+        var apScore = $(this).find(".apScoreSelect :selected").text()
+        var ap_i
+        for (ap of apData) {
+            if (ap.label == apName) {
+                ap_i = JSON.parse(JSON.stringify(ap))
+            }
+        }
+        ap_i["user_score"] = parseInt(apScore)
+        selectedAp.push(ap_i)
+    })
+    userData.ap = run_AP_analysis(selectedAp)
+    console.log(userData)
+}
 // This is all AP form
 var apForm,
 apForm = $("#ap_form").dialog({
@@ -142,13 +223,19 @@ apForm = $("#ap_form").dialog({
     width:800,
     modal: true,
     close: function() {
-        RefreshInputs()
+        try {
+            UpdateUserAP()
+            RefreshInputs()
+        } catch(err) {
+            console.log(err)
+        }
     }
 })
 $("#ap_form_button").button().on("click", function(){
     apForm.dialog("open")
 })
-$("#ap_form").on("click", ".addApSelectButton", function() {
+$("#ap_form")
+.on("click", ".addApSelectButton", function() {
     var newInput = "<div class='apInputWrapper'><a href='javascript:;' class='apInputRemove'><img src='image/remove.png' class='ap_remove_button'></a>"
     newInput += "<label>Course</label>"
     newInput += "<select class='apCourseSelect' name=''>"

@@ -29,6 +29,8 @@ var addedCourses = [] //list of all inputed courses as a object of course and se
 
 var schedule = [] //sorted schedule, index represent the semester. ex: schedule[0] is the array of all input courses in freshman summer quarter
 
+var ignoreTable = [] // a table to ignore the error of some courses, matching the schedule
+
 var totalUnit = 0 // totoal units of the current courses add up
 
 var quarterUnit = [] // unit for each quarter, ex: quarterUnit[0] represent the unit of the freshman summer quarter
@@ -90,7 +92,18 @@ function GetErrorMessage(name){
     return ""
 }
 
-
+function GetCredit(name){
+    if (!IsValid(name))
+        return "0";
+    else {
+        for (course of validCourses) {
+            if (name == course.label) {
+                return course.units
+            }
+        }
+    }
+    return "0"
+}
 
 
 
@@ -111,44 +124,17 @@ function GetErrorMessage(name){
 //******************
 //******************
 //******************
+semesters = ["freshman_summer", "freshman_fall", "freshman_winter", "freshman_spring",
+          "sophomore_summer", "sophomore_fall", "sophomore_winter", "sophomore_spring",
+          "junior_summer", "junior_fall", "junior_winter", "junior_spring",
+          "senior_summer", "senior_fall", "senior_winter", "senior_spring"]
 function SemToNum(semester){
-    if(semester == "freshman_summer") return 0;
-    if(semester == "freshman_fall") return 1;
-    if(semester == "freshman_winter") return 2;
-    if(semester == "freshman_spring") return 3;
-    if(semester == "sophomore_summer") return 4;
-    if(semester == "sophomore_fall") return 5;
-    if(semester == "sophomore_winter") return 6;
-    if(semester == "sophomore_spring") return 7;
-    if(semester == "junior_summer") return 8;
-    if(semester == "junior_fall") return 9;
-    if(semester == "junior_winter") return 10;
-    if(semester == "junior_spring") return 11;
-    if(semester == "senior_summer") return 12;
-    if(semester == "senior_fall") return 13;
-    if(semester == "senior_winter") return 14;
-    if(semester == "senior_spring") return 15;
+    return semesters.indexOf(semester)
 }
 
 function NumToSem(num){
-        if(num==0) return "freshman_summer";
-        if(num==1) return "freshman_fall";
-        if(num==2) return "freshman_winter";
-        if(num==3) return "freshman_spring";
-        if(num==4) return "sophomore_summer";
-        if(num==5) return "sophomore_fall";
-        if(num==6) return "sophomore_winter";
-        if(num==7) return "sophomore_spring";
-        if(num==8) return "junior_summer";
-        if(num==9) return "junior_fall";
-        if(num==10) return "junior_winter";
-        if(num==11) return "junior_spring";
-        if(num==12) return "senior_summer";
-        if(num==13) return "senior_fall";
-        if(num==14) return "senior_winter";
-        if(num==15) return "senior_spring";
-    }
-
+    return semesters[num]
+}
 
 
 function CountUnit(){
@@ -192,7 +178,7 @@ function AddAllCourses(input){
                     existence = false
                     break
                 }
-                addedCourses.push({course : courseData[j], semester : SemToNum(input[i].semester)})
+                addedCourses.push({course : courseData[j], semester : SemToNum(input[i].semester), ignore:input[i].ignore})
                 break
             }
         }
@@ -202,10 +188,13 @@ function AddAllCourses(input){
 
 //add the courses from addedCourses into schedule in the semester order
 function SortAllCourseBySemester(){
-    for(i=0; i<16; i++)
+    for(i=0; i<16; i++) {
+        ignoreTable.push({})
         schedule.push([])
+    }
     for(i=0; i<addedCourses.length; i++){
         schedule[addedCourses[i].semester].push(addedCourses[i].course)
+        ignoreTable[addedCourses[i].semester][addedCourses[i].course.label] = addedCourses[i].ignore
     }
 }
 
@@ -224,6 +213,11 @@ function GetCourseByName(name){
 
 //function to check if taking certian course in certain semester is allowed
 function CheckThisCourse(course, sem){
+    // if we ignore the error, just put it into valid course
+    if (ignoreTable[sem][course.label] == "true") {
+        console.log("ignore", course.label)
+        validCourses.push(course)
+    }
     for(var c of validCourses){
         if(c.label == course.label)
             return
@@ -313,6 +307,24 @@ function CheckThisCourse(course, sem){
                 var range = sem-1
                 var id = course.prereq[n][p].id
 
+
+                // We check AP list first
+                if (userData.ap.valid == true) {
+                    var tempcourse = courseData[id]
+                    for (var ap of userData.ap.apList) {
+                        if (Array.isArray(ap.course_equivalent)) {
+                            for (var eq of ap.course_equivalent) {
+                                if (eq.sub == tempcourse.sub && 
+                                        eq.number == tempcourse.number) {
+                                    found = true
+                                    break
+                                }
+                            }
+                            if(found) break
+                        }
+                    }
+                    if(found) continue
+                }
                 if(course.prereq[n][p].concur == "m"){
                     for(var q in schedule[sem]){
                         if(id == schedule[sem][q].id){
@@ -406,7 +418,7 @@ function checkRequiredCourses(){
     if(unFinishedReq.length>0){
         var tempstring = "You need to take following courses for your major requirment : \n"
         for(var c of unFinishedReq){
-            tempstring+=(c+"\n")
+            tempstring+=(c+" | ")
         }
         invalidGrad.push({name : "Required Courses", message : tempstring})
     }
@@ -469,18 +481,18 @@ function checkChoiceCourses(){
         //console.log("currentUnits",currentUnits)
         //console.log("requirment unit",choices.units)
         if(currentUnits< parseInt(choices.units)){
-            var tempstring = " you must take "
+            var tempstring = "You must take "
             tempstring+=(parseInt(choices.units) - currentUnits)
             tempstring+=(" more units from the following courses: \n")
             for(var c of choices.courses){
                 if(c.sub!=undefined)
-                    tempstring+=(c.sub+" "+c.number+"\n")
+                    tempstring+=(c.sub+" "+c.number+" | ")
                 else{
                     for(var ic of c.courses){
                         tempstring+=(ic.sub+" "+ic.number+" or ")
                     }
                     tempstring = tempstring.slice(0,tempstring.length-3)
-                    tempstring+="\n"
+                    tempstring+=" | "
                 }
             }
             invalidGrad.push({name: "Choice Courses", message :tempstring})
