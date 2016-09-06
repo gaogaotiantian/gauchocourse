@@ -15,7 +15,8 @@ class RuleParser:
             ["AND", r"\band\b|;", re.I],
             ["CONCUR", r"\bconcur", re.I],
             ["MUST", r"\bmust\b", re.I],
-            ["MAYBE", r"\bmay\b|\bcan\b", re.I]
+            ["MAYBE", r"\bmay\b|\bcan\b", re.I],
+            ["GRADE", r"\b[A-C][+-]?\b", re.I]
         ]
     def GenCourseInfo(self):
         courseList = []
@@ -27,6 +28,7 @@ class RuleParser:
         concurData = "n"
         singleCourse = []
         concur = 'n'
+        lastKeyWd = None
         for keyWd in self.keyWdList:
             if keyWd[1] == "DEPT":
                 curDept = keyWd[2]
@@ -34,9 +36,12 @@ class RuleParser:
                 curNum = keyWd[2]
                 curAdded = False
             elif keyWd[1] == "OR" and curDept != None and curNum != None:
-                if curAdded == False:
-                    singleCourse.append([curDept, curNum, concur])
-                    curAdded = True
+                # We need to ignore the or after grades like 
+                # C+ or better
+                if lastKeyWd != None and lastKeyWd[1] != "GRADE":
+                    if curAdded == False:
+                        singleCourse.append([curDept, curNum, concur])
+                        curAdded = True
             elif keyWd[1] == "AND" and curDept != None and curNum != None:
                 if curAdded == False:
                     singleCourse.append([curDept, curNum, concur])  
@@ -55,6 +60,7 @@ class RuleParser:
                 must = True
             elif keyWd[1] == "MAYBE":
                 must = False
+            lastKeyWd = keyWd[:]
         # After iterating keyword, we may need to append the last one
         # to courseList
 
