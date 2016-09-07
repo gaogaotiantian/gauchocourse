@@ -2,8 +2,8 @@ import requests as req
 import sys
 import re
 from time import sleep
-import random
-from bs4 import BeautifulSoup
+# import random
+# from bs4 import BeautifulSoup
 import os 
 
 WCD = os.getcwd()

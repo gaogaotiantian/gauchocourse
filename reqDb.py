@@ -108,3 +108,4 @@ if (len(sys.argv) != 2):
 else:
 	db = dbInterface(sys.argv[1])#,sys.argv[2])
 	db.main()
+# python2 reqGenerator.py ../courseData.json
