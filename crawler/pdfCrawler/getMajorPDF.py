@@ -2,8 +2,8 @@ import requests as req
 import sys
 import re
 from time import sleep
-import random
-from bs4 import BeautifulSoup
+# import random
+# from bs4 import BeautifulSoup
 import os 
 
 WCD = os.getcwd()
@@ -65,7 +65,7 @@ def crawler(coe,las,Wait):
 		pdfNameList = [ WCD + '/pdf/' + major + '/' + re.findall(pdfNamePattern,href)[0] for href in hrefList]
 
 		for i in range(len(hrefList)):
-		  with open (pdfNameList[i], 'wb') as pdf:
+		  	with open (pdfNameList[i], 'wb') as pdf:
 		      	pdf.write(req.get(hrefList[i]).content)
 		      	print re.split(LASPattern,hrefList[i])
 		sleep(maxWait)

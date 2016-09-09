@@ -9,12 +9,14 @@ class dbInterface:
 	def __init__(self,jsonFile):
 		self.courseList = string2Json(jsonFile) 
 		pass
+		
 	def main(self):
 		self.dbConnect()
 		self.dbCreate()
 		
 		# disconnect from server
 		self.db.close()
+
 	def dbConnect(self):
 		# jsonList = string2Json(ifile)
 		# Open database connection
@@ -106,3 +108,4 @@ if (len(sys.argv) != 2):
 else:
 	db = dbInterface(sys.argv[1])#,sys.argv[2])
 	db.main()
+# python2 reqGenerator.py ../courseData.json
