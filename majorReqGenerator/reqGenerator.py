@@ -21,14 +21,6 @@ class Course(Model):
     class Meta:
         database = db # This model uses the "people.db" database.
 
-# class Pet(Model):
-#     owner = ForeignKeyField(Person, related_name='pets')
-#     name = CharField()
-#     animal_type = CharField()
-
-#     class Meta:
-#         database = db # this model uses the "people.db" database
-
 db.connect()
 
 try:
@@ -36,11 +28,15 @@ try:
 except:
     pass
 
-from time import sleep
 courseList = string2Json('../courseData.json')
-# for course in courseList:
-#   newCourse = Course(Department = course['sub'], Number = course['number'], JsonID = course['id'])
-#   newCourse.save()
+
+# try:
+#     for course in courseList:
+#         newCourse = Course(Department = course['sub'], Number = course['number'], JsonID = course['id'])
+#         newCourse.save()
+# except:
+#     pass
+
     # course['majorlimit']
     # course['levellimit']
 
@@ -48,21 +44,19 @@ courseList = string2Json('../courseData.json')
     # course['gearea']
     # course['units']
     # course['label']
-#for course in Course.select().where(Course.Department=='ANTH'):
-    #print("{} {}".format(course.Department,course.Number),end='           ')
-    #sleep(1)
 
-# courseNumPattern = re.compile(r'(^\W\w+) [...]')
+def mapDept2Abbrev():
+    with open('deptTrans.txt') as f:
+        nameMap = {}
+        for line in f:
+            temp = line.split(' - ')
+            # print(temp)
+            nameMap[temp[0]] = temp[1][:-1]
 
-# courseNumPattern = re.compile(r'\S\s+ (...) ') # get units
-# courseNumPattern = re.compile(r'\W\w+ (.*)')
-# courseNumPattern = re.compile(r'[A-Z]\w+\s(.*)')
+    return nameMap
 
+NAME_MAP = mapDept2Abbrev()
 
-# Physics 20-21-22-23-24-25
-# courseNumPattern1 = re.compile(r'[\s|-]([0-9]\w+)')#[\s|-]')
-# courseNumPattern1 = re.compile(r'[0-9]+[a-zA-Z]?[^\.]')#[\s|-]')
-# courseNumPattern1 = re.compile(r'[\s|-]([0-9]+[a-zA-Z]+?)')
 courseNumPattern1 = re.compile(r'\b[0-9]*[0-9A-Z]\b')
 # 13AH-BH-CH
 courseNumPattern2 = re.compile(r'\b[0-9]+?[A-Z]*\b')
@@ -74,31 +68,80 @@ deptPattern = re.compile(r'\b([A-Z][a-z]+)\s?[0-9]+')
 
 
 multiEmptyLinePattern = re.compile(r'\n[\n|\s]+')
+
 from tika import parser
 text = parser.from_file('pdf/Phys/Physics-BS_2016.pdf')
 # text = parser.from_file('pdf/PStat/Statistics-BS-2016.pdf')
 
 
 # convert 13AH-BH-CH in to ['13AH', '13BH', '13CH']
-numPattern = re.compile(r'[0-9]+')
-def regainCourseNum(lst,index=1):
-    indx = index
-    for j in range(index,len(lst)):
-        print('aaa')
-        for i in range(index-1,-1,-1):
-            try:
-                num = re.match(numPattern,lst[i]).group()
-                lst[j] = num + lst[j]
-                break
-                print(num)
-            except:
-                continue
-    return lst
+# numPattern = re.compile(r'([0-9]+)[A-Za-z]+')
+# def regainCourseNum(courseList,index=1):
+#     lst = courseList
+#     indx = index
+#     for j in range(index,len(lst)):
+#         # print('aaa')
+#         for i in range(index-1,-1,-1):
+#             try:
+#                 num = re.match(numPattern,lst[i]).group()
+#                 lst[j] = num + lst[j]
+#                 break
+#                 print(num)
+#             except:
+#                 continue
+#     return lst
+numPattern2 = re.compile(r'([0-9]+)[A-Z]?')
+def regainCourseNum(courseList):
+    if courseList == []:
+        return []
+    # print(courseList)
+    outList = courseList[:1]
+    for i in range(1,len(courseList)):
+        previousNum = re.findall(numPattern2,outList[i-1])
+        # print(previousNum)
+        currentNum = re.findall(numPattern2,courseList[i])
+        # print(currentNum)
+        if currentNum == []:
+            outList.append(previousNum[0]+courseList[i])
+        else:
+            outList.append(courseList[i])
+        # print(outList)
+    return outList
+
 
 # a = ['13AH','BH','CH']
 # print(regainCourseNum(a))
-def guessDept(numList, deptSet):
-    dept = list(deptSet)
+# def createDeptList(deptSet):
+#     deptList = list(deptSet)
+#     keys = NAME_MAP.keys()
+#     outList = []
+#     for dept in deptList:
+#         try:
+#             outList.append(NAME_MAP[dept])
+#         except:
+#             for key in keys:
+#                 if dept in key:
+#                     outList.append(NAME_MAP[key])
+#     print(outList)
+
+# def guessDept(deptSet, numList):
+#     deptList = list(deptSet)
+#     deptIndex = 0
+#     for dept in deptList:
+
+# def checkDept(dept,numList):
+#     for course in Course.select().where(Course.Department == dept):
+#         for num in numList:
+#             if course.Number != num:
+#                 return False
+#     return True
+            
+#             #print("{} {}".format(course.Department,course.Number),end='           ')
+
+
+
+lst = ['Mathematics','Chemistry','Physics']
+# guessDept([1],lst)
 
 def parseLAS(text):
     # print text.keys()
@@ -118,70 +161,53 @@ def parseLAS(text):
     # regexDept = '(' + ".*)|(".join(depts) + '.*)'
     regexDept = '|'.join(deptSet)
     print(regexDept)
-    # print(depts)
-    # courseNumPattern3 = re.compile(r'[]')
-    # text = text.strip('')
-    # text = text.split('\n')/
-    # remove empty lines
+
+     # deptList = re.findall(r'[A-Z][^\.][a-z]+\s?',text)
+    deptList = re.findall(deptPattern,text)
+
     text = multiEmptyLinePattern.sub('',text)
     textList = text.split('\n')
     #print(textList)
     textList = [' '.join(line.split()[1:]) for line in textList]
-    # reqList = [req.split(' or ') for req in textList]
-    #text = text.split('UNITS YET TO COMPLETE')[1]
-    #text = text.split('UPPER-DIVISION MAJOR')
-    #lower = text[0]
-    #upper = text[1]
-    #text = text[0].split()
-    # print len(text)
-    #print(lower)
-    #text = re.split('from|following',text)
-    #takeEveryCourse = text 
-    #selectFromCourses =
-    # for line in textList:
-        # print(line)
-    # print(textList)
 
-    # print()
-    # # print(reqList)
-    # for req in reqList:
-    #     print(req)
-    # numOfReq = 0
-    # for req in reqList:
-    #     for ele in req:
-    for ele in textList:
-        print(ele)
+    # for ele in textList:
+        # print(ele)
     parsedList = []
     for ele in textList:
         parsedList.append(re.split(regexDept,ele))
 
-    print(parsedList)
+    # print(parsedList)
+    courseNumsDict = OrderedDict()
+
+    lineIndex = 0
+    
     for line in parsedList:
+        print('Line:  ',line)
         for ele in line:
             parsedNum1 = re.findall(courseNumPattern1,ele)
            # parsedNum2 = re.findall(courseNumPattern2,ele)#ele.split('-')
             if parsedNum1 == []:
                 parsedNum1 = re.findall(courseNumPattern2,ele)
+            #print(parsedNum1)
+            parsedNum1 = regainCourseNum(parsedNum1)
+            if parsedNum1 != []:
+                lineIndex+=1
+
             #parsedNum1.extend(parsedNum2)
             # for id in parsedNum1:
             #dept = guessDept(parsedNum1,deptSet)
-            courseNumsDict = OrderedDict()
-
+            # dept = guessDept(parsedNum1)
+            print(parsedNum1)
+            print(deptList[lineIndex]+'    '+ str(lineIndex),end='\n\n')
             for courseNum in parsedNum1:
-                courseNumsDict[courseNum] = True#dept
+                courseNumsDict[courseNum] = deptList[lineIndex]#dept
+            print("newline\n")
 
         # setOfCourse = set(courseNumsList)
         # print(setOfCourse)
-            if any(courseNumsDict) == True:
-                print(courseNumsDict)
-            # print(parsedNum2)
-        #for c in setOfCourse:
-        #  print(c)
-    # a.append(text)
-    # print(a)
-    # out = re.findall(courseNumPattern,text)
-    # for ele in out:
-    #   print(ele)
-    #print(upper)
-
+            # if any(courseNumsDict) == True:
+            #     print(courseNumsDict)
+    #print(courseNumsDict)
+    for key,value in courseNumsDict.items():
+        print("sub: {} num: {}".format(key,value))
 parseLAS(text)

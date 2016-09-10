@@ -14,15 +14,6 @@ Communication - COMM
 Comparative Literature - C LIT
 Computer Science - CMPSC
 Counseling, Clinical, School Psychology - CNCSP
-Creative Studies: Art - ART CS
-Creative Studies: Biology - BIOL CS
-Creative Studies: Chemistry - CHEM CS
-Creative Studies: Computer Science - CMPSCCS
-Creative Studies: General Studies - GEN SCS
-Creative Studies: Literature - LIT CS
-Creative Studies: Mathematics - MATH CS
-Creative Studies: Music - MUS CS
-Creative Studies: Physics - PHYS CS
 Dance - DANCE
 Earth Science - EARTH
 East Asian Cultural Studies - EACS
@@ -66,7 +57,7 @@ Linguistics - LING
 Marine Science - MARSC
 Materials - MATRL
 Mathematics - MATH
-Mathematics - MATH WKL
+Mathematics - MATH WLK
 Mechanical Engineering - ME
 Media Arts and Technology - MAT
 Medieval Studies - ME ST
