@@ -1,5 +1,5 @@
-import peewee
-from peewee import *
+# import peewee
+# from peewee import *
 import json
 import sys
 import re
@@ -30,7 +30,7 @@ deptPattern = re.compile(r'\b([A-Z][a-z]+)\s?[0-9]+')
 multiEmptyLinePattern = re.compile(r'\n[\n|\s]+')
 
 from tika import parser
-text = parser.from_file('pdf/Phys/Physics-BS_2016.pdf')
+# text = parser.from_file('pdf/Phys/Physics-BS_2016.pdf')
 # text = parser.from_file('pdf/PStat/Statistics-BS-2016.pdf')
 
 
@@ -57,7 +57,9 @@ def regainCourseNum(courseList):
 lst = ['Mathematics','Chemistry','Physics']
 # guessDept([1],lst)
 
-def parseLAS(text):
+def parseLAS(path):
+
+    text = parser.from_file(path)
     # print text.keys()
     text = text['content'].split("MAJOR REGULATIONS")[:-1]
 
@@ -95,6 +97,7 @@ def parseLAS(text):
 
     lineIndex = -1
     
+    courseIndex = 0
     for line in parsedList:
         # print('Line:  ',line)
         for ele in line:
@@ -115,17 +118,98 @@ def parseLAS(text):
                 # print(parsedNum1)
                 # print(deptList[lineIndex]+'    '+ str(lineIndex),end='\n\n')
                 for courseNum in parsedNum1:
-                    courseNumsDict[courseNum] = deptList[lineIndex]#dept
+                    courseNumsDict[courseIndex] = [deptList[lineIndex], courseNum]
+                    courseIndex+=1
                 # print("newline\n")
             except:
                 lineIndex-= 1
                 for courseNum in parsedNum1:
-                    courseNumsDict[courseNum] = deptList[lineIndex]
+                    courseNumsDict[courseIndex] = [deptList[lineIndex], courseNum]
+                    courseIndex+=1
         # setOfCourse = set(courseNumsList)
         # print(setOfCourse)
             # if any(courseNumsDict) == True:
             #     print(courseNumsDict)
     #print(courseNumsDict)
-    for key,value in courseNumsDict.items():
-        print("sub: {} num: {}".format(value,key))
-parseLAS(text)
+    return courseNumsDict
+    # for key,value in courseNumsDict.items():
+        # print("sub: {} num: {}".format(value,key))
+def getUsefulIndices(listLength):
+    inStr = ''
+    indexSet = set()
+    while(inStr!='end'):
+        try:
+            inStr = input()
+            if inStr == 'end':
+                # print('breaking!!')
+                continue
+            index = int(inStr)
+            # print("??")
+            if index > listLength:
+                raise IndexError
+            indexSet.add(index)
+                # print("!!")
+        except:
+            print('The index you entered is not valid. It should be a integer less than or equal to '+str(listLength-1) + '.')
+    return sorted(list(indexSet))
+# def addMoreCourse(listOfCourse):
+    
+def terminalInterface():
+    # while 1:
+
+        # print('Please enter the path of major requirement pdf:    e.g. ../pdf/Phys/Physics-BS_2016.pdf')
+        # path = input('Please enter the path of major requirement pdf:    e.g. ./pdf/Phys/Physics-BS_2016.pdf\n')
+        # print(path)
+    path='pdf/Phys/Physics-BS_2016.pdf'
+    # assume that your data rows are tuples
+    template = "{0:15}|{1:15}|{2:15}|{3:15}|{4:15}" # column widths: 8, 10, 15, 7, 10
+    #print template.format("CLASSID", "DEPT", "COURSE NUMBER", "AREA", "TITLE") # header
+    courseDict = parseLAS(path)
+    # key is a integer looks like index
+    # value is a list [department, coureseNum]
+    outStrList = []
+    for key,value in courseDict.items():
+        oneCourse = '{}. {} {}'.format(key,value[0],value[1])
+        outStrList.append(oneCourse)
+    # print(outStrList)
+    numOfColumns = 3
+    numOfRows = len(outStrList) // numOfColumns
+    courseIndex = 0
+    # print(numOfRows)
+    for row in range(numOfRows):
+        # try:
+        print('{:<25}{:<25}{:<25}'.format(outStrList[courseIndex],outStrList[courseIndex+1],outStrList[courseIndex+2]))
+        courseIndex += numOfColumns
+    if len(outStrList) % numOfColumns != 0:
+        for i in range(numOfRows * numOfColumns,len(outStrList)):
+            print('{:<25}'.format(outStrList[i]), end='')
+        print('\n')
+    # requiredIndexList = []
+    print('Please enter the indices of course that are required for this major. Note that the index start from 0.')
+    requiredIndexList = getUsefulIndices(len(outStrList))[:]
+    print(requiredIndexList)
+
+        # except:
+        #     try:
+        #         print('{:10}{:10}'.format(outStrList[courseIndex],outStrList[courseIndex+1]))
+        #     except:
+        #         try:
+        #             print(outStrList[courseIndex])
+        #         except:
+        #             break
+
+        # print(courseDict[0])
+                # for key,value in courseDict.items():
+        #     # print("{: >20} {: >20}".format('sub:'+ value,'num:'+ key))
+        # for rec in courseDict: 
+        #     print(template.format(*rec))
+        # try:
+
+        # for key,value in courseDict.items():
+            # print("{: >20} {: >20}".format('sub:'+ value,'num:'+ key))
+        # except:
+        #     print('The path you entered is not correct. Please try again.\n')
+        #     continue
+
+# parseLAS(text)
+terminalInterface()
