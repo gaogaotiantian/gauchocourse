@@ -127,5 +127,5 @@ def parseLAS(text):
             #     print(courseNumsDict)
     #print(courseNumsDict)
     for key,value in courseNumsDict.items():
-        print("sub: {} num: {}".format(key,value))
+        print("sub: {} num: {}".format(value,key))
 parseLAS(text)
