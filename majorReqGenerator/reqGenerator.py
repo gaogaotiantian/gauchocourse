@@ -11,22 +11,22 @@ def string2Json(ifile):
     jsonList = json.loads(jsonStr)
     return jsonList
 
-class Course(Model):
-    Department = CharField()
-    Number = DateField()
-    JsonID = IntegerField()
+# class Course(Model):
+#     Department = CharField()
+#     Number = DateField()
+#     JsonID = IntegerField()
 
-    #is_relative = BooleanField()
+#     #is_relative = BooleanField()
 
-    class Meta:
-        database = db # This model uses the "people.db" database.
+#     class Meta:
+#         database = db # This model uses the "people.db" database.
 
-db.connect()
+# db.connect()
 
-try:
-    db.create_tables([Course])
-except:
-    pass
+# try:
+#     db.create_tables([Course])
+# except:
+#     pass
 
 courseList = string2Json('../courseData.json')
 
@@ -160,7 +160,7 @@ def parseLAS(text):
     deptSet = set(re.findall(deptPattern,text))
     # regexDept = '(' + ".*)|(".join(depts) + '.*)'
     regexDept = '|'.join(deptSet)
-    print(regexDept)
+    # print(regexDept)
 
      # deptList = re.findall(r'[A-Z][^\.][a-z]+\s?',text)
     deptList = re.findall(deptPattern,text)
@@ -179,10 +179,10 @@ def parseLAS(text):
     # print(parsedList)
     courseNumsDict = OrderedDict()
 
-    lineIndex = 0
+    lineIndex = -1
     
     for line in parsedList:
-        print('Line:  ',line)
+        # print('Line:  ',line)
         for ele in line:
             parsedNum1 = re.findall(courseNumPattern1,ele)
            # parsedNum2 = re.findall(courseNumPattern2,ele)#ele.split('-')
@@ -197,12 +197,16 @@ def parseLAS(text):
             # for id in parsedNum1:
             #dept = guessDept(parsedNum1,deptSet)
             # dept = guessDept(parsedNum1)
-            print(parsedNum1)
-            print(deptList[lineIndex]+'    '+ str(lineIndex),end='\n\n')
-            for courseNum in parsedNum1:
-                courseNumsDict[courseNum] = deptList[lineIndex]#dept
-            print("newline\n")
-
+            try:
+                # print(parsedNum1)
+                # print(deptList[lineIndex]+'    '+ str(lineIndex),end='\n\n')
+                for courseNum in parsedNum1:
+                    courseNumsDict[courseNum] = deptList[lineIndex]#dept
+                # print("newline\n")
+            except:
+                lineIndex-= 1
+                for courseNum in parsedNum1:
+                    courseNumsDict[courseNum] = deptList[lineIndex]
         # setOfCourse = set(courseNumsList)
         # print(setOfCourse)
             # if any(courseNumsDict) == True:
