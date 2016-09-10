@@ -60,9 +60,14 @@ courseList = string2Json('../courseData.json')
 
 
 # Physics 20-21-22-23-24-25
-courseNumPattern1 = re.compile(r'[\s|-]([0-9]\w+)')#[\s|-]')
+# courseNumPattern1 = re.compile(r'[\s|-]([0-9]\w+)')#[\s|-]')
+# courseNumPattern1 = re.compile(r'[0-9]+[a-zA-Z]?[^\.]')#[\s|-]')
+# courseNumPattern1 = re.compile(r'[\s|-]([0-9]+[a-zA-Z]+?)')
+courseNumPattern1 = re.compile(r'\b[0-9]*[0-9A-Z]\b')
 # 13AH-BH-CH
-courseNumPattern2 = re.compile(r'-')
+courseNumPattern2 = re.compile(r'\b[0-9]+?[A-Z]*\b')
+
+courseNumPattern3 = re.compile(r'\s[0-9]+[^.]\s')
 multiEmptyLinePattern = re.compile(r'\n[\n|\s]+')
 from tika import parser
 text = parser.from_file('pdf/Phys/Physics-BS_2016.pdf')
@@ -106,6 +111,8 @@ def parseLAS(text):
     # remove empty lines
     text = multiEmptyLinePattern.sub('',text)
     textList = text.split('\n')
+    print(textList)
+    textList = [' '.join(line.split()[1:]) for line in textList]
     reqList = [req.split(' or ') for req in textList]
     #text = text.split('UNITS YET TO COMPLETE')[1]
     #text = text.split('UPPER-DIVISION MAJOR')
@@ -125,15 +132,19 @@ def parseLAS(text):
     # print(reqList)
     for req in reqList:
         print(req)
-
+    numOfReq = 0
     for req in reqList:
         for ele in req:
-            #parsedNum1 = re.findall(courseNumPattern1,ele)
-            parsedNum2 = ele.split('-')
-            # courseNumsList = parsedNum1.extend(parsedNum2)
-            courseNumsList = parsedNum2
-            setOfCourse = set(courseNumsList)
-            print(setOfCourse)
+            parsedNum1 = re.findall(courseNumPattern1,ele)
+            parsedNum2 = re.findall(courseNumPattern2,ele)#ele.split('-')
+            # parsedNum1.extend(parsedNum2)
+            # for id in parsedNum1:
+
+            courseNumsList = parsedNum1
+            #setOfCourse = set(courseNumsList)
+            # print(setOfCourse)
+            print(courseNumsList)
+            print(parsedNum2)
             #for c in setOfCourse:
             #  print(c)
     # a.append(text)
@@ -143,4 +154,4 @@ def parseLAS(text):
     #   print(ele)
     #print(upper)
 
-# parseLAS(text)
+parseLAS(text)

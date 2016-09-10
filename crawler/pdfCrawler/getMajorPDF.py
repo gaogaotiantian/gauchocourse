@@ -67,7 +67,7 @@ def crawler(coe,las,Wait):
 		for i in range(len(hrefList)):
 		  	with open (pdfNameList[i], 'wb') as pdf:
 				pdf.write(req.get(hrefList[i]).content)
-		      	print re.split(LASPattern,hrefList[i])
+		      	#print re.split(LASPattern,hrefList[i])
 		sleep(maxWait)
 
 
