@@ -3,7 +3,7 @@ from peewee import *
 import json
 import sys
 import re
-
+from collections import OrderedDict
 db = SqliteDatabase('course.db')
 
 def string2Json(ifile):
@@ -67,7 +67,12 @@ courseNumPattern1 = re.compile(r'\b[0-9]*[0-9A-Z]\b')
 # 13AH-BH-CH
 courseNumPattern2 = re.compile(r'\b[0-9]+?[A-Z]*\b')
 
-courseNumPattern3 = re.compile(r'\s[0-9]+[^.]\s')
+
+
+deptPattern = re.compile(r'\b([A-Z][a-z]+)\s?[0-9]+')
+
+
+
 multiEmptyLinePattern = re.compile(r'\n[\n|\s]+')
 from tika import parser
 text = parser.from_file('pdf/Phys/Physics-BS_2016.pdf')
@@ -92,6 +97,8 @@ def regainCourseNum(lst,index=1):
 
 # a = ['13AH','BH','CH']
 # print(regainCourseNum(a))
+def guessDept(numList, deptSet):
+    dept = list(deptSet)
 
 def parseLAS(text):
     # print text.keys()
@@ -106,14 +113,21 @@ def parseLAS(text):
     #print(re.findall(deleteDots,text))
     text = deleteDots.sub('',text)
     text = text.split('(With consent')[0]
+    # print(text)
+    deptSet = set(re.findall(deptPattern,text))
+    # regexDept = '(' + ".*)|(".join(depts) + '.*)'
+    regexDept = '|'.join(deptSet)
+    print(regexDept)
+    # print(depts)
+    # courseNumPattern3 = re.compile(r'[]')
     # text = text.strip('')
     # text = text.split('\n')/
     # remove empty lines
     text = multiEmptyLinePattern.sub('',text)
     textList = text.split('\n')
-    print(textList)
+    #print(textList)
     textList = [' '.join(line.split()[1:]) for line in textList]
-    reqList = [req.split(' or ') for req in textList]
+    # reqList = [req.split(' or ') for req in textList]
     #text = text.split('UNITS YET TO COMPLETE')[1]
     #text = text.split('UPPER-DIVISION MAJOR')
     #lower = text[0]
@@ -128,25 +142,41 @@ def parseLAS(text):
         # print(line)
     # print(textList)
 
-    print()
-    # print(reqList)
-    for req in reqList:
-        print(req)
-    numOfReq = 0
-    for req in reqList:
-        for ele in req:
-            parsedNum1 = re.findall(courseNumPattern1,ele)
-            parsedNum2 = re.findall(courseNumPattern2,ele)#ele.split('-')
-            # parsedNum1.extend(parsedNum2)
-            # for id in parsedNum1:
+    # print()
+    # # print(reqList)
+    # for req in reqList:
+    #     print(req)
+    # numOfReq = 0
+    # for req in reqList:
+    #     for ele in req:
+    for ele in textList:
+        print(ele)
+    parsedList = []
+    for ele in textList:
+        parsedList.append(re.split(regexDept,ele))
 
-            courseNumsList = parsedNum1
-            #setOfCourse = set(courseNumsList)
-            # print(setOfCourse)
-            print(courseNumsList)
-            print(parsedNum2)
-            #for c in setOfCourse:
-            #  print(c)
+    print(parsedList)
+    for line in parsedList:
+        for ele in line:
+            parsedNum1 = re.findall(courseNumPattern1,ele)
+           # parsedNum2 = re.findall(courseNumPattern2,ele)#ele.split('-')
+            if parsedNum1 == []:
+                parsedNum1 = re.findall(courseNumPattern2,ele)
+            #parsedNum1.extend(parsedNum2)
+            # for id in parsedNum1:
+            #dept = guessDept(parsedNum1,deptSet)
+            courseNumsDict = OrderedDict()
+
+            for courseNum in parsedNum1:
+                courseNumsDict[courseNum] = True#dept
+
+        # setOfCourse = set(courseNumsList)
+        # print(setOfCourse)
+            if any(courseNumsDict) == True:
+                print(courseNumsDict)
+            # print(parsedNum2)
+        #for c in setOfCourse:
+        #  print(c)
     # a.append(text)
     # print(a)
     # out = re.findall(courseNumPattern,text)
