@@ -10,48 +10,45 @@ class dept2AbbrevMap:
                 temp = line.split(' - ')
                 # print(temp)
                 self.nameMap[temp[0]] = temp[1][:-1]
-            # print('sfsdafas')
-            # print(self.nameMap.keys())
-    def map2Abrrev(deptStr):
+        
+        self.courseByDeptDict = string2Json('courseByDepartment.json')
+
+    def map2Abrrev(self,deptStr):
         for key in self.nameMap.keys():
             if deptStr in key:
                 return key
-    # def getCourse()
 
+    def isValid(self,courseStrList):
+        try:
+            test = self.courseByDeptDict[self.map2Abrrev(courseStrList[0])][courseStrList[1].upper()]
+            return true
+        except:
+            return False
+
+    # This function shouldn't be call during data entry
+    # It will modify courseByDepartment.json
     # courseData.json is a list of dictiionaries
     # this function converts it to a dictionary of dictonary
     # where courses were seperated by department
     # inside each department, courses can be accessed by number
-    def courseDataByDepartment(self):
+    def courseByDepartment(self):
         self.allCourseList = string2Json('../courseData.json')
-        # print(len(self.allCourseList))
-        # currentDept = self.allCourseList[0]['sub']
 
         courseByDeptDict = OrderedDict() # Deptment name -> courses in that dept
         # deptCourses = OrderedDict()  # courseNum -> courseData
         for i in range(len(self.allCourseList)):
-            # if (self.allCourseList[i]['sub'] != currentDept):
-            # print(i)
-            # print(self.allCourseList[i]['sub'])
-            # print(self.allCourseList[i]['number'])
             try:
                 courseByDeptDict[self.allCourseList[i]['sub']][self.allCourseList[i]['number']] = self.allCourseList[i]
             except:
                 courseByDeptDict[self.allCourseList[i]['sub']] = OrderedDict()
                 courseByDeptDict[self.allCourseList[i]['sub']][self.allCourseList[i]['number']] = self.allCourseList[i]
-                # courseByDeptDict[currentDept][''] = OrderedDict(deptCourses)
-                # deptCourses = OrderedDict()
-                # deptCourses[self.allCourseList[i]['number']] = self.allCourseList[i]
-                # currentDept = self.allCourseList[i]['sub']
-            # else:
-            # deptCourses[self.allCourseList[i]['number']] = self.allCourseList[i]
         num = 0
         for dept in courseByDeptDict.values():
             for course in dept.keys():
                 num+=1
             # print(dept)
-        print(num)
-        # print(json.dumps(courseByDeptDict,indent=4, separators=(',', ': ')))
+        # print(num)
+        print(json.dumps(courseByDeptDict,indent=4, separators=(',', ': ')))
 
 class terminalInterface:
     def __init__(self,jsonPath):
@@ -194,3 +191,5 @@ else:
     interface = terminalInterface(sys.argv[1])
     # print(interface.allCourseList[0])
     # interface.run()
+
+# python3 terminalInterface.py phys.json > out.json
