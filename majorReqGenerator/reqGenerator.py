@@ -1,99 +1,45 @@
-import peewee
-from peewee import *
+# import peewee
+# from peewee import *
 import json
 import sys
 import re
 from collections import OrderedDict
-# db = SqliteDatabase('course.db')
 
-# def string2Json(ifile):
-#     jsonStr = open(ifile,'rt').read()
-#     jsonList = json.loads(jsonStr)
-#     return jsonList
 
-# class Course(Model):
-#     Department = CharField()
-#     Number = DateField()
-#     JsonID = IntegerField()
 
-#     #is_relative = BooleanField()
 
-#     class Meta:
-#         database = db # This model uses the "people.db" database.
 
-# db.connect()
 
-# try:
-#     db.create_tables([Course])
-# except:
-#     pass
+# def mapDept2Abbrev():
+#     with open('deptTrans.txt') as f:
+#         nameMap = {}
+#         for line in f:
+#             temp = line.split(' - ')
+#             # print(temp)
+#             nameMap[temp[0]] = temp[1][:-1]
 
-# courseList = string2Json('../courseData.json')
+#     return nameMap
 
-# try:
-#     for course in courseList:
-#         newCourse = Course(Department = course['sub'], Number = course['number'], JsonID = course['id'])
-#         newCourse.save()
-# except:
-#     pass
 
-    # course['majorlimit']
-    # course['levellimit']
+# NAME_MAP = mapDept2Abbrev()
 
-    # course['semester']
-    # course['gearea']
-    # course['units']
-    # course['label']
 
-def mapDept2Abbrev():
-    with open('deptTrans.txt') as f:
-        nameMap = {}
-        for line in f:
-            temp = line.split(' - ')
-            # print(temp)
-            nameMap[temp[0]] = temp[1][:-1]
-
-    return nameMap
-
-NAME_MAP = mapDept2Abbrev()
-# print(NAME_MAP)
 courseNumPattern1 = re.compile(r'\b[0-9]*[0-9A-Z]\b')
 # 13AH-BH-CH
 courseNumPattern2 = re.compile(r'\b[0-9]+?[A-Z]*\b')
 
-
-
 deptPattern = re.compile(r'\b([A-Z][a-z]+)\s?[0-9]+')
-
-
 
 multiEmptyLinePattern = re.compile(r'\n[\n|\s]+')
 
-# from tika import parser
+
+
+from tika import parser
 # text = parser.from_file('pdf/Phys/Physics-BS_2016.pdf')
-from textract import process
-text = process('pdf/Phys/Physics-BS_2016.pdf')
-
-
 # text = parser.from_file('pdf/PStat/Statistics-BS-2016.pdf')
 
 
-# convert 13AH-BH-CH in to ['13AH', '13BH', '13CH']
-# numPattern = re.compile(r'([0-9]+)[A-Za-z]+')
-# def regainCourseNum(courseList,index=1):
-#     lst = courseList
-#     indx = index
-#     for j in range(index,len(lst)):
-#         # print('aaa')
-#         for i in range(index-1,-1,-1):
-#             try:
-#                 num = re.match(numPattern,lst[i]).group()
-#                 lst[j] = num + lst[j]
-#                 break
-#                 print(num)
-#             except:
-#                 continue
-#     return lst
+
 numPattern2 = re.compile(r'([0-9]+)[A-Z]?')
 def regainCourseNum(courseList):
     if courseList == []:
@@ -113,41 +59,12 @@ def regainCourseNum(courseList):
     return outList
 
 
-# a = ['13AH','BH','CH']
-# print(regainCourseNum(a))
-# def createDeptList(deptSet):
-#     deptList = list(deptSet)
-#     keys = NAME_MAP.keys()
-#     outList = []
-#     for dept in deptList:
-#         try:
-#             outList.append(NAME_MAP[dept])
-#         except:
-#             for key in keys:
-#                 if dept in key:
-#                     outList.append(NAME_MAP[key])
-#     print(outList)
-
-# def guessDept(deptSet, numList):
-#     deptList = list(deptSet)
-#     deptIndex = 0
-#     for dept in deptList:
-
-# def checkDept(dept,numList):
-#     for course in Course.select().where(Course.Department == dept):
-#         for num in numList:
-#             if course.Number != num:
-#                 return False
-#     return True
-            
-#             #print("{} {}".format(course.Department,course.Number),end='           ')
-
-
-
 lst = ['Mathematics','Chemistry','Physics']
 # guessDept([1],lst)
 
-def parseLAS(text):
+def parseLAS(path):
+
+    text = parser.from_file(path)
     # print text.keys()
     # text = text['content'].split("MAJOR REGULATIONS")[:-1]
     text = text.split("MAJOR REGULATIONS")[:-1]
@@ -185,6 +102,7 @@ def parseLAS(text):
 
     lineIndex = -1
     
+    courseIndex = 0
     for line in parsedList:
         # print('Line:  ',line)
         for ele in line:
@@ -205,17 +123,33 @@ def parseLAS(text):
                 # print(parsedNum1)
                 # print(deptList[lineIndex]+'    '+ str(lineIndex),end='\n\n')
                 for courseNum in parsedNum1:
-                    courseNumsDict[courseNum] = deptList[lineIndex]#dept
+                    courseNumsDict[courseIndex] = [deptList[lineIndex], courseNum]
+                    courseIndex+=1
                 # print("newline\n")
             except:
                 lineIndex-= 1
                 for courseNum in parsedNum1:
-                    courseNumsDict[courseNum] = deptList[lineIndex]
+                    courseNumsDict[courseIndex] = [deptList[lineIndex], courseNum]
+                    courseIndex+=1
         # setOfCourse = set(courseNumsList)
         # print(setOfCourse)
             # if any(courseNumsDict) == True:
             #     print(courseNumsDict)
     #print(courseNumsDict)
-    for key,value in courseNumsDict.items():
-        print("sub: {} num: {}".format(key,value))
-parseLAS(text)
+    return courseNumsDict
+    # for key,value in courseNumsDict.items():
+        # print("sub: {} num: {}".format(value,key))
+
+
+# parseLAS(text)
+
+if (len(sys.argv) != 2):
+    print("Error: Invalid Filename, Expecting 1 pdf file")
+else:
+    courseDict = parseLAS(sys.argv[1])
+    print(json.dumps(courseDict,indent=4, separators=(',', ': ')))
+
+    # for key,value in courseDict.items():
+        # print("sub: {} num: {}".format(value,key))
+
+# python3 reqGenerator.py pdf/Phys/Physics-BS_2016.pdf > phys.json
