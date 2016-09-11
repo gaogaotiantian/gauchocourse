@@ -16,7 +16,8 @@ class dept2AbbrevMap:
 
     def map2Abrrev(self,deptStr):
         for value in self.nameMap.values():
-            if deptStr in value:
+            # print(deptStr)
+            if deptStr in value or deptStr.upper() in value:
                 return value
         for key in self.nameMap.keys():
             if deptStr in key:
@@ -27,7 +28,10 @@ class dept2AbbrevMap:
     # return whether the course was in the database
     def isValid(self,courseStrList):
         try:
+        # print(self.map2Abrrev(courseStrList[0]))
+        # print(self.courseByDeptDict[self.map2Abrrev(courseStrList[0])])
             test = self.courseByDeptDict[self.map2Abrrev(courseStrList[0])][str(courseStrList[1]).upper()]
+            # print(test)
             return True
         except:
             return False
@@ -42,30 +46,6 @@ class dept2AbbrevMap:
             print('This course is invalid!')
             return None
 
-    # This function shouldn't be call during data entry
-    # It will modify courseByDepartment.json
-    # courseData.json is a list of dictiionaries
-    # this function converts it to a dictionary of dictonary
-    # where courses were seperated by department
-    # inside each department, courses can be accessed by number
-    def courseByDepartment(self):
-        self.allCourseList = string2Json('../courseData.json')
-
-        courseByDeptDict = OrderedDict() # Deptment name -> courses in that dept
-        # deptCourses = OrderedDict()  # courseNum -> courseData
-        for i in range(len(self.allCourseList)):
-            try:
-                courseByDeptDict[self.allCourseList[i]['sub']][self.allCourseList[i]['number']] = self.allCourseList[i]
-            except:
-                courseByDeptDict[self.allCourseList[i]['sub']] = OrderedDict()
-                courseByDeptDict[self.allCourseList[i]['sub']][self.allCourseList[i]['number']] = self.allCourseList[i]
-        # num = 0
-        # for dept in courseByDeptDict.values():
-        #     for course in dept.keys():
-        #         num+=1
-            # print(dept)
-        # print(num)
-        print(json.dumps(courseByDeptDict,indent=4, separators=(',', ': ')))
 
 class terminalInterface:
     def __init__(self,jsonPath):
@@ -74,8 +54,22 @@ class terminalInterface:
         # print(self.allCourseList.keys())
 
         self.dept2AbbrevMap = dept2AbbrevMap()
-        # self.dept2AbbrevMap.courseByDepartment()
-        self.courseDict = self.json2OrderedDict(jsonPath)
+        
+        courseDictRaw = self.json2OrderedDict(jsonPath)
+        self.courseDict = OrderedDict()
+
+        # delete invalid courses found by parser
+        newIndex = 0
+        for key,value in courseDictRaw.items():
+            dept = self.dept2AbbrevMap.map2Abrrev(value[0])
+            course = [dept, value[1]]
+            # print(course)
+            if self.dept2AbbrevMap.isValid(course):
+                self.courseDict[newIndex] = course
+                newIndex+=1
+        self.parseCourseLength = newIndex
+
+        # print(self.courseDict)
         # self.prettyPrint()
         
     # print courses founded by parser
@@ -88,7 +82,8 @@ class terminalInterface:
             outStrList.append(oneCourse)
         # print(outStrList)
         numOfColumns = 3
-        self.parseCourseLength = len(outStrList)
+        # self.parseCourseLength = len(outStrList)
+        print(self.parseCourseLength)
         numOfRows = self.parseCourseLength // numOfColumns
         courseIndex = 0
         # print(numOfRows)
@@ -103,7 +98,7 @@ class terminalInterface:
 
         return
 
-    def getUsefulIndices(self,listLength):
+    def getUsefulIndices(self):
         print('Please enter the indices of course you want to add to this field. Note that the index start from 0.')
         inStr = ''
         indexSet = set()
@@ -115,19 +110,22 @@ class terminalInterface:
                     continue
                 index = int(inStr)
                 # print("??")
-                if index > listLength-1:
+                if index >= self.parseCourseLength or index < 0:
                     raise IndexError
                 indexSet.add(index)
                     # print("!!")
             except:
-                print('The index you entered is not valid. It should be a integer less than or equal to '+str(listLength-1) + '.')
+                print('The index you entered is not valid. It should be a integer less than or equal to '+str(self.parseCourseLength-1) + '.')
         
         print('This field now contain the follwoing course:')
         outList = sorted(list(indexSet))
+        # print(outStr)
+        outList = self.index2CourseList(outList)
+        # print('OUT!!!',outList)
         print(outList)
         return outList
 
-    def getElectiveFields(self,listLength):
+    def getElectiveFields(self):
         inStr = ''
         electiveIndexMatrix = []
         while (inStr != 'end'):
@@ -137,7 +135,7 @@ class terminalInterface:
                 numOfElectiveFields = int(inStr)
                 
                 for i in range(numOfElectiveFields):
-                    electiveIndexList = getUsefulIndices(listLength)
+                    electiveIndexList = getUsefulIndices()
                     # electiveIndexList = addMoreCourse(electiveIndexList)
                     electiveIndexMatrix.append(electiveIndexList[:])
 
@@ -159,12 +157,23 @@ class terminalInterface:
                 if inStr == 'end':
                     continue
                 course = inStr.rsplit(maxsplit=1)
-                course[1] = int(course[1])
+                print(course)
                 # if type(eval(course[1])) != 
             except:
                 print('Invalid Syntax. Please try "Math 117"\n')
 
-    def run(self,path):
+    def index2CourseList(self,indexList):
+        courseList = []
+        for index in indexList:
+            course = [self.dept2AbbrevMap.map2Abrrev(self.courseDict[index][0]),self.courseDict[index][1]]
+            if self.dept2AbbrevMap.isValid(course):
+                courseList.append(course)
+            else:
+                # print(index," invalid")
+                continue
+        return courseList
+
+    def run(self):
         # while 1:
 
             # print('Please enter the path of major requirement pdf:    e.g. ../pdf/Phys/Physics-BS_2016.pdf')
@@ -173,12 +182,15 @@ class terminalInterface:
         # path='pdf/Phys/Physics-BS_2016.pdf'
 
         # requiredIndexList = []
-        
-        
-        requiredIndexList = self.getUsefulIndices(self.parseCourseLength)[:]
+        self.prettyPrint()
+        try:
+            self.requiredIndexList = self.getUsefulIndices()[:]
+        except:
+            self.requiredIndexList = []
+            print('This major has no required course? I think it\'s impossible')
         self.requiredIndexList = self.addMoreCourse(requiredIndexList)
 
-        self.electiveIndexMatrix = self.getElectiveFields(self.parseCourseLength)
+        self.electiveIndexMatrix = self.getElectiveFields()
 
         print(self.requiredIndexList)
 
@@ -199,16 +211,43 @@ def string2Json(ifile):
     jsonFile.close()
     return jsonList
 
+# This function shouldn't be call during data entry
+# It will modify courseByDepartment.json
+# courseData.json is a list of dictiionaries
+# this function converts it to a dictionary of dictonary
+# where courses were seperated by department
+# inside each department, courses can be accessed by number
+def courseByDepartment(self):
+    allCourseList = string2Json('../courseData.json')
 
+    courseByDeptDict = OrderedDict() # Deptment name -> courses in that dept
+    # deptCourses = OrderedDict()  # courseNum -> courseData
+    for i in range(len(allCourseList)):
+        try:
+            courseByDeptDict[allCourseList[i]['sub']][allCourseList[i]['number']] = allCourseList[i]
+        except:
+            courseByDeptDict[allCourseList[i]['sub']] = OrderedDict()
+            courseByDeptDict[allCourseList[i]['sub']][allCourseList[i]['number']] = allCourseList[i]
+    # num = 0
+    # for dept in courseByDeptDict.values():
+    #     for course in dept.keys():
+    #         num+=1
+        # print(dept)
+    # print(num)
+    print(json.dumps(courseByDeptDict,indent=4, separators=(',', ': ')))
 
 if (len(sys.argv) != 2):
     print("Error: Invalid Filename, Expecting 1 json file")
 else:
-    # interface = terminalInterface(sys.argv[1])
+    # courseByDepartment()
+    interface = terminalInterface(sys.argv[1])
+    # interface.addMoreCourse([90])
+    # interface.index2CourseList([0,2,3,5,8,33])
     # interface.dept2AbbrevMap.isValid(['ANTH',2])
-    deptMap = dept2AbbrevMap()
-    print(deptMap.isValid(['ANTH','2']))
+    # deptMap = dept2AbbrevMap()
+    # deptMap.courseByDepartment()
+    # print(deptMap.isValid(['MATH','1']))
     # print(interface.allCourseList[0])
-    # interface.run()
+    interface.run()
 
-# python3 terminalInterface.py phys.json > out.json
+# python3 terminalInterface.py phys_parsed.json > out.json

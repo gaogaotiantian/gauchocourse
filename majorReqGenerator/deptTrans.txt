@@ -57,7 +57,6 @@ Linguistics - LING
 Marine Science - MARSC
 Materials - MATRL
 Mathematics - MATH
-Mathematics - MATH WLK
 Mechanical Engineering - ME
 Media Arts and Technology - MAT
 Medieval Studies - ME ST

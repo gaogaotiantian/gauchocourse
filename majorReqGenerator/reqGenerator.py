@@ -152,4 +152,4 @@ else:
     # for key,value in courseDict.items():
         # print("sub: {} num: {}".format(value,key))
 
-# python3 reqGenerator.py pdf/Phys/Physics-BS_2016.pdf > phys.json
+# python3 reqGenerator.py pdf/Phys/Physics-BS_2016.pdf > phys_parsed.json
