@@ -2,28 +2,45 @@ import sys
 import json
 from collections import OrderedDict
 
+# This class has two parts: 1. a department name map (self.nameMap) that maps department names to their abbreviations
+#                           2. a nested dictionary that allow access to courses by department name and course number
 class dept2AbbrevMap:
     def __init__(self):
         with open('deptTrans.txt') as f:
             self.nameMap = {}
             for line in f:
                 temp = line.split(' - ')
-                # print(temp)
                 self.nameMap[temp[0]] = temp[1][:-1]
         
         self.courseByDeptDict = string2Json('courseByDepartment.json')
 
     def map2Abrrev(self,deptStr):
+        for value in self.nameMap.values():
+            if deptStr in value:
+                return value
         for key in self.nameMap.keys():
             if deptStr in key:
-                return key
+                return self.nameMap[key]
+        raise IndexError
 
+    # Given a course [Department,course Number]
+    # return whether the course was in the database
     def isValid(self,courseStrList):
         try:
-            test = self.courseByDeptDict[self.map2Abrrev(courseStrList[0])][courseStrList[1].upper()]
-            return true
+            test = self.courseByDeptDict[self.map2Abrrev(courseStrList[0])][str(courseStrList[1]).upper()]
+            return True
         except:
             return False
+
+    # Given a course [Department,course Number]
+    # return all information of that course as a dictionary
+    def getCourse(self,courseStrList):
+        try:
+            course = self.courseByDeptDict[self.map2Abrrev(courseStrList[0])][str(courseStrList[1]).upper()]
+            return course
+        except:
+            print('This course is invalid!')
+            return None
 
     # This function shouldn't be call during data entry
     # It will modify courseByDepartment.json
@@ -42,10 +59,10 @@ class dept2AbbrevMap:
             except:
                 courseByDeptDict[self.allCourseList[i]['sub']] = OrderedDict()
                 courseByDeptDict[self.allCourseList[i]['sub']][self.allCourseList[i]['number']] = self.allCourseList[i]
-        num = 0
-        for dept in courseByDeptDict.values():
-            for course in dept.keys():
-                num+=1
+        # num = 0
+        # for dept in courseByDeptDict.values():
+        #     for course in dept.keys():
+        #         num+=1
             # print(dept)
         # print(num)
         print(json.dumps(courseByDeptDict,indent=4, separators=(',', ': ')))
@@ -53,18 +70,18 @@ class dept2AbbrevMap:
 class terminalInterface:
     def __init__(self,jsonPath):
 
-        # key is a integer looks like index
-        # value is a list [department, coureseNum]
-        self.allCourseList = string2Json('../courseData.json')
+        # self.allCourseList = string2Json('../courseData.json')
         # print(self.allCourseList.keys())
 
         self.dept2AbbrevMap = dept2AbbrevMap()
-        self.dept2AbbrevMap.courseDataByDepartment()
+        # self.dept2AbbrevMap.courseByDepartment()
         self.courseDict = self.json2OrderedDict(jsonPath)
         # self.prettyPrint()
         
-
+    # print courses founded by parser
+    # print in three columns
     def prettyPrint(self):
+        print('The parser find the following courses from the pdf/json file:\n')
         outStrList = []
         for key,value in self.courseDict.items():
             oneCourse = '{}. {} {}'.format(key,value[0],value[1])
@@ -154,7 +171,6 @@ class terminalInterface:
             # path = input('Please enter the path of major requirement pdf:    e.g. ./pdf/Phys/Physics-BS_2016.pdf\n')
             # print(path)
         # path='pdf/Phys/Physics-BS_2016.pdf'
-        print('The parser find the following courses from the pdf/json file:\n')
 
         # requiredIndexList = []
         
@@ -188,7 +204,10 @@ def string2Json(ifile):
 if (len(sys.argv) != 2):
     print("Error: Invalid Filename, Expecting 1 json file")
 else:
-    interface = terminalInterface(sys.argv[1])
+    # interface = terminalInterface(sys.argv[1])
+    # interface.dept2AbbrevMap.isValid(['ANTH',2])
+    deptMap = dept2AbbrevMap()
+    print(deptMap.isValid(['ANTH','2']))
     # print(interface.allCourseList[0])
     # interface.run()
 
