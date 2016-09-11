@@ -25,25 +25,33 @@ class dept2AbbrevMap:
     def courseDataByDepartment(self):
         self.allCourseList = string2Json('../courseData.json')
         # print(len(self.allCourseList))
-        currentDept = self.allCourseList[0]['sub']
+        # currentDept = self.allCourseList[0]['sub']
 
         courseByDeptDict = OrderedDict() # Deptment name -> courses in that dept
-        deptCourses = OrderedDict()  # courseNum -> courseData
+        # deptCourses = OrderedDict()  # courseNum -> courseData
         for i in range(len(self.allCourseList)):
-            if (self.allCourseList[i]['sub'] != currentDept):
-                courseByDeptDict[currentDept] = OrderedDict(deptCourses)
-                deptCourses = OrderedDict()
+            # if (self.allCourseList[i]['sub'] != currentDept):
+            # print(i)
+            # print(self.allCourseList[i]['sub'])
+            # print(self.allCourseList[i]['number'])
+            try:
+                courseByDeptDict[self.allCourseList[i]['sub']][self.allCourseList[i]['number']] = self.allCourseList[i]
+            except:
+                courseByDeptDict[self.allCourseList[i]['sub']] = OrderedDict()
+                courseByDeptDict[self.allCourseList[i]['sub']][self.allCourseList[i]['number']] = self.allCourseList[i]
+                # courseByDeptDict[currentDept][''] = OrderedDict(deptCourses)
+                # deptCourses = OrderedDict()
                 # deptCourses[self.allCourseList[i]['number']] = self.allCourseList[i]
-                currentDept = self.allCourseList[i]['sub']
+                # currentDept = self.allCourseList[i]['sub']
             # else:
-            deptCourses[self.allCourseList[i]['number']] = self.allCourseList[i]
+            # deptCourses[self.allCourseList[i]['number']] = self.allCourseList[i]
         num = 0
         for dept in courseByDeptDict.values():
             for course in dept.keys():
                 num+=1
             # print(dept)
-        # print(num)
-        print(json.dumps(courseByDeptDict,indent=4, separators=(',', ': ')))
+        print(num)
+        # print(json.dumps(courseByDeptDict,indent=4, separators=(',', ': ')))
 
 class terminalInterface:
     def __init__(self,jsonPath):
