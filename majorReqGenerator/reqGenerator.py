@@ -4,12 +4,12 @@ import json
 import sys
 import re
 from collections import OrderedDict
-db = SqliteDatabase('course.db')
+# db = SqliteDatabase('course.db')
 
-def string2Json(ifile):
-    jsonStr = open(ifile,'rt').read()
-    jsonList = json.loads(jsonStr)
-    return jsonList
+# def string2Json(ifile):
+#     jsonStr = open(ifile,'rt').read()
+#     jsonList = json.loads(jsonStr)
+#     return jsonList
 
 # class Course(Model):
 #     Department = CharField()
@@ -28,7 +28,7 @@ def string2Json(ifile):
 # except:
 #     pass
 
-courseList = string2Json('../courseData.json')
+# courseList = string2Json('../courseData.json')
 
 # try:
 #     for course in courseList:
@@ -56,7 +56,7 @@ def mapDept2Abbrev():
     return nameMap
 
 NAME_MAP = mapDept2Abbrev()
-
+# print(NAME_MAP)
 courseNumPattern1 = re.compile(r'\b[0-9]*[0-9A-Z]\b')
 # 13AH-BH-CH
 courseNumPattern2 = re.compile(r'\b[0-9]+?[A-Z]*\b')
@@ -69,8 +69,12 @@ deptPattern = re.compile(r'\b([A-Z][a-z]+)\s?[0-9]+')
 
 multiEmptyLinePattern = re.compile(r'\n[\n|\s]+')
 
-from tika import parser
-text = parser.from_file('pdf/Phys/Physics-BS_2016.pdf')
+# from tika import parser
+# text = parser.from_file('pdf/Phys/Physics-BS_2016.pdf')
+from textract import process
+text = process('pdf/Phys/Physics-BS_2016.pdf')
+
+
 # text = parser.from_file('pdf/PStat/Statistics-BS-2016.pdf')
 
 
@@ -145,8 +149,8 @@ lst = ['Mathematics','Chemistry','Physics']
 
 def parseLAS(text):
     # print text.keys()
-    text = text['content'].split("MAJOR REGULATIONS")[:-1]
-
+    # text = text['content'].split("MAJOR REGULATIONS")[:-1]
+    text = text.split("MAJOR REGULATIONS")[:-1]
     # print len(text)
     text = text[0].split('PREPARATION FOR THE MAJOR')[1:]
     text = text[0].split('UNITS YET TO COMPLETE')[1:]
