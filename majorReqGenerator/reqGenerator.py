@@ -9,17 +9,17 @@ from collections import OrderedDict
 
 
 
-def mapDept2Abbrev():
-    with open('deptTrans.txt') as f:
-        nameMap = {}
-        for line in f:
-            temp = line.split(' - ')
-            # print(temp)
-            nameMap[temp[0]] = temp[1][:-1]
+# def mapDept2Abbrev():
+#     with open('deptTrans.txt') as f:
+#         nameMap = {}
+#         for line in f:
+#             temp = line.split(' - ')
+#             # print(temp)
+#             nameMap[temp[0]] = temp[1][:-1]
 
-    return nameMap
+#     return nameMap
 
-NAME_MAP = mapDept2Abbrev()
+# NAME_MAP = mapDept2Abbrev()
 
 courseNumPattern1 = re.compile(r'\b[0-9]*[0-9A-Z]\b')
 # 13AH-BH-CH
@@ -143,7 +143,8 @@ if (len(sys.argv) != 2):
 else:
     courseDict = parseLAS(sys.argv[1])
     print(json.dumps(courseDict,indent=4, separators=(',', ': ')))
-    
+
     # for key,value in courseDict.items():
         # print("sub: {} num: {}".format(value,key))
-# python2 getMajorPDF.py COE_URL.txt LAS_URL.txt 2
+
+# python3 reqGenerator.py pdf/Phys/Physics-BS_2016.pdf
