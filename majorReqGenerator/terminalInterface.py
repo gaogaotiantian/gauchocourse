@@ -288,4 +288,4 @@ else:
     # print(interface.allCourseList[0])
     interface.run()
 
-# python3 terminalInterface.py phys_parsed.json > out.json
+# python3 terminalInterface.py phys_parsed.json
