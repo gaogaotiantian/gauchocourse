@@ -46,6 +46,14 @@ class dept2AbbrevMap:
             print('This course is invalid!')
             return None
 
+    # change the format of a course to the desired format
+    # e.g. math 8 -> MATH 8
+    def formatCourse(self,courseStrList):
+        if self.isValid(courseStrList):
+            return [self.map2Abrrev(courseStrList[0]),str(courseStrList[1]).upper()]
+        else:
+            print('This course is invalid!')
+            return None
 
 class terminalInterface:
     def __init__(self,jsonPath):
@@ -83,7 +91,7 @@ class terminalInterface:
         # print(outStrList)
         numOfColumns = 3
         # self.parseCourseLength = len(outStrList)
-        print(self.parseCourseLength)
+        # print(self.parseCourseLength)
         numOfRows = self.parseCourseLength // numOfColumns
         courseIndex = 0
         # print(numOfRows)
@@ -95,10 +103,13 @@ class terminalInterface:
             for i in range(numOfRows * numOfColumns,self.parseCourseLength):
                 print('{:<25}'.format(outStrList[i]), end='')
             print('\n')
-
         return
 
+    # This function lead user to enter course Indicies (indices in the parsed courses)
+    # returns a 2D list in the following form:
+    # [['PHYS', '20'], ['PHYS', '21'], ['PHYS', '22'], ['PHYS', '23'], ['PHYS', '144L']]
     def getUsefulIndices(self):
+        print('**********************************')
         print('Please enter the indices of course you want to add to this field. Note that the index start from 0.')
         inStr = ''
         indexSet = set()
@@ -122,7 +133,8 @@ class terminalInterface:
         # print(outStr)
         outList = self.index2CourseList(outList)
         # print('OUT!!!',outList)
-        print(outList)
+        print(outList,'\n')
+        outList = self.addMoreCourse(outList)
         return outList
 
     def getElectiveFields(self):
@@ -135,32 +147,43 @@ class terminalInterface:
                 numOfElectiveFields = int(inStr)
                 
                 for i in range(numOfElectiveFields):
-                    electiveIndexList = getUsefulIndices()
+                    
+                    electiveIndexList = self.getUsefulIndices()
                     # electiveIndexList = addMoreCourse(electiveIndexList)
                     electiveIndexMatrix.append(electiveIndexList[:])
 
-                self.electiveIndexMatrix = electiveIndexMatrix
-                return
+                # self.electiveIndexMatrix = electiveIndexMatrix
+                return electiveIndexMatrix
 
             except:
                 print('You should enter an integer. Alternatively, you could type "end" to skip elective course entry.')
         
 
 
-
+    # Given a 2-D list like [['PHYS', '20'], ['PHYS', '21'], ['PHYS', '22']]
+    # prompt user to enter more courses
+    # the fomrat should be 'MATH 117' or 'Mathematics 117', the program will take care of mis entered course in some extent
     def addMoreCourse(self,listOfCourse):
+        # print('Before Add: ', listOfCourse)
         inStr = ''
-        print('Now you can add courses that were not discovered by the parse.\n For example, type "Math 117" and press enter will add Math 117 into currrent field.\n')
+        print('Now you can add courses that were not discovered by the parse.\nFor example, type "Math 117" and press enter will add Math 117 into currrent field.')
         while (inStr!='end'):
             try:
                 inStr = input()
                 if inStr == 'end':
                     continue
                 course = inStr.rsplit(maxsplit=1)
-                print(course)
-                # if type(eval(course[1])) != 
+                # print(course)
+                course = self.dept2AbbrevMap.formatCourse(course)
+                # if self.dept2AbbrevMap.isValid(course):
+                if course != None:
+                    listOfCourse.append(course)
+                # else:
+                    # print('This course is not valid.')
             except:
                 print('Invalid Syntax. Please try "Math 117"\n')
+        print(listOfCourse)
+        return listOfCourse
 
     def index2CourseList(self,indexList):
         courseList = []
@@ -183,18 +206,33 @@ class terminalInterface:
 
         # requiredIndexList = []
         self.prettyPrint()
+        isShow = 'zz'
+        while isShow != '':
+            isShow = input('Do you want to continue? Or do you just need the list of courses found by the parser?\nPress ENTER key to modify json or type "show" to end the terminal interface.\n')
+            if isShow == '':
+                continue
+            elif isShow == 'show':
+                return
+            else:
+                print('Please press ENTER to continue or type "show" to end the program.')
+
         try:
             self.requiredIndexList = self.getUsefulIndices()[:]
         except:
             self.requiredIndexList = []
-            print('This major has no required course? I think it\'s impossible')
-        self.requiredIndexList = self.addMoreCourse(requiredIndexList)
+            print('This major has no required course? I think it\'s impossible\n')
+        # self.requiredIndexList = self.addMoreCourse(selfrequiredIndexList)
 
         self.electiveIndexMatrix = self.getElectiveFields()
+        print('=======================RESULT=======================')
+        print('Required:')
+        print('         ',self.requiredIndexList)
 
-        print(self.requiredIndexList)
-
-        print(self.electiveIndexMatrix)
+        if (self.electiveIndexMatrix != None):
+            for i in range(len(self.electiveIndexMatrix)):
+                print('Field {}:'.format(i))
+                print('         ',self.electiveIndexMatrix[i])
+        return
 
 
     def json2OrderedDict(self,jsonPath):
