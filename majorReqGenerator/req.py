@@ -15,6 +15,7 @@ class MajorReqParser(object):
 		shrinkDotsPatt = re.compile(r'\.+')							# replace dots with swirl
 		NOTEPatt = re.compile(r'NOTE',re.I)							# delete line that contain "Note"
 		replaceStar = re.compile(r'\*')
+		endWith2WhiteSpacePatt = re.compile(r'\s\s$')
 
 		delIndexList = []
 		for i in range(len(reqTXTList)):
@@ -22,17 +23,20 @@ class MajorReqParser(object):
 			noNum = re.search(noNumPatt,reqTXTList[i])
 			notBlank = re.search(whiteSpacePatt,reqTXTList[i])
 			note = re.search(NOTEPatt,reqTXTList[i])
+			validLine = re.search(endWith2WhiteSpacePatt,reqTXTList[i])
 
-			if UDUnits != None:
+			if validLine == None:
+				delIndexList.append(i)
+			elif UDUnits != None:
 				# self.UDUnits = UDUnits.group()[0:2]
 				delIndexList.append(i)
-			if noNum == None:
+			elif noNum == None:
 				# print(reqTXTList[i])
 				delIndexList.append(i)
-			# if notBlank == None:
-			# 	# print(i)
-			# 	delIndexList.append(i)
-			if note != None:
+			elif notBlank == None:
+				# print(i)
+				delIndexList.append(i)
+			elif note != None:
 				# print(i)
 				delIndexList.append(i)
 
@@ -72,8 +76,8 @@ class MajorReqParser(object):
 
 
 parser = MajorReqParser()
-# print(parser.ParseOneMajor('txt/Math/Mathematics-BS-2016.txt'))
-print(parser.ParseOneMajor('txt/Phys/Physics-BS_2016.txt'))
+print(parser.ParseOneMajor('txt/Math/Mathematics-BS-2016.txt'))
+# print(parser.ParseOneMajor('txt/Phys/Physics-BS_2016.txt'))
 
 # python3 req.py
 		
