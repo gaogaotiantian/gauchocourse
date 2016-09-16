@@ -1,7 +1,6 @@
 from tika import parser
 # text = parser.from_file('pdf/Phys/Physics-BS_2016.pdf')
 
-
 import os
 
 WCD = os.getcwd()
@@ -13,9 +12,7 @@ def makeNewDirIfNecessary(relativePath):
 	except OSError:
 	    if not os.path.isdir(absPath):
 	        raise
-	# print path
 	return
-
 
 for dept in os.listdir('pdf'):
     for major in os.listdir('pdf/'+dept):
@@ -27,3 +24,5 @@ for dept in os.listdir('pdf'):
     	newTXT = open(txtPath,'wt')
     	newTXT.write(parser.from_file(pdfPath)['content'])
     	newTXT.close()
+
+# python pdf2txt.py
