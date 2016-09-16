@@ -3,8 +3,27 @@ from tika import parser
 
 
 import os
+
+WCD = os.getcwd()
+
+def makeNewDirIfNecessary(relativePath):
+	absPath = WCD + '/' + relativePath
+	try: 
+	    os.makedirs(absPath)
+	except OSError:
+	    if not os.path.isdir(absPath):
+	        raise
+	# print path
+	return
+
+
 for dept in os.listdir('pdf'):
-    # callthecommandhere(blablahbla, filename, foo)
-    print(dept,"\n")
     for major in os.listdir('pdf/'+dept):
-    	print(major)
+    	pdfPath = 'pdf/'+ dept + '/'+ major
+    	txtDir = 'txt/' + dept
+    	txtPath = 'txt' + pdfPath[3:-4] + '.txt'
+    	print(txtPath)
+    	makeNewDirIfNecessary(txtDir)
+    	newTXT = open(txtPath,'wt')
+    	newTXT.write(parser.from_file(pdfPath)['content'])
+    	newTXT.close()
