@@ -44,7 +44,9 @@ class MajorReqParser(object):
 
 		# http://stackoverflow.com/questions/18837607/remove-multiple-items-from-list-in-python
 		reqList = [v for i, v in enumerate(reqTXTList) if i not in delIndexList]
-
+		
+		print('First:\n')
+		
 		for j in range(len(reqList)):
 			reqList[j] = shrinkDotsPatt.sub('~',reqList[j])
 			reqList[j] = replaceStar.sub('',reqList[j])
@@ -56,10 +58,12 @@ class MajorReqParser(object):
 		for line in reqList:
 			print(line)
 		print('\n\n\n\n')
-		return reqList
+		# return reqList
+		self.reqList = reqList
 
 
-
+	def ParseOneMajor2nd(self,path=""):
+		pass
 
 
 
@@ -76,8 +80,25 @@ class MajorReqParser(object):
 
 
 parser = MajorReqParser()
-print(parser.ParseOneMajor('txt/Math/Mathematics-BS-2016.txt'))
+parser.ParseOneMajor('txt/Math/Mathematics-BS-2016.txt')
+
 # print(parser.ParseOneMajor('txt/Phys/Physics-BS_2016.txt'))
+print('Second:\n',parser.ParseOneMajor2nd())
+
+# for dept in os.listdir('pdf'):
+#     for major in os.listdir('pdf/'+dept):
+#     	pdfPath = 'pdf/'+ dept + '/'+ major
+#     	txtDir = 'txt/' + dept
+#     	txtPath = 'txt' + pdfPath[3:-4] + '.txt'
+#     	print(txtPath)
+#     	makeNewDirIfNecessary(txtDir)
+#     	newTXT = open(txtPath,'wt')
+#     	newTXT.write(parser.from_file(pdfPath)['content'])
+#     	newTXT.close()
+
+
+
+
 
 # python3 req.py
 		
