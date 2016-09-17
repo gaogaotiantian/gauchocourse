@@ -87,9 +87,9 @@ class MajorReqParser(object):
         whiteSpacePatt = re.compile(r'\w+')                         # delete blank lines
         shrinkDotsPatt = re.compile(r'[^A-Z]\.+')                           # replace dots with swirl
         NOTEPatt = re.compile(r'NOTE',re.I)                         # delete line that contain "Note"
-        replaceStar = re.compile(r'\*')
-        endWith2WhiteSpacePatt = re.compile(r'\s\s$')
-        delParanPatt = re.compile(r'[\(\)]')
+        replaceStar = re.compile(r'\*')                             # delete stars  
+        endWith2WhiteSpacePatt = re.compile(r'\s\s$')               # check if valid line
+        delParanPatt = re.compile(r'[\(\)]')                        # delete paranthess
         
 
         delIndexList = []
@@ -229,8 +229,8 @@ class MajorReqParser(object):
 
         print('\n\n\n\n')
 
-        # for lineDict in lineDictList:
-        #   reqOfLine = self.RECParseOneLine(lineDict["course"])
+        for lineDict in lineDictList:
+          reqOfLine = self.RECParseOneLine(lineDict["course"])
 
 
 
@@ -260,17 +260,49 @@ class MajorReqParser(object):
             if len(subReqList) > 1:
                 print('more than one pair of paranthess')
                 raise IndexError
-            noneParanText = re.sub(r'\(.*\)','',text)
-            print("None Paran: ", noneParanText)
+            noneParanTextList = re.split(r'\(.*\)',text)
+            print("None Paran: ", noneParanTextList)
 
             noneParanList = []
-            subSubReqList = []
+            pranReqList = []
             for reqInParan in subReqList:
 
                 subSub = self.RECParseOneLine(reqInParan)
                 # if subSub != None:
-                subSubReqList.append(subSub)
-            req.append(subSubReqList)
+                pranReqList.append(subSub)
+            # req.append(pranReqList)
+            for reqNoneParan in noneParanTextList:
+                noneParanList.append(self.RECParseOneLine(reqNoneParan))
+            # Now we need to combine none paran with paran
+            # assume start with none-paran
+
+            # # merge none-paran and paran together
+            # if len(noneParanList) == len(pranReqList) + 1 :
+            #     pranReqList.append([])
+            #     temp = zip(noneParanList,pranReqList)
+            #     reqList = [item for sublist in temp for item in sublist]
+            # else:
+            #     raise IndexError
+            # print(reqList)
+            index = 0
+            while index < len(noneParanList):
+                if len(noneParanList) >= 1:
+                    print("None Paran item: ", noneParanList[index])
+                    print(len(noneParanList[index]))
+                    if noneParanList[index][0] == 'or':
+                        # try:
+                        req.append(noneParanList[index][1])
+                    elif noneParanList[index][1] == 'or':
+                        try:
+                            req.append([ noneParanList[index][0], pranReqList[index]])
+                        except:
+                            print("Error: No more items in the Paranthess")
+                            req.append(noneParanList[index])
+                            contine
+                index += 1
+                    # if index == len(noneParanList) - 1:
+                    #     req.append(noneParanList[index][0])
+
         else:
             req.append(self.ITERParseOneLine(text))
         return req
@@ -306,6 +338,7 @@ class MajorReqParser(object):
                 if re.search(r'[0-9]+[A-Z]?',tokenized[index]) != None:
                     print(dept, tokenized[index])
                     course = self.dept2AbbrevMap.formatCourse([dept,tokenized[index].strip(',')])
+                    print(course)
                     if course != None:
                         courseList.append(course)
                 
@@ -321,10 +354,15 @@ class MajorReqParser(object):
                     else:
                         # link the next course with the course before "or"
                         if re.search(r'[0-9]+[A-Z]?', tokenized[index+1]) != None:
+
                             course = self.dept2AbbrevMap.formatCourse([dept,tokenized[index+1].strip(',')])
+                            print(course)
                             if course != None:
+                                # print('previous: ',courseList[-1])
                                 courseList[-1] = [courseList[-1], course]
+                                # print('combined: ', courseList[-1])
                             index += 1
+                            # print('couseList: ', courseList)
                         else:
                             # the next word is a uselss word or a different dept
                             raise
@@ -349,6 +387,7 @@ class MajorReqParser(object):
 
             index += 1
             isDept = False
+        print('    parsed: ', courseList, end="\n\n")
         return (courseList,'') if isOrBegin == False else ('or',courseList) 
 
 numPattern2 = re.compile(r'([0-9]+)[A-Z]?')
@@ -389,11 +428,13 @@ parser.ParseOneMajor('txt/Phys/Physics-BS_2016.txt')
 # parser.ParseOneMajor('txt/Chem/Chemistry-BS_2016.txt')
 # parser.ParseOneMajor('txt/Math/Financial-Math-Stat-BS-2016.txt')
 parser.ParseOneMajor2nd()
-parser.ParseOneMajor3rd()
+# parser.ParseOneMajor3rd()
 print(parser.ITERParseOneLine('Physics 20 21 22 23 24 25 or '))
 print(parser.ITERParseOneLine('or 13AH 13BH 13CH'))
 print(parser.ITERParseOneLine('Physics 127BL, 128BL, 142L, 143L, 144L, 145L, 199'))
 print(parser.ITERParseOneLine('Physics 104 or 105B'))
+print(parser.ITERParseOneLine('5L or 25L'))
+print(parser.ITERParseOneLine('Physics 1 2 3 4 5 70'))
 # for dept in os.listdir('pdf'):
 #     for major in os.listdir('pdf/'+dept):
 #       pdfPath = 'pdf/'+ dept + '/'+ major
