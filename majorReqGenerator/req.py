@@ -65,9 +65,12 @@ class MajorReqParser(object):
 
 	def ParseOneMajor(self,path):
 		reqTXT = open(path,'rt').read()
+		print(reqTXT)
 		combineColons = re.compile(r':\s\n\s')
-		reqTXT = combineColons.sub(' ',reqTXT)
+		reqTXT = combineColons.sub(':\n',reqTXT)
 		reqTXT = reqTXT.replace('_','')
+		reqTXT = reqTXT.replace(';',',')
+		reqTXT = reqTXT.replace(', \n',', ')
 		# a = []
 		# a.append(reqTXT)
 		# print(a)
@@ -76,7 +79,7 @@ class MajorReqParser(object):
 		reqTXT = reqTXT.split('UNITS YET TO COMPLETE')[1]
 		reqTXT = reqTXT.split('Elective courses taken')[0]
 		reqTXTList = re.split(r'\n',reqTXT)
-
+		print(reqTXT)
 		UDUnitsPatt = re.compile(r'([0-9]+) UD units are required') # delete UD Units requirement
 		noNumPatt = re.compile(r'[0-9]+')							# delete line that lack course numbers
 		whiteSpacePatt = re.compile(r'\w+')							# delete blank lines
@@ -95,26 +98,31 @@ class MajorReqParser(object):
 			note = re.search(NOTEPatt,reqTXTList[i])
 			validLine = re.search(endWith2WhiteSpacePatt,reqTXTList[i])
 
+			# most of the irrelevant line could be filtered by 'validLine'
 			if validLine == None:
 				delIndexList.append(i)
+				# print(i,"validLine")
 			elif UDUnits != None:
 				# self.UDUnits = UDUnits.group()[0:2]
+				# print(i,"UD units")
 				delIndexList.append(i)
 			elif noNum == None:
-				# print(reqTXTList[i])
+				# print(i,"noNum")
 				delIndexList.append(i)
 			elif notBlank == None:
-				# print(i)
+				# print(i,"notblank")
 				delIndexList.append(i)
 			elif note != None:
-				# print(i)
+				# print(i,"note")
 				delIndexList.append(i)
 
-
+		# for i in delIndexList:
+		# 	print("DEL: ",i , reqTXTList[i])
 
 		# http://stackoverflow.com/questions/18837607/remove-multiple-items-from-list-in-python
 		reqList = [v for i, v in enumerate(reqTXTList) if i not in delIndexList]
-		
+		print(reqList)
+
 		print('First:\n')
 		
 		for j in range(len(reqList)):
@@ -167,6 +175,7 @@ class MajorReqParser(object):
 					lst = ['a']
 					lst[0] = oneLine[j]
 					oneLine[j] = lst
+			# the actual flatten statement
 			oneLine = [item for sublist in oneLine for item in sublist]
 			self.reqList[i] = oneLine
 
@@ -297,8 +306,9 @@ def string2Json(ifile):
 
 parser = MajorReqParser()
 # parser.ParseOneMajor('txt/Math/Mathematics-BS-2016.txt')
-parser.ParseOneMajor('txt/Phys/Physics-BS_2016.txt')
+# parser.ParseOneMajor('txt/Phys/Physics-BS_2016.txt')
 # parser.ParseOneMajor('txt/Chem/Chemistry-BS_2016.txt')
+parser.ParseOneMajor('txt/Math/Financial-Math-Stat-BS-2016.txt')
 parser.ParseOneMajor2nd()
 parser.ParseOneMajor3rd()
 # for dept in os.listdir('pdf'):
