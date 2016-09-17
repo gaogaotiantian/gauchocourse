@@ -59,6 +59,8 @@ class MajorReqParser(object):
 	    self.delList = ['with', 'an', 'average', 'grade', 'of', '~70~','One','course']
 	    self.dept2AbbrevMap = dept2AbbrevMap()
 	    self.paranPatt = re.compile(r'\((.*)\)')
+	    self.noneParanPatt = re.compile(r'(.*)\(.*\)(\w)?')
+	    self.orPatt = re.compile(r'or',re.I)
 		# pass
 
 	def ParseOneMajor(self,path):
@@ -202,13 +204,19 @@ class MajorReqParser(object):
 				reqJoinLine += (word + ' ')
 			reqJoinList.append(reqJoinLine)
 
+		lineDictList = []
+		for i in range(len(reqJoinList)):
+			lineOfReqList = reqJoinList[i].rsplit(maxsplit=1)
+			lineDictList.append({"course": lineOfReqList[0], "units": lineOfReqList[1]})
+
 		for line in reqJoinList:
 			print(line)
 
 
 		print('\n\n\n\n')
-		for line in reqJoinList:
-			reqOfLine = self.RECParseOneLine(line)
+
+		for lineDict in lineDictList:
+			reqOfLine = self.RECParseOneLine(lineDict["course"])
 			# print(reqOfLine)
 		
 		# s = "i love you (or not)."
@@ -222,17 +230,26 @@ class MajorReqParser(object):
 
 	def RECParseOneLine(self,text):
 		req = []
-		print("text: ", text)
+		print("Rec: ", text)
 		subReqList = re.findall(self.paranPatt,text)
 
 
 		# .group()
 		if subReqList != []:
 			print("Found paranthess!!!!")
-			# .group())
-			# print(subReq)
+			
+			# Create a new string that has been extracted the info in the parathess
+			# analyze the new string and combine the info with those course inside paranthess
+			if len(subReqList) > 1:
+				print('more than one pair of paranthess')
+				raise IndexError
+			noneParanText = re.sub(r'\(.*\)','',text)
+			print("None Paran: ", noneParanText)
+
+			noneParanList = []
 			subSubReqList = []
 			for reqInParan in subReqList:
+
 				subSub = self.RECParseOneLine(reqInParan)
 				# if subSub != None:
 				subSubReqList.append(subSub)
@@ -244,6 +261,7 @@ class MajorReqParser(object):
 		# pass
 	def ITERParseOneLine(self,text):
 		print("Iter: ")
+
 		return text
 
 numPattern2 = re.compile(r'([0-9]+)[A-Z]?')
