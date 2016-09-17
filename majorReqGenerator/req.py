@@ -1,6 +1,8 @@
 import re
 import json
 import copy
+from collections import OrderedDict
+
 # This class has two parts: 1. a department name map (self.nameMap) that maps department names to their abbreviations
 #                           2. a nested dictionary that allow access to courses by department name and course number
 class dept2AbbrevMap:
@@ -50,10 +52,21 @@ class dept2AbbrevMap:
     # e.g. math 8 -> MATH 8
     def formatCourse(self,courseStrList):
         if self.isValid(courseStrList):
-            return [self.map2Abrrev(courseStrList[0]),str(courseStrList[1]).upper()]
+            lst = [self.map2Abrrev(courseStrList[0]),str(courseStrList[1]).upper()]
+            course = OrderedDict()
+            course["sub"] = lst[0]
+            course["number"] = lst[1]
+            return course
         else:
             print('This course is invalid!',courseStrList[0] + ' ' + courseStrList[1])
             return None
+
+
+# This is a parser on major requirements. It will create a json file.
+# I already convert pdfs to txts in pdf2txt.py, so the parser is playing with strings
+# There are 3 rounds of parse in total, each of which convert the data into more concise form
+# In round 3, in order to extract the sentence logic (e.g. or, and) from the data,
+# I rejoined the list of words, extracted the logic and tokenize the text again.
 
 class MajorReqParser(object):
     def __init__(self,dept):
@@ -196,22 +209,6 @@ class MajorReqParser(object):
 
     def ParseOneMajor3rd(self):
         print("Third: ")
-        # for ithLine in range(len(self.reqList)):
-        #   lineOfReq = []
-        #   for jthWord in range(len(self.reqList[ithLine])):
-        #       majorIndex = 0
-        #       major = ''
-        #       abbrev = self.dept2AbbrevMap.map2Abrrev(self.reqList[ithLine][jthWord])
-        #       # if it's a department name
-        #       if abbrev!= 'not valid':
-        #           major = word
-        #           majorIndex = jthWord
-        #       # then if it's a course number
-        #       elif type(self.reqList[ithLine][jthWord][0]) == int:
-        #           lineOfReq.append([major,self.reqList[ithLine][jthWord][0]])
-        #       # it might be a word like "units", "following", "or"
-        #       else:
-        #           pass
         reqJoinList = []
         for line in self.reqList:
             reqJoinLine = ""
@@ -243,10 +240,25 @@ class MajorReqParser(object):
             # print(reqOfLine)
         print('\n\n\n\n')
 
-        for i in range(len(reqParseList)):
-            print(reqParseList[i],end="      ")
-            print(lineDictList[i]["units"])
 
+        for i in range(len(reqParseList)):
+            lineDictList[i]["course"] = reqParseList[i]
+
+        # for j in range(len(lineDictList)):
+        #     unitsList = lineDictList[j]["units"].split()
+        #     if len(lineDictList[j]["course"]) == 2 and len(unitsList) == 2
+        #         for choice in range(2):
+        #             lineDictList[j]["course"][i] = {
+        #                 "course":lineDictList[j]["course"][i],
+        #                 "units":self.computeUnits(lineDictList[j]["course"][i])
+        #             }
+
+        
+        print(json.dumps(lineDictList, indent=4, separators=(',', ':')))
+
+        print("\n\n\n\n\n")
+
+        print(lineDictList)
             # print(reqOfLine)
         
         # s = "i love you (or not)."
@@ -264,7 +276,7 @@ class MajorReqParser(object):
         subReqList = re.findall(self.paranPatt,text)
 
 
-        # .group()
+        # If this line contain paranthess
         if subReqList != []:
             print("Found paranthess!!!!")
             
@@ -274,23 +286,26 @@ class MajorReqParser(object):
                 print('more than one pair of paranthess')
                 raise IndexError
             noneParanTextList = re.split(r'\(.*\)',text)
+
             # need to delete blank element
             noneParanTextList = [text for text in noneParanTextList if text != '']
             print("None Paran: ", noneParanTextList)
 
             noneParanList = []
             pranReqList = []
+
+            # Recursively parse reqs inside paranthess
             for reqInParan in subReqList:
                 print("Inside Paran: ")
                 subSub = self.RECParseOneLine(reqInParan)
-                # if subSub != None:
                 pranReqList.append(subSub)
-            # req.append(pranReqList)
+            # Recursively parse reqs outside of parathess
+            # and put them in a list
             for reqNoneParan in noneParanTextList:
                 noneParanList.append(self.RECParseOneLine(reqNoneParan))
+            
             # Now we need to combine none paran with paran
             # assume start with none-paran
-
             index = 0
             print("\nNone Paran List !\n",noneParanList)
             print("\nParan List !\n",pranReqList)
@@ -298,12 +313,13 @@ class MajorReqParser(object):
             while index < len(noneParanList):
                 if len(noneParanList) >= 1:
                     print("None Paran item: ", noneParanList[index])
-                    # print(len(noneParanList[index]))
+                    # ... or current
                     if noneParanList[index][0] == 'or':
                         try:
                             req.append([noneParanList[index][1], pranReqList[index][0]])
                         except:
                             req.append(noneParanList[index][1])
+                    # current or (...)
                     elif noneParanList[index][1] == 'or':
                         try:
                             req.append([ noneParanList[index][0], pranReqList[index][0]])
@@ -313,8 +329,10 @@ class MajorReqParser(object):
                             contine
                     else:
                         try:
+                            # current ()
                             if (pranReqList[index][1] == []):
                                 req.append(noneParanList[index][0])
+                            # current (...)
                             else:
                                 print("Just concatenate: ",noneParanList[index][0], pranReqList[index][0])
                                 temp = copy.deepcopy(noneParanList[index][0])
@@ -326,13 +344,9 @@ class MajorReqParser(object):
                             req.append(noneParanList[index][0])
                 index += 1
                 print('req: ',req,'\n')
-                    # if index == len(noneParanList) - 1:
-                    #     req.append(noneParanList[index][0])
 
         else:
             req = self.ITERParseOneLine(text)
-            # if temp != 'EMPTY':
-                # req = temp
         return req
         
         # pass
@@ -446,6 +460,14 @@ def string2Json(ifile):
     jsonFile.close()
     return jsonList
 
+def makeNewDirIfNecessary(relativePath):
+    absPath = WCD + '/' + relativePath
+    try: 
+        os.makedirs(absPath)
+    except OSError:
+        if not os.path.isdir(absPath):
+            raise
+    return
 
 # print(recoverCourseNum(['13AH','BH','CH']))
 # print(recoverCourseNum(['3A','B']))
@@ -465,6 +487,7 @@ parser.ParseOneMajor3rd()
 # print(parser.ITERParseOneLine('Physics 104 or 105B'))
 # print(parser.ITERParseOneLine('5L or 25L'))
 # print(parser.ITERParseOneLine('Physics 1 2 3 4 5 70'))
+
 # for dept in os.listdir('pdf'):
 #     for major in os.listdir('pdf/'+dept):
 #       pdfPath = 'pdf/'+ dept + '/'+ major
@@ -480,5 +503,5 @@ parser.ParseOneMajor3rd()
 
 
 
-# python3 req.py
+# python3 req.py > test.txt
         
