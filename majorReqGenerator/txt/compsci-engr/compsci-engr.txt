@@ -1,0 +1,202 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+50  •  mAjor reqUiremenTS
+
+  Units
+  PREPARATION FOR THE MAJOR  53
+CMPSC 16  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+CMPSC 24 .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+CMPSC 32  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+CMPSC 40  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+CMPSC 48  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+CMPSC 56  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+CMPSC 64  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+MATH 3A-B, 4A-B, 6A . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+PSTAT 120A . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+ 
+  UPPER DIVISION MAJOR   63
+CMPSC 111 or 140 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+CMPSC 130A-B . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+CMPSC 138  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+CMPSC 154  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+CMPSC 160  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+CMPSC 162  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+CMPSC 170  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+ENGR 101 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+PSTAT 120B . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+
+Major Field Electives . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+(selected from the following list (at least 8 units must be CMPSC courses))
+
+Prior approval of the student’s major field electives must be obtained 
+from the faculty advisor.
+
+CMPSC 1111 CMPSC 185 MATH 119A-B
+CMPSC 1401 CMPSC 189 A-B MATH 124A-B
+CMPSC/ECE 153A CMPSC 190 AA-ZZ PSTAT 122  
+CMPSC 165A-B CMPSC 1922 PSTAT 130 
+CMPSC 171/ECE 151 CMPSC 1962 PSTAT 160A-B
+CMPSC 174A ECE 130A-B-C 
+CMPSC 176A-B-C ECE 152A 
+CMPSC 177 ECE 153B   
+CMPSC 178 ECE160 
+CMPSC 180 ECE 178 
+CMPSC 181B/ECE 181B MATH 108A-B 
+  
+1CMPSC 111 or CMPSC 140 can be used as an elective if not taken as a major course.
+2Four units maximum from CMPSC 192 and CMPSC 196 combined; only for students with 
+GPA of 3.0 or higher.
+
+Major Field Electives taken:
+
+ SCIENCE COURSES 20
+
+PHYS 1, 2, 3, 3L . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+Science Electives (see Dept. for list)  . . . . . . . . . . . . . . . . . . 8
+Science Electives taken:
+
+  
+  
+
+Courses required for the major, inside or outside of the Department of 
+Computer Science, cannot be taken for the passed/not passed grading 
+option.  They must be taken for letter grades.
+
+COMPUTER SCIENCE 2016-17 
+  Units
+UNIVERSITY REQUIREMENTS
+American History and Institutions – (one 4-unit course, may be  
+ counted as G.E. if selected from approved list)
+
+  
+
+UC Entry Level Requirement: English Composition
+Must be fulfilled within three quarters of matriculation
+
+Satisfied	by: 
+
+GENERAL EDUCATION 
+
+General Subject Areas
+Area A: English Reading & Comprehension – (2 courses required)
+ 
+A-1:                                             A-2:                     
+
+Areas D & E: Social Sciences, Culture and Thought
+(2 courses minimum)
+      
+Areas F & G: The Arts, Literature
+(2 courses minimum)
+      
+
+2 additional courses from Areas D, E, F, G, or H
+      
+
+Special Subject Areas
+
+Depth:
+      
+      
+
+Ethnicity (1 course):   
+
+European Traditions (1 course):   
+
+Writing (4 courses required):
+      
+      
+
+NON-MAJOR ELECTIVES 48
+General Education and Free Electives taken:
+  
+  
+  
+  
+  
+  
+  
+
+TOTAL UNITS REQUIRED FOR GRADUATION ...... 184
+
+
+
+mA jor  r eqUiremenTS •  51
+
+FRESHMAN YEAR  
+
+FALL units WINTER units SPRING units
+G.E. Elective or CMPSC 8* 4 CMPSC 16 4 CMPSC 24 4
+MATH 3A 4 MATH 3B 4 MATH 4A 4
+WRIT 1, 2, or G.E. Elective 4 PHYS 1 4 PHYS 2 4
+G.E. Elective 4 WRIT 1, 2, or G.E. Elective 4 Science or Free Elective 4 
+TOTAL 16  16  16
+
+SOPHOMORE YEAR  
+
+FALL units WINTER units SPRING units
+CMPSC 32 4 CMPSC 56 4 CMPSC 48 4
+CMPSC 40 5 CMPSC 64 4 Math 6A 4
+MATH 4B 4 PSTAT 120A 4 G.E. Elective 4
+PHYS 3 3 WRIT 50 4 Science or Free Elective 4 
+PHYS 3L 1      
+TOTAL 17  16  16
+
+JUNIOR YEAR   
+
+FALL units WINTER units SPRING units
+CMPSC 130A 4 CMPSC 130B 4 CMPSC 154 4
+CMPSC 138 4 Field Elective 5 PSTAT 120B 4
+G.E. Elective 4 Free Elective 3 Field or Free Elective 4
+Science or Free Elective 4 G.E. Elective 4 G.E. Elective 4
+TOTAL 16  16  16
+
+SENIOR YEAR  
+
+FALL units WINTER units SPRING units
+CMPSC 111 ** 4 CMPSC 170 4 Field or Free Elective 4
+CMPSC 160 4 CMPSC 162 4 Field or Free Elective 4
+Field or Free Elective 4 ENGR 101 3 G.E. or Free Elective 5
+  Field or Free Elective 4  
+TOTAL 12  15  13
+
+*   CMPSC 8 is recommended only for students who do not have prior programming experience; 
+ programming experience is a prerequisite for CMPSC 16.
+
+** Or you may take CMPSC 140 in Winter Quarter to satisfy this requirement.
+ 
+
+COMPUTER SCIENCE 2016-17 
+
+
