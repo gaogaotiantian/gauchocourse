@@ -66,7 +66,6 @@ Music - MUS
 Music Performance Laboratories - MUS A
 Natural Sciences - NAT S
 Philosophy - PHIL
-Physical Activities - PA 1-
 Physics - PHYS
 Political Science - POL S
 Portuguese - PORT
