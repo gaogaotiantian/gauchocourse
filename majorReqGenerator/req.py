@@ -58,6 +58,7 @@ class MajorReqParser(object):
 	def __init__(self):
 	    self.delList = ['with', 'an', 'average', 'grade', 'of', '~70~','One','course']
 	    self.dept2AbbrevMap = dept2AbbrevMap()
+	    self.paranPatt = re.compile(r'\((.*)\)')
 		# pass
 
 	def ParseOneMajor(self,path):
@@ -203,9 +204,47 @@ class MajorReqParser(object):
 
 		for line in reqJoinList:
 			print(line)
+
+
+		print('\n\n\n\n')
+		for line in reqJoinList:
+			reqOfLine = self.RECParseOneLine(line)
+			# print(reqOfLine)
+		
+		# s = "i love you (or not)."
+		# result = re.search(self.paranPatt,s).group()
+		# print('result: ',result)
+
+
 		# for line in self.reqList:
 			# print(line)
 		print('\n\n\n\n')
+
+	def RECParseOneLine(self,text):
+		req = []
+		print("text: ", text)
+		subReqList = re.findall(self.paranPatt,text)
+
+
+		# .group()
+		if subReqList != []:
+			print("Found paranthess!!!!")
+			# .group())
+			# print(subReq)
+			subSubReqList = []
+			for reqInParan in subReqList:
+				subSub = self.RECParseOneLine(reqInParan)
+				# if subSub != None:
+				subSubReqList.append(subSub)
+			req.append(subSubReqList)
+		else:
+			req.append(self.ITERParseOneLine(text))
+		return req
+		
+		# pass
+	def ITERParseOneLine(self,text):
+		print("Iter: ")
+		return text
 
 numPattern2 = re.compile(r'([0-9]+)[A-Z]?')
 def recoverCourseNum(courseList):
