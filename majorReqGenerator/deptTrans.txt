@@ -51,7 +51,6 @@ Japanese - JAPAN
 Korean - KOR
 Latin - LATIN
 Latin American and Iberian Studies - LAIS
-Law and Society - LAWSO
 Linguistics - LING
 Marine Science - MARSC
 Materials - MATRL

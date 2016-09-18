@@ -275,7 +275,7 @@ class MajorReqParser(object):
 
         print("\n\n\n\n\n")
 
-        print(lineDictList)
+        # print(lineDictList)
             # print(reqOfLine)
         
         # s = "i love you (or not)."
@@ -518,7 +518,7 @@ parser.ParseOneMajor('txt/Phys/Physics-BS_2016.txt')
 # parser.ParseOneMajor('txt/Math/Financial-Math-Stat-BS-2016.txt')
 parser.ParseOneMajor2nd()
 parser.ParseOneMajor3rd()
-parser.dept2AbbrevMap.getUnits(['PHYS','25L'])
+# parser.dept2AbbrevMap.getUnits(['PHYS','25L'])
 
 # a = OrderedDict()
 # a["sub"] = "MATH"
