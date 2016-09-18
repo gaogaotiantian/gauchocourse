@@ -1,0 +1,56 @@
+{
+    "major":"Hydrologic-Policy",
+    "geType":"BS",
+    "ChoiceCourse":[
+        {
+            "units":"100,",
+            "course":[
+                {
+                    "sub":"CH ST",
+                    "number":"144"
+                },
+                {
+                    "sub":"EEMB",
+                    "number":"120"
+                }
+            ]
+        },
+        {
+            "units":"176C",
+            "course":[
+                {
+                    "sub":"EEMB",
+                    "number":"142B"
+                },
+                {
+                    "sub":"EEMB",
+                    "number":"142BL"
+                },
+                {
+                    "sub":"CH ST",
+                    "number":"199"
+                },
+                {
+                    "sub":"CH ST",
+                    "number":"199RA"
+                },
+                {
+                    "sub":"GEOG",
+                    "number":"162"
+                },
+                {
+                    "sub":"GEOG",
+                    "number":"176A"
+                },
+                {
+                    "sub":"GEOG",
+                    "number":"176B"
+                }
+            ]
+        },
+        {
+            "units":"simultaneously",
+            "course":[]
+        }
+    ]
+}
