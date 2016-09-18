@@ -2,7 +2,7 @@ import re
 import json
 import copy
 from collections import OrderedDict
-
+import collections
 # This class has two parts: 1. a department name map (self.nameMap) that maps department names to their abbreviations
 #                           2. a nested dictionary that allow access to courses by department name and course number
 class dept2AbbrevMap:
@@ -47,13 +47,22 @@ class dept2AbbrevMap:
         except:
             print('This course is invalid!')
             return None
-
+    # Given a course, return its units
+    def getUnits(self,courseStrList):
+        try:
+            units = self.courseByDeptDict[self.map2Abrrev(courseStrList[0])][str(courseStrList[1]).upper()]["units"]
+            print("UNITS:", units)
+            return int(units)
+        except:
+            print('This course is invalid!')
+            return -1
     # change the format of a course to the desired format
     # e.g. math 8 -> MATH 8
     def formatCourse(self,courseStrList):
         if self.isValid(courseStrList):
             lst = [self.map2Abrrev(courseStrList[0]),str(courseStrList[1]).upper()]
             course = OrderedDict()
+            # course = {}
             course["sub"] = lst[0]
             course["number"] = lst[1]
             return course
@@ -135,6 +144,7 @@ class MajorReqParser(object):
         # for i in delIndexList:
         #   print("DEL: ",i , reqTXTList[i])
 
+        # delete useless lines by index
         # http://stackoverflow.com/questions/18837607/remove-multiple-items-from-list-in-python
         reqList = [v for i, v in enumerate(reqTXTList) if i not in delIndexList]
         print(reqList)
@@ -244,17 +254,24 @@ class MajorReqParser(object):
         for i in range(len(reqParseList)):
             lineDictList[i]["course"] = reqParseList[i]
 
-        # for j in range(len(lineDictList)):
-        #     unitsList = lineDictList[j]["units"].split()
-        #     if len(lineDictList[j]["course"]) == 2 and len(unitsList) == 2
-        #         for choice in range(2):
-        #             lineDictList[j]["course"][i] = {
-        #                 "course":lineDictList[j]["course"][i],
-        #                 "units":self.computeUnits(lineDictList[j]["course"][i])
-        #             }
+        # convert some nested lists into dictionary to match the json output format
+        for j in range(len(lineDictList)):
+            unitsList = lineDictList[j]["units"].split('-')
+            if len(lineDictList[j]["course"]) == 2 and type(lineDictList[j]["course"]) == list and len(lineDictList[j]["course"][0]) > 2 and len(unitsList) == 2:
+                for choice in range(2):
+                    print("working with ", lineDictList[j]["course"])
 
-        
-        print(json.dumps(lineDictList, indent=4, separators=(',', ':')))
+                    print("element is type: ", type(lineDictList[j]["course"][0]), " \ncontent:",lineDictList[j]["course"][0], "\n\n")
+                    lineDictList[j]["course"][choice] = {
+                        "course":lineDictList[j]["course"][choice],
+                        "units":self.computeUnits(lineDictList[j]["course"][choice])
+                    }
+
+        result = OrderedDict()
+        result["major"] = "Physics BS"
+        result["getType"] = "LSBS"
+        result["ChoiceCourse"]=lineDictList
+        print(json.dumps(result, indent=4, separators=(',', ':')))
 
         print("\n\n\n\n\n")
 
@@ -404,17 +421,24 @@ class MajorReqParser(object):
                     # if it's an "or" between courses
                     else:
                         print("OR between words")
+                        # A,B,C or D
                         # link the next course with the course before "or"
                         if re.search(r'[0-9]+[A-Z]?', tokenized[index+1]) != None:
-
+                            # This check doesn't seem necessary
                             course = self.dept2AbbrevMap.formatCourse([dept,tokenized[index+1].strip(',')])
-                            print(course)
-                            if course != None:
-                                # print('previous: ',courseList[-1])
-                                courseList[-1] = [courseList[-1], course]
-                                # print('combined: ', courseList[-1])
+                            if len(courseList) > 1:
+                                print(course)
+                                if course != None:
+                                    courseList[-1] = [courseList[-1], course]
+                            # A or B
+                            # create a dictionary
+                            else:
+                                if course != None:
+                                    choicCourse = {"course":[courseList[-1],course],"units":self.dept2AbbrevMap.getUnits(course)}
+                                    courseList[-1] = choicCourse
+                                else:
+                                    pass
                             index += 1
-                            # print('couseList: ', courseList)
                         else:
                             # the next word is a uselss word or a different dept
                             print("useless: ", tokenized[index])
@@ -432,6 +456,19 @@ class MajorReqParser(object):
             courseList = courseList[0]
         print('    parsed: ', [courseList,''] if isOrBegin == False else ['or',courseList], end="\n\n")
         return [courseList,''] if isOrBegin == False else ['or',courseList]
+    
+
+    def computeUnits(self,courseList):
+        totalUnits = 0
+        for course in courseList:
+            print(course.values())
+            units = self.dept2AbbrevMap.getUnits(list(course.values()))
+            if units == -1:
+                print("EROOR ON UNITS!!!!")
+            else:
+                totalUnits += int(units)
+        return totalUnits
+
 
 numPattern2 = re.compile(r'([0-9]+)[A-Z]?')
 def recoverCourseNum(courseList):
@@ -481,6 +518,12 @@ parser.ParseOneMajor('txt/Phys/Physics-BS_2016.txt')
 # parser.ParseOneMajor('txt/Math/Financial-Math-Stat-BS-2016.txt')
 parser.ParseOneMajor2nd()
 parser.ParseOneMajor3rd()
+parser.dept2AbbrevMap.getUnits(['PHYS','25L'])
+
+# a = OrderedDict()
+# a["sub"] = "MATH"
+# a["number"] = "3A"
+# print(list(a.values()))
 # print(parser.ITERParseOneLine('Physics 20 21 22 23 24 25 or '))
 # print(parser.ITERParseOneLine('or 13AH 13BH 13CH'))
 # print(parser.ITERParseOneLine('Physics 127BL, 128BL, 142L, 143L, 144L, 145L, 199'))
