@@ -1,0 +1,219 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+48  •  mAjor reqUiremenTS
+
+COMPUTER  ENGINEERING 2016-17 
+  Units
+  PREPARATION FOR THE MAJOR  75
+CHEM 1A, 1AL or 2A, 2AC  . . . . . . . . . . . . . . . . . . . . . . . . 5
+CMPSC 16  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+CMPSC 24  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+CMPSC 32  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+CMPSC 40  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+ECE 1A- 1B  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2
+ECE 10A, 10AL, 10B, 10BL, 10C, 10CL............................. 15
+ECE 15A . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+MATH 3A-B, 4A-B  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+PHYS 1, 2, 3, 3L, 4, 4L . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+
+  UPPER DIVISION MAJOR   68
+CMPSC 130A . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+ECE 139 or PSTAT 120A . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+ECE 152A . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+ECE 154A . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+ENGR 101 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+
+Computer Engineering electives selected
+ from the following list:  . . . . . . . . . . . . . . . . . . . . . . . . . . . 48
+
+Prior approval of the student’s departmental electives must
+ be obtained from the student’s faculty adviser.
+
+Must include at least 2 sequences and 8 units of senior 
+computer systems project CMPSC 189 A-B/ECE 189A-B. 
+
+Computer Engineering electives taken:    
+    
+    
+    
+    
+
+MATH, SCIENCE, ENGR. ELECTIVE 4
+	 (See	ECE	Dept.	student	office	for	the	approved	list)
+Elective taken:   
+
+ 
+  Units
+UNIVERSITY REQUIREMENTS
+American History and Institutions – (one 4-unit course)
+(may be counted as G.E. if selected from approved list)
+
+  
+
+UC Entry Level Requirement: English Composition
+Must be fulfilled within three quarters of matriculation
+
+Satisfied	by: 
+
+GENERAL EDUCATION 
+
+General Subject Areas
+Area A: English Reading & Comprehension – (2 courses required)
+ 
+A-1:                                             A-2:                     
+
+Areas D & E: Social Sciences, Culture and Thought
+(2 courses minimum)
+      
+Areas F & G: The Arts, Literature
+(2 courses minimum)
+      
+
+2 additional courses from Areas D, E, F, G, or H
+      
+
+Special Subject Areas
+
+Depth:
+      
+      
+
+Ethnicity (1 course):   
+
+European Traditions (1 course):   
+
+Writing (4 courses required):
+      
+      
+
+NON-MAJOR ELECTIVES 44
+General Education and Free Electives taken:
+  
+  
+  
+  
+  
+  
+   
+
+TOTAL UNITS REQUIRED FOR GRADUATION ...... 191
+Courses required for the major, inside or outside of the Departments 
+of Computer Science or Electrical and Computer Engineering, cannot 
+be taken for the passed/not passed grading option. They must be 
+taken for letter grades.
+
+CMPSC 130B 
+CMPSC138 
+CMPSC 153A/ECE153A
+CMPSC 160
+CMPSC 162
+CMPSC 165A-B
+CMPSC 170
+CMPSC 171/ ECE 151
+CMPSC 176A-B/ECE 155A-B 
+CMPSC 176C 
+CMPSC 177
+CMPSC 178
+CMPSC 181B/ECE 181B
+ECE 122A-B
+
+ECE 123
+ECE 130A-B
+ECE 147A-B
+ECE 150
+ECE 153B
+ECE 154B
+ECE 156A-B
+ECE 160/CMPSC 182
+ECE 178
+ECE 179D, 179P
+ECE 189A-B/ CMPSC 189A-B
+
+
+
+mA jor  r eqUiremenTS •  49
+
+COMPUTER  ENGINEERING 2016-17 
+FRESHMAN YEAR 
+
+FALL units WINTER units SPRING units
+CHEM 1A or 2A 3 ECE 1A   1 CMPSC 16 4
+CHEM 1AL or 2AC 2 Math, Science,  ECE 1B 1
+MATH 3A 4 Engr. Elective 4 MATH 4A 4
+G.E. Elective or CMPSC 81 4 MATH 3B 4 PHYS 2 4
+WRIT 1E or 2E 4 PHYS 1 4 WRIT 50E or G.E. Elective 4
+   WRIT 2E or 50E 4  
+ 
+TOTAL 17  17  17
+
+SOPHOMORE YEAR 
+
+FALL units WINTER units SPRING units
+CMPSC 24 4 CMPSC 40 5 CMPSC 32 4
+ECE 10A 3 ECE 10B 3 ECE 10C 3
+ECE 10AL 2 ECE10BL 2 ECE 10CL 2
+MATH 4B 4 ECE 15A  4 ECE 152A 5
+PHYS 3 3    PHYS 4 3 ECE 139 or PSTAT 120A2 4
+PHYS 3L 1 PHYS 4L 1 
+
+   
+TOTAL 17  18  18
+
+JUNIOR YEAR   
+
+FALL units WINTER units SPRING units
+ECE 154A 4 CMPSC 130A 4 CMPEN Elective 8 
+CMPEN Elective 8 CMPEN Elective 4  G.E. or Free Elective 4
+G.E. or Free Electives 4 G.E. or Free Electives 8 
+      
+      
+TOTAL 16  16  12
+
+      
+SENIOR YEAR   
+
+FALL units WINTER units SPRING units
+CMPEN Electives 12 CMPEN Electives 8 CMPEN Electives 12
+Free Elective 4 ENGR 101 3  
+  Free Elective 4 
+
+TOTAL 16  15  12
+
+1 CMPSC 8 is recommended only for students who do not have prior programming experience, as programming experience is a prerequisite for CMPSC 16.
+  CS 8 may be used to satisfy the Math, Science, Engineering Elective requirement. 
+2 PSTAT 120A is offered each quarter. ECE 139 is offered only in spring quarter, and is better suited for future upper division electives for 
+ the Computer Engineering major.
+
+

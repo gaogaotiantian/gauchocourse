@@ -14,15 +14,6 @@ Communication - COMM
 Comparative Literature - C LIT
 Computer Science - CMPSC
 Counseling, Clinical, School Psychology - CNCSP
-Creative Studies: Art - ART CS
-Creative Studies: Biology - BIOL CS
-Creative Studies: Chemistry - CHEM CS
-Creative Studies: Computer Science - CMPSCCS
-Creative Studies: General Studies - GEN SCS
-Creative Studies: Literature - LIT CS
-Creative Studies: Mathematics - MATH CS
-Creative Studies: Music - MUS CS
-Creative Studies: Physics - PHYS CS
 Dance - DANCE
 Earth Science - EARTH
 East Asian Cultural Studies - EACS
@@ -43,7 +34,6 @@ English - ENGL
 Environmental Science & Management - ESM
 Environmental Studies - ENV S
 Exercise & Sport Studies - ESS
-Exercise Sport - ES 1-
 Feminist Studies - FEMST
 Film Studies - FLMST
 French - FR
@@ -61,12 +51,10 @@ Japanese - JAPAN
 Korean - KOR
 Latin - LATIN
 Latin American and Iberian Studies - LAIS
-Law and Society - LAWSO
 Linguistics - LING
 Marine Science - MARSC
 Materials - MATRL
 Mathematics - MATH
-Mathematics - MATH WKL
 Mechanical Engineering - ME
 Media Arts and Technology - MAT
 Medieval Studies - ME ST
@@ -77,7 +65,6 @@ Music - MUS
 Music Performance Laboratories - MUS A
 Natural Sciences - NAT S
 Philosophy - PHIL
-Physical Activities - PA 1-
 Physics - PHYS
 Political Science - POL S
 Portuguese - PORT
