@@ -3,7 +3,6 @@
     "geType":"BS",
     "ChoiceCourse":[
         {
-            "units":"15",
             "course":[
                 {
                     "sub":"CHEM",
@@ -31,10 +30,10 @@
                     "sub":"CHEM",
                     "number":"2B"
                 }
-            ]
+            ],
+            "units":"15"
         },
         {
-            "units":"16",
             "course":[
                 {
                     "sub":"MCDB",
@@ -68,10 +67,10 @@
                     "sub":"EEMB",
                     "number":"2L"
                 }
-            ]
+            ],
+            "units":"16"
         },
         {
-            "units":"18",
             "course":[
                 [
                     {
@@ -84,10 +83,10 @@
                     }
                 ],
                 []
-            ]
+            ],
+            "units":"18"
         },
         {
-            "units":"16",
             "course":[
                 {
                     "sub":"MATH",
@@ -113,10 +112,10 @@
                     "sub":"MATH",
                     "number":"6A"
                 }
-            ]
+            ],
+            "units":"16"
         },
         {
-            "units":"12",
             "course":[
                 {
                     "sub":"PHYS",
@@ -130,21 +129,21 @@
                     "sub":"PHYS",
                     "number":"6B"
                 }
-            ]
+            ],
+            "units":"12"
         },
         {
-            "units":"48",
-            "course":[]
+            "course":[],
+            "units":"48"
         },
         {
-            "units":"101B",
             "course":{
                 "sub":"MCDB",
                 "number":"101A"
-            }
+            },
+            "units":"101B"
         },
         {
-            "units":"108C",
             "course":[
                 {
                     "sub":"MCDB",
@@ -154,28 +153,28 @@
                     "sub":"MCDB",
                     "number":"108B"
                 }
-            ]
+            ],
+            "units":"108C"
         },
         {
-            "units":"109L",
-            "course":[]
+            "course":[],
+            "units":"109L"
         },
         {
-            "units":"123",
             "course":[
                 {
                     "sub":"CHEM",
                     "number":"112A"
                 },
                 []
-            ]
+            ],
+            "units":"123"
         },
         {
-            "units":"48",
-            "course":[]
+            "course":[],
+            "units":"48"
         },
         {
-            "units":"126AL,",
             "course":[
                 {
                     "sub":"MCDB",
@@ -221,10 +220,10 @@
                     "sub":"MCDB",
                     "number":"126A"
                 }
-            ]
+            ],
+            "units":"126AL,"
         },
         {
-            "units":"140L,",
             "course":[
                 {
                     "sub":"MCDB",
@@ -286,10 +285,10 @@
                     "sub":"MCDB",
                     "number":"138"
                 }
-            ]
+            ],
+            "units":"140L,"
         },
         {
-            "units":"199,",
             "course":[
                 {
                     "sub":"MCDB",
@@ -343,15 +342,16 @@
                     "sub":"MCDB",
                     "number":"198"
                 }
-            ]
+            ],
+            "units":"199,"
         },
         {
-            "units":"185-19",
-            "course":[]
+            "course":[],
+            "units":"185-19"
         },
         {
-            "units":"(Prep",
-            "course":[]
+            "course":[],
+            "units":"(Prep"
         }
     ]
 }

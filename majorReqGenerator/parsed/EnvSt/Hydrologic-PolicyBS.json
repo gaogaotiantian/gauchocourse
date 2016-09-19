@@ -3,20 +3,13 @@
     "geType":"BS",
     "ChoiceCourse":[
         {
-            "units":"100,",
-            "course":[
-                {
-                    "sub":"CH ST",
-                    "number":"144"
-                },
-                {
-                    "sub":"EEMB",
-                    "number":"120"
-                }
-            ]
+            "course":{
+                "sub":"EEMB",
+                "number":"120"
+            },
+            "units":"100,"
         },
         {
-            "units":"176C",
             "course":[
                 {
                     "sub":"EEMB",
@@ -27,12 +20,16 @@
                     "number":"142BL"
                 },
                 {
-                    "sub":"CH ST",
-                    "number":"199"
+                    "sub":"GLOBL",
+                    "number":"192"
                 },
                 {
-                    "sub":"CH ST",
-                    "number":"199RA"
+                    "sub":"GLOBL",
+                    "number":"197"
+                },
+                {
+                    "sub":"GLOBL",
+                    "number":"199"
                 },
                 {
                     "sub":"GEOG",
@@ -46,11 +43,12 @@
                     "sub":"GEOG",
                     "number":"176B"
                 }
-            ]
+            ],
+            "units":"176C"
         },
         {
-            "units":"simultaneously",
-            "course":[]
+            "course":[],
+            "units":"simultaneously"
         }
     ]
 }

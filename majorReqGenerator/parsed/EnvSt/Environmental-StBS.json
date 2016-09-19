@@ -3,16 +3,22 @@
     "geType":"BS",
     "ChoiceCourse":[
         {
-            "units":"12",
-            "course":[]
+            "course":[
+                {
+                    "sub":"GLOBL",
+                    "number":"1"
+                },
+                {
+                    "sub":"GLOBL",
+                    "number":"2"
+                }
+            ],
+            "units":"12"
         },
         {
-            "units":"4",
             "course":{
-                "units":-1,
                 "course":[
                     {
-                        "units":-1,
                         "course":[
                             {
                                 "sub":"ECON",
@@ -22,17 +28,19 @@
                                 "sub":"ECON",
                                 "number":"2"
                             }
-                        ]
+                        ],
+                        "units":-1
                     },
                     {
                         "sub":"ECON",
                         "number":"9"
                     }
-                ]
-            }
+                ],
+                "units":-1
+            },
+            "units":"4"
         },
         {
-            "units":"4",
             "course":[
                 {
                     "sub":"CMPSC",
@@ -48,10 +56,10 @@
                         "number":"3B"
                     }
                 ]
-            ]
+            ],
+            "units":"4"
         },
         {
-            "units":"17",
             "course":[
                 {
                     "sub":"MATH",
@@ -77,10 +85,10 @@
                     "sub":"PSTAT",
                     "number":"109"
                 }
-            ]
+            ],
+            "units":"17"
         },
         {
-            "units":"15",
             "course":[
                 {
                     "sub":"CHEM",
@@ -94,10 +102,10 @@
                     "sub":"CHEM",
                     "number":"1BL"
                 }
-            ]
+            ],
+            "units":"15"
         },
         {
-            "units":"16",
             "course":[
                 {
                     "sub":"MCDB",
@@ -131,10 +139,10 @@
                     "sub":"EEMB",
                     "number":"2L"
                 }
-            ]
+            ],
+            "units":"16"
         },
         {
-            "units":"12",
             "course":[
                 {
                     "sub":"PHYS",
@@ -166,10 +174,10 @@
                     "sub":"PHYS",
                     "number":"6BL"
                 }
-            ]
+            ],
+            "units":"12"
         },
         {
-            "units":"4",
             "course":[
                 {
                     "sub":"PHIL",
@@ -179,10 +187,10 @@
                     "sub":"PHIL",
                     "number":"4"
                 }
-            ]
+            ],
+            "units":"4"
         },
         {
-            "units":"12,",
             "course":[
                 {
                     "sub":"ANTH",
@@ -193,26 +201,34 @@
                     "number":"5"
                 },
                 {
-                    "sub":"HIST",
-                    "number":"5"
+                    "sub":"GLOBL",
+                    "number":"1"
+                },
+                {
+                    "sub":"GLOBL",
+                    "number":"2"
                 }
-            ]
+            ],
+            "units":"12,"
         },
         {
-            "units":"4",
             "course":[
                 {
                     "sub":"PSY",
                     "number":"1"
                 },
                 {
+                    "sub":"GLOBL",
+                    "number":"1"
+                },
+                {
                     "sub":"SOC",
                     "number":"1"
                 }
-            ]
+            ],
+            "units":"4"
         },
         {
-            "units":"5",
             "course":[
                 [
                     {
@@ -233,65 +249,67 @@
                     }
                 ],
                 "or"
-            ]
+            ],
+            "units":"5"
         },
         {
-            "units":"9",
             "course":[
                 {
                     "sub":"EEMB",
                     "number":"120"
                 },
                 []
-            ]
+            ],
+            "units":"9"
         },
         {
-            "units":"4",
-            "course":[]
+            "course":[],
+            "units":"4"
         },
         {
-            "units":"32",
-            "course":[]
+            "course":[],
+            "units":"32"
         },
         {
-            "units":"147,",
             "course":[
                 {
-                    "sub":"CH ST",
-                    "number":"134"
+                    "sub":"GLOBL",
+                    "number":"111"
                 },
                 {
-                    "sub":"CH ST",
-                    "number":"141"
-                },
-                {
-                    "sub":"CH ST",
-                    "number":"144"
+                    "sub":"GLOBL",
+                    "number":"120"
                 }
-            ]
+            ],
+            "units":"147,"
         },
         {
-            "units":"16",
-            "course":[]
+            "course":[],
+            "units":"16"
         },
         {
-            "units":"16",
-            "course":[]
+            "course":[],
+            "units":"16"
         },
         {
-            "units":"would",
-            "course":[]
+            "course":[],
+            "units":"would"
         },
         {
-            "units":"16",
-            "course":[]
+            "course":[],
+            "units":"16"
         },
         {
-            "units":"credi",
             "course":[
-                [],
+                [
+                    {
+                        "sub":"CMPSC",
+                        "number":"192"
+                    }
+                ],
                 "or"
-            ]
+            ],
+            "units":"credi"
         }
     ]
 }

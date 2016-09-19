@@ -3,7 +3,6 @@
     "geType":"BS",
     "ChoiceCourse":[
         {
-            "units":"8",
             "course":[
                 {
                     "sub":"MATH",
@@ -13,10 +12,10 @@
                     "sub":"MATH",
                     "number":"3B"
                 }
-            ]
+            ],
+            "units":"8"
         },
         {
-            "units":"8",
             "course":[
                 {
                     "sub":"MATH",
@@ -26,10 +25,10 @@
                     "sub":"MATH",
                     "number":"4B"
                 }
-            ]
+            ],
+            "units":"8"
         },
         {
-            "units":"8",
             "course":[
                 {
                     "sub":"MATH",
@@ -39,17 +38,17 @@
                     "sub":"MATH",
                     "number":"6B"
                 }
-            ]
+            ],
+            "units":"8"
         },
         {
-            "units":"5",
             "course":{
                 "sub":"MATH",
                 "number":"8"
-            }
+            },
+            "units":"5"
         },
         {
-            "units":"3-4",
             "course":[
                 {
                     "sub":"CMPSC",
@@ -58,11 +57,15 @@
                 {
                     "sub":"CMPSC",
                     "number":"16"
+                },
+                {
+                    "sub":"ENGR",
+                    "number":"3"
                 }
-            ]
+            ],
+            "units":"3-4"
         },
         {
-            "units":"3-4",
             "course":[
                 {
                     "sub":"PHYS",
@@ -78,10 +81,10 @@
                         "number":"21"
                     }
                 ]
-            ]
+            ],
+            "units":"3-4"
         },
         {
-            "units":"32",
             "course":[
                 {
                     "sub":"MATH",
@@ -115,12 +118,11 @@
                     "sub":"MATH",
                     "number":"122A"
                 }
-            ]
+            ],
+            "units":"32"
         },
         {
-            "units":"4",
             "course":{
-                "units":-1,
                 "course":[
                     {
                         "sub":"MATH",
@@ -130,13 +132,13 @@
                         "sub":"MATH",
                         "number":"118C"
                     }
-                ]
-            }
+                ],
+                "units":-1
+            },
+            "units":"4"
         },
         {
-            "units":"4",
             "course":{
-                "units":-1,
                 "course":[
                     {
                         "sub":"MATH",
@@ -146,12 +148,14 @@
                         "sub":"MATH",
                         "number":"147A"
                     }
-                ]
-            }
+                ],
+                "units":-1
+            },
+            "units":"4"
         },
         {
-            "units":"12",
-            "course":[]
+            "course":[],
+            "units":"12"
         }
     ]
 }

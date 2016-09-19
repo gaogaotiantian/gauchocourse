@@ -3,10 +3,8 @@
     "geType":"BS",
     "ChoiceCourse":[
         {
-            "units":"9",
             "course":[
                 {
-                    "units":-1,
                     "course":[
                         {
                             "sub":"CHEM",
@@ -16,7 +14,8 @@
                             "sub":"CHEM",
                             "number":"2A"
                         }
-                    ]
+                    ],
+                    "units":-1
                 },
                 [
                     {
@@ -38,10 +37,10 @@
                         "number":"2C"
                     }
                 ]
-            ]
+            ],
+            "units":"9"
         },
         {
-            "units":"6",
             "course":[
                 {
                     "sub":"CHEM",
@@ -67,10 +66,10 @@
                         "number":"2CC"
                     }
                 ]
-            ]
+            ],
+            "units":"6"
         },
         {
-            "units":"6",
             "course":[
                 {
                     "sub":"CHEM",
@@ -81,13 +80,12 @@
                     "number":"6BL"
                 },
                 "or"
-            ]
+            ],
+            "units":"6"
         },
         {
-            "units":"12",
             "course":[
                 {
-                    "units":-1,
                     "course":[
                         {
                             "sub":"CHEM",
@@ -97,7 +95,8 @@
                             "sub":"CHEM",
                             "number":"109AH"
                         }
-                    ]
+                    ],
+                    "units":-1
                 },
                 [
                     {
@@ -119,10 +118,10 @@
                         "number":"109CH"
                     }
                 ]
-            ]
+            ],
+            "units":"12"
         },
         {
-            "units":"12",
             "course":[
                 {
                     "sub":"MATH",
@@ -136,10 +135,10 @@
                     "sub":"MATH",
                     "number":"4A"
                 }
-            ]
+            ],
+            "units":"12"
         },
         {
-            "units":"14",
             "course":[
                 {
                     "sub":"PHYS",
@@ -157,17 +156,17 @@
                     "sub":"PHYS",
                     "number":"4"
                 }
-            ]
+            ],
+            "units":"14"
         },
         {
-            "units":"3",
             "course":{
                 "sub":"CHEM",
                 "number":"6CL"
-            }
+            },
+            "units":"3"
         },
         {
-            "units":"8",
             "course":[
                 {
                     "sub":"MATH",
@@ -177,10 +176,10 @@
                     "sub":"MATH",
                     "number":"6A"
                 }
-            ]
+            ],
+            "units":"8"
         },
         {
-            "units":"2",
             "course":[
                 {
                     "sub":"PHYS",
@@ -190,13 +189,12 @@
                     "sub":"PHYS",
                     "number":"4L"
                 }
-            ]
+            ],
+            "units":"2"
         },
         {
-            "units":"21-24",
             "course":[
                 {
-                    "units":15,
                     "course":[
                         {
                             "sub":"CHEM",
@@ -214,16 +212,17 @@
                             "sub":"CHEM",
                             "number":"142A"
                         }
-                    ]
+                    ],
+                    "units":15
                 },
                 {
-                    "units":0,
-                    "course":[]
+                    "course":[],
+                    "units":0
                 }
-            ]
+            ],
+            "units":"21-24"
         },
         {
-            "units":"9",
             "course":[
                 {
                     "sub":"CHEM",
@@ -237,10 +236,10 @@
                     "sub":"CHEM",
                     "number":"116CL"
                 }
-            ]
+            ],
+            "units":"9"
         },
         {
-            "units":"12-15",
             "course":[
                 {
                     "sub":"CHEM",
@@ -250,7 +249,8 @@
                     "sub":"CHEM",
                     "number":"149"
                 }
-            ]
+            ],
+            "units":"12-15"
         }
     ]
 }

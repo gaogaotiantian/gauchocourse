@@ -3,20 +3,13 @@
     "geType":"BS",
     "ChoiceCourse":[
         {
-            "units":"100,",
-            "course":[
-                {
-                    "sub":"CH ST",
-                    "number":"144"
-                },
-                {
-                    "sub":"EEMB",
-                    "number":"120"
-                }
-            ]
+            "course":{
+                "sub":"EEMB",
+                "number":"120"
+            },
+            "units":"100,"
         },
         {
-            "units":"167,",
             "course":[
                 {
                     "sub":"CHEM",
@@ -54,23 +47,24 @@
                     "sub":"EEMB",
                     "number":"142BL"
                 }
-            ]
+            ],
+            "units":"167,"
         },
         {
-            "units":"197,",
             "course":[
                 [
                     []
                 ],
                 {
-                    "sub":"EEMB",
-                    "number":"176"
+                    "sub":"GLOBL",
+                    "number":"192"
                 }
-            ]
+            ],
+            "units":"197,"
         },
         {
-            "units":"simultaneously",
-            "course":[]
+            "course":[],
+            "units":"simultaneously"
         }
     ]
 }

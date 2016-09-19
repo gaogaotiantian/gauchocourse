@@ -3,7 +3,6 @@
     "geType":"BS",
     "ChoiceCourse":[
         {
-            "units":"16",
             "course":[
                 {
                     "sub":"MATH",
@@ -21,10 +20,10 @@
                     "sub":"MATH",
                     "number":"4B"
                 }
-            ]
+            ],
+            "units":"16"
         },
         {
-            "units":"9",
             "course":[
                 {
                     "sub":"MATH",
@@ -34,38 +33,38 @@
                     "sub":"MATH",
                     "number":"8"
                 }
-            ]
+            ],
+            "units":"9"
         },
         {
-            "units":"4",
             "course":{
                 "sub":"CMPSC",
                 "number":"16"
-            }
+            },
+            "units":"4"
         },
         {
-            "units":"follows:",
-            "course":[]
+            "course":[],
+            "units":"follows:"
         },
         {
-            "units":"12",
             "course":[
                 {
                     "sub":"PSTAT",
                     "number":"120A"
                 },
                 []
-            ]
+            ],
+            "units":"12"
         },
         {
-            "units":"8",
             "course":{
                 "sub":"PSTAT",
                 "number":"122"
-            }
+            },
+            "units":"8"
         },
         {
-            "units":"8",
             "course":[
                 {
                     "sub":"PSTAT",
@@ -75,21 +74,21 @@
                     "sub":"PSTAT",
                     "number":"174"
                 }
-            ]
+            ],
+            "units":"8"
         },
         {
-            "units":"4",
             "course":{
                 "sub":"PSTAT",
                 "number":"130"
-            }
+            },
+            "units":"4"
         },
         {
-            "units":"12",
-            "course":[]
+            "course":[],
+            "units":"12"
         },
         {
-            "units":"8",
             "course":[
                 {
                     "sub":"PSTAT",
@@ -99,14 +98,14 @@
                     "sub":"PSTAT",
                     "number":"160B"
                 }
-            ]
+            ],
+            "units":"8"
         },
         {
-            "units":"16",
-            "course":[]
+            "course":[],
+            "units":"16"
         },
         {
-            "units":"8",
             "course":[
                 {
                     "sub":"MATH",
@@ -176,11 +175,12 @@
                     "sub":"ECON",
                     "number":"134A"
                 }
-            ]
+            ],
+            "units":"8"
         },
         {
-            "units":"the",
-            "course":[]
+            "course":[],
+            "units":"the"
         }
     ]
 }

@@ -3,7 +3,6 @@
     "geType":"BS",
     "ChoiceCourse":[
         {
-            "units":"15",
             "course":[
                 {
                     "sub":"CHEM",
@@ -31,10 +30,10 @@
                     "sub":"CHEM",
                     "number":"2B"
                 }
-            ]
+            ],
+            "units":"15"
         },
         {
-            "units":"16",
             "course":[
                 {
                     "sub":"MCDB",
@@ -68,10 +67,10 @@
                     "sub":"EEMB",
                     "number":"2L"
                 }
-            ]
+            ],
+            "units":"16"
         },
         {
-            "units":"14",
             "course":[
                 [
                     {
@@ -84,10 +83,10 @@
                     }
                 ],
                 []
-            ]
+            ],
+            "units":"14"
         },
         {
-            "units":"8",
             "course":[
                 {
                     "sub":"MATH",
@@ -107,10 +106,10 @@
                     "sub":"MATH",
                     "number":"34B"
                 }
-            ]
+            ],
+            "units":"8"
         },
         {
-            "units":"5",
             "course":[
                 [
                     {
@@ -127,10 +126,10 @@
                     }
                 ],
                 "or"
-            ]
+            ],
+            "units":"5"
         },
         {
-            "units":"12",
             "course":[
                 {
                     "sub":"PHYS",
@@ -144,14 +143,14 @@
                     "sub":"PHYS",
                     "number":"6B"
                 }
-            ]
+            ],
+            "units":"12"
         },
         {
-            "units":"48",
-            "course":[]
+            "course":[],
+            "units":"48"
         },
         {
-            "units":"concentration)",
             "course":[
                 {
                     "sub":"EEMB",
@@ -165,10 +164,10 @@
                     "sub":"EEMB",
                     "number":"129"
                 }
-            ]
+            ],
+            "units":"concentration)"
         },
         {
-            "units":"165",
             "course":[
                 {
                     "sub":"MCDB",
@@ -202,10 +201,10 @@
                     "sub":"EEMB",
                     "number":"157"
                 }
-            ]
+            ],
+            "units":"165"
         },
         {
-            "units":"153",
             "course":[
                 {
                     "sub":"MCDB",
@@ -239,27 +238,41 @@
                     "sub":"MCDB",
                     "number":"152"
                 }
-            ]
+            ],
+            "units":"153"
         },
         {
-            "units":"134,",
             "course":[
                 {
                     "sub":"MCDB",
                     "number":"108A"
                 },
-                {
-                    "sub":"EEMB",
-                    "number":"133"
-                }
-            ]
+                [
+                    {
+                        "sub":"MCDB",
+                        "number":"110"
+                    },
+                    {
+                        "sub":"MCDB",
+                        "number":"126B"
+                    },
+                    {
+                        "sub":"MCDB",
+                        "number":"126C"
+                    },
+                    {
+                        "sub":"MCDB",
+                        "number":"133"
+                    }
+                ]
+            ],
+            "units":"134,"
         },
         {
-            "units":"164",
-            "course":[]
+            "course":[],
+            "units":"164"
         },
         {
-            "units":"171),",
             "course":[
                 {
                     "sub":"EEMB",
@@ -293,14 +306,14 @@
                     "sub":"EEMB",
                     "number":"171"
                 }
-            ]
+            ],
+            "units":"171),"
         },
         {
-            "units":"both)",
-            "course":[]
+            "course":[],
+            "units":"both)"
         },
         {
-            "units":"121),",
             "course":[
                 [
                     {
@@ -317,40 +330,26 @@
                     },
                     "or"
                 ],
-                [
-                    {
-                        "sub":"EEMB",
-                        "number":"113"
-                    },
-                    {
-                        "sub":"EEMB",
-                        "number":"113L"
-                    },
-                    {
-                        "sub":"EEMB",
-                        "number":"127"
-                    },
-                    {
-                        "sub":"EEMB",
-                        "number":"131"
-                    }
-                ]
-            ]
+                {
+                    "sub":"MCDB",
+                    "number":"131"
+                }
+            ],
+            "units":"121),"
         },
         {
-            "units":"180",
             "course":[
                 [
                     "or"
                 ],
                 {
-                    "sub":"EEMB",
+                    "sub":"MCDB",
                     "number":"138"
                 }
-            ]
+            ],
+            "units":"180"
         },
         {
-            "units":"134,",
             "course":[
                 {
                     "sub":"EEMB",
@@ -380,14 +379,14 @@
                     "sub":"EEMB",
                     "number":"127"
                 }
-            ]
+            ],
+            "units":"134,"
         },
         {
-            "units":"131",
-            "course":[]
+            "course":[],
+            "units":"131"
         },
         {
-            "units":"170",
             "course":[
                 {
                     "sub":"MCDB",
@@ -449,11 +448,12 @@
                     "sub":"EEMB",
                     "number":"142CL"
                 }
-            ]
+            ],
+            "units":"170"
         },
         {
-            "units":"units",
-            "course":[]
+            "course":[],
+            "units":"units"
         }
     ]
 }

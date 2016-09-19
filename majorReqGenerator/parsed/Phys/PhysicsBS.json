@@ -3,10 +3,8 @@
     "geType":"BS",
     "ChoiceCourse":[
         {
-            "units":"17-23",
             "course":[
                 {
-                    "units":24,
                     "course":[
                         {
                             "sub":"PHYS",
@@ -32,10 +30,10 @@
                             "sub":"PHYS",
                             "number":"25"
                         }
-                    ]
+                    ],
+                    "units":24
                 },
                 {
-                    "units":17,
                     "course":[
                         {
                             "sub":"PHYS",
@@ -57,15 +55,15 @@
                             "sub":"PHYS",
                             "number":"5"
                         }
-                    ]
+                    ],
+                    "units":17
                 }
-            ]
+            ],
+            "units":"17-23"
         },
         {
-            "units":"3-6",
             "course":[
                 {
-                    "units":2,
                     "course":[
                         {
                             "sub":"PHYS",
@@ -76,7 +74,6 @@
                             "number":"4L"
                         },
                         {
-                            "units":-1,
                             "course":[
                                 {
                                     "sub":"PHYS",
@@ -86,12 +83,13 @@
                                     "sub":"PHYS",
                                     "number":"25L"
                                 }
-                            ]
+                            ],
+                            "units":-1
                         }
-                    ]
+                    ],
+                    "units":2
                 },
                 {
-                    "units":6,
                     "course":[
                         {
                             "sub":"PHYS",
@@ -105,12 +103,13 @@
                             "sub":"PHYS",
                             "number":"13CH"
                         }
-                    ]
+                    ],
+                    "units":6
                 }
-            ]
+            ],
+            "units":"3-6"
         },
         {
-            "units":"24",
             "course":[
                 {
                     "sub":"MATH",
@@ -136,10 +135,10 @@
                     "sub":"MATH",
                     "number":"6B"
                 }
-            ]
+            ],
+            "units":"24"
         },
         {
-            "units":"6",
             "course":[
                 {
                     "sub":"CHEM",
@@ -159,24 +158,24 @@
                     "sub":"CHEM",
                     "number":"2B"
                 }
-            ]
+            ],
+            "units":"6"
         },
         {
-            "units":"3-4",
             "course":{
                 "sub":"PHYS",
                 "number":"101"
-            }
+            },
+            "units":"3-4"
         },
         {
-            "units":"3-4",
             "course":{
                 "sub":"PHYS",
                 "number":"104"
-            }
+            },
+            "units":"3-4"
         },
         {
-            "units":"8",
             "course":[
                 {
                     "sub":"PHYS",
@@ -186,10 +185,10 @@
                     "sub":"PHYS",
                     "number":"110B"
                 }
-            ]
+            ],
+            "units":"8"
         },
         {
-            "units":"12",
             "course":[
                 {
                     "sub":"PHYS",
@@ -203,31 +202,31 @@
                     "sub":"PHYS",
                     "number":"115C"
                 }
-            ]
+            ],
+            "units":"12"
         },
         {
-            "units":"3-4",
             "course":{
                 "sub":"PHYS",
                 "number":"119A"
-            }
+            },
+            "units":"3-4"
         },
         {
-            "units":"4",
             "course":{
                 "sub":"PHYS",
                 "number":"127AL"
-            }
+            },
+            "units":"4"
         },
         {
-            "units":"3-4",
             "course":{
                 "sub":"PHYS",
                 "number":"128AL"
-            }
+            },
+            "units":"3-4"
         },
         {
-            "units":"3-4",
             "course":[
                 {
                     "sub":"PHYS",
@@ -243,10 +242,10 @@
                         "number":"134L"
                     }
                 ]
-            ]
+            ],
+            "units":"3-4"
         },
         {
-            "units":"10",
             "course":[
                 {
                     "sub":"PHYS",
@@ -276,7 +275,8 @@
                     "sub":"PHYS",
                     "number":"199"
                 }
-            ]
+            ],
+            "units":"10"
         }
     ]
 }

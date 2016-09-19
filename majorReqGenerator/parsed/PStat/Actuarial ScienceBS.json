@@ -3,7 +3,6 @@
     "geType":"BS",
     "ChoiceCourse":[
         {
-            "units":"13",
             "course":[
                 {
                     "sub":"MATH",
@@ -17,19 +16,18 @@
                     "sub":"MATH",
                     "number":"8"
                 }
-            ]
+            ],
+            "units":"13"
         },
         {
-            "units":"4",
             "course":{
                 "sub":"CMPSC",
                 "number":"16"
-            }
+            },
+            "units":"4"
         },
         {
-            "units":"4",
             "course":{
-                "units":-1,
                 "course":[
                     {
                         "sub":"WRIT",
@@ -39,25 +37,26 @@
                         "sub":"WRIT",
                         "number":"107B"
                     }
-                ]
-            }
+                ],
+                "units":-1
+            },
+            "units":"4"
         },
         {
-            "units":"follows:",
-            "course":[]
+            "course":[],
+            "units":"follows:"
         },
         {
-            "units":"12",
             "course":[
                 {
                     "sub":"PSTAT",
                     "number":"120A"
                 },
                 []
-            ]
+            ],
+            "units":"12"
         },
         {
-            "units":"8",
             "course":[
                 {
                     "sub":"PSTAT",
@@ -67,14 +66,14 @@
                     "sub":"PSTAT",
                     "number":"160A"
                 }
-            ]
+            ],
+            "units":"8"
         },
         {
-            "units":"8",
-            "course":[]
+            "course":[],
+            "units":"8"
         },
         {
-            "units":"117,",
             "course":[
                 {
                     "sub":"MATH",
@@ -88,7 +87,8 @@
                     "sub":"MATH",
                     "number":"104C"
                 }
-            ]
+            ],
+            "units":"117,"
         }
     ]
 }

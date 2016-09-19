@@ -3,7 +3,6 @@
     "geType":"BS",
     "ChoiceCourse":[
         {
-            "units":"15",
             "course":[
                 {
                     "sub":"CHEM",
@@ -31,10 +30,10 @@
                     "sub":"CHEM",
                     "number":"2B"
                 }
-            ]
+            ],
+            "units":"15"
         },
         {
-            "units":"16",
             "course":[
                 {
                     "sub":"MCDB",
@@ -68,10 +67,10 @@
                     "sub":"EEMB",
                     "number":"2L"
                 }
-            ]
+            ],
+            "units":"16"
         },
         {
-            "units":"18",
             "course":[
                 [
                     {
@@ -84,10 +83,10 @@
                     }
                 ],
                 []
-            ]
+            ],
+            "units":"18"
         },
         {
-            "units":"8",
             "course":[
                 {
                     "sub":"MATH",
@@ -107,14 +106,13 @@
                     "sub":"MATH",
                     "number":"34B"
                 }
-            ]
+            ],
+            "units":"8"
         },
         {
-            "units":"5",
             "course":[
                 [
                     {
-                        "units":-1,
                         "course":[
                             {
                                 "sub":"PSTAT",
@@ -124,7 +122,8 @@
                                 "sub":"PSTAT",
                                 "number":"5A"
                             }
-                        ]
+                        ],
+                        "units":-1
                     },
                     {
                         "sub":"MATH",
@@ -132,10 +131,10 @@
                     }
                 ],
                 "or"
-            ]
+            ],
+            "units":"5"
         },
         {
-            "units":"12",
             "course":[
                 {
                     "sub":"PHYS",
@@ -149,25 +148,25 @@
                     "sub":"PHYS",
                     "number":"6B"
                 }
-            ]
+            ],
+            "units":"12"
         },
         {
-            "units":"48",
-            "course":[]
+            "course":[],
+            "units":"48"
         },
         {
-            "units":"departmen",
-            "course":[]
+            "course":[],
+            "units":"departmen"
         },
         {
-            "units":"101B",
             "course":{
                 "sub":"MCDB",
                 "number":"101A"
-            }
+            },
+            "units":"101B"
         },
         {
-            "units":"108C",
             "course":[
                 {
                     "sub":"MCDB",
@@ -177,14 +176,14 @@
                     "sub":"MCDB",
                     "number":"108B"
                 }
-            ]
+            ],
+            "units":"108C"
         },
         {
-            "units":"103",
-            "course":[]
+            "course":[],
+            "units":"103"
         },
         {
-            "units":"153",
             "course":[
                 {
                     "sub":"MCDB",
@@ -194,17 +193,17 @@
                     "sub":"MCDB",
                     "number":"118"
                 }
-            ]
+            ],
+            "units":"153"
         },
         {
-            "units":"112L",
             "course":{
                 "sub":"MCDB",
                 "number":"103L"
-            }
+            },
+            "units":"112L"
         },
         {
-            "units":"126BL",
             "course":[
                 {
                     "sub":"MCDB",
@@ -234,10 +233,10 @@
                     "sub":"MCDB",
                     "number":"126B"
                 }
-            ]
+            ],
+            "units":"126BL"
         },
         {
-            "units":"161L",
             "course":[
                 {
                     "sub":"MCDB",
@@ -259,14 +258,15 @@
                     "sub":"MCDB",
                     "number":"140L"
                 }
-            ]
+            ],
+            "units":"161L"
         },
         {
-            "units":"48",
             "course":{
                 "sub":"CHEM",
                 "number":"161"
-            }
+            },
+            "units":"48"
         }
     ]
 }

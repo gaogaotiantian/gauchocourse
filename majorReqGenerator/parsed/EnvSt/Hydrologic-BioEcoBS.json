@@ -3,30 +3,22 @@
     "geType":"BS",
     "ChoiceCourse":[
         {
-            "units":"or",
-            "course":[
-                {
-                    "sub":"CH ST",
-                    "number":"144"
-                },
-                {
-                    "sub":"EEMB",
-                    "number":"120"
-                },
-                []
-            ]
+            "course":{
+                "sub":"EEMB",
+                "number":"120"
+            },
+            "units":"or"
         },
         {
-            "units":"176,",
             "course":[
                 [
                     []
                 ],
                 []
-            ]
+            ],
+            "units":"176,"
         },
         {
-            "units":"176B,",
             "course":[
                 {
                     "sub":"EEMB",
@@ -48,11 +40,12 @@
                     "sub":"EEMB",
                     "number":"153"
                 }
-            ]
+            ],
+            "units":"176B,"
         },
         {
-            "units":"simultaneously",
-            "course":[]
+            "course":[],
+            "units":"simultaneously"
         }
     ]
 }

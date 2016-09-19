@@ -3,29 +3,28 @@
     "geType":"BS",
     "ChoiceCourse":[
         {
-            "units":"120",
-            "course":[]
+            "course":[],
+            "units":"120"
         },
         {
-            "units":"121)",
             "course":{
                 "sub":"EEMB",
                 "number":"131"
-            }
+            },
+            "units":"121)"
         },
         {
-            "units":"101A",
             "course":{
                 "sub":"EEMB",
                 "number":"129"
-            }
+            },
+            "units":"101A"
         },
         {
-            "units":"146",
-            "course":[]
+            "course":[],
+            "units":"146"
         },
         {
-            "units":"116",
             "course":[
                 {
                     "sub":"EEMB",
@@ -39,10 +38,10 @@
                     "sub":"EEMB",
                     "number":"113L"
                 }
-            ]
+            ],
+            "units":"116"
         },
         {
-            "units":"165",
             "course":[
                 {
                     "sub":"EEMB",
@@ -60,10 +59,10 @@
                     "sub":"EEMB",
                     "number":"157"
                 }
-            ]
+            ],
+            "units":"165"
         },
         {
-            "units":"163",
             "course":[
                 [
                     {
@@ -92,14 +91,11 @@
                     },
                     "or"
                 ],
-                {
-                    "sub":"EEMB",
-                    "number":"140"
-                }
-            ]
+                []
+            ],
+            "units":"163"
         },
         {
-            "units":"151H",
             "course":[
                 [
                     {
@@ -161,14 +157,15 @@
                         "number":"151"
                     }
                 ]
-            ]
+            ],
+            "units":"151H"
         },
         {
-            "units":"102",
             "course":{
                 "sub":"EEMB",
                 "number":"101"
-            }
+            },
+            "units":"102"
         }
     ]
 }
