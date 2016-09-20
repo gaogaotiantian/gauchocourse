@@ -301,7 +301,7 @@ class MajorReqParser(object):
 
         result = OrderedDict()
         result["major"] = "Physics BS"
-        result["getType"] = "LSBS"
+        result["geType"] = "LSBS"
         result["ChoiceCourse"]=lineDictList
         
         # print(json.dumps(result, indent=4, separators=(',', ':')))
