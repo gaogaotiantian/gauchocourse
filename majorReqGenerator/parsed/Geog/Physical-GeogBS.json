@@ -1,6 +1,6 @@
 {
-    "major":"Physical-Geog",
-    "geType":"BS",
+    "major":"Physics BS",
+    "getType":"LSBS",
     "ChoiceCourse":[
         {
             "course":[
@@ -97,26 +97,31 @@
             "units":"5"
         },
         {
-            "course":[
-                {
-                    "sub":"CHEM",
-                    "number":"1A"
-                },
-                [
-                    {
-                        "sub":"CHEM",
-                        "number":"1AL"
-                    },
-                    {
-                        "sub":"CHEM",
-                        "number":"2A"
-                    }
+            "course":{
+                "course":[
+                    [
+                        {
+                            "sub":"CHEM",
+                            "number":"1A"
+                        },
+                        {
+                            "sub":"CHEM",
+                            "number":"1AL"
+                        }
+                    ],
+                    [
+                        {
+                            "sub":"CHEM",
+                            "number":"2A"
+                        },
+                        {
+                            "sub":"CHEM",
+                            "number":"2AC"
+                        }
+                    ]
                 ],
-                {
-                    "sub":"CHEM",
-                    "number":"2AC"
-                }
-            ],
+                "units":5
+            },
             "units":"4"
         },
         {
@@ -179,10 +184,6 @@
                     "number":"3L"
                 },
                 {
-                    "sub":"CMPSC",
-                    "number":"2"
-                },
-                {
                     "sub":"ASTRO",
                     "number":"1"
                 },
@@ -211,16 +212,10 @@
         },
         {
             "course":[
-                [
-                    {
-                        "sub":"CMPSC",
-                        "number":"8"
-                    },
-                    {
-                        "sub":"GEOG",
-                        "number":"12"
-                    }
-                ],
+                {
+                    "sub":"GEOG",
+                    "number":"12"
+                },
                 []
             ],
             "units":"courses"

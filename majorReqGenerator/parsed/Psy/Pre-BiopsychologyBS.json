@@ -1,6 +1,6 @@
 {
-    "major":"Pre-Biopsychology",
-    "geType":"BS",
+    "major":"Physics BS",
+    "getType":"LSBS",
     "ChoiceCourse":[
         {
             "course":[
@@ -8,16 +8,14 @@
                     "sub":"PSY",
                     "number":"1"
                 },
-                [
-                    {
-                        "sub":"MATH",
-                        "number":"34A"
-                    },
-                    {
-                        "sub":"MATH",
-                        "number":"3A"
-                    }
-                ],
+                {
+                    "sub":"MATH",
+                    "number":"34A"
+                },
+                {
+                    "sub":"MATH",
+                    "number":"3A"
+                },
                 {
                     "sub":"PSTAT",
                     "number":"5A"
@@ -114,7 +112,7 @@
                         "number":"3B"
                     }
                 ],
-                "units":-1
+                "units":"4"
             },
             "units":"4"
         }

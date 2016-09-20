@@ -1,6 +1,6 @@
 {
-    "major":"Statistics",
-    "geType":"BS",
+    "major":"Physics BS",
+    "getType":"LSBS",
     "ChoiceCourse":[
         {
             "course":[
@@ -37,10 +37,9 @@
             "units":"9"
         },
         {
-            "course":{
-                "sub":"CMPSC",
-                "number":"16"
-            },
+            "course":[
+                []
+            ],
             "units":"4"
         },
         {

@@ -1,6 +1,6 @@
 {
-    "major":"Mathematical-Sciences",
-    "geType":"BS",
+    "major":"Physics BS",
+    "getType":"LSBS",
     "ChoiceCourse":[
         {
             "course":[
@@ -49,45 +49,24 @@
             "units":"5"
         },
         {
-            "course":[
-                {
-                    "sub":"CMPSC",
-                    "number":"8"
-                },
-                {
-                    "sub":"CMPSC",
-                    "number":"16"
-                },
-                {
-                    "sub":"ENGR",
-                    "number":"3"
-                }
-            ],
+            "course":[],
             "units":"3-4"
         },
         {
-            "course":{
-                "course":[
-                    {
-                        "course":[
-                            {
-                                "sub":"PHYS",
-                                "number":"1"
-                            },
-                            {
-                                "sub":"PHYS",
-                                "number":"6A"
-                            }
-                        ],
-                        "units":-1
-                    },
-                    {
-                        "sub":"PHYS",
-                        "number":"21"
-                    }
-                ],
-                "units":-1
-            },
+            "course":[
+                {
+                    "sub":"PHYS",
+                    "number":"1"
+                },
+                {
+                    "sub":"PHYS",
+                    "number":"6A"
+                },
+                {
+                    "sub":"PHYS",
+                    "number":"21"
+                }
+            ],
             "units":"3-4"
         },
         {
@@ -139,7 +118,7 @@
                         "number":"118C"
                     }
                 ],
-                "units":-1
+                "units":"4"
             },
             "units":"4"
         },
@@ -155,7 +134,7 @@
                         "number":"147A"
                     }
                 ],
-                "units":-1
+                "units":"4"
             },
             "units":"4"
         },

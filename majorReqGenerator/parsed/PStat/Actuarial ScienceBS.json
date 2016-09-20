@@ -1,6 +1,6 @@
 {
-    "major":"Actuarial Science",
-    "geType":"BS",
+    "major":"Physics BS",
+    "getType":"LSBS",
     "ChoiceCourse":[
         {
             "course":[
@@ -20,10 +20,9 @@
             "units":"13"
         },
         {
-            "course":{
-                "sub":"CMPSC",
-                "number":"16"
-            },
+            "course":[
+                []
+            ],
             "units":"4"
         },
         {
@@ -38,7 +37,7 @@
                         "number":"107B"
                     }
                 ],
-                "units":-1
+                "units":"4"
             },
             "units":"4"
         },

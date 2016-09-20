@@ -1,6 +1,6 @@
 {
-    "major":"Financial-Math-Stat",
-    "geType":"BS",
+    "major":"Physics BS",
+    "getType":"LSBS",
     "ChoiceCourse":[
         {
             "course":[
@@ -49,20 +49,7 @@
             "units":"29"
         },
         {
-            "course":[
-                {
-                    "sub":"CMPSC",
-                    "number":"8"
-                },
-                {
-                    "sub":"CMPSC",
-                    "number":"16"
-                },
-                {
-                    "sub":"ENGR",
-                    "number":"3"
-                }
-            ],
+            "course":[],
             "units":"3-4"
         },
         {
@@ -99,7 +86,10 @@
                     "sub":"PSTAT",
                     "number":"120A"
                 },
-                []
+                {
+                    "sub":"EEMB",
+                    "number":"126"
+                }
             ],
             "units":"20"
         },

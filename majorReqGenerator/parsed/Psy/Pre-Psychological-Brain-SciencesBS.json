@@ -1,6 +1,6 @@
 {
-    "major":"Pre-Psychological-Brain-Sciences",
-    "geType":"BS",
+    "major":"Physics BS",
+    "getType":"LSBS",
     "ChoiceCourse":[
         {
             "course":[
@@ -8,16 +8,14 @@
                     "sub":"PSY",
                     "number":"1"
                 },
-                [
-                    {
-                        "sub":"MATH",
-                        "number":"34A"
-                    },
-                    {
-                        "sub":"MATH",
-                        "number":"3A"
-                    }
-                ],
+                {
+                    "sub":"MATH",
+                    "number":"34A"
+                },
+                {
+                    "sub":"MATH",
+                    "number":"3A"
+                },
                 {
                     "sub":"PSTAT",
                     "number":"5A"
@@ -32,28 +30,21 @@
         {
             "course":[
                 {
-                    "course":[
-                        {
-                            "sub":"CHEM",
-                            "number":"1A"
-                        },
-                        {
-                            "sub":"CHEM",
-                            "number":"2A"
-                        }
-                    ],
-                    "units":-1
+                    "sub":"CHEM",
+                    "number":"1A"
                 },
-                [
-                    {
-                        "sub":"CHEM",
-                        "number":"1B"
-                    },
-                    {
-                        "sub":"CHEM",
-                        "number":"2B"
-                    }
-                ]
+                {
+                    "sub":"CHEM",
+                    "number":"2A"
+                },
+                {
+                    "sub":"CHEM",
+                    "number":"1B"
+                },
+                {
+                    "sub":"CHEM",
+                    "number":"2B"
+                }
             ],
             "units":"6"
         },

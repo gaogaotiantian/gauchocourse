@@ -1,6 +1,6 @@
 {
-    "major":"Physics",
-    "geType":"BS",
+    "major":"Physics BS",
+    "getType":"LSBS",
     "ChoiceCourse":[
         {
             "course":[
@@ -84,7 +84,7 @@
                                     "number":"25L"
                                 }
                             ],
-                            "units":-1
+                            "units":"2"
                         }
                     ],
                     "units":2
@@ -139,26 +139,31 @@
             "units":"24"
         },
         {
-            "course":[
-                {
-                    "sub":"CHEM",
-                    "number":"1A"
-                },
-                [
-                    {
-                        "sub":"CHEM",
-                        "number":"1B"
-                    },
-                    {
-                        "sub":"CHEM",
-                        "number":"2A"
-                    }
+            "course":{
+                "course":[
+                    [
+                        {
+                            "sub":"CHEM",
+                            "number":"1A"
+                        },
+                        {
+                            "sub":"CHEM",
+                            "number":"1B"
+                        }
+                    ],
+                    [
+                        {
+                            "sub":"CHEM",
+                            "number":"2A"
+                        },
+                        {
+                            "sub":"CHEM",
+                            "number":"2B"
+                        }
+                    ]
                 ],
-                {
-                    "sub":"CHEM",
-                    "number":"2B"
-                }
-            ],
+                "units":6
+            },
             "units":"6"
         },
         {
@@ -232,16 +237,14 @@
                     "sub":"PHYS",
                     "number":"127BL"
                 },
-                [
-                    {
-                        "sub":"PHYS",
-                        "number":"128BL"
-                    },
-                    {
-                        "sub":"PHYS",
-                        "number":"134L"
-                    }
-                ]
+                {
+                    "sub":"PHYS",
+                    "number":"128BL"
+                },
+                {
+                    "sub":"PHYS",
+                    "number":"134L"
+                }
             ],
             "units":"3-4"
         },
