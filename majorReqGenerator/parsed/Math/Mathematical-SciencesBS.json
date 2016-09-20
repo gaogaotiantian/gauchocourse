@@ -1,6 +1,6 @@
 {
     "major":"Physics BS",
-    "getType":"LSBS",
+    "geType":"LSBS",
     "ChoiceCourse":[
         {
             "course":[
@@ -49,7 +49,10 @@
             "units":"5"
         },
         {
-            "course":[],
+            "course":{
+                "sub":"ENGR",
+                "number":"3"
+            },
             "units":"3-4"
         },
         {
