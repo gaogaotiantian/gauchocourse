@@ -320,8 +320,10 @@ class MajorReqParser(object):
         # for line in self.reqList:
             # print(line)
         print('\n\n\n\n')
+
     def guessUnits(self,courseDict):
         pass
+
     def RECParseOneLine(self,text):
         req = []
         print("Rec: ", text)
@@ -655,12 +657,13 @@ for dept in os.listdir('txt'):
                 # print(major,'   ',parsedTXTDir,'    ')
                 makeNewDirIfNecessary(parsedTXTDir)
                 parsedTXT = open(parsedTXTPath,'wt')
-                try:
-                    JSON = parser.ParseOneMajor(txtPath)
-                    parsedTXT.write(JSON)
-                except:
-                    print(major)
-                parsedTXT.close()
+                # try:
+                print(txtPath)
+                # JSON = print(parser.ParseOneMajor(txtPath))
+                # parsedTXT.write(JSON)
+                # except:
+                    # print(major)
+                # parsedTXT.close()
                 # print(parsedTXTDir)
                 # print(fileName)
 
