@@ -119,8 +119,11 @@ class MajorReqParser(object):
         # a.append(reqTXT)
         # print(a)
         
-
-        reqTXT = reqTXT.split('UNITS YET TO COMPLETE')[1]
+        print(self.major)
+        try:
+            reqTXT = reqTXT.split('UNITS YET TO COMPLETE')[1]
+        except:
+            reqTXT = reqTXT.split('UNITS TO COMPLETE')[1]
         reqTXT = reqTXT.split('Elective courses taken')[0]
         reqTXTList = re.split(r'\n',reqTXT)
         # print('Before cleaning: ',reqTXT)
@@ -682,7 +685,7 @@ for dept in os.listdir('txt'):
 
 if needSuperLong == True:
     path = 'SuperLongJson.json'
-    makeNewDirIfNecessary('SuperLongJson.json')
+    # makeNewDirIfNecessary('SuperLongJson.json')
     longJson = open(path,'wt')
     longJson.write(SuperLongJson)
         # makeNewDirIfNecessary(txtDir)
