@@ -642,7 +642,7 @@ print(parser.ParseOneMajor('txt/Phys/Physics-BS_2016.txt'))
 WCD = os.getcwd()
 
 deptNamePatt = re.compile(r'(.*)[-_]BF?[AS]')
-SuperLongJson = ''
+SuperLongJson = []
 
 needSuperLong = True
 
@@ -677,7 +677,7 @@ for dept in os.listdir('txt'):
                     print(major)
                 else:
                     if needSuperLong == True:
-                        SuperLongJson += result
+                        SuperLongJson.append(result)
                     else:
                         parsedTXT.write(result)
                 parsedTXT.close()
@@ -687,7 +687,7 @@ if needSuperLong == True:
     path = 'SuperLongJson.json'
     # makeNewDirIfNecessary('SuperLongJson.json')
     longJson = open(path,'wt')
-    longJson.write(SuperLongJson)
+    longJson.write(json.dumps(SuperLongJson, indent=4, separators=(',', ':')))
         # makeNewDirIfNecessary(txtDir)
         # newTXT = open(txtPath,'wt')
         # newTXT.write(parser.from_file(pdfPath)['content'])

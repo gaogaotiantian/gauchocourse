@@ -1,2 +1,15 @@
 *pdf
 #majorReqGenerator/txt/
+majorReqGenerator/newtest.txt
+majorReqGenerator/aluba.txt
+majorReqGenerator/coetest.txt
+majorReqGenerator/out.json
+majorReqGenerator/out.txt
+majorReqGenerator/reqDb.py
+majorReqGenerator/reqGenerator.py
+majorReqGenerator/reqORM.py
+majorReqGenerator/req_old.py
+majorReqGenerator/reqtemp.py
+majorReqGenerator/temp.py
+majorReqGenerator/test.txt
+majorReqGenerator/walk.txt
