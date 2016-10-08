@@ -61,10 +61,13 @@ class dept2AbbrevMap:
 
                 #print('sub:', courseStrList['sub'])
                 #print('VALUES', self.courseByDeptDict[courseStrList['sub']].values())
-                if courseStrList['number'] not in self.courseByDeptDict[courseStrList['sub']].keys():
-                    units = 4
-                else:
-                    units = self.courseByDeptDict[self.map2Abrrev(courseStrList['sub'])][str(courseStrList['number']).upper()]["units"]
+                try:
+                    if courseStrList['number'] not in self.courseByDeptDict[courseStrList['sub']].keys():
+                        units = 4
+                    else:
+                        units = self.courseByDeptDict[self.map2Abrrev(courseStrList['sub'])][str(courseStrList['number']).upper()]["units"]
+                except:
+                    return 0
             # print('Recieveing: ',courseStrList, 'units: ', units)
             return units
         else:
@@ -664,7 +667,9 @@ for dept in os.listdir('txt'):
                 print(parsedTXTPath)
                 parsedTXT = open(parsedTXTPath,'wt')
                 # print(txtPath)
+
                 result = parser.ParseOneMajor(txtPath)
+                print(result)
                 if result == None:
                     print(major)
                 else:
