@@ -311,8 +311,10 @@ class MajorReqParser(object):
         result["ChoiceCourse"]=lineDictList
         
         # print(json.dumps(result, indent=4, separators=(',', ':')))
-        return(json.dumps(result, indent=4, separators=(',', ':')))
-
+        
+        ##############################
+        # return(json.dumps(result, indent=4, separators=(',', ':')))
+        return result
         # print("\n\n\n\n\n")
 
         # print(lineDictList)
