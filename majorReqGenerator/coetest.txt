@@ -1,0 +1,476 @@
+50  •  mAjor reqUiremenTS
+  PREPARATION FOR THE MAJOR  53
+CMPSC 16  4
+CMPSC 24  4
+CMPSC 32  4
+CMPSC 40  5
+CMPSC 48  4
+CMPSC 56  4
+CMPSC 64  4
+MATH 3A-B, 4A-B, 6A 20
+PSTAT 120A 4
+  UPPER DIVISION MAJOR   63
+CMPSC 111 or 140 4
+CMPSC 130A-B 8
+CMPSC 138  4
+CMPSC 154  4
+CMPSC 160  4
+CMPSC 162  4
+CMPSC 170  4
+ENGR 101 3
+PSTAT 120B 4
+Major Field Electives 24
+(selected from the following list (at least 8 units must be CMPSC courses))
+CMPSC 111 CMPSC 185 MATH 119A-B
+CMPSC 140 CMPSC 189 A-B MATH 124A-B
+CMPSC/ECE 153A CMPSC 190 AA-ZZ PSTAT 122  
+CMPSC 165A-B CMPSC 1922 PSTAT 130 
+CMPSC 171/ECE 151 CMPSC 196 PSTAT 160A-B
+CMPSC 174A ECE 130A-B-C 
+CMPSC 176A-B-C ECE 152A 
+CMPSC 177 ECE 153B   
+CMPSC 178 ECE 160 
+CMPSC 180 ECE 178 
+CMPSC 181B/ECE 181B MATH 108A-B
+
+
+
+
+
+
+
+
+
+[' 24', '', 'CMPSC 111 CMPSC 185 MATH 119A-B', 'CMPSC 140 CMPSC 189 A-B MATH 124A-B', 'CMPSC/ECE 153A CMPSC 190 AA-ZZ PSTAT 122  ', 'CMPSC 165A-B CMPSC 1922 PSTAT 130 ', 'CMPSC 171/ECE 151 CMPSC 196 PSTAT 160A-B', 'CMPSC 174A ECE 130A-B-C ', 'CMPSC 176A-B-C ECE 152A ', 'CMPSC 177 ECE 153B   ', 'CMPSC 178 ECE 160 ', 'CMPSC 180 ECE 178 ', 'CMPSC 181B/ECE 181B MATH 108A-B']
+
+
+
+
+
+['53', 'CMPSC 16  4', 'CMPSC 24  4', 'CMPSC 32  4', 'CMPSC 40  5', 'CMPSC 48  4', 'CMPSC 56  4', 'CMPSC 64  4', 'MATH 3A-B, 4A-B, 6A 20', 'PSTAT 120A 4', '63', 'CMPSC 111 or 140 4', 'CMPSC 130A-B 8', 'CMPSC 138  4', 'CMPSC 154  4', 'CMPSC 160  4', 'CMPSC 162  4', 'CMPSC 170  4', 'ENGR 101 3', 'PSTAT 120B 4', '']
+
+
+
+
+
+
+
+
+52  •  mAjor reqUiremenTS
+TOTAL UNITS REQUIRED FOR GRADUATION .....189
+ELECTRICAL ENGINEERING 2016-17 
+  PREPARATION FOR THE MAJOR  79
+CHEM 1A, 1AL or 2A, 2AC 5
+CMPSC 16 4
+ECE 5 4
+ECE 10A, 10AL, 10B, 10BL, 10C, 10CL 15
+ECE 15A 4
+ENGR 3 3 
+MATH 3A-B, 4A-B, 6A-B 24
+PHYS 1, 2, 3, 3L, 4, 4L, 5, 5L 20
+UPPER DIVISION MAJOR   68
+ECE 130A-B 8
+ECE 132 4
+ECE 134 4
+ECE 137A-B 8
+ECE 139 4
+ECE 152A 5
+ENGR 101 3
+the following list: 32
+Must include at least 2 sequences, one of which must be an 
+ECE 120A-B ECE 147A-B-C ECE 179D, P
+ECE 122A-B ECE 148 ECE 181B
+ECE 123 ECE 150 ECE 183
+ECE 125 ECE 153A-B ECE 188A-B-C
+ECE 130C ECE 154A-B ECE 192 or 196 (4 units combined max) 
+ECE 135 ECE 155A-B ECE 194AA-ZZ(excluding ECE 194R) 
+ECE 141A-B ECE 156A-B TMP 120, 122
+ECE 142 ECE 158     (1 course max)
+ECE 144 ECE 160 MATRL 100A, C
+ECE 145A-B-C ECE 162A-B-C MATRL 100B or MATRL 101
+ECE 146A-B ECE 178 MATRL 162A-B
+
+
+
+
+
+
+
+Iter:  ['79']
+It's a course ECE 79
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '79')])
+After One Word, dept:  ECE 
+
+    parsed:  [OrderedDict([('sub', 'ECE'), ('number', '79')]), '']
+
+Iter:  ['CHEM', '1A', '1AL', 'or', '2A', '2AC', '5']
+CHEM
+After One Word, dept:  CHEM 
+
+It's a course CHEM 1A
+CHEM
+OrderedDict([('sub', 'CHEM'), ('number', '1A')])
+After One Word, dept:  CHEM 
+
+It's a course CHEM 1AL
+CHEM
+OrderedDict([('sub', 'CHEM'), ('number', '1AL')])
+After One Word, dept:  CHEM 
+
+end with OR
+OR between words
+CHEM
+OrderedDict([('sub', 'CHEM'), ('number', '2A')])
+After One Word, dept:  CHEM 
+
+It's a course CHEM 2AC
+CHEM
+OrderedDict([('sub', 'CHEM'), ('number', '2AC')])
+After One Word, dept:  CHEM 
+
+It's a course CHEM 5
+CHEM
+OrderedDict([('sub', 'CHEM'), ('number', '5')])
+After One Word, dept:  CHEM 
+
+    parsed:  [[OrderedDict([('sub', 'CHEM'), ('number', '1A')]), [OrderedDict([('sub', 'CHEM'), ('number', '1AL')]), OrderedDict([('sub', 'CHEM'), ('number', '2A')])], OrderedDict([('sub', 'CHEM'), ('number', '2AC')]), OrderedDict([('sub', 'CHEM'), ('number', '5')])], '']
+
+Iter:  ['CMPSC', '16', '4']
+CMPSC
+After One Word, dept:  CMPSC 
+
+It's a course CMPSC 16
+CMPSC
+OrderedDict([('sub', 'CMPSC'), ('number', '16')])
+After One Word, dept:  CMPSC 
+
+It's a course CMPSC 4
+CMPSC
+OrderedDict([('sub', 'CMPSC'), ('number', '4')])
+After One Word, dept:  CMPSC 
+
+    parsed:  [[OrderedDict([('sub', 'CMPSC'), ('number', '16')]), OrderedDict([('sub', 'CMPSC'), ('number', '4')])], '']
+
+Iter:  ['ECE', '5', '4']
+ECE
+After One Word, dept:  ECE 
+
+It's a course ECE 5
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '5')])
+After One Word, dept:  ECE 
+
+It's a course ECE 4
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '4')])
+After One Word, dept:  ECE 
+
+    parsed:  [[OrderedDict([('sub', 'ECE'), ('number', '5')]), OrderedDict([('sub', 'ECE'), ('number', '4')])], '']
+
+Iter:  ['ECE', '10A', '10AL', '10B', '10BL', '10C', '10CL', '15']
+ECE
+After One Word, dept:  ECE 
+
+It's a course ECE 10A
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '10A')])
+After One Word, dept:  ECE 
+
+It's a course ECE 10AL
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '10AL')])
+After One Word, dept:  ECE 
+
+It's a course ECE 10B
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '10B')])
+After One Word, dept:  ECE 
+
+It's a course ECE 10BL
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '10BL')])
+After One Word, dept:  ECE 
+
+It's a course ECE 10C
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '10C')])
+After One Word, dept:  ECE 
+
+It's a course ECE 10CL
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '10CL')])
+After One Word, dept:  ECE 
+
+It's a course ECE 15
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '15')])
+After One Word, dept:  ECE 
+
+    parsed:  [[OrderedDict([('sub', 'ECE'), ('number', '10A')]), OrderedDict([('sub', 'ECE'), ('number', '10AL')]), OrderedDict([('sub', 'ECE'), ('number', '10B')]), OrderedDict([('sub', 'ECE'), ('number', '10BL')]), OrderedDict([('sub', 'ECE'), ('number', '10C')]), OrderedDict([('sub', 'ECE'), ('number', '10CL')]), OrderedDict([('sub', 'ECE'), ('number', '15')])], '']
+
+Iter:  ['ECE', '15A', '4']
+ECE
+After One Word, dept:  ECE 
+
+It's a course ECE 15A
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '15A')])
+After One Word, dept:  ECE 
+
+It's a course ECE 4
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '4')])
+After One Word, dept:  ECE 
+
+    parsed:  [[OrderedDict([('sub', 'ECE'), ('number', '15A')]), OrderedDict([('sub', 'ECE'), ('number', '4')])], '']
+
+Iter:  ['ENGR', '3', '3']
+ENGR
+After One Word, dept:  ENGR 
+
+It's a course ENGR 3
+ENGR
+OrderedDict([('sub', 'ENGR'), ('number', '3')])
+After One Word, dept:  ENGR 
+
+It's a course ENGR 3
+ENGR
+OrderedDict([('sub', 'ENGR'), ('number', '3')])
+After One Word, dept:  ENGR 
+
+    parsed:  [[OrderedDict([('sub', 'ENGR'), ('number', '3')]), OrderedDict([('sub', 'ENGR'), ('number', '3')])], '']
+
+Iter:  ['MATH', '3A-B', '4A-B', '6A-B', '24']
+MATH
+After One Word, dept:  MATH 
+
+It's a course MATH 3A-B
+MATH
+OrderedDict([('sub', 'MATH'), ('number', '3A-B')])
+After One Word, dept:  MATH 
+
+It's a course MATH 4A-B
+MATH
+OrderedDict([('sub', 'MATH'), ('number', '4A-B')])
+After One Word, dept:  MATH 
+
+It's a course MATH 6A-B
+MATH
+OrderedDict([('sub', 'MATH'), ('number', '6A-B')])
+After One Word, dept:  MATH 
+
+It's a course MATH 24
+MATH
+OrderedDict([('sub', 'MATH'), ('number', '24')])
+After One Word, dept:  MATH 
+
+    parsed:  [[OrderedDict([('sub', 'MATH'), ('number', '3A-B')]), OrderedDict([('sub', 'MATH'), ('number', '4A-B')]), OrderedDict([('sub', 'MATH'), ('number', '6A-B')]), OrderedDict([('sub', 'MATH'), ('number', '24')])], '']
+
+Iter:  ['PHYS', '1', '2', '3', '3L', '4', '4L', '5', '5L', '20']
+PHYS
+After One Word, dept:  PHYS 
+
+It's a course PHYS 1
+PHYS
+OrderedDict([('sub', 'PHYS'), ('number', '1')])
+After One Word, dept:  PHYS 
+
+It's a course PHYS 2
+PHYS
+OrderedDict([('sub', 'PHYS'), ('number', '2')])
+After One Word, dept:  PHYS 
+
+It's a course PHYS 3
+PHYS
+OrderedDict([('sub', 'PHYS'), ('number', '3')])
+After One Word, dept:  PHYS 
+
+It's a course PHYS 3L
+PHYS
+OrderedDict([('sub', 'PHYS'), ('number', '3L')])
+After One Word, dept:  PHYS 
+
+It's a course PHYS 4
+PHYS
+OrderedDict([('sub', 'PHYS'), ('number', '4')])
+After One Word, dept:  PHYS 
+
+It's a course PHYS 4L
+PHYS
+OrderedDict([('sub', 'PHYS'), ('number', '4L')])
+After One Word, dept:  PHYS 
+
+It's a course PHYS 5
+PHYS
+OrderedDict([('sub', 'PHYS'), ('number', '5')])
+After One Word, dept:  PHYS 
+
+It's a course PHYS 5L
+PHYS
+OrderedDict([('sub', 'PHYS'), ('number', '5L')])
+After One Word, dept:  PHYS 
+
+It's a course PHYS 20
+PHYS
+OrderedDict([('sub', 'PHYS'), ('number', '20')])
+After One Word, dept:  PHYS 
+
+    parsed:  [[OrderedDict([('sub', 'PHYS'), ('number', '1')]), OrderedDict([('sub', 'PHYS'), ('number', '2')]), OrderedDict([('sub', 'PHYS'), ('number', '3')]), OrderedDict([('sub', 'PHYS'), ('number', '3L')]), OrderedDict([('sub', 'PHYS'), ('number', '4')]), OrderedDict([('sub', 'PHYS'), ('number', '4L')]), OrderedDict([('sub', 'PHYS'), ('number', '5')]), OrderedDict([('sub', 'PHYS'), ('number', '5L')]), OrderedDict([('sub', 'PHYS'), ('number', '20')])], '']
+
+Iter:  ['UPPER', 'DIVISION', 'MAJOR', '68']
+I don't know:  UPPER
+After One Word, dept:  ECE 
+
+I don't know:  DIVISION
+After One Word, dept:  ECE 
+
+end with OR
+OR between words
+ECE
+Iter:  ['ECE', '130A-B', '8']
+ECE
+After One Word, dept:  ECE 
+
+It's a course ECE 130A-B
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '130A-B')])
+After One Word, dept:  ECE 
+
+It's a course ECE 8
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '8')])
+After One Word, dept:  ECE 
+
+    parsed:  [[OrderedDict([('sub', 'ECE'), ('number', '130A-B')]), OrderedDict([('sub', 'ECE'), ('number', '8')])], '']
+
+Iter:  ['ECE', '132', '4']
+ECE
+After One Word, dept:  ECE 
+
+It's a course ECE 132
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '132')])
+After One Word, dept:  ECE 
+
+It's a course ECE 4
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '4')])
+After One Word, dept:  ECE 
+
+    parsed:  [[OrderedDict([('sub', 'ECE'), ('number', '132')]), OrderedDict([('sub', 'ECE'), ('number', '4')])], '']
+
+Iter:  ['ECE', '134', '4']
+ECE
+After One Word, dept:  ECE 
+
+It's a course ECE 134
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '134')])
+After One Word, dept:  ECE 
+
+It's a course ECE 4
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '4')])
+After One Word, dept:  ECE 
+
+    parsed:  [[OrderedDict([('sub', 'ECE'), ('number', '134')]), OrderedDict([('sub', 'ECE'), ('number', '4')])], '']
+
+Iter:  ['ECE', '137A-B', '8']
+ECE
+After One Word, dept:  ECE 
+
+It's a course ECE 137A-B
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '137A-B')])
+After One Word, dept:  ECE 
+
+It's a course ECE 8
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '8')])
+After One Word, dept:  ECE 
+
+    parsed:  [[OrderedDict([('sub', 'ECE'), ('number', '137A-B')]), OrderedDict([('sub', 'ECE'), ('number', '8')])], '']
+
+Iter:  ['ECE', '139', '4']
+ECE
+After One Word, dept:  ECE 
+
+It's a course ECE 139
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '139')])
+After One Word, dept:  ECE 
+
+It's a course ECE 4
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '4')])
+After One Word, dept:  ECE 
+
+    parsed:  [[OrderedDict([('sub', 'ECE'), ('number', '139')]), OrderedDict([('sub', 'ECE'), ('number', '4')])], '']
+
+Iter:  ['ECE', '152A', '5']
+ECE
+After One Word, dept:  ECE 
+
+It's a course ECE 152A
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '152A')])
+After One Word, dept:  ECE 
+
+It's a course ECE 5
+ECE
+OrderedDict([('sub', 'ECE'), ('number', '5')])
+After One Word, dept:  ECE 
+
+    parsed:  [[OrderedDict([('sub', 'ECE'), ('number', '152A')]), OrderedDict([('sub', 'ECE'), ('number', '5')])], '']
+
+Iter:  ['ENGR', '101', '3']
+ENGR
+After One Word, dept:  ENGR 
+
+It's a course ENGR 101
+ENGR
+OrderedDict([('sub', 'ENGR'), ('number', '101')])
+After One Word, dept:  ENGR 
+
+It's a course ENGR 3
+ENGR
+OrderedDict([('sub', 'ENGR'), ('number', '3')])
+After One Word, dept:  ENGR 
+
+    parsed:  [[OrderedDict([('sub', 'ENGR'), ('number', '101')]), OrderedDict([('sub', 'ENGR'), ('number', '3')])], '']
+
+Iter:  ['the', 'following', 'list:', '32']
+the
+After One Word, dept:  MATH 
+
+I don't know:  following
+After One Word, dept:  MATH 
+
+I don't know:  list:
+After One Word, dept:  MATH 
+
+It's a course MATH 32
+MATH
+OrderedDict([('sub', 'MATH'), ('number', '32')])
+After One Word, dept:  MATH 
+
+    parsed:  [OrderedDict([('sub', 'MATH'), ('number', '32')]), '']
+
+Iter:  []
+
+
+
+
+
+
+
+
+
+['', 'ECE 120A-B ECE 147A-B-C ECE 179D, P', 'ECE 122A-B ECE 148 ECE 181B', 'ECE 123 ECE 150 ECE 183', 'ECE 125 ECE 153A-B ECE 188A-B-C', 'ECE 130C ECE 154A-B ECE 192 or 196 (4 units combined max) ', 'ECE 135 ECE 155A-B ECE 194AA-ZZ(excluding ECE 194R) ', 'ECE 141A-B ECE 156A-B TMP 120, 122', 'ECE 142 ECE 158     (1 course max)', 'ECE 144 ECE 160 MATRL 100A, C', 'ECE 145A-B-C ECE 162A-B-C MATRL 100B or MATRL 101', 'ECE 146A-B ECE 178 MATRL 162A-B']
+
+
+
+
+
+['79', 'CHEM 1A 1AL or 2A 2AC 5', 'CMPSC 16 4', 'ECE 5 4', 'ECE 10A 10AL 10B 10BL 10C 10CL 15', 'ECE 15A 4', 'ENGR 3 3', 'MATH 3A-B 4A-B 6A-B 24', 'PHYS 1 2 3 3L 4 4L 5 5L 20', 'UPPER DIVISION MAJOR   68', 'ECE 130A-B 8', 'ECE 132 4', 'ECE 134 4', 'ECE 137A-B 8', 'ECE 139 4', 'ECE 152A 5', 'ENGR 101 3', 'the following list: 32', '']
