@@ -19,11 +19,11 @@ class dept2AbbrevMap:
     def map2Abrrev(self,deptStr):
         for value in self.nameMap.values():
             if deptStr in value or deptStr.upper() in value:
-                # print(deptStr)
+                print(deptStr)
                 return value
         for key in self.nameMap.keys():
             if deptStr in key:
-                # print(deptStr)
+                print(deptStr)
                 return self.nameMap[key]
         return "not valid"
 
@@ -46,14 +46,14 @@ class dept2AbbrevMap:
             course = self.courseByDeptDict[self.map2Abrrev(courseStrList[0])][str(courseStrList[1]).upper()]
             return course
         except:
-            # print('This course is invalid!')
+            print('This course is invalid!')
             return None
     # Given a course, return its units
     def getUnits(self,courseStrList):
         units = 0
         try:
             units = self.courseByDeptDict[self.map2Abrrev(courseStrList[0])][str(courseStrList[1]).upper()]["units"]
-            # print("UNITS:", units)
+            print("UNITS:", units)
             return int(units)
         except:
             if type(courseStrList) == collections.OrderedDict and 'course' not in courseStrList.keys():
@@ -65,10 +65,10 @@ class dept2AbbrevMap:
                     units = 4
                 else:
                     units = self.courseByDeptDict[self.map2Abrrev(courseStrList['sub'])][str(courseStrList['number']).upper()]["units"]
-            # print('Recieveing: ',courseStrList, 'units: ', units)
+            print('Recieveing: ',courseStrList, 'units: ', units)
             return units
         else:
-            # print('This course is invalid!',courseStrList)
+            print('This course is invalid!',courseStrList)
             return -1
     # change the format of a course to the desired format
     # e.g. math 8 -> MATH 8
@@ -81,7 +81,7 @@ class dept2AbbrevMap:
             course["number"] = lst[1]
             return course
         else:
-            # print('This course is invalid!',courseStrList[0] + ' ' + courseStrList[1])
+            print('This course is invalid!',courseStrList[0] + ' ' + courseStrList[1])
             return None
 
 
@@ -106,7 +106,7 @@ class MajorReqParser(object):
 
     def ParseOneMajor(self,path):
         reqTXT = open(path,'rt').read()
-        # print(reqTXT)
+        print(reqTXT)
         combineColons = re.compile(r':\s\n\s')
         reqTXT = combineColons.sub(':\n',reqTXT)
         reqTXT = reqTXT.replace('_','')
@@ -120,12 +120,12 @@ class MajorReqParser(object):
         reqTXT = reqTXT.split('UNITS YET TO COMPLETE')[1]
         reqTXT = reqTXT.split('Elective courses taken')[0]
         reqTXTList = re.split(r'\n',reqTXT)
-        # print('Before cleaning: ',reqTXT)
+        print('Before cleaning: ',reqTXT)
 
         reqList = self.cleaning(reqTXTList,'LAS')
-        # print(reqList)
+        print(reqList)
 
-        # print('First:\n')
+        print('First:\n')
         
         shrinkDotsPatt = re.compile(r'[^A-Z]\.+')                           # replace dots with swirl
         replaceStar = re.compile(r'\*')                             # delete stars  
@@ -240,14 +240,14 @@ class MajorReqParser(object):
         
 
 
-        # print('Second:\n')
-        # for line in self.reqList:
-            # print(line)
-        # print('\n\n\n\n')
+        print('Second:\n')
+        for line in self.reqList:
+            print(line)
+        print('\n\n\n\n')
 
 
     def ParseOneMajor3rd(self):
-        # print("Third: ")
+        print("Third: ")
         reqJoinList = []
         for line in self.reqList:
             reqJoinLine = ""
@@ -263,8 +263,8 @@ class MajorReqParser(object):
             ordDict["units"] = lineOfReqList[1]
             lineDictList.append(ordDict)
 
-        # for line in reqJoinList:
-        #     print(line)
+        for line in reqJoinList:
+            print(line)
 
 
         print('\n\n\n\n')
@@ -277,11 +277,11 @@ class MajorReqParser(object):
                 reqOfLine = reqOfLine[0]
             # print(reqOfLine, end = "      ")
             # print(lineDict["units"])
-            # print("\nNEW LINE\n")
+            print("\nNEW LINE\n")
             reqParseList.append(reqOfLine)
             # print(reqOfLine)
-        # print('\n\n\n\n')
-# 
+        print('\n\n\n\n')
+
 
         for i in range(len(reqParseList)):
             lineDictList[i]["course"] = reqParseList[i]
@@ -291,9 +291,9 @@ class MajorReqParser(object):
             unitsList = lineDictList[j]["units"].split('-')
             if len(lineDictList[j]["course"]) == 2 and type(lineDictList[j]["course"]) == list and len(lineDictList[j]["course"][0]) > 2 and len(unitsList) == 2:
                 for choice in range(2):
-                    # print("working with ", lineDictList[j]["course"])
+                    print("working with ", lineDictList[j]["course"])
 
-                    # print("element is type: ", type(lineDictList[j]["course"][0]), " \ncontent:",lineDictList[j]["course"][0], "\n\n")
+                    print("element is type: ", type(lineDictList[j]["course"][0]), " \ncontent:",lineDictList[j]["course"][0], "\n\n")
                     lineDictList[j]["course"][choice] = {
                         "course":lineDictList[j]["course"][choice],
                         "units":self.computeUnits(lineDictList[j]["course"][choice])
@@ -307,7 +307,7 @@ class MajorReqParser(object):
         # print(json.dumps(result, indent=4, separators=(',', ':')))
         return(json.dumps(result, indent=4, separators=(',', ':')))
 
-        # print("\n\n\n\n\n")
+        print("\n\n\n\n\n")
 
         # print(lineDictList)
             # print(reqOfLine)
@@ -319,38 +319,36 @@ class MajorReqParser(object):
 
         # for line in self.reqList:
             # print(line)
-        # print('\n\n\n\n')
-
+        print('\n\n\n\n')
     def guessUnits(self,courseDict):
         pass
-
     def RECParseOneLine(self,text):
         req = []
-        # print("Rec: ", text)
+        print("Rec: ", text)
         subReqList = re.findall(self.paranPatt,text)
 
 
         # If this line contain paranthess
         if subReqList != []:
-            # print("Found paranthess!!!!")
+            print("Found paranthess!!!!")
             
             # Create a new string that has been extracted the info in the parathess
             # analyze the new string and combine the info with those course inside paranthess
             if len(subReqList) > 1:
-                # print('more than one pair of paranthess')
+                print('more than one pair of paranthess')
                 raise IndexError
             noneParanTextList = re.split(r'\(.*\)',text)
 
             # need to delete blank element
             noneParanTextList = [text for text in noneParanTextList if text != '']
-            # print("None Paran: ", noneParanTextList)
+            print("None Paran: ", noneParanTextList)
 
             noneParanList = []
             pranReqList = []
 
             # Recursively parse reqs inside paranthess
             for reqInParan in subReqList:
-                # print("Inside Paran: ")
+                print("Inside Paran: ")
                 subSub = self.RECParseOneLine(reqInParan)
                 pranReqList.append(subSub)
             # Recursively parse reqs outside of parathess
@@ -361,12 +359,12 @@ class MajorReqParser(object):
             # Now we need to combine none paran with paran
             # assume start with none-paran
             index = 0
-            # print("\nNone Paran List !\n",noneParanList)
-            # print("\nParan List !\n",pranReqList)
+            print("\nNone Paran List !\n",noneParanList)
+            print("\nParan List !\n",pranReqList)
 
             while index < len(noneParanList):
                 if len(noneParanList) >= 1:
-                    # print("None Paran item: ", noneParanList[index])
+                    print("None Paran item: ", noneParanList[index])
                     # ... or current
                     if noneParanList[index][0] == 'or':
                         try:
@@ -378,9 +376,9 @@ class MajorReqParser(object):
                         try:
                             req.append([ noneParanList[index][0], pranReqList[index][0]])
                         except:
-                            # print("Error: No more items in the Paranthess")
+                            print("Error: No more items in the Paranthess")
                             req.append(noneParanList[index][0])
-                            # contine
+                            contine
                     else:
                         try:
                             # current ()
@@ -388,16 +386,16 @@ class MajorReqParser(object):
                                 req.append(noneParanList[index][0])
                             # current (...)
                             else:
-                                # print("Just concatenate: ",noneParanList[index][0], pranReqList[index][0])
+                                print("Just concatenate: ",noneParanList[index][0], pranReqList[index][0])
                                 temp = copy.deepcopy(noneParanList[index][0])
                                 temp.append(pranReqList[index][0])
                                 # temp.append('')
-                                # print("deep: ",temp)
+                                print("deep: ",temp)
                                 req.append(temp)
                         except:
                             req.append(noneParanList[index][0])
                 index += 1
-                # print('req: ',req,'\n')
+                print('req: ',req,'\n')
 
         else:
             req = self.ITERParseOneLine(text)
@@ -407,7 +405,7 @@ class MajorReqParser(object):
     def ITERParseOneLine(self,text):
         
         tokenized = text.split()
-        # print("Iter: ", tokenized)
+        print("Iter: ", tokenized)
         # deptIndex = 0
         index = 0
         dept = self.dept
@@ -439,25 +437,25 @@ class MajorReqParser(object):
                 # print('not a dept')
                 # if it's a course number, add it to course list
                 if re.search(r'[0-9]+[A-Z]?',tokenized[index]) != None:
-                    # print('It\'s a course', dept, tokenized[index])
+                    print('It\'s a course', dept, tokenized[index])
                     course = self.dept2AbbrevMap.formatCourse([dept,tokenized[index].strip(',')])
-                    # print(course)
+                    print(course)
                     if course != None:
                         courseList.append(course)
                 
                 elif re.search(self.orPatt, tokenized[index]) != None:
-                    # print('end with OR')
+                    print('end with OR')
                     # if it's an "or" at the end of the text,
                     # we should return the parsed courses and a indicator of "or"
                     if index == len(tokenized)-1:
                         return [courseList,'or']
                     # if it's an "or" at the begining
                     elif index == 0:
-                        # print("begin with OR")
+                        print("begin with OR")
                         isOrBegin = True
                     # if it's an "or" between courses
                     else:
-                        # print("OR between words")
+                        print("OR between words")
                         # since in the smallest requirement (where ITERParse is called upon)
                         # 'or' usully appear only once, and only courses in same department was involved
                         # we can take care the difference between
@@ -473,27 +471,26 @@ class MajorReqParser(object):
                         # without this check, PHYS 5L or PHYS 25L will become ({ "course":[[{5L}],[{25L}]], "units": 2}
                         if len(tokenized) > 4:
                         
-                            print(newIndex,len(tokenized))
-                            while tokenized[newIndex] != 'or' and newIndex < len(tokenized) -1 :
+
+                            while tokenized[newIndex] != 'or':
                                 if len(tokenized) > 0:
                                     # if it's a course number
                                     if re.search(r'\b[A-Z]',tokenized[newIndex]) == None:
                                         leftOfOR += 1
                                         leftCourseList.append(tokenized[newIndex])
-                                        # print('left',tokenized[newIndex])
+                                        print('left',tokenized[newIndex])
                                     newIndex+=1
-                                # print(newIndex,len(tokenized))
-                            # print('or Index ',newIndex)
+                            print('or Index ',newIndex)
 
                             for i in range(newIndex+1,len(tokenized)):
                                 rightOfOR += 1
                                 rightCourseList.append(tokenized[i])
-                                # print('right',tokenized[i])
+                                print('right',tokenized[i])
 
-                            # print("A-B OR C-D\n")
-                            # print(leftOfOR,'  ',rightOfOR)
+                            print("A-B OR C-D\n")
+                            print(leftOfOR,'  ',rightOfOR)
                             if leftOfOR == rightOfOR:
-                                # print("EQUAL")
+                                print("EQUAL")
                                 AB = self.ABORCD(dept,leftCourseList)
                                 CD = self.ABORCD(dept,rightCourseList)
 
@@ -510,7 +507,7 @@ class MajorReqParser(object):
                             # This check doesn't seem necessary
                             course = self.dept2AbbrevMap.formatCourse([dept,tokenized[index+1].strip(',')])
                             if len(courseList) > 1:
-                                # print(course)
+                                print(course)
                                 if course != None:
                                     courseList[-1] = [courseList[-1], course]
                             # A or B
@@ -518,7 +515,7 @@ class MajorReqParser(object):
                             else:
                                 if course != None:
                                     choiceCourse = OrderedDict()
-                                    # print("Line 454!")
+                                    print("Line 454!")
                                     choiceCourse["course"] = [courseList[-1],course]
                                     choiceCourse["units"] = self.dept2AbbrevMap.getUnits(course)
                                     courseList[-1] = choiceCourse
@@ -526,23 +523,22 @@ class MajorReqParser(object):
                                     pass
                             index += 1
                         else:
-                            pass
                             # the next word is a uselss word or a different dept
-                            # print("useless: ", tokenized[index])
+                            print("useless: ", tokenized[index])
                         
                 # if it's an "and", just ignore it
                 elif tokenized[index] == 'and':#re.search(self.andPatt,tokenized[index]):
-                    # print("encounter AND")
+                    print("encounter AND")
                     pass
                 else:
                     print("I don't know: ", tokenized[index])
             index += 1
             isDept = False
-            # print('After One Word, dept: ',dept,'\n')
+            print('After One Word, dept: ',dept,'\n')
 
         if (len(courseList) == 1):
             courseList = courseList[0]
-        # print('    parsed: ', [courseList,''] if isOrBegin == False else ['or',courseList], end="\n\n")
+        print('    parsed: ', [courseList,''] if isOrBegin == False else ['or',courseList], end="\n\n")
         return [courseList,''] if isOrBegin == False else ['or',courseList]
     
     def ABORCD(self,dept,courseNumList):
@@ -558,10 +554,10 @@ class MajorReqParser(object):
         return (result,units)
 
     def computeUnits(self,courseList):
-        # print('Computing units!')
+        print('Computing units!')
         totalUnits = 0
         for course in courseList:
-            # print(course.values())
+            print(course.values())
             units = self.dept2AbbrevMap.getUnits(list(course.values()))
             if units == -1:
                 print("EROOR ON UNITS!!!!")
@@ -610,10 +606,10 @@ def makeNewDirIfNecessary(relativePath):
 # print(recoverCourseNum(['3A','B']))
 
 
-parser = MajorReqParser('PHYS','LSBS','PHYS')
+# parser = MajorReqParser('PHYS','LSBS','PHYS')
 # # parser = MajorReqParser('MATH')
 # # parser.ParseOneMajor('txt/Math/Mathematics-BS-2016.txt')
-print(parser.ParseOneMajor('txt/Phys/Physics-BS_2016.txt'))
+# parser.ParseOneMajor('txt/Phys/Physics-BS_2016.txt')
 
 # # parser.ParseOneMajor('txt/Chem/Chemistry-BS_2016.txt')
 # # parser.ParseOneMajor('txt/Math/Financial-Math-Stat-BS-2016.txt')
@@ -633,25 +629,22 @@ print(parser.ParseOneMajor('txt/Phys/Physics-BS_2016.txt'))
 # print(parser.ITERParseOneLine('Physics 104 or 105B'))
 # print(parser.ITERParseOneLine('5L or 25L'))
 # print(parser.ITERParseOneLine('CHEM 1A 1B or 2A 2B'))
+
 WCD = os.getcwd()
 
 deptNamePatt = re.compile(r'(.*)[-_]BF?[AS]')
-SuperLongJson = ''
-
-needSuperLong = True
-
 for dept in os.listdir('txt'):
     for major in os.listdir('txt/'+dept):
         txtPath = 'txt/'+ dept + '/'+ major
         # fileName = txtPath.rsplit('-',maxsplit=1)
         fileName = re.findall(deptNamePatt,txtPath)
-        # getType = txt
+        # geType = txt
         # txtDir = 'txt/' + dept
         # txtPath = 'txt' + pdfPath[3:-4] + '.txt'
         if 'Minor' not in txtPath and re.search(r'BS',txtPath) != None and dept != 'Earth' :
             if fileName == []:
                 pass
-                print("Didn't parse ",txtPath)
+                # print("Original: ",txtPath)
             else:
                 # parser.ParseOneMajor()
                 
@@ -661,29 +654,22 @@ for dept in os.listdir('txt'):
                 parsedTXTPath = parsedTXTDir + 'BS' + '.json'
                 # print(major,'   ',parsedTXTDir,'    ')
                 makeNewDirIfNecessary(parsedTXTDir)
-                print(parsedTXTPath)
                 parsedTXT = open(parsedTXTPath,'wt')
-                # print(txtPath)
-                result = parser.ParseOneMajor(txtPath)
-                if result == None:
+                try:
+                    JSON = parser.ParseOneMajor(txtPath)
+                    parsedTXT.write(JSON)
+                except:
                     print(major)
-                else:
-                    if needSuperLong == True:
-                        SuperLongJson += result
-                    else:
-                        parsedTXT.write(result)
                 parsedTXT.close()
+                # print(parsedTXTDir)
+                # print(fileName)
 
 
-if needSuperLong == True:
-    path = 'SuperLongJson.json'
-    makeNewDirIfNecessary('SuperLongJson.json')
-    longJson = open(path,'wt')
-    longJson.write(SuperLongJson)
         # makeNewDirIfNecessary(txtDir)
         # newTXT = open(txtPath,'wt')
         # newTXT.write(parser.from_file(pdfPath)['content'])
         # newTXT.close()
+
 
 
 # print(parser.ITERParseOneLine('Physics 1 2 3 4 5 70'))
